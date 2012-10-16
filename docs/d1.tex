@@ -1,0 +1,180 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a template for constructing your project plan document, but
+% also to show the use of the l3deliverable class. Use pdflatex and
+% bibtex to process the file, creating a PDF file as output (there is
+% no need to use dvips when using pdflatex).
+%
+% Several meta data commands have been implemented to collect
+% information such as deliverable identifier, project name etc (see
+% below the \date command.
+
+\documentclass{l3deliverable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You can use the svn-multi package to automatically insert version
+% control information into your document (an example of how to do this
+% is shown below).  Make sure to set the 'svn:keywords' subversion
+% property to 'Id' for the source file, for example, type:
+%
+% svn propset svn:keywords 'Id' d1.tex
+%
+% in the same directory as your 'd2.tex' file. 
+%
+% The information between the two $$ will now be updated when you next
+% commit the file to your SVN repository.
+%
+% You can of course, just use this field to insert manual version
+% information, e.g. 1.2, 1.2.1 ... instead.
+
+%\usepackage{svn-multi}
+%\svnid{$Id: d1.tex 8 2012-09-26 18:29:40Z ross $}
+%\version{SVN Revision \svnrev~ \
+
+%Made \svnday/\svnmonth/\svnyear~ by \svnauthor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{url}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Check these macro values for appropriateness for your own document.
+
+\title{Team Organisation}
+
+%%authors
+\author{
+  Ross Eric Barnie \\
+  Dmitrijs Jonins \\
+  Daniel McElroy \\
+  Murray Ross \\
+  Ross Thomson
+}
+
+%%release date 
+\date{27 September 2012}
+
+\deliverableID{D1}
+\project{PSD3 Group Exercise 1}
+\team{Q}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Standard section for all documents
+
+\section{Introduction}
+
+\subsection{Identification}
+
+This is the Management Plan of the Level 3 Project of Team Q.
+
+\subsection{Related Documentation}
+
+E.g.,
+\begin{list}{}{}
+\item PSD3 Group Exercise Description \
+  
+  \url{http://fims.moodle.gla.ac.uk/...}
+\item (We weren't particularly sure what was to go here...)
+\end{list}
+ 
+
+\subsection{Purpose and Description of Document}
+Describe the purpose, scope, and major functions of this document.
+
+\subsection{Document Status and Schedule}
+
+Not sure what to put here, particularly because we haven't met our supervisor 
+at time of writing.
+
+Describe the status, including goals and dates, for production and
+revision of the document.  Documentation is often generated
+incrementally and iteratively. If this is the case for this document,
+also summarise here the planned updates and their release dates.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Roles}
+
+\begin{description}
+  \item[Project Manager] Dmitrijs Jonins
+  \item[Customer Liaison] Ross Taylor
+  \item[Librarian] Daniel McElroy
+  \item[Test Manager] Murray Ross
+  \item[Toolsmith] Ross Barnie
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Authority}
+
+Ultimate authority lies with Dmitrijs Jonins, however all decisions will be 
+based on democratic vote, as in the Sports Model of authority referenced in
+lecture one of Professional Software Development 3.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Communication}
+
+Where and when group meetings will take place is still to be decided at the 
+time of producing this document.
+
+Other forms of communication have been established including our own
+private Facebook group, which was created as the most convenient method
+of communication due to the fact we all have a Facebook account prior to
+this project and are familiar with its operation. 
+We have also created a space on workflowy.com to keep track of current tasks 
+needing to be done, including the production of this document, and whose 
+responsibility it is to undertake those tasks.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Information Management}
+
+Information will be kept in an online SVN repository provided by GitHub, and 
+additional information will be made available via the previously mentioned 
+Workflowy list.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Organisational Risks}
+
+Since we are assigning roles mostly on an as-and-when-required basis, there is
+a risk that a role may be needed later which we have not defined or assigned.
+Additionally, if someone were to face difficulties in their role and not communicate
+those difficulties to the rest of the group, that role could be overlooked or be
+of poor standard.
+With a leader in the group who has ultimate authority on assignment of roles,
+there could manifest resentment of the leader for assigning a member of the group
+to a role they do not enjoy or feel they are capable of doing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Glossary}
+
+Nothing to add here yet but leaving in for future reference.
+
+Including expansions of non-standard abbreviations and acronyms and
+other key definitions.  You may find it useful to maintain a glossary
+as a shared section amongst all your PSD documents. using the
+\verb!\input{}! macro.
+
+\section{Another appendix}
+
+Again, nothing to add here but leaving section in for future reference.
+
+Any relevant associated documentation, e.g., a meeting plan.
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
