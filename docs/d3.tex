@@ -6,12 +6,10 @@
 
 \usepackage{graphicx}%
 %
-\usepackage{svn-multi}%
-\svnid{$Id: d3.tex 2500 2011-09-21 15:56:43Z tws $}
+%\usepackage{svn-multi}%
+%\svnid{$Id: d3.tex 2500 2011-09-21 15:56:43Z tws $}
 
-\version{SVN Revision \svnrev~ \
-
-Made \svnday/\svnmonth/\svnyear~ by \svnauthor}
+\version{1.0 Made \today by Ross Eric Barnie}
 
 \usepackage{tabularx}%
 \usepackage{url}%
@@ -22,16 +20,18 @@ Made \svnday/\svnmonth/\svnyear~ by \svnauthor}
 
 \title{Requirements Document}
 
-\author{Author 1 \\
-        Author 2 \\
-        Author 3 \\
-        ...}
+\author{Ross Eric Barnie \\
+        Dmitrijs Jonins \\
+        Daniel McElroy \\
+        Murray Ross \\
+        Ross Taylor
+      }
 
-\date{9 January 2009}
+\date{\today}
 
 \deliverableID{D3}
-\project{PSD3 Group Exercise 1}
-\team{X}
+\project{Team Project 3: Interactive Primer Design}
+\team{Q}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -52,13 +52,48 @@ Made \svnday/\svnmonth/\svnyear~ by \svnauthor}
 
 \subsection{Identification}
 
+This document outlines the Requirements Specification of the system to
+be implemented, to be approved by the clients.
+
 \subsection{Related Documentation}
+
+% NEED RELATED DOCUMENTATION
+
+Initial Problem Specification:
+\begin{itemize}
+\item{See Section \ref{sec:clientMeetingDocs}} %Attach this if possible
+\end{itemize}
+
+PCR Design Principles (Summary of Meeting on 10/10/2012)
+\begin{itemize}
+% This needs to be produced: Dan given the task
+\item{See Section \ref{sec:clientMeetingDocs}} 
+\end{itemize}
+
+List of Animations Involving PCR Provided by Clients
+\begin{itemize}
+\item{\url{http://www.youtube.com/watch?v=XXkG6m3yT1M&feature=youtu.be}}
+\item{\url{http://ibls.moodle.gla.ac.uk/mod/resource/view.php?inpopup=true&id=33097}}
+\item{\url{http://learn.genetics.utah.edu/content/labs/pcr/}}
+\end{itemize}
+
+There are various other documents including meeting minutes which are yet to
+be collated.
 
 \subsection{Purpose and Description of Document}
 
+This document will serve as an agreement between the client and Team
+Q as to the requirements of the system. Any disagreement between the
+two parties regarding these requirements will be documented here along
+with details on how this was resolved.
+
 \subsection{Document Status and Schedule}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Currently this document is in draft and scheduled to be finalised
+pending review and approval from the clients on 7th November 2012.
+
+After which the document will be updated iteratively as changes
+arise and will be re-approved by the clients before being re-released.
 
 \section{Extended Problem Defintion}
 
@@ -68,7 +103,7 @@ Give an extended description of the problem here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{System Scope}
+\section{System Scope} %TODO
 
 Give an overview of the system here, in the context of the surrounding
 environment.  Use case diagrams can be used to illustrate the
@@ -82,7 +117,7 @@ stakeholders, how you resolved them and why.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{System Actors}
+\subsection{System Actors} 
 
 Give descriptions of each of the actors that you have identified as
 interacting with the system.
@@ -121,13 +156,20 @@ You can use the template style provided to format your descriptions:
 
 \section{Non Functional Requirements}
 
-Describe the non-functional requirements for the system here, giving a
-rationale (traceable to your requirements gathering) for each.  You
-will need to think about how to group/structure requirements in this
-section.
+%Describe the non-functional requirements for the system here, giving a
+%rationale (traceable to your requirements gathering) for each.  You
+%will need to think about how to group/structure requirements in this
+%section.
+
+\begin{itemize}
+\item{
+The system is expected to be used at students' homes or in the Biology
+lab computers, so portability is essential for the system to work to
+the clients' expectations.
+}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Summary}
 
 Give a (very short) summary of the key aspects of the requirements
@@ -137,31 +179,19 @@ specification.
 
 \appendix
 
-Some suggested appendices are included below.
-
-Appendices should be used to include information not completely
-necessary to the understanding of the main document.
-
 \section{Glossary}
 
-Definitions.
 
-\section{Scenarios}
+\section{Client Meeting Documentation}
+\label{sec:clientMeeetingDocs}
 
-A collection of scenarios you developed to exercise and refine your
-use cases.
+%Any evidence you gathered from stakeholders relevant to your
+%requirements description.  You don't need to include everything
+%verbatim here, but summary documents, for example, identifying the key
+%points you identified (particularly if they relate to requirements
+%conflicts) can be useful.
 
-\section{Stakeholder Interview Documentation}
-
-Any evidence you gathered from stakeholders relevant to your
-requirements description.  You don't need to include everything
-verbatim here, but summary documents, for example, identifying the key
-points you identified (particularly if they relate to requirements
-conflicts) can be useful.
-
-\section{Stakeholder Panel Documentation}
-
-(see above)
+\section{Group Meeting Documentation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

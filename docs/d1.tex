@@ -27,13 +27,14 @@
 % You can of course, just use this field to insert manual version
 % information, e.g. 1.2, 1.2.1 ... instead.
 
-\version{Version 2.1 \
+\version{Version 2.3 \
 
 Made \today \ by Ross Eric Barnie}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{url}
+%\include{gloss} remove comment if you ever fix the glossaries thing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Check these macro values for appropriateness for your own document.
@@ -46,11 +47,11 @@ Made \today \ by Ross Eric Barnie}
   Dmitrijs Jonins \\
   Daniel McElroy \\
   Murray Ross \\
-  Ross Thomson
+  Ross Taylor
 }
 
 %%release date 
-\date{15 November 2012}
+\date{\today}
 
 \deliverableID{D1}
 \project{Team Project 3}
@@ -107,9 +108,9 @@ Pending review, the updated document will be released in the following days.
 
 \begin{description}
   \item[Project Manager] Dmitrijs Jonins
-  \item[Customer Liaison] Ross Taylor
-  \item[Lead Programmer] Daniel McElroy
-  \item[Test Manager and Quality Assurance Manager] Murray Ross
+  \item[Customer Liaison and Quality Assuror] Ross Taylor
+  \item[Chief Architect] Daniel McElroy
+  \item[Test Manager] Murray Ross
   \item[Toolsmith and Librarian] Ross Barnie
 \end{description}
 
@@ -118,7 +119,7 @@ Pending review, the updated document will be released in the following days.
 \section{Authority}
 
 All decisions will be based on democratic vote, with roles being
-assigned using the sports model referenced in the first lecture of PSD3.
+assigned using the sports model referenced in the first lecture of \gls{psdGloss}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -137,10 +138,10 @@ private Facebook group, which was created as the most convenient method
 of communication due to the fact we all have a Facebook account prior to
 this project and are familiar with its operation.
  
-We have also created a repository on GitHub.com to provide us with a project 
-management tool. 
-It was decided that this was favourable to trac (used in PSD3) as it is easier
-to use, has better documentation, and is available online so each member can
+We have also created an online repository on GitHub to provide us with
+a project management tool and version control.
+It was decided that this was favourable to trac (used in \gls{psd}) as it is easier
+to use, has better documentation, and is available online, so each member can
 access it easily, indpendent of their working platform, rather than
 trac which must be accessed via ssh tunnel to sibu.
 
@@ -171,6 +172,11 @@ group to a role they do not enjoy or feel they are capable of doing.
 \appendix
 
 \section{Glossary}
+\include{glossary}
+
+%\section{Glossary 2}
+
+%\printglossaries
 
 \end{document}
 
