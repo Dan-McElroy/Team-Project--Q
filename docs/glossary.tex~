@@ -1,0 +1,9 @@
+\begin{description}
+\item[PSD or PSD3]{Professional Software Development 3, a compulsory
+    level 3 Computing Science Course designed to teach students how to
+    develop software in a professional manner}
+\item[GitHub] {GitHub refers to the website \url{github.com} which
+    hosts the git repository for our project's documentation and
+    implentation}
+\item[Trac] {The project management system used for PSD3}
+\end{description}
