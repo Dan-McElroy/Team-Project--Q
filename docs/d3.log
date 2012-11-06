@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  2 NOV 2012 18:56
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  6 NOV 2012 11:37
 entering extended mode
  %&-line parsing enabled.
 **d3.tex
@@ -113,7 +113,8 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@tables=\count92
 \c@LT@chunks=\count93
 \LT@p@ftn=\toks17
-)) (./d3.aux (./glossary.aux))
+)) (./d3.aux (./glossary.aux)
+(./clientpaperwork.aux))
 \openout1 = `d3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -129,8 +130,7 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
-
-(/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+ (/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 <img/CompSci_mono.pdf, id=1, 413.545pt x 93.34875pt>
@@ -160,33 +160,24 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 71.
 
 (/usr/share/texmf/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 75.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 76.
 
 (/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (24.91078pt too wide) in paragraph at lines 76--77
+Overfull \hbox (24.91078pt too wide) in paragraph at lines 77--78
 []$\OT1/pcr/m/n/10.95 http : / / ibls . moodle . gla . ac . uk / mod / resource
  / view . php ? inpopup = true&id =
  []
 
 [2] [3]
-Overfull \hbox (25.19997pt too wide) in alignment at lines 139--153
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 153
- []
-
-[4]
 \openout2 = `glossary.aux'.
 
  (./glossary.tex
@@ -201,24 +192,30 @@ Overfull \hbox (41.42882pt too wide) in paragraph at lines 5--8
  https : / / github . com / Dan-[]McElroy / Team-[]Project-[]-[]Q$ 
  []
 
-) [5
+) [4
 
-] [6
+] [5
 
-] (./d3.aux (./glossary.aux)) ) 
+]
+\openout2 = `clientpaperwork.aux'.
+
+ (./clientpaperwork.tex) [6
+
+] (./d3.aux (./glossary.aux)
+(./clientpaperwork.aux)) ) 
 Here is how much of TeX's memory you used:
- 1052 strings out of 256216
- 13059 string characters out of 1917072
- 66279 words of memory out of 1500000
- 4325 multiletter control sequences out of 10000+200000
+ 1060 strings out of 256216
+ 13232 string characters out of 1917072
+ 63279 words of memory out of 1500000
+ 4326 multiletter control sequences out of 10000+200000
  18495 words of font info for 42 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  32i,14n,23p,185b,267s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</
-usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1
-/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></us
-r/share/texmf/fonts/type1/urw/times/utmr8a.pfb>
-Output written on d3.pdf (7 pages, 77738 bytes).
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/s
+hare/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/urw/
+courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texmf/fonts/type1/urw/times/utmr8a.pfb>
+Output written on d3.pdf (7 pages, 79020 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
