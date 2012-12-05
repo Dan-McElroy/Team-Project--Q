@@ -9,7 +9,7 @@
 %\usepackage{svn-multi}%
 %\svnid{$Id: d3.tex 2500 2011-09-21 15:56:43Z tws $}
 
-\version{1.0 Made  \today  by Ross Eric Barnie}
+\version{1.1 Made  \today  by Ross Eric Barnie}
 
 \usepackage{tabularx}%
 \usepackage{url}%
@@ -103,21 +103,23 @@ arise and will be re-approved by the clients before being re-released.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Molecular Biology students are required to learn PCR and Primer
+Molecular Biology students are required to learn PCR and Primer design
 techniques as part of their 3rd year curriculum. 
 This system being designed will allow students to use the application
 to test their knowledge of these concepts. 
-Users will access the NCBI database and copy and paste a DNA section
+Users will access the NCBI database and copy and paste a gene sequence
 into the application. 
-The system will then tell them if this is the correct seqenence. 
-Users will then be asked to select which lines of DNA code they would
-like to use for the PCR product. 
-Once this has been selected, they shall pick a forward primer pair and
-backward primer pair. 
+The system will then tell them if this is the correct sequence. 
+Users will then be asked to select which part of the DNA sequence they
+would like to incorporate in the final PCR product.
+Once this has been selected, they shall pick a forward and reverse
+primer. 
 Once these have been selected, various help methods will appear to
-help the user pick the right one. 
+help the user determine if they have chosen correcty, if not they will
+repeat the process. 
 Once correct primer pairs have been picked, the melting temperature of
-both primers will be calculated and displayed on screen.
+both primers will be calculated and displayed on screen, and validated
+against the primer rules.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -128,13 +130,15 @@ in learning how to design primers for PCR experiments and should be
 usable in a teaching environment or by people on their home computers.
 
 It should function as an interactive, step-by-step guide through the
-process of PCR on a DNA sequence of the users choice. The user is
-required to access the NCBI website and copy and paste their choice of
-DNA sequence into the system. The system should provide feedback if the
-user enters incorrect primers. The system should then check if the
-melting temperatures of the primers are in the required range. The user
-is then given a link to perform primer blast to check if the primers
-they have chosen are unique.
+process of PCR design on a DNA sequence of the users choice.
+The user is required to access the NCBI website and copy and paste
+their choice of DNA sequence into the system.
+The system should provide feedback if the user enters incorrect
+primers. 
+The system should then check if the melting temperatures of the
+primers are in the required range.
+The user is then given a link to perform primer blast to check if the
+primers they have chosen are unique.
 
 The system should also provide the user help with completing each task
 by providing relevant rules for each task and giving the user
