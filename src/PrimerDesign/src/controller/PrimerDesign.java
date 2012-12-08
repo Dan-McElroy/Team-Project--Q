@@ -22,11 +22,10 @@ public class PrimerDesign {
         // create frame
         JFrame window = new JFrame("Primer Design");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setPreferredSize(new Dimension(1024, 768));
-        
+
         // add start panel to frame
         StartPanel start = new StartPanel();
-        window.add(start);
+        window.getContentPane().add(start);
         
         window.pack();
         window.setVisible(true);
