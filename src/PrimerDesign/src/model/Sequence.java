@@ -11,13 +11,13 @@ package model;
 public class Sequence {
 
 /* DAN TODO:
-   toString
+   toString                 Provisional
    genStrand                X
    meltingTemp              PX
    isSelfAnnealing          PX
    complement               X
-   isUnique                 P
-   Primer
+   isUnique                 PX
+   Primer                   X
 */
     private String oStrand; //user strand
     private String cStrand; //generated strand
@@ -70,5 +70,8 @@ public class Sequence {
         return r;
     }
     
-    
+    public String toString() {
+        // DO THIS WHEN YOU KNOW WHAT STUFF NEEDS
+        return (oStrand + cStrand);
+    }
 }

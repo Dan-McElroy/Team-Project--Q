@@ -61,10 +61,27 @@ public class Primer {
                  && firstHalf.charAt(i) == Sequence.complement(secondHalf.charAt(i)))
                 annealCount += 2;
         }
-        if (annealCount < 20)
-            return new TestResult(true, null);
+        if (annealCount < 20) return new TestResult(true, null);
         else return new TestResult(true, null); //could be the anneal score if useful
     }
     
-    
+    public TestResult isUnique(String strand) {
+        /*run through the string until char matches first char of code
+         * if subsection(i, i+code.length()) == code {add 1 to count}
+         * if count > 1 return false, null
+         * else return true, null
+         */
+        int count = 0;
+        String startPoints = "";
+        char start = code.charAt(0);
+        for (int i = 0; i < strand.length(); i++) {
+            if (strand.charAt(i) == start)
+                if (strand.subSequence(i, (i + code.length())) == code) {
+                    count++;
+                    startPoints+= i + " ";
+                }
+        }
+        if (count > 1) return new TestResult(false, startPoints);
+        else return new TestResult(true, null);
+    }
 }
