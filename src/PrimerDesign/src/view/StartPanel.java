@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.PrimerDesign;
+import javax.swing.JLabel;
+
 /**
  *
  * @author 0901758b
@@ -106,7 +109,12 @@ public class StartPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        // TODO add your handling code here:
+        PrimerDesign.window.remove(PrimerDesign.start);
+        PrimerDesign.window.setVisible(false);
+        
+        PrimerDesign.window.getContentPane().add(new JLabel("Next Stage"));
+        PrimerDesign.window.pack();
+        PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

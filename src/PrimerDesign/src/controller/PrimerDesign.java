@@ -4,7 +4,6 @@
  */
 package controller;
 
-import java.awt.Dimension;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -18,19 +17,26 @@ import view.StartPanel;
  */
 public class PrimerDesign {
    
+    public static JFrame window;
+    public static StartPanel start;
+    
+    /* all GUI configuration should be placed here unless specific to some class
+     */
     private static void createAndShowGUI(){
         // create frame
-        JFrame window = new JFrame("Primer Design");
+        window = new JFrame("Primer Design");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add start panel to frame
-        StartPanel start = new StartPanel();
+        start = new StartPanel();
         window.getContentPane().add(start);
         
+        // size the window and show it
         window.pack();
         window.setVisible(true);
     }
     
+    /* The main method should not need adjusting */
     public static void main(String args[]){
         // set look and feel to same as system
         try {
@@ -46,6 +52,7 @@ public class PrimerDesign {
         }
         
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 createAndShowGUI();
             }
