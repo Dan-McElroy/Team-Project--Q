@@ -1,0 +1,26 @@
+Notes by Ross Barnie
+Includes supervisor and team meeting notes.
+
+Daniel is lead programmer so he should be the one to divvy up tasks.
+
+What are the tasks?
+	- UI, add consistency
+		- add progress bar to the top
+	- search algorithms
+	- rule checks
+
+Netbeans vs Eclipse
+	- We will use Netbeans
+
+Until we have a working prototype, no point in looking at animation
+
+February 15th is the lab day
+February 8th - should have working prototype
+
+UI Team			Backend Team
+-------			------------
+Ross Barnie		Ross Taylor
+Murray Ross		Dan McElroy
+
+Preferably working prototype by XMAS
+				----
