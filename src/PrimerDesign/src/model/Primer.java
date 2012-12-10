@@ -102,7 +102,9 @@ public class Primer {
         if (gcCount/code.length() >= 0.4 && gcCount/code.length() <= 0.6){
             return new TestResult(true, null);
         }else{
-            return new TestResult(false, gcCount/code.length());
+            String retVal = "";
+            retVal += gcCount/code.length();
+            return new TestResult(false, retVal);
         }
 
     }
@@ -122,10 +124,12 @@ public class Primer {
             if(current == code.charAt(i)){
                 reps++;
                 if(reps > 3){
-                    return new TestResult(false, current);
+                    String retVal = "";
+                    retVal += current;
+                    return new TestResult(false, retVal);
                 }
             }else{
-                current = code.charAt(i)){
+                current = code.charAt(i);
                 reps = 1;
             }
         }   
@@ -140,13 +144,15 @@ public class Primer {
          * always returns last letter, pass or fail
          */
 
-        String last = code.charAt(code.length() - 1);
+        char last = code.charAt(code.length() - 1);
         boolean p = false;
 
         if (last == 'g' || last == 'c')
             p = true;
 
-        return new TestResult(p, last);
+        String retVal = "";
+        retVal += last;
+        return new TestResult(p, retVal);
 
     }
 }
