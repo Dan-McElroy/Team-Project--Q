@@ -2,11 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 package model;
 
+import java.util.Scanner;
+import java.io.*;
 /**
  *
  * @author 1002852m
+ * @author 1002858t
  */
 public class Sequence {
 
@@ -22,13 +27,17 @@ public class Sequence {
     private String oStrand; //user strand
     private String cStrand; //generated strand
     
-    public Sequence(String o) {
+    public Sequence(Scanner o) {
         oStrand = parser(o);
         cStrand = genStrand();
     }
     public Sequence(String o, String c) {
         oStrand = o;
         cStrand = c;
+    }
+    public Sequence() {
+        oStrand = null;
+        cStrand = null;
     }
     
    
@@ -45,21 +54,18 @@ public class Sequence {
         cStrand = c;
     }
     
-    public String parser(String input){
-        
-        /* returns all a,t,g or c, removing spaces and line numbers from ncbi
-         * output
-         */
-    
+    public static String parser(Scanner input) {
         String parsed = "";
         char x;
-    
-        for(int i = 0; i < input.length(); i++){
-            x = input.charAt(i);
-            if(x == 'a' || x == 't' || x == 'g' || x == 'c')
-                parsed += x;
+        
+        while (input.hasNext()) {
+            String in = input.next();
+            for (int i = 0; i < in.length(); i++) {
+                x = in.charAt(i);
+                if (x == 'a' || x == 't' || x == 'g' || x == 'c')
+                    parsed += x;
+            }
         }
-    
         return parsed;
     }
     
@@ -89,6 +95,16 @@ public class Sequence {
     
     public String toString() {
         // DO THIS WHEN YOU KNOW WHAT STUFF NEEDS
-        return (oStrand + cStrand);
+        return (oStrand + "\n!!!!!!!!!!!!!\n" + cStrand);
+    }
+    
+    public static void main(String[] args) {
+        Sequence s = new Sequence(new Scanner(args[0]));
+        System.out.println("Sequence:\n" + s);
+        Primer p = new Primer(s.getCStrand());
+        System.out.println("Primer:\n" + p);
+        TestResult t = p.test();
+        System.out.println("Test Result:\n" + t);
+        
     }
 }

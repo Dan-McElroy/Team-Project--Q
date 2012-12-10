@@ -51,8 +51,9 @@ public class Primer {
         double split = ((double) code.length()/2);
         if (split % 1 == 0.5)
             split -= 0.5;
-        String firstHalf = code.substring(0, (int) split-1);
-        String secondHalf = code.substring((code.length() - (int) split), code.length() -1 );
+        int s = (int) split;
+        String firstHalf = code.substring(0, s-1);
+        String secondHalf = code.substring((code.length() - s), code.length() -1 );
         for (int i = 0; i < firstHalf.length(); i++) {
             if ((firstHalf.charAt(i) == 'a' || firstHalf.charAt(i) == 't')
                  && firstHalf.charAt(i) == Sequence.complement(secondHalf.charAt(i)))
@@ -62,7 +63,7 @@ public class Primer {
                 annealCount += 2;
         }
         if (annealCount < 20) return new TestResult(true, null);
-        else return new TestResult(true, null); //could be the anneal score if useful
+        else return new TestResult(false, String.valueOf(annealCount)); //could be the anneal score if useful
     }
     
     public TestResult isUnique(String strand) {
@@ -124,8 +125,7 @@ public class Primer {
             if(current == code.charAt(i)){
                 reps++;
                 if(reps > 3){
-                    String retVal = "";
-                    retVal += current;
+                    String retVal = String.valueOf(current);
                     return new TestResult(false, retVal);
                 }
             }else{
@@ -152,7 +152,22 @@ public class Primer {
 
         String retVal = "";
         retVal += last;
-        return new TestResult(p, retVal);
-
+        return new TestResult(p,retVal);
+        
+    }
+    
+    public TestResult test() {
+        TestResult t = new TestResult(false, "");
+        t.setOut(t.getOut() + "Melting Temp: ");
+        t.add(meltingTemp());
+        t.setOut(t.getOut() + "Self-Anneal Check: ");
+        t.add(selfAnnealCheck());
+        // t.add(isUnique());
+        t.setOut(t.getOut() + "GC Content: ");
+        t.add(gcContent());
+        t.setOut(t.getOut() + "Repetition: ");
+        t.add(repetition());
+        
+        return t;
     }
 }

@@ -31,4 +31,16 @@ public class TestResult {
         out = o;
     }
     
+    public void add(TestResult t) {
+        if (out == null)
+            out = "";
+        pass = (this.pass && t.getPass());
+        if (!t.getPass())
+            out += t.getOut() + " ";
+        else out += "PASS ";
+    }
+    
+    public String toString() {
+        return (pass + "\n!!!!!!!!!!!!!\n" + out);
+    }
 }
