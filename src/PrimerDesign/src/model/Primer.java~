@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author 1002852m & 1002858t
+ * @author 1002852m
  */
 public class Primer {
     
