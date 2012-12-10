@@ -46,6 +46,10 @@ public class Sequence {
     }
     
     public String parser(String input){
+        
+        /* returns all a,t,g or c, removing spaces and line numbers from ncbi
+         * output
+         */
     
         String parsed = "";
         char x;
