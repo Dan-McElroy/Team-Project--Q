@@ -88,7 +88,8 @@ public class StartPanel extends javax.swing.JPanel {
         PrimerDesign.window.remove(PrimerDesign.start);
         PrimerDesign.window.setVisible(false);
         
-        PrimerDesign.window.getContentPane().add(new JLabel("Next Stage"));
+        PrimerDesign.area = new areaSelection();
+        PrimerDesign.window.getContentPane().add(PrimerDesign.area);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed
