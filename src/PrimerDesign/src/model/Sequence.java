@@ -44,7 +44,20 @@ public class Sequence {
     public void setCStrand(String c) {
         cStrand = c;
     }
-     
+    
+    public String parser(String input){
+    
+        String parsed = "";
+        char x;
+    
+        for(int i = 0; i < input.length(); i++){
+            x = input.charAt(i);
+            if(x == 'a' || x == 't' || x == 'g' || x == 'c')
+                parsed += x;
+        }
+    
+        return parsed;
+    }
     
     public static char complement(char c) {
         char out;
