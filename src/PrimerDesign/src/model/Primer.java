@@ -22,6 +22,12 @@ public class Primer {
         code = c;
     }
     
+    public TestResult goodLength() {
+        if (code.length() >= 20 && code.length() <= 30)
+            return new TestResult(true, null);
+        else return new TestResult(false, String.valueOf(code.length()));
+    }
+    
     public TestResult meltingTemp() {
         int at = 0; int gc = 0;
         for (int i = 0; i < code.length(); i++) {
@@ -48,12 +54,13 @@ public class Primer {
          * if >= 20, fail, with null string
          */
         int annealCount = 0;
-        double split = ((double) code.length()/2);
+        int size = code.length();
+        double split = ((double) size/2);
         if (split % 1 == 0.5)
             split -= 0.5;
         int s = (int) split;
         String firstHalf = code.substring(0, s-1);
-        String secondHalf = code.substring((code.length() - s), code.length() -1 );
+        String secondHalf = code.substring((size - s), size -1 );
         for (int i = 0; i < firstHalf.length(); i++) {
             if ((firstHalf.charAt(i) == 'a' || firstHalf.charAt(i) == 't')
                  && firstHalf.charAt(i) == Sequence.complement(secondHalf.charAt(i)))
@@ -152,8 +159,15 @@ public class Primer {
 
         String retVal = "";
         retVal += last;
-        return new TestResult(p,retVal);
-        
+        return new TestResult(p,retVal);   
+    }
+    
+    public String toString() {
+        return code;
+    }
+    
+    public boolean equals(Primer p) {
+        return (this.code.equals(p.getCode()));
     }
     
     public TestResult test() {

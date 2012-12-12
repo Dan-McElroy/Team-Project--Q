@@ -43,4 +43,8 @@ public class TestResult {
     public String toString() {
         return (pass + "\n!!!!!!!!!!!!!\n" + out);
     }
+    
+    public boolean equals(TestResult t) {
+        return (this.pass == t.getPass() && this.out.equals(t.getOut()));
+    }
 }

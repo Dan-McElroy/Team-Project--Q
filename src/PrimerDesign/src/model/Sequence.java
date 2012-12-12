@@ -98,6 +98,11 @@ public class Sequence {
         return (oStrand + "\n!!!!!!!!!!!!!\n" + cStrand);
     }
     
+    public boolean equals(Sequence s) {
+        return (this.oStrand.equals(s.getOStrand()) &&
+                this.cStrand.equals(s.getCStrand()));
+    }
+    
     public static void main(String[] args) {
         Sequence s = new Sequence(new Scanner(args[0]));
         System.out.println("Sequence:\n" + s);
