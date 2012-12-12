@@ -99,14 +99,14 @@ public class Sequence {
     }*/
     
     public String toString(char x, int line) {
-        String out = "\t";
+        String out = "1\t";
         String strand;
         if (x == 'o')
             strand = oStrand;
         else strand = cStrand;
         for (int i = 0; i < strand.length(); i++) {
             if (i % line == 0 && i != 0)
-                out += "\n\t";
+                out += "\n" + String.valueOf(i + 1) + "\t";
             else if (i % 10 == 0 && i != 0)
                 out += " ";
              out += strand.charAt(i);

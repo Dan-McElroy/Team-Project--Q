@@ -13,6 +13,8 @@ import javax.swing.JLabel;
  */
 public class AreaSelection extends javax.swing.JPanel {
     
+    private boolean isOStrand = true;
+    
     /**
      * Creates new form areaSelection
      */
@@ -40,6 +42,8 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel = new javax.swing.JLabel();
         toTextField = new javax.swing.JTextField();
         fromTextField = new javax.swing.JTextField();
+        complementaryToggleButton = new javax.swing.JToggleButton();
+        strandLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -55,7 +59,7 @@ public class AreaSelection extends javax.swing.JPanel {
         sequenceTextArea.setColumns(20);
         sequenceTextArea.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
         sequenceTextArea.setRows(5);
-        sequenceTextArea.setTabSize(4);
+        sequenceTextArea.setTabSize(6);
         jScrollPane4.setViewportView(sequenceTextArea);
 
         nextButton.setText("Next/Go");
@@ -76,6 +80,15 @@ public class AreaSelection extends javax.swing.JPanel {
 
         toLabel.setText("To:");
 
+        complementaryToggleButton.setText("Switch Strand");
+        complementaryToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complementaryToggleButtonActionPerformed(evt);
+            }
+        });
+
+        strandLabel.setText("Original Strand");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,18 +102,20 @@ public class AreaSelection extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(strandLabel)
+                        .addGap(152, 152, 152)
+                        .addComponent(fromLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(toLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addComponent(complementaryToggleButton)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
-                .addComponent(fromLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(toLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(263, 263, 263))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fromTextField, toTextField});
@@ -117,7 +132,9 @@ public class AreaSelection extends javax.swing.JPanel {
                     .addComponent(fromLabel)
                     .addComponent(toLabel)
                     .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(complementaryToggleButton)
+                    .addComponent(strandLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,8 +163,22 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void complementaryToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complementaryToggleButtonActionPerformed
+        if (isOStrand){
+            sequenceTextArea.setText(PrimerDesign.start.getInSequence().toString('c', 80));
+            strandLabel.setText("Complementary Strand");
+            isOStrand = false;
+        }
+        else {
+            sequenceTextArea.setText(PrimerDesign.start.getInSequence().toString('o', 80));
+            strandLabel.setText("Original Strand");
+            isOStrand = true;
+        }
+    }//GEN-LAST:event_complementaryToggleButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JToggleButton complementaryToggleButton;
     private javax.swing.JLabel fromLabel;
     private javax.swing.JTextField fromTextField;
     private javax.swing.JTextPane instructionTextPane;
@@ -155,6 +186,7 @@ public class AreaSelection extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton nextButton;
     private javax.swing.JTextArea sequenceTextArea;
+    private javax.swing.JLabel strandLabel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel toLabel;
     private javax.swing.JTextField toTextField;
