@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import view.StartPanel;
-import view.areaSelection;
+import view.AreaSelection;
 
 /**
  *
@@ -20,7 +20,7 @@ public class PrimerDesign {
    
     public static JFrame window;
     public static StartPanel start;
-    public static areaSelection area;
+    public static AreaSelection area;
     
     /* all GUI configuration should be placed here unless specific to some class
      */

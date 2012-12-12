@@ -13,6 +13,12 @@ import javax.swing.JLabel;
  */
 public class StartPanel extends javax.swing.JPanel {
 
+    private String input;
+    
+    public String getInput(){
+        return input;
+    }
+    
     /**
      * Creates new form startPanel
      */
@@ -45,7 +51,7 @@ public class StartPanel extends javax.swing.JPanel {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Primer Design Stage 1");
 
@@ -80,7 +86,7 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nextButton)
                 .addContainerGap())
@@ -88,10 +94,15 @@ public class StartPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // set input to whatever has been copied into the text area
+        input = sequenceTextArea.getText();
+        
+        // remove current panel from window
         PrimerDesign.window.remove(PrimerDesign.start);
         PrimerDesign.window.setVisible(false);
         
-        PrimerDesign.area = new areaSelection();
+        // add next panel to window and display
+        PrimerDesign.area = new AreaSelection();
         PrimerDesign.window.getContentPane().add(PrimerDesign.area);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);

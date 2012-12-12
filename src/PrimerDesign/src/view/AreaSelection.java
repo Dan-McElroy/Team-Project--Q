@@ -11,12 +11,12 @@ import javax.swing.JLabel;
  *
  * @author 0907822r
  */
-public class areaSelection extends javax.swing.JPanel {
+public class AreaSelection extends javax.swing.JPanel {
 
     /**
      * Creates new form areaSelection
      */
-    public areaSelection() {
+    public AreaSelection() {
         initComponents();
     }
 
@@ -39,7 +39,7 @@ public class areaSelection extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Primer Design Stage 2");
 
@@ -89,7 +89,7 @@ public class areaSelection extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
