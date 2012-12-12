@@ -93,9 +93,25 @@ public class Sequence {
         return r;
     }
     
-    public String toString() {
+    /*public String toString() {
         // DO THIS WHEN YOU KNOW WHAT STUFF NEEDS
         return (oStrand + "\n!!!!!!!!!!!!!\n" + cStrand);
+    }*/
+    
+    public String toString(char x, int line) {
+        String out = "";
+        String strand;
+        if (x == 'o')
+            strand = oStrand;
+        else strand = cStrand;
+        for (int i = 0; i < strand.length(); i++) {
+            out += strand.charAt(i);
+            if (i % line == 0)
+                out += "\n";
+            else if (i % 10 == 0)
+                out += " ";
+        }
+        return out;
     }
     
     public boolean equals(Sequence s) {

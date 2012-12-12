@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.lang.Math;
+
 /**
  *
  * @author 1002852m & 1002858t
@@ -84,7 +86,8 @@ public class Primer {
         char start = code.charAt(0);
         for (int i = 0; i < strand.length(); i++) {
             if (strand.charAt(i) == start)
-                if (strand.subSequence(i, (i + code.length())) == code) {
+                if (strand.subSequence(i, Math.min(strand.length(), 
+                        (i + code.length()))).equals(code)) {
                     count++;
                     startPoints+= i + " ";
                 }
@@ -96,23 +99,22 @@ public class Primer {
     public TestResult gcContent(){
 
         /* count g and c and store in 'gcCount'
-         * if gcCount % is between 0.4 and 0.6 (inclusive):  passes test
+         * if gcCount ratio is between 0.4 and 0.6 (inclusive):  passes test
          * else: fails test and returns actual % gc content
          */
 
-        int gcCount = 0;
+        double gcCount = 0;
    
-        for(int i = 0; i < code.length(); i++){
+        for(int i = 0; i < code.length(); i++) {
             if(code.charAt(i) == 'g' || code.charAt(i) == 'c')
                 gcCount++;
         }
-
-        if (gcCount/code.length() >= 0.4 && gcCount/code.length() <= 0.6){
+        double ratio = gcCount/(double) code.length();
+        if (ratio >= 0.4 && ratio <= 0.6) {
             return new TestResult(true, null);
-        }else{
-            String retVal = "";
-            retVal += gcCount/code.length();
-            return new TestResult(false, retVal);
+        }
+        else {
+            return new TestResult(false, String.valueOf(ratio));
         }
 
     }
@@ -181,7 +183,10 @@ public class Primer {
         t.add(gcContent());
         t.setOut(t.getOut() + "Repetition: ");
         t.add(repetition());
-        
+        t.setOut(t.getOut() + "Unique: ");
+        t.add(isUnique(code));
+        t.setOut(t.getOut() + "Length: ");
+        t.add(goodLength());
         return t;
     }
 }
