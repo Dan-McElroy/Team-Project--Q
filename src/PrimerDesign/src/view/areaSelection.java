@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.PrimerDesign;
+import javax.swing.JLabel;
+
 /**
  *
  * @author 0907822r
@@ -32,6 +35,8 @@ public class areaSelection extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         sequenceTextArea = new javax.swing.JTextArea();
         nextButton = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,11 +87,10 @@ public class areaSelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        PrimerDesign.window.remove(PrimerDesign.start);
+        PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
-        PrimerDesign.area = new areaSelection();
-        PrimerDesign.window.getContentPane().add(PrimerDesign.area);
+        PrimerDesign.window.getContentPane().add(new JLabel("LOLOLOL"));
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed

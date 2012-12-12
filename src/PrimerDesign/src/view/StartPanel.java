@@ -36,7 +36,7 @@ public class StartPanel extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         sequenceTextArea = new javax.swing.JTextArea();
 
-        setPreferredSize(new java.awt.Dimension(700, 500));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         nextButton.setText("Next/Go");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +82,7 @@ public class StartPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nextButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
