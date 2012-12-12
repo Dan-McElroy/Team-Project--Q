@@ -27,8 +27,8 @@ public class Sequence {
     private String oStrand; //user strand
     private String cStrand; //generated strand
     
-    public Sequence(Scanner o) {
-        oStrand = parser(o);
+    public Sequence(String o) {
+        oStrand = parser(new Scanner(o));
         cStrand = genStrand();
     }
     public Sequence(String o, String c) {
@@ -99,17 +99,17 @@ public class Sequence {
     }*/
     
     public String toString(char x, int line) {
-        String out = "";
+        String out = "\t";
         String strand;
         if (x == 'o')
             strand = oStrand;
         else strand = cStrand;
         for (int i = 0; i < strand.length(); i++) {
-            out += strand.charAt(i);
-            if (i % line == 0)
-                out += "\n";
-            else if (i % 10 == 0)
+            if (i % line == 0 && i != 0)
+                out += "\n\t";
+            else if (i % 10 == 0 && i != 0)
                 out += " ";
+             out += strand.charAt(i);
         }
         return out;
     }
@@ -119,8 +119,8 @@ public class Sequence {
                 this.cStrand.equals(s.getCStrand()));
     }
     
-    public static void main(String[] args) {
-        Sequence s = new Sequence(new Scanner(args[0]));
+    /*public static void main(String[] args) {
+        Sequence s = new Sequence(args[0]);
         System.out.println("Sequence:\n" + s);
         Primer p = new Primer(s.getCStrand());
         System.out.println("Primer:\n" + p);
@@ -128,4 +128,5 @@ public class Sequence {
         System.out.println("Test Result:\n" + t);
         
     }
+    */
 }

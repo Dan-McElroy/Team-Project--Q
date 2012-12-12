@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  * @author 0907822r
  */
 public class AreaSelection extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form areaSelection
      */
@@ -33,9 +33,13 @@ public class AreaSelection extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         instructionTextPane = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        sequenceTextArea = new javax.swing.JTextArea();
+        sequenceTextArea = new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString('o', 80));
         nextButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        fromLabel = new javax.swing.JLabel();
+        toLabel = new javax.swing.JLabel();
+        toTextField = new javax.swing.JTextField();
+        fromTextField = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -47,8 +51,11 @@ public class AreaSelection extends javax.swing.JPanel {
         instructionTextPane.setText("Please specify the area to be contained in the PCR product, using the boxes provided");
         jScrollPane2.setViewportView(instructionTextPane);
 
+        sequenceTextArea.setEditable(false);
         sequenceTextArea.setColumns(20);
+        sequenceTextArea.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
         sequenceTextArea.setRows(5);
+        sequenceTextArea.setTabSize(4);
         jScrollPane4.setViewportView(sequenceTextArea);
 
         nextButton.setText("Next/Go");
@@ -65,6 +72,10 @@ public class AreaSelection extends javax.swing.JPanel {
             }
         });
 
+        fromLabel.setText("From:");
+
+        toLabel.setText("To:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,14 +84,27 @@ public class AreaSelection extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addComponent(fromLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(toLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(263, 263, 263))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fromTextField, toTextField});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -88,8 +112,14 @@ public class AreaSelection extends javax.swing.JPanel {
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fromLabel)
+                    .addComponent(toLabel)
+                    .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
@@ -118,11 +148,15 @@ public class AreaSelection extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel fromLabel;
+    private javax.swing.JTextField fromTextField;
     private javax.swing.JTextPane instructionTextPane;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton nextButton;
     private javax.swing.JTextArea sequenceTextArea;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel toLabel;
+    private javax.swing.JTextField toTextField;
     // End of variables declaration//GEN-END:variables
 }

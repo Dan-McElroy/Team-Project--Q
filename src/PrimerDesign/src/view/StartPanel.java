@@ -6,6 +6,7 @@ package view;
 
 import controller.PrimerDesign;
 import javax.swing.JLabel;
+import model.*;
 
 /**
  *
@@ -14,9 +15,14 @@ import javax.swing.JLabel;
 public class StartPanel extends javax.swing.JPanel {
 
     private String input;
+    private Sequence inSequence;
     
     public String getInput(){
         return input;
+    }
+    
+    public Sequence getInSequence(){
+        return inSequence;
     }
     
     /**
@@ -60,6 +66,7 @@ public class StartPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(instructionTextPane);
 
         sequenceTextArea.setColumns(20);
+        sequenceTextArea.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
         sequenceTextArea.setRows(5);
         jScrollPane4.setViewportView(sequenceTextArea);
 
@@ -96,6 +103,7 @@ public class StartPanel extends javax.swing.JPanel {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // set input to whatever has been copied into the text area
         input = sequenceTextArea.getText();
+        inSequence = new Sequence(input);
         
         // remove current panel from window
         PrimerDesign.window.remove(PrimerDesign.start);
