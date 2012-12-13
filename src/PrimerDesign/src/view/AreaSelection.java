@@ -166,11 +166,13 @@ public class AreaSelection extends javax.swing.JPanel {
     private void complementaryToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complementaryToggleButtonActionPerformed
         if (isOStrand){
             sequenceTextArea.setText(PrimerDesign.start.getInSequence().toString('c', 80));
+            sequenceTextArea.setCaretPosition(0);
             strandLabel.setText("Complementary Strand");
             isOStrand = false;
         }
         else {
             sequenceTextArea.setText(PrimerDesign.start.getInSequence().toString('o', 80));
+            sequenceTextArea.setCaretPosition(0);
             strandLabel.setText("Original Strand");
             isOStrand = true;
         }
