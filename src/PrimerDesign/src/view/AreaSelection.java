@@ -57,7 +57,7 @@ public class AreaSelection extends javax.swing.JPanel {
 
         sequenceTextArea.setEditable(false);
         sequenceTextArea.setColumns(20);
-        sequenceTextArea.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
+        sequenceTextArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         sequenceTextArea.setRows(5);
         sequenceTextArea.setTabSize(6);
         jScrollPane4.setViewportView(sequenceTextArea);
@@ -113,7 +113,7 @@ public class AreaSelection extends javax.swing.JPanel {
                         .addComponent(toLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                         .addComponent(complementaryToggleButton)))
                 .addContainerGap())
         );
@@ -149,7 +149,7 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
-        PrimerDesign.window.getContentPane().add(new JLabel("LOLOLOL"));
+        PrimerDesign.window.getContentPane().add(new JLabel("Next Stage"));
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed

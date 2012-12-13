@@ -66,7 +66,7 @@ public class StartPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(instructionTextPane);
 
         sequenceTextArea.setColumns(20);
-        sequenceTextArea.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
+        sequenceTextArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         sequenceTextArea.setRows(5);
         jScrollPane4.setViewportView(sequenceTextArea);
 
@@ -93,7 +93,7 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nextButton)
                 .addContainerGap())
