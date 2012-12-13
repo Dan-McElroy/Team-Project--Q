@@ -109,6 +109,7 @@ public class Primer {
             if(code.charAt(i) == 'g' || code.charAt(i) == 'c')
                 gcCount++;
         }
+        
         double ratio = gcCount/(double) code.length();
         if (ratio >= 0.4 && ratio <= 0.6) {
             return new TestResult(true, null);
@@ -134,8 +135,7 @@ public class Primer {
             if(current == code.charAt(i)){
                 reps++;
                 if(reps > 3){
-                    String retVal = String.valueOf(current);
-                    return new TestResult(false, retVal);
+                    return new TestResult(false, String.valueOf(current));
                 }
             }else{
                 current = code.charAt(i);
@@ -159,9 +159,7 @@ public class Primer {
         if (last == 'g' || last == 'c')
             p = true;
 
-        String retVal = "";
-        retVal += last;
-        return new TestResult(p,retVal);   
+        return new TestResult(p,String.valueOf(last));   
     }
     
     public String toString() {
