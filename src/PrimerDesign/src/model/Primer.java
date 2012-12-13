@@ -89,7 +89,7 @@ public class Primer {
                 if (strand.subSequence(i, Math.min(strand.length(), 
                         (i + code.length()))).equals(code)) {
                     count++;
-                    startPoints+= i + " ";
+                    startPoints+= (i+1) + " ";
                 }
         }
         if (count > 1) return new TestResult(false, startPoints);
@@ -178,7 +178,6 @@ public class Primer {
         t.add(meltingTemp());
         t.setOut(t.getOut() + "Self-Anneal Check: ");
         t.add(selfAnnealCheck());
-        // t.add(isUnique());
         t.setOut(t.getOut() + "GC Content: ");
         t.add(gcContent());
         t.setOut(t.getOut() + "Repetition: ");
