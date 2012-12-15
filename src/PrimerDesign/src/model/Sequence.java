@@ -16,7 +16,7 @@ import java.io.*;
 public class Sequence {
 
 /* DAN TODO:
-   toString                 Provisional
+   toString                 X
    genStrand                X
    meltingTemp              PX
    isSelfAnnealing          PX
