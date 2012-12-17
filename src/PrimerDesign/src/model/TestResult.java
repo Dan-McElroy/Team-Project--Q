@@ -41,7 +41,16 @@ public class TestResult {
     }
     
     public String toString() {
-        return (pass + "\n!!!!!!!!!!!!!\n" + out);
+    	if (pass) return ("Primer is good.");
+    	else {
+    	    String print = "Primer fails, for the following reasons:\n";
+    	    Scanner printy = new Scanner(out).useDelimiter("#");
+    	    int i = 1; 
+    	    while (printy.hasNext()) {
+    	    	print += i + ". " + printy.next() + "\n";
+    	    	i++;
+    	    }
+    	}
     }
     
     public boolean equals(TestResult t) {

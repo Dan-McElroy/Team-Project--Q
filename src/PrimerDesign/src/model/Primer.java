@@ -27,7 +27,7 @@ public class Primer {
     public TestResult goodLength() {
         if (code.length() >= 20 && code.length() <= 30)
             return new TestResult(true, null);
-        else return new TestResult(false, String.valueOf(code.length()));
+        else return new TestResult(false, ("Primer length should be between 20 and 30 bases, current length: " + String.valueOf(code.length()));
     }
     
     public TestResult meltingTemp() {
@@ -89,10 +89,12 @@ public class Primer {
                 if (strand.subSequence(i, Math.min(strand.length(), 
                         (i + code.length()))).equals(code)) {
                     count++;
-                    startPoints+= (i+1) + " ";
+                    if (startPoints.length() != 0)
+                    	startPoints += ", ";
+                    startPoints += (i+1);
                 }
         }
-        if (count > 1) return new TestResult(false, startPoints);
+        if (count > 1) return new TestResult(false, ("Primer is not unique to strand, seen at points " + startPoints + ".");
         else return new TestResult(true, null);
     }
 
@@ -115,7 +117,8 @@ public class Primer {
             return new TestResult(true, null);
         }
         else {
-            return new TestResult(false, String.valueOf(ratio));
+            return new TestResult(false, ("Percentage of g's and c's in primer should be between 40% and 60%." 
+            					+ "Current percentage: " + String.valueOf(ratio) + "%."));
         }
 
     }
@@ -135,9 +138,11 @@ public class Primer {
             if(current == code.charAt(i)){
                 reps++;
                 if(reps > 3){
-                    return new TestResult(false, String.valueOf(current));
+                    return new TestResult(false, ("Base " + String.valueOf(current) + " repeats too many times"
+                    				   + " in a row."));
                 }
-            }else{
+            }
+            else {
                 current = code.charAt(i);
                 reps = 1;
             }
@@ -159,7 +164,7 @@ public class Primer {
         if (last == 'g' || last == 'c')
             p = true;
 
-        return new TestResult(p,String.valueOf(last));   
+        return new TestResult(p,("Primer must end in a g or c, instead ends in " + String.valueOf(last) + "." ));   
     }
     
     public String toString() {
@@ -171,18 +176,17 @@ public class Primer {
     }
     
     public TestResult test() {
-        TestResult t = new TestResult(false, "");
-        t.setOut(t.getOut() + "Melting Temp: ");
+        TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
-        t.setOut(t.getOut() + "Self-Anneal Check: ");
+        t.setOut(t.getOut() + "#");
         t.add(selfAnnealCheck());
-        t.setOut(t.getOut() + "GC Content: ");
+        t.setOut(t.getOut() + "#");
         t.add(gcContent());
-        t.setOut(t.getOut() + "Repetition: ");
+        t.setOut(t.getOut() + "#");
         t.add(repetition());
-        t.setOut(t.getOut() + "Unique: ");
+        t.setOut(t.getOut() + "#");
         t.add(isUnique(code));
-        t.setOut(t.getOut() + "Length: ");
+        t.setOut(t.getOut() + "#");
         t.add(goodLength());
         return t;
     }
