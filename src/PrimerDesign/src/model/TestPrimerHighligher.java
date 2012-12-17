@@ -39,6 +39,7 @@ public class TestPrimerHighlighter {
 		while (!stop) {
 			int fCurrent = fPrimer.length();
 			int bCurrent = bPrimer.length();
+			// REMINDER: NEED TO MAKE SURE IT IGNORES NON ATGCs. USE PARSER METHOD?
 			if (fLast != fCurrent) {
 				t = new Thread(new PrimerFinder(fPrimer, 'o');
 				t.start();

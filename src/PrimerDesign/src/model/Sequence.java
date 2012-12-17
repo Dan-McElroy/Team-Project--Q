@@ -15,31 +15,34 @@ import java.io.*;
  */
 public class Sequence {
 
-/* DAN TODO:
-   toString                 X
-   genStrand                X
-   meltingTemp              PX
-   isSelfAnnealing          PX
-   complement               X
-   isUnique                 PX
-   Primer                   X
-*/
+
     private String oStrand; //user strand
     private String cStrand; //generated strand
+    private Primer fPrimer; //forward primer
+    private Primer rPrimer; //reverse primer
     
     public Sequence(String o) {
         oStrand = parser(new Scanner(o));
         cStrand = genStrand();
+        fPrimer = null;
+        rPrimer = null;
     }
     public Sequence(String o, String c) {
         oStrand = o;
         cStrand = c;
     }
+    public Sequence(String o, String c, Primer f, Primer r) {
+    	oStrand = o;
+    	cStrand = c;
+    	fPrimer = f;
+    	rPrimer = r;
+    }
     public Sequence() {
         oStrand = null;
         cStrand = null;
+        fPrimer = null;
+        rPrimer = null;
     }
-    
    
     public String getOStrand() {
         return oStrand;
@@ -47,11 +50,23 @@ public class Sequence {
     public String getCStrand() {
         return cStrand;
     }
+    public Primer getFPrimer() {
+    	return fPrimer;
+    }
+    public Primer getRPrimer() {
+    	return rPrimer;
+    }
     public void setOStrand(String o) {
         oStrand = o;
     }
     public void setCStrand(String c) {
         cStrand = c;
+    }
+    public void setFPrimer(Primer f) {
+    	fPrimer = f;
+    }
+    public void setRPrimer(Primer r) {
+    	rPrimer = r;
     }
     
     public static String parser(Scanner input) {
@@ -92,12 +107,7 @@ public class Sequence {
         }
         return r;
     }
-    
-    /*public String toString() {
-        // DO THIS WHEN YOU KNOW WHAT STUFF NEEDS
-        return (oStrand + "\n!!!!!!!!!!!!!\n" + cStrand);
-    }*/
-    
+        
     public String toString(char x, int line) {
         String out = "1\t";
         String strand;
@@ -113,10 +123,12 @@ public class Sequence {
         }
         return out;
     }
-    
+	    
     public boolean equals(Sequence s) {
         return (this.oStrand.equals(s.getOStrand()) &&
-                this.cStrand.equals(s.getCStrand()));
+                this.cStrand.equals(s.getCStrand()) &&
+                this.fPrimer.equals(s.getFPrimer()) &&
+                this.rPrimer.equals(s.getRPrimer()));
     }
     
     /*public static void main(String[] args) {
