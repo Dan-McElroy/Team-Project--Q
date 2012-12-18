@@ -27,7 +27,7 @@ public class Primer {
     public TestResult goodLength() {
         if (code.length() >= 20 && code.length() <= 30)
             return new TestResult(true, null);
-        else return new TestResult(false, ("Primer length should be between 20 and 30 bases, current length: " + String.valueOf(code.length()));
+        else return new TestResult(false, ("Primer length should be between 20 and 30 bases, current length: " + String.valueOf(code.length())));
     }
     
     public TestResult meltingTemp() {
@@ -47,8 +47,11 @@ public class Primer {
     }
     
     public TestResult selfAnnealCheck() {
-        /*split the string in half (missing out middle if uneven)
-         *reverse back half
+        /*
+         * NEEDS FIXED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         * 
+         * split the string in half (missing out middle if uneven)
+         * reverse back half
          * go through each char with both, compare using complement()
          * if a/t match, add 1 to score
          * if c/g match, add 2 to score
@@ -94,7 +97,7 @@ public class Primer {
                     startPoints += (i+1);
                 }
         }
-        if (count > 1) return new TestResult(false, ("Primer is not unique to strand, seen at points " + startPoints + ".");
+        if (count > 1) return new TestResult(false, ("Primer is not unique to strand, seen at points " + startPoints + "."));
         else return new TestResult(true, null);
     }
 
@@ -165,6 +168,94 @@ public class Primer {
             p = true;
 
         return new TestResult(p,("Primer must end in a g or c, instead ends in " + String.valueOf(last) + "." ));   
+    }
+
+    public TestResult pairAnneal(Primer p){
+        
+        /* returns true if highest number of consecutive complementary base
+         * pairs is less than 4, false otherwise
+         */
+        
+        int maxMatches = 0; // highest number of consecutive matches found so far
+        
+        String max, min;    // max is the longest primer, min is the shortest
+        
+        if (code.length() >= p.getCode().length()){
+            max = code;
+            min = p.getCode();
+        }else{
+            max = p.getCode();
+            min = code;
+        }
+            
+        // This segment compares the primers when the start of the longer primer
+        // joins somewhere in the middle of the shorter primer with the end of
+        // the longer primer and the start of the shorter primer unjoined.
+        //
+        // i.e.     agtcatcg
+        //       acatca
+        int minStart = min.length() - 4;
+        String minCheck, maxCheck;
+        int matches;
+        while (minStart != 0){
+            minCheck = min.substring(minStart);
+            maxCheck = max.substring(0, minCheck.length());
+            if ((matches = checkMatches(minCheck, maxCheck)) > maxMatches)
+                maxMatches = matches;
+            minStart--;
+        }
+        
+        // This segment compares the primers when the shorter primer joins the
+        // longer primer somewhere in the middle so that both ends of the
+        // shorter primer are joined to the longer primer.
+        //
+        // i.e.      agatcgattgcagt
+        //              agctaac
+        int maxEnd = min.length() - 1;
+        int maxStart = 0;
+        while (maxEnd < max.length()){
+            maxCheck = max.substring(maxStart, maxEnd + 1);
+            if ((matches = checkMatches(min, maxCheck)) > maxMatches)
+                maxMatches = matches;
+            maxStart++;
+            maxEnd++;
+        }
+        
+        // This segment compares the primers when the start of the shorter
+        // primer joins somewhere in the middle of the longer primer with the
+        // start of the longer primer and the end of the shorter primer 
+        // unjoined.
+        //
+        // i.e.      agtacgtaggtc
+        //                  tccagtac
+        int minEnd = min.length() - 2;
+        while (minEnd >= 4){
+            minCheck = min.substring(0, minEnd + 1);
+            maxCheck = max.substring(maxStart);
+            if ((matches = checkMatches(min, maxCheck)) > maxMatches)
+                maxMatches = matches;
+            maxStart++;
+            minEnd--;
+        }
+        
+        return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
+    }
+    
+    public int checkMatches(String min, String max){
+        
+        /* Method to return the highest number of consecutive complementary
+         * bases in two primer subsequences
+         */
+        
+        int matches = 0;
+        
+        for(int i = 0; i < max.length(); i++){
+            if (max.charAt(i) == Sequence.complement(min.charAt(i)))
+                matches++;
+            else
+                matches = 0;    // chain of matches broken
+        }
+        return matches;
     }
     
     public String toString() {
