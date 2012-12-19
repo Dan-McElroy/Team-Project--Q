@@ -149,7 +149,7 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
-        PrimerDesign.window.getContentPane().add(new JLabel("Next Stage"));
+        PrimerDesign.window.getContentPane().add(PrimerDesign.primerSelect);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed
