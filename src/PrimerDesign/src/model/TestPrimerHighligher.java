@@ -1,5 +1,7 @@
-import java.util.*;
+package model;
+
 import java.lang.*;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 public class TestPrimerHighlighter {
 
@@ -41,12 +43,13 @@ public class TestPrimerHighlighter {
 			int bCurrent = bPrimer.length();
 			// REMINDER: NEED TO MAKE SURE IT IGNORES NON ATGCs. USE PARSER METHOD?
 			if (fLast != fCurrent) {
-				t = new Thread(new PrimerFinder(fPrimer, 'o');
+				t = new Thread(new PrimerFinder(fPrimer, 'o'));
 				t.start();
 			}
 			if (bLast != bCurrent) {
-				t = new Thread(new PrimerFinder(bPrimer, 'c');
+				t = new Thread(new PrimerFinder(bPrimer, 'c'));
 				t.start();
 			}
 		}
 	}
+}
