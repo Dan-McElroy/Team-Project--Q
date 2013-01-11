@@ -241,6 +241,25 @@ public class Primer {
         return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
     }
     
+    public TestResult selfAnneal(){
+    
+        int maxMatches = 0;
+        String front, back;
+    
+        int split = 4;
+        int matches;
+    
+        while (split < code.length() - 4){
+            front = code.substring(0,split);
+            back = code.substring(split);
+            if ((matches = checkMatches(front, back)) > maxMatches)
+                    maxMatches = matches;
+            split++;
+        }
+
+        return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
+}
+    
     public int checkMatches(String min, String max){
         
         /* Method to return the highest number of consecutive complementary
@@ -279,6 +298,9 @@ public class Primer {
         t.add(isUnique(code));
         t.setOut(t.getOut() + "#");
         t.add(goodLength());
+        t.setOut(t.getOut() + "#");
+        t.add(selfAnneal());
+        t.setOut(t.getOut() + "#");
         return t;
     }
 }

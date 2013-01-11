@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1002852m
@@ -50,6 +52,7 @@ public class TestResult {
     	    	print += i + ". " + printy.next() + "\n";
     	    	i++;
     	    }
+            return print;
     	}
     }
     
