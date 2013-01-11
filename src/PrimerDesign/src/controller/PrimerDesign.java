@@ -9,8 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import view.StartPanel;
 import view.AreaSelection;
+import view.PrimerSelectionPanel;
+import view.StartPanel;
 
 /**
  *
@@ -21,6 +22,7 @@ public class PrimerDesign {
     public static JFrame window;
     public static StartPanel start;
     public static AreaSelection area;
+    public static PrimerSelectionPanel primerSelect;
     
     /* all GUI configuration should be placed here unless specific to some class
      */

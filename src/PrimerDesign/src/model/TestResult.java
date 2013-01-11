@@ -42,7 +42,7 @@ public class TestResult {
         else out += "PASS ";
     }
     
-    public String toString() {
+   /*public String toString() {
     	if (pass) return ("Primer is good.");
     	else {
     	    String print = "Primer fails, for the following reasons:\n";
@@ -55,7 +55,7 @@ public class TestResult {
             return print;
     	}
     }
-    
+    */
     public boolean equals(TestResult t) {
         return (this.pass == t.getPass() && this.out.equals(t.getOut()));
     }
