@@ -15,7 +15,6 @@ import java.io.*;
  */
 public class Sequence {
 
-
     private String oStrand; //user strand
     private String cStrand; //generated strand
     private Primer fPrimer; //forward primer
@@ -70,6 +69,11 @@ public class Sequence {
     }
     
     public static String parser(Scanner input) {
+    	/* 
+    	 * Takes in a string (should be from NCBI) and turns it
+    	 * into one long string of bases that can be better formatted
+    	 * elsewhere
+    	 */
         String parsed = "";
         char x;
         
@@ -85,6 +89,10 @@ public class Sequence {
     }
     
     public static char complement(char c) {
+    	/*
+    	 * Simple function that returns a particular
+    	 * base's complement.
+    	 */
         char out;
         switch(c) {
             case 'a': out = 't';
@@ -101,6 +109,10 @@ public class Sequence {
     }
     
     private String genStrand() {
+    	/*
+    	 * Takes in one strand, returns
+    	 * complementary strand.
+    	 */
         String r = "";
         for (int i = 0; i < oStrand.length(); i++) {
             r += complement(oStrand.charAt(i));
@@ -108,7 +120,11 @@ public class Sequence {
         return r;
     }
         
-    public String toString(char x, int line) {
+    public String toString(char x, int block, int line) {
+        /*
+         * Returns a specified strand, splitting the strand
+         * into blocks of ten and lines of a specified amount.
+         */ 
         String out = "1\t";
         String strand;
         if (x == 'o')
@@ -117,7 +133,7 @@ public class Sequence {
         for (int i = 0; i < strand.length(); i++) {
             if (i % line == 0 && i != 0)
                 out += "\n" + String.valueOf(i + 1) + "\t";
-            else if (i % 10 == 0 && i != 0)
+            else if (i % block == 0 && i != 0)
                 out += " ";
              out += strand.charAt(i);
         }
@@ -125,6 +141,9 @@ public class Sequence {
     }
 	    
     public boolean equals(Sequence s) {
+    	/*
+    	 * Checks if one primer equals another.
+    	 */
         return (this.oStrand.equals(s.getOStrand()) &&
                 this.cStrand.equals(s.getCStrand()) &&
                 this.fPrimer.equals(s.getFPrimer()) &&

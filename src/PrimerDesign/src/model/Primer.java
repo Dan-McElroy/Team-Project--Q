@@ -25,12 +25,19 @@ public class Primer {
     }
     
     public TestResult goodLength() {
+    	/*
+    	 * Returns true if the primer is of an appropriate length, between 20 and 30 bases.
+    	 */
         if (code.length() >= 20 && code.length() <= 30)
             return new TestResult(true, null);
         else return new TestResult(false, ("Primer length should be between 20 and 30 bases, current length: " + String.valueOf(code.length())));
     }
     
     public TestResult meltingTemp() {
+    	/*
+    	 * Returns true if the formula to calculate melting temperature does not return a
+    	 * value outside the range of 50-65.
+    	 */
         int at = 0; int gc = 0;
         for (int i = 0; i < code.length(); i++) {
             char c = code.charAt(i);
@@ -44,38 +51,6 @@ public class Primer {
             return new TestResult(true, null);
         else
             return new TestResult(false, (Integer.toString(meltTemp)));
-    }
-    
-    public TestResult selfAnnealCheck() {
-        /*
-         * NEEDS FIXED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * 
-         * split the string in half (missing out middle if uneven)
-         * reverse back half
-         * go through each char with both, compare using complement()
-         * if a/t match, add 1 to score
-         * if c/g match, add 2 to score
-         * if < 20, pass
-         * if >= 20, fail, with null string
-         */
-        int annealCount = 0;
-        int size = code.length();
-        double split = ((double) size/2);
-        if (split % 1 == 0.5)
-            split -= 0.5;
-        int s = (int) split;
-        String firstHalf = code.substring(0, s-1);
-        String secondHalf = code.substring((size - s), size -1 );
-        for (int i = 0; i < firstHalf.length(); i++) {
-            if ((firstHalf.charAt(i) == 'a' || firstHalf.charAt(i) == 't')
-                 && firstHalf.charAt(i) == Sequence.complement(secondHalf.charAt(i)))
-                annealCount++;
-            else if ((firstHalf.charAt(i) == 'g' || firstHalf.charAt(i) == 'c')
-                 && firstHalf.charAt(i) == Sequence.complement(secondHalf.charAt(i)))
-                annealCount += 2;
-        }
-        if (annealCount < 20) return new TestResult(true, null);
-        else return new TestResult(false, String.valueOf(annealCount)); //could be the anneal score if useful
     }
     
     public TestResult isUnique(String strand) {
@@ -242,7 +217,10 @@ public class Primer {
     }
     
     public TestResult selfAnneal(){
-    
+    	/*
+    	 * Returns true if at no point can the string be "folded over" and have 4 or more bases on each
+    	 * side complement each other. 
+    	 */
         int maxMatches = 0;
         String front, back;
     
@@ -286,10 +264,13 @@ public class Primer {
     }
     
     public TestResult test() {
+    	/*
+    	 * Tests a primer against all the primer rule tests,
+    	 * passes if all true and returns relevant comments if
+    	 * not.
+    	 */
         TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
-        t.setOut(t.getOut() + "#");
-        t.add(selfAnnealCheck());
         t.setOut(t.getOut() + "#");
         t.add(gcContent());
         t.setOut(t.getOut() + "#");
@@ -299,7 +280,7 @@ public class Primer {
         t.setOut(t.getOut() + "#");
         t.add(goodLength());
         t.setOut(t.getOut() + "#");
-        t.add(selfAnneal());
+        t.add(selfAnneal());		// Note: need to specify WHERE it splits.
         t.setOut(t.getOut() + "#");
         return t;
     }

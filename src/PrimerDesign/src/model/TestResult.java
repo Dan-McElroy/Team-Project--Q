@@ -34,6 +34,10 @@ public class TestResult {
     }
     
     public void add(TestResult t) {
+    	/*
+    	 * Adds one test result to another, to be used for the 
+    	 * final cumulative test result.
+    	 */
         if (out == null)
             out = "";
         pass = (this.pass && t.getPass());
@@ -42,7 +46,11 @@ public class TestResult {
         else out += "PASS ";
     }
     
-    public String toString() {
+    public String toString() {		
+    	/* 
+    	 * Returns a readable explanation of the test result,
+    	 * also to be used for the final test result.
+    	 */
     	if (pass) return ("Primer is good.");
     	else {
     	    String print = "Primer fails, for the following reasons:\n";
