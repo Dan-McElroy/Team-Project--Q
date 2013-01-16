@@ -32,7 +32,7 @@
                       <Component id="forwardPrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="forwardPrimerTextField" linkSize="1" min="-2" pref="240" max="-2" attributes="0"/>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
                       <Component id="reversePrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reversePrimerTextField" linkSize="1" min="-2" pref="154" max="-2" attributes="0"/>
@@ -61,11 +61,11 @@
                   <Component id="reversePrimerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="forwardPrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="reversePrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forwardPrimerTextField" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="forwardPrimerTextField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane4" min="-2" pref="384" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nextButton" alignment="3" min="-2" max="-2" attributes="0"/>
