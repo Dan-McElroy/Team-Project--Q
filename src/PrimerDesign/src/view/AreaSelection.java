@@ -149,6 +149,7 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
+        PrimerDesign.primerSelect = new PrimerSelectionPanel();
         PrimerDesign.window.getContentPane().add(PrimerDesign.primerSelect);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
