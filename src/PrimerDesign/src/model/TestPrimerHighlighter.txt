@@ -13,11 +13,9 @@ public class TestPrimerHighlighter {
 		private String primer;
 		private String strand;
 		
-		public PrimerFinder(String p, char x) {
+		public PrimerFinder(String p, String s) {
 			primer = p;
-			if (x == 'o') strand = oStrand;
-			if (x == 'c') strand = cStrand;
-			else strand = null;
+			strand = s;
 		}
 		
 		public void run() {
