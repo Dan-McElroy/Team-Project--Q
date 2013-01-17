@@ -5,7 +5,6 @@
 package view;
 
 import controller.PrimerDesign;
-import javax.swing.JLabel;
 
 /**
  *
