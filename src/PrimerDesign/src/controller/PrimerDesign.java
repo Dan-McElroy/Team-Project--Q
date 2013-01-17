@@ -12,6 +12,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import view.AreaSelection;
 import view.PrimerSelectionPanel;
 import view.StartPanel;
+import view.FinalTemperaturePanel;
 
 /**
  *
@@ -23,6 +24,7 @@ public class PrimerDesign {
     public static StartPanel start;
     public static AreaSelection area;
     public static PrimerSelectionPanel primerSelect;
+    public static FinalTemperaturePanel temperature;
     
     /* all GUI configuration should be placed here unless specific to some class
      */
