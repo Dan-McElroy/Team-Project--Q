@@ -63,7 +63,7 @@ public class TestResult {
             return print;
     	}
     }
-    */
+    
     public boolean equals(TestResult t) {
         return (this.pass == t.getPass() && this.out.equals(t.getOut()));
     }
