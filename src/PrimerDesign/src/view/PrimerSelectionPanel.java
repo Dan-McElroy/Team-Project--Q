@@ -33,7 +33,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         instructionTextPane = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        sequenceTextArea = new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString('o', 80));
+        sequenceTextArea = new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString('o', 10, 80));
         forwardPrimerTextField = new javax.swing.JTextField();
         reversePrimerTextField = new javax.swing.JTextField();
         forwardPrimerLabel = new javax.swing.JLabel();
