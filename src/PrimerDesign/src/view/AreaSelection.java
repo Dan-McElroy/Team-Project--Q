@@ -35,7 +35,7 @@ public class AreaSelection extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         instructionTextPane = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        sequenceTextArea = new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString('o', 80));
+        sequenceTextArea = new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString('o', 10, 80));
         nextButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         fromLabel = new javax.swing.JLabel();
@@ -113,7 +113,7 @@ public class AreaSelection extends javax.swing.JPanel {
                         .addComponent(toLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                         .addComponent(complementaryToggleButton)))
                 .addContainerGap())
         );
