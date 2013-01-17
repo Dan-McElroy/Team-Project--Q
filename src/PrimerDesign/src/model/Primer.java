@@ -207,7 +207,7 @@ public class Primer {
         while (minEnd >= 4){
             minCheck = min.substring(0, minEnd + 1);
             maxCheck = max.substring(maxStart);
-            if ((matches = checkMatches(min, maxCheck)) > maxMatches)
+            if ((matches = checkMatches(minCheck, maxCheck)) > maxMatches)
                 maxMatches = matches;
             maxStart++;
             minEnd--;
@@ -223,16 +223,29 @@ public class Primer {
     	 */
         int maxMatches = 0;
         String front, back;
+        int difference;
     
         int split = 4;
         int matches;
-    
-        while (split < code.length() - 4){
-            front = code.substring(0,split);
-            back = code.substring(split);
-            if ((matches = checkMatches(front, back)) > maxMatches)
-                    maxMatches = matches;
-            split++;
+        
+        if (code.length() <= 8){
+            return (new TestResult(true, null));
+        } else {
+            while (split <= code.length() - 4){
+                front = code.substring(0,split);
+                back = reverse(code.substring(split));
+                if (front.length() > back.length()){
+                    difference = front.length() - back.length();
+                    front = front.substring(difference);
+                } else if (back.length() > front.length()){
+                    difference = back.length() - front.length();
+                    back = back.substring(difference);
+                }
+
+                if ((matches = checkMatches(front, back)) > maxMatches)
+                        maxMatches = matches;
+                split++;
+            }
         }
 
         return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
@@ -253,6 +266,13 @@ public class Primer {
                 matches = 0;    // chain of matches broken
         }
         return matches;
+    }
+    
+    public String reverse(String s) {
+        if (s.length() <= 1) { 
+            return s;
+        }
+        return reverse(s.substring(1, s.length())) + s.charAt(0);
     }
     
     public String toString() {
