@@ -42,7 +42,7 @@
                       <Component id="toLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="toTextField" linkSize="2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="107" max="32767" attributes="0"/>
+                      <EmptySpace pref="159" max="32767" attributes="0"/>
                       <Component id="complementaryToggleButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -121,7 +121,7 @@
             <Property name="tabSize" type="int" value="6"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString(&apos;o&apos;, 80))"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextArea(PrimerDesign.start.getInSequence().toString(&apos;o&apos;, 10, 80))"/>
           </AuxValues>
         </Component>
       </SubComponents>

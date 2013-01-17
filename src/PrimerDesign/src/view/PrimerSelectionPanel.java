@@ -5,6 +5,7 @@
 package view;
 
 import controller.PrimerDesign;
+import java.util.concurrent.ConcurrentSkipListSet;
 import javax.swing.JLabel;
 
 /**
@@ -16,6 +17,33 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     /**
      * Creates new form PrimerSelectionPanel
      */
+    /*
+    private static ConcurrentSkipListSet<Integer> matchSet;
+    
+    private class PrimerFinder implements Runnable {
+
+        private String primer;
+        private String strand;
+
+        public PrimerFinder(String p, String s) {
+            primer = p;
+            strand = s;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i < strand.length(); i++) {
+                
+                if (primer.length() > 0 && strand.substring(i, (i + primer.length() - 1)).equalsIgnoreCase(primer)) {
+                    matchSet.add(i);
+                } 
+                //else if (matchSet.contains(i)) {
+                //    matchSet.remove(i);
+                //}
+            }
+        }
+    }
+    */
     public PrimerSelectionPanel() {
         initComponents();
     }
@@ -61,6 +89,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(sequenceTextArea);
 
         forwardPrimerTextField.setText("Forward Primer");
+        forwardPrimerTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forwardPrimerTextFieldActionPerformed(evt);
+            }
+        });
 
         reversePrimerTextField.setText("Reverse Primer");
 
@@ -163,6 +196,18 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private void showRulesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesButtonActionPerformed
         // should create a jdialog(?) showing the rules for primer design
     }//GEN-LAST:event_showRulesButtonActionPerformed
+
+    private void forwardPrimerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPrimerTextFieldActionPerformed
+        /*
+        Thread t = new Thread(new PrimerFinder(
+                forwardPrimerTextField.getText(),
+                PrimerDesign.start.getInSequence().getOStrand()));
+        
+        t.start();
+        
+        System.out.println(matchSet.toString());
+        */
+    }//GEN-LAST:event_forwardPrimerTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
