@@ -125,17 +125,11 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="forwardPrimerTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Forward Primer"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="forwardPrimerTextFieldActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="reversePrimerTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reverse Primer"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forwardPrimerLabel">
       <Properties>
