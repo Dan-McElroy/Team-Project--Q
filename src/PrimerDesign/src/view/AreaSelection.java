@@ -5,6 +5,12 @@
 package view;
 
 import controller.PrimerDesign;
+import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
 
 /**
  *
@@ -13,12 +19,18 @@ import controller.PrimerDesign;
 public class AreaSelection extends javax.swing.JPanel {
     
     private boolean isOStrand = true;
+    private Highlighter high;
+    private int from;
+    private int to;
     
     /**
      * Creates new form areaSelection
      */
     public AreaSelection() {
         initComponents();
+        high = sequenceTextArea.getHighlighter();
+        from = 0;
+        to = 0;
     }
 
     /**
@@ -177,7 +189,31 @@ public class AreaSelection extends javax.swing.JPanel {
             isOStrand = true;
         }
     }//GEN-LAST:event_complementaryToggleButtonActionPerformed
+/* this was a mistake, need to make some sort of keyeventlistener class
+    public void keyTyped(KeyEvent e) {
+        System.err.println("key event detected:");
+        if (e.getSource().equals(fromTextField)) {
+            from = Integer.parseInt(fromTextField.getText());
+            if (to == 0) {
+                to = from + 1;
+            }
+            try {
+                high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (e.getSource().equals(toTextField)) {
+            to = Integer.parseInt(fromTextField.getText());
+            try {
+                high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
+    }
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JToggleButton complementaryToggleButton;

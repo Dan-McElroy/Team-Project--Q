@@ -106,7 +106,7 @@ public class StartPanel extends javax.swing.JPanel {
         inSequence = new Sequence(input);
         
         // remove current panel from window
-        PrimerDesign.window.remove(PrimerDesign.start);
+        PrimerDesign.window.getContentPane().remove(PrimerDesign.start);
         PrimerDesign.window.setVisible(false);
         
         // add next panel to window and display
