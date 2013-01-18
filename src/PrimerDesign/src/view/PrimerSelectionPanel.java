@@ -17,9 +17,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     /**
      * Creates new form PrimerSelectionPanel
      */
-    /*
+    
     private static ConcurrentSkipListSet<Integer> matchSet;
     
+    /*
     private class PrimerFinder implements Runnable {
 
         private String primer;
@@ -196,9 +197,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private void showRulesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesButtonActionPerformed
         // should create a jdialog(?) showing the rules for primer design
     }//GEN-LAST:event_showRulesButtonActionPerformed
-
+    /*
     private void forwardPrimerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPrimerTextFieldActionPerformed
-        /*
+        
         Thread t = new Thread(new PrimerFinder(
                 forwardPrimerTextField.getText(),
                 PrimerDesign.start.getInSequence().getOStrand()));
@@ -206,9 +207,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         t.start();
         
         System.out.println(matchSet.toString());
-        */
+        
     }//GEN-LAST:event_forwardPrimerTextFieldActionPerformed
-
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel forwardPrimerLabel;
