@@ -22,7 +22,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
      */
     
     private static ConcurrentSkipListSet<Integer> matchSet;
-    //private int startTarget;
+    private String lineNums;
     
     /*
     private class PrimerFinder implements Runnable {
@@ -49,6 +49,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         }
     }
     */
+    
     public PrimerSelectionPanel() {
         
         initComponents();
@@ -62,10 +63,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
         //StyleConstants.setLeftIndent(mainStyle, 6);
-        //StyleConstants.setRightIndent(mainStyle, 16);
-        //StyleConstants.setFirstLineIndent(mainStyle, 16);
-        //StyleConstants.setFontFamily(mainStyle, "serif");
-        //StyleConstants.setFontSize(mainStyle, 14);
     
         // Create and add the constant width style
         final Style cwStyle = sc.addStyle("ConstantWidth", null);
@@ -77,14 +74,26 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         doc.setLogicalStyle(0, mainStyle);
         try {
             // Add the text to the document
-            doc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 80), null);
+            doc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
         } catch (BadLocationException ex) {
             Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Apply the character attributes
         doc.setCharacterAttributes(Integer.parseInt(PrimerDesign.area.getStartTarget()), Integer.parseInt(PrimerDesign.area.getEndTarget()), cwStyle, false);
         
-        jTextPane1.setDocument(doc);
+        sequencePane.setDocument(doc);
+        
+        lineNums = "";
+        int x = 1;
+        for(int i = 0; x < 9150; i++){
+            lineNums += x + "\n";
+            x += 70;
+        }
+        lineNumArea.setText(lineNums);
+        lineNumArea.setCaretPosition(0);
+        
+        jScrollPane1.getHorizontalScrollBar().setModel(jScrollPane3.getHorizontalScrollBar().getModel());
+        jScrollPane1.getVerticalScrollBar().setModel(jScrollPane3.getVerticalScrollBar().getModel());
     }
 
     /**
@@ -107,7 +116,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         nextButton = new javax.swing.JButton();
         showRulesButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        sequencePane = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lineNumArea = new javax.swing.JTextArea();
 
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -151,9 +162,15 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             }
         });
 
-        jTextPane1.setBackground(new java.awt.Color(254, 254, 254));
-        jTextPane1.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
-        jScrollPane1.setViewportView(jTextPane1);
+        sequencePane.setBackground(new java.awt.Color(254, 254, 254));
+        sequencePane.setFont(new java.awt.Font("DejaVu LGC Sans Mono", 0, 13)); // NOI18N
+        sequencePane.setMaximumSize(new java.awt.Dimension(700, 2147483647));
+        jScrollPane1.setViewportView(sequencePane);
+
+        lineNumArea.setColumns(1);
+        lineNumArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        lineNumArea.setRows(5);
+        jScrollPane3.setViewportView(lineNumArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -162,24 +179,34 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
                     .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(forwardPrimerLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(reversePrimerLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(showRulesButton)
-                        .addGap(191, 191, 191)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(254, 254, 254)
+                                .addComponent(showRulesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
@@ -198,8 +225,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                     .addComponent(reversePrimerLabel)
                     .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(nextButton)
@@ -250,10 +279,12 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private javax.swing.JTextPane instructionTextPane;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea lineNumArea;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JTextField reversePrimerTextField;
+    private javax.swing.JTextPane sequencePane;
     private javax.swing.JButton showRulesButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
