@@ -22,6 +22,23 @@ public class AreaSelection extends javax.swing.JPanel {
     private Highlighter high;
     private int from;
     private int to;
+    private String startTarget, endTarget;
+
+    public String getStartTarget() {
+        return startTarget;
+    }
+
+    public void setStartTarget(String startTarget) {
+        this.startTarget = startTarget;
+    }
+
+    public String getEndTarget() {
+        return endTarget;
+    }
+
+    public void setEndTarget(String endTarget) {
+        this.endTarget = endTarget;
+    }
     
     /**
      * Creates new form areaSelection
@@ -157,6 +174,8 @@ public class AreaSelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        startTarget = fromTextField.getText();
+        
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
