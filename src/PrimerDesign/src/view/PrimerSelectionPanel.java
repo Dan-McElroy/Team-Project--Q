@@ -49,6 +49,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         }
     }
     */
+    public int realIndex(int x) {
+        int xTen = x - (x % 10);
+        return (x + (xTen /10));
+    }
     
     public PrimerSelectionPanel() {
         
@@ -78,8 +82,18 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         } catch (BadLocationException ex) {
             Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Integer.parseInt(PrimerDesign.area.getStartTarget()) for start
+        //Integer.parseInt(PrimerDesign.area.getEndTarget()) for end
+        
+        int badStart = Integer.parseInt(PrimerDesign.area.getStartTarget()) -1;
+        int badEnd = Integer.parseInt(PrimerDesign.area.getEndTarget()) -1;
+        ///*
+        int realStart = realIndex(badStart);
+        int realEnd = realIndex(badEnd) + 1;
+        
+        
         // Apply the character attributes
-        doc.setCharacterAttributes(Integer.parseInt(PrimerDesign.area.getStartTarget()), Integer.parseInt(PrimerDesign.area.getEndTarget()), cwStyle, false);
+        doc.setCharacterAttributes(realStart, (realEnd - realStart), cwStyle, false);
         
         sequencePane.setDocument(doc);
         

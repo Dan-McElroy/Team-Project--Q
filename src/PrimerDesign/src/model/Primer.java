@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.lang.Math;
@@ -26,17 +22,19 @@ public class Primer {
     
     public TestResult goodLength() {
     	/*
-    	 * Returns true if the primer is of an appropriate length, between 20 and 30 bases.
+    	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
     	 */
         if (code.length() >= 20 && code.length() <= 30)
             return new TestResult(true, null);
-        else return new TestResult(false, ("Primer length should be between 20 and 30 bases, current length: " + String.valueOf(code.length())));
+        else return new TestResult(false, ("Primer length should be between " 
+                + "20 and 30 bases, current length: " + 
+                String.valueOf(code.length())));
     }
     
     public TestResult meltingTemp() {
     	/*
-    	 * Returns true if the formula to calculate melting temperature does not return a
-    	 * value outside the range of 50-65.
+    	 * Returns true if the formula to calculate melting temp does not return
+    	 * a value outside the range of 50-65.
     	 */
         int at = 0; int gc = 0;
         for (int i = 0; i < code.length(); i++) {
@@ -53,26 +51,50 @@ public class Primer {
             return new TestResult(false, (Integer.toString(meltTemp)));
     }
     
-    public TestResult isUnique(String strand) {
+    public boolean matches(int i, String x) {
+            if (x.substring(i, Math.min(x.length(),
+                    (i + code.length()))).equals(code)) return true;
+            return false;
+    } 
+    
+    public TestResult isUnique(String oS, String cS) {
         /*run through the string until char matches first char of code
          * if subsection(i, i+code.length()) == code {add 1 to count}
          * if count > 1 return false, null
          * else return true, null
          */
-        int count = 0;
-        String startPoints = "";
+        String oStartPoints = "";
+        String cStartPoints = "";
         char start = code.charAt(0);
-        for (int i = 0; i < strand.length(); i++) {
-            if (strand.charAt(i) == start)
-                if (strand.subSequence(i, Math.min(strand.length(), 
-                        (i + code.length()))).equals(code)) {
-                    count++;
-                    if (startPoints.length() != 0)
-                    	startPoints += ", ";
-                    startPoints += (i+1);
+        //Original strand search
+        for (int i = 0; i < oS.length(); i++) {
+            if (oS.charAt(i) == start)
+                if (matches(i, oS)) {     
+                    if (oStartPoints.length() != 0)
+                    	oStartPoints += ", ";
+                    oStartPoints += (i+1);
                 }
         }
-        if (count > 1) return new TestResult(false, ("Primer is not unique to strand, seen at points " + startPoints + "."));
+        //Repeats for complementary. Uneasy about repetition.
+        for (int i = 0; i < cS.length(); i++) {
+            if (cS.charAt(i) == start)
+                if (matches(i, cS)) {     
+                    if (cStartPoints.length() != 0)
+                    	cStartPoints += ", ";
+                    cStartPoints += (i+1);
+                }
+        }
+        
+        if (oStartPoints.length() > 0 && cStartPoints.length() == 0) 
+            return new TestResult(false, ("Primer is not unique, seen on" + 
+                    "original strand at points " + oStartPoints + "."));
+        else if (oStartPoints.length() == 0 && cStartPoints.length() > 0)
+            return new TestResult(false, ("Primer is not unique, seen on" + 
+                    "complementary strand at points " + cStartPoints + "."));
+        else if (oStartPoints.length() > 0 && cStartPoints.length() > 0)
+            return new TestResult(false, "Primer is not unique, seen on" +
+                    "original strand at points " + oStartPoints + "and " +
+                    "complementary strand at points " + cStartPoints + ".");
         else return new TestResult(true, null);
     }
 
@@ -95,8 +117,9 @@ public class Primer {
             return new TestResult(true, null);
         }
         else {
-            return new TestResult(false, ("Percentage of g's and c's in primer should be between 40% and 60%." 
-            					+ "Current percentage: " + String.valueOf(ratio) + "%."));
+            return new TestResult(false, ("Percentage of g's and c's" + 
+                    " in primer should be between 40% and 60%." 
+                    + "Current percentage: " + String.valueOf(ratio) + "%."));
         }
 
     }
@@ -116,8 +139,9 @@ public class Primer {
             if(current == code.charAt(i)){
                 reps++;
                 if(reps > 3){
-                    return new TestResult(false, ("Base " + String.valueOf(current) + " repeats too many times"
-                    				   + " in a row."));
+                    return new TestResult(false, 
+                            ("Base " + String.valueOf(current) + 
+                            " repeats too many times" + " in a row."));
                 }
             }
             else {
@@ -142,7 +166,8 @@ public class Primer {
         if (last == 'g' || last == 'c')
             p = true;
 
-        return new TestResult(p,("Primer must end in a g or c, instead ends in " + String.valueOf(last) + "." ));   
+        return new TestResult(p,("Primer must end in a g or c, instead ends in "
+                + String.valueOf(last) + "." ));   
     }
 
     public TestResult pairAnneal(Primer p){
@@ -151,9 +176,9 @@ public class Primer {
          * pairs is less than 4, false otherwise
          */
         
-        int maxMatches = 0; // highest number of consecutive matches found so far
+        int maxMatches = 0; //highest number of consecutive matches found so far
         
-        String max, min;    // max is the longest primer, min is the shortest
+        String max, min;    //max is the longest primer, min is the shortest
         
         if (code.length() >= p.getCode().length()){
             max = code;
@@ -213,13 +238,18 @@ public class Primer {
             minEnd--;
         }
         
-        return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
+        if (maxMatches >= 4)
+            return (new TestResult(false, "Primers bases anneal to each " +
+                    "other in " + maxMatches + "places."));
+        else
+            return new TestResult(true, null);
+        // change to return useful info about matches
     }
     
     public TestResult selfAnneal(){
     	/*
-    	 * Returns true if at no point can the string be "folded over" and have 4 or more bases on each
-    	 * side complement each other. 
+    	 * Returns true if at no point can the string be "folded over"
+         * and have 4 or more bases on each side complement each other. 
     	 */
         int maxMatches = 0;
         String front, back;
@@ -248,7 +278,8 @@ public class Primer {
             }
         }
 
-        return (new TestResult(maxMatches >= 4, null)); // change to return useful info about matches
+        return (new TestResult(maxMatches >= 4, null)); 
+        // change to return useful info about matches
 }
     
     public int checkMatches(String min, String max){
@@ -296,11 +327,9 @@ public class Primer {
         t.setOut(t.getOut() + "#");
         t.add(repetition());
         t.setOut(t.getOut() + "#");
-        t.add(isUnique(code));
-        t.setOut(t.getOut() + "#");
         t.add(goodLength());
         t.setOut(t.getOut() + "#");
-        t.add(selfAnneal());		// Note: need to specify WHERE it splits.
+        t.add(selfAnneal());        // Note: need to specify WHERE it splits.
         t.setOut(t.getOut() + "#");
         return t;
     }

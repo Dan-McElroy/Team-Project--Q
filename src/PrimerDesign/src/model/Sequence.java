@@ -125,14 +125,14 @@ public class Sequence {
          * Returns a specified strand, splitting the strand
          * into blocks of ten and lines of a specified amount.
          */ 
-        String out = "1\t";
+        String out = "";
         String strand;
         if (x == 'o')
             strand = oStrand;
         else strand = cStrand;
         for (int i = 0; i < strand.length(); i++) {
             if (i % line == 0 && i != 0)
-                out += "\n" + String.valueOf(i + 1) + "\t";
+                out += "\n";
             else if (i % block == 0 && i != 0)
                 out += " ";
              out += strand.charAt(i);
@@ -150,6 +150,30 @@ public class Sequence {
                 this.rPrimer.equals(s.getRPrimer()));
     }
     
+    public TestResult primerTest() {    //needs phrase fixing and optimisation
+        TestResult test;
+        TestResult fTest = new TestResult(true, "Forward Primer:\n");
+        fTest.add(fPrimer.test());
+        fTest.add(fPrimer.isUnique(oStrand, cStrand)); //better than whole Seq
+        TestResult rTest = new TestResult(true, "Forward Primer:\n");
+        rTest.add(rPrimer.test());
+        rTest.add(rPrimer.isUnique(oStrand, cStrand));
+        if (fTest.getPass() || rTest.getPass() 
+                || fPrimer.pairAnneal(rPrimer).getPass())
+            test = new TestResult(true, "Congratulations, your primers work!");
+        else {
+            test = new TestResult(false, "Sorry, your primers violate the " +
+                    "following rules:\n");
+            if (!fTest.getPass()) test.add(fTest);
+            if (!rTest.getPass()) test.add(rTest);
+            if (!fPrimer.pairAnneal(rPrimer).getPass()) {
+                test.add(new TestResult(false, "General:\n"));
+                test.add(fPrimer.pairAnneal(rPrimer));
+            }
+        }
+        
+        return test;
+    }
     /*public static void main(String[] args) {
         Sequence s = new Sequence(args[0]);
         System.out.println("Sequence:\n" + s);
