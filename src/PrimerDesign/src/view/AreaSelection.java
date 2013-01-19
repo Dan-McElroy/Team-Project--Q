@@ -175,6 +175,7 @@ public class AreaSelection extends javax.swing.JPanel {
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         startTarget = fromTextField.getText();
+        endTarget = toTextField.getText();
         
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);

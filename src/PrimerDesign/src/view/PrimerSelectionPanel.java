@@ -53,7 +53,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         
         initComponents();
         
-        // Create the StyleContext, the document and the pane
+        // Create the StyleContext and the document
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument doc = new DefaultStyledDocument(sc);
         
@@ -61,7 +61,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         // Create and add the main document style
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
-        //StyleConstants.setLeftIndent(mainStyle, 16);
+        //StyleConstants.setLeftIndent(mainStyle, 6);
         //StyleConstants.setRightIndent(mainStyle, 16);
         //StyleConstants.setFirstLineIndent(mainStyle, 16);
         //StyleConstants.setFontFamily(mainStyle, "serif");
@@ -82,7 +82,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Apply the character attributes
-        doc.setCharacterAttributes(Integer.parseInt(PrimerDesign.area.getStartTarget()), 20 , cwStyle, false);
+        doc.setCharacterAttributes(Integer.parseInt(PrimerDesign.area.getStartTarget()), Integer.parseInt(PrimerDesign.area.getEndTarget()), cwStyle, false);
         
         jTextPane1.setDocument(doc);
     }
@@ -221,7 +221,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         PrimerDesign.window.remove(PrimerDesign.primerSelect);
         PrimerDesign.window.setVisible(false);
 
-        PrimerDesign.window.getContentPane().add(new JLabel("Next Stage"));
+        PrimerDesign.temperature = new FinalTemperaturePanel();
+        PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed
