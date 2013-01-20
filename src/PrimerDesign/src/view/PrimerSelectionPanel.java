@@ -73,6 +73,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         // Create and add the main document style
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
+        StyleConstants.setFontFamily(mainStyle, "monospaced");
         //StyleConstants.setLeftIndent(mainStyle, 6);
     
         // Create and add the constant width style

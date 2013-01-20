@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 
 /**
@@ -54,6 +55,7 @@ public class AreaSelection extends javax.swing.JPanel {
         
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
+        StyleConstants.setFontFamily(mainStyle, "monospaced");
         
         oDoc.setLogicalStyle(0, mainStyle);
         cDoc.setLogicalStyle(0, mainStyle);
