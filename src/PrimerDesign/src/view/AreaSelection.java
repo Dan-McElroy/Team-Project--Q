@@ -5,14 +5,12 @@
 package view;
 
 import controller.PrimerDesign;
-import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Document;
-import javax.swing.text.Highlighter;
-import javax.swing.text.StyledDocument;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.Style;
+import javax.swing.text.StyleContext;
 
 /**
  *
@@ -49,7 +47,26 @@ public class AreaSelection extends javax.swing.JPanel {
         initComponents();
         //high = sequenceTextArea.getHighlighter();
         //from = 0;
-        //to = 0; 
+        //to = 0;
+        StyleContext sc = new StyleContext();
+        final DefaultStyledDocument oDoc = new DefaultStyledDocument(sc);
+        final DefaultStyledDocument cDoc = new DefaultStyledDocument(sc);
+        
+        Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
+        final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
+        
+        oDoc.setLogicalStyle(0, mainStyle);
+        cDoc.setLogicalStyle(0, mainStyle);
+        try {
+            // Add the text to the document
+            oDoc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
+            cDoc.insertString(0, PrimerDesign.start.getInSequence().toString('c', 10, 70), null);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        oStrandTextPane.setDocument(oDoc);
+        cStrandTextPane.setDocument(cDoc);
     }
 
     /**
@@ -74,9 +91,9 @@ public class AreaSelection extends javax.swing.JPanel {
         lineNumberTextArea = new javax.swing.JTextArea();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        oStrandTextPane = new javax.swing.JTextPane(PrimerDesign.start.getInSequence().toString('o', 10, 80));
+        oStrandTextPane = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        cStrandTextPane = new javax.swing.JTextPane(PrimerDesign.start.getInSequence().toString('c', 10, 80));
+        cStrandTextPane = new javax.swing.JTextPane();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -170,7 +187,7 @@ public class AreaSelection extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGap(0, 11, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromLabel)

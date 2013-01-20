@@ -49,19 +49,26 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         }
     }
     */
-    public int realIndex(int x) {
-        int xTen = x - (x % 10);
-        return (x + (xTen /10));
+    public int realIndex(int x, int block) {
+        //Potential issue: assumes line % block= 0.
+        int xRounded = x - (x % block);
+        return (x + (xRounded /block));
     }
     
     public PrimerSelectionPanel() {
+        
+        /*
+        Issue: 
+        * The number panel increments are hardcoded.
+        * The block and line variables used in toString should be modifiable and
+        * uniform across all screens.
+        */
         
         initComponents();
         
         // Create the StyleContext and the document
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument doc = new DefaultStyledDocument(sc);
-        
 
         // Create and add the main document style
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
@@ -88,8 +95,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         int badStart = Integer.parseInt(PrimerDesign.area.getStartTarget()) -1;
         int badEnd = Integer.parseInt(PrimerDesign.area.getEndTarget()) -1;
         ///*
-        int realStart = realIndex(badStart);
-        int realEnd = realIndex(badEnd) + 1;
+        int realStart = realIndex(badStart, 10);
+        int realEnd = realIndex(badEnd, 10) + 1;
         
         
         // Apply the character attributes
@@ -241,7 +248,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
