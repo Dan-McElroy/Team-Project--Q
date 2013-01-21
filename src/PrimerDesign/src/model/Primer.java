@@ -46,7 +46,7 @@ public class Primer {
         }
         int meltTemp = (2*at) + (4*gc);
         if (meltTemp >= 50 && meltTemp <= 65)
-            return new TestResult(true, null);
+            return new TestResult(true, Integer.toString(meltTemp));
         else
             return new TestResult(false, (Integer.toString(meltTemp)));
     }
