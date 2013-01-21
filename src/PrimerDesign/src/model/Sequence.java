@@ -155,7 +155,7 @@ public class Sequence {
         TestResult fTest = new TestResult(true, "Forward Primer:\n");
         fTest.add(fPrimer.test());
         fTest.add(fPrimer.isUnique(oStrand, cStrand)); //better than whole Seq
-        TestResult rTest = new TestResult(true, "Forward Primer:\n");
+        TestResult rTest = new TestResult(true, "Reverse Primer:\n");
         rTest.add(rPrimer.test());
         rTest.add(rPrimer.isUnique(oStrand, cStrand));
         if (fTest.getPass() || rTest.getPass() 
