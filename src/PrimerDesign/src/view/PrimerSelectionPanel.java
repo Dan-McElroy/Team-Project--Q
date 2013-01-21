@@ -93,8 +93,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         //Integer.parseInt(PrimerDesign.area.getStartTarget()) for start
         //Integer.parseInt(PrimerDesign.area.getEndTarget()) for end
         
-        int badStart = Integer.parseInt(PrimerDesign.area.getStartTarget()) -1;
-        int badEnd = Integer.parseInt(PrimerDesign.area.getEndTarget()) -1;
+        int badStart = PrimerDesign.area.getStartTarget() -1;
+        int badEnd = PrimerDesign.area.getEndTarget() -1;
         ///*
         int realStart = realIndex(badStart, 10);
         int realEnd = realIndex(badEnd, 10) + 1;
@@ -107,7 +107,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         
         lineNums = "";
         int x = 1;
-        for(int i = 0; x < 9150; i++){
+        for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
             x += 70;
         }
@@ -190,7 +190,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(sequencePane);
 
         lineNumArea.setColumns(1);
-        lineNumArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        lineNumArea.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         lineNumArea.setRows(5);
         jScrollPane3.setViewportView(lineNumArea);
 
@@ -219,12 +219,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(showRulesButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))

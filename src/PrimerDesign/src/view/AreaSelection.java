@@ -23,21 +23,21 @@ public class AreaSelection extends javax.swing.JPanel {
     //private Highlighter high;
     //private int from;
     //private int to;
-    private String startTarget, endTarget;
+    private int startTarget, endTarget;
 
-    public String getStartTarget() {
+    public int getStartTarget() {
         return startTarget;
     }
 
-    public void setStartTarget(String startTarget) {
+    public void setStartTarget(int startTarget) {
         this.startTarget = startTarget;
     }
 
-    public String getEndTarget() {
+    public int getEndTarget() {
         return endTarget;
     }
 
-    public void setEndTarget(String endTarget) {
+    public void setEndTarget(int endTarget) {
         this.endTarget = endTarget;
     }
     
@@ -206,9 +206,9 @@ public class AreaSelection extends javax.swing.JPanel {
 
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        startTarget = fromTextField.getText();
-        endTarget = toTextField.getText();
-        
+        try {
+        startTarget = Integer.parseInt(fromTextField.getText());
+        endTarget = Integer.parseInt(toTextField.getText());
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
@@ -216,6 +216,12 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.getContentPane().add(PrimerDesign.primerSelect);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
+        } catch(NumberFormatException e) {
+            NumberFormatErrorBox nfeb = new NumberFormatErrorBox(PrimerDesign.window, true);
+            nfeb.setLocation(215, 450);
+            nfeb.setVisible(true);
+        }
+        
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

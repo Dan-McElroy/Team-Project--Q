@@ -68,6 +68,10 @@ public class Sequence {
     	rPrimer = r;
     }
     
+    public int length() {
+        return oStrand.length();
+    }
+    
     public static String parser(Scanner input) {
     	/* 
     	 * Takes in a string (should be from NCBI) and turns it
@@ -118,10 +122,6 @@ public class Sequence {
             r += complement(oStrand.charAt(i));
         }
         return r;
-    }
-    
-    public String toString() {
-        return oStrand;
     }
         
     public String toString(char x, int block, int line) {
