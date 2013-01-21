@@ -119,6 +119,10 @@ public class Sequence {
         }
         return r;
     }
+    
+    public String toString() {
+        return oStrand;
+    }
         
     public String toString(char x, int block, int line) {
         /*
