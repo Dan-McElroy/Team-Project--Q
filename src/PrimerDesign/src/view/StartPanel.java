@@ -4,8 +4,10 @@
  */
 package view;
 
+import controller.ContentListener;
 import controller.PrimerDesign;
 import javax.swing.JLabel;
+import javax.swing.event.DocumentListener;
 import model.*;
 
 /**
@@ -30,6 +32,9 @@ public class StartPanel extends javax.swing.JPanel {
      */
     public StartPanel() {
         initComponents();
+        
+        DocumentListener textListener = new ContentListener(nextButton, sequenceTextArea);
+        sequenceTextArea.getDocument().addDocumentListener(textListener);
     }
 
     /**

@@ -115,7 +115,7 @@ public class AreaSelection extends javax.swing.JPanel {
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Primer Area Selection");
+        titleLabel.setText("Target Sequence Selection");
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setText("Please specify the area to be contained in the PCR product, using the boxes provided");
