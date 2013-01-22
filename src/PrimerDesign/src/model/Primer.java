@@ -12,13 +12,14 @@ public class Primer {
     private String code;
     
     public Primer(String c) {
-        setCode(c);
+        code = c;
     }
     public String getCode() {
         return code;
     }
     public void setCode(String c) {
-        Sequence.parser(new Scanner(c));
+        code = c;
+         // Sequence.parser(new Scanner(c));
     }
     
     public TestResult goodLength() {
@@ -47,7 +48,7 @@ public class Primer {
         }
         int meltTemp = (2*at) + (4*gc);
         if (meltTemp >= 50 && meltTemp <= 65)
-            return new TestResult(true, Integer.toString(meltTemp));
+            return new TestResult(true, (Integer.toString(meltTemp)));
         else
             return new TestResult(false, (Integer.toString(meltTemp)));
     }
