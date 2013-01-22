@@ -1,6 +1,7 @@
 package model;
 
 import java.lang.Math;
+import java.util.Scanner;
 
 /**
  *
@@ -11,13 +12,13 @@ public class Primer {
     private String code;
     
     public Primer(String c) {
-        code = c;
+        setCode(c);
     }
     public String getCode() {
         return code;
     }
     public void setCode(String c) {
-        code = c;
+        Sequence.parser(new Scanner(c));
     }
     
     public TestResult goodLength() {
