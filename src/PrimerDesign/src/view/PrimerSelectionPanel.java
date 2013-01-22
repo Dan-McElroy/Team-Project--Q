@@ -271,9 +271,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
-        PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-        ped.setText(pass.getOut());
+       // model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
+        //PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
+       // ped.setText(pass.getOut());
         //if (pass.getPass()) {
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(forwardPrimerTextField.getText()));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(reversePrimerTextField.getText()));
