@@ -147,7 +147,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Primer Design Stage 3");
+        titleLabel.setText("Primer Selection");
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setText("Enter the primer pair in the text fields below, click the \"Show Primer Design Rules\" button below to see general primer design rules");
