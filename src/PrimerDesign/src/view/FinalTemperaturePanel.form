@@ -187,7 +187,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Now go to &quot;http://ncbi.nlm.nih.gov/tool/primer-blast/&quot; to see primer blast"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Now go to &lt;a href=&quot;http://ncbi.nlm.nih.gov/tool/primer-blast/&quot;&gt;this link&lt;/a&gt; to see primer blast&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">

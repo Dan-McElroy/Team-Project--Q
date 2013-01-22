@@ -49,7 +49,7 @@ public class Primer {
         if (meltTemp >= 50 && meltTemp <= 65)
             return new TestResult(true, (Integer.toString(meltTemp)));
         else
-            return new TestResult(false, (Integer.toString(meltTemp)));
+            return new TestResult(false, ("Message incoming! Temperature: " + Integer.toString(meltTemp)));
     }
     
     public boolean matches(int i, String x) {
@@ -323,15 +323,15 @@ public class Primer {
     	 */
         TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
-        t.setOut(t.getOut() + "#");
+        if (!meltingTemp().getPass()) t.setOut(t.getOut() + "#");
         t.add(gcContent());
-        t.setOut(t.getOut() + "#");
+        if (!gcContent().getPass()) t.setOut(t.getOut() + "#");
         t.add(repetition());
-        t.setOut(t.getOut() + "#");
+        if (!repetition().getPass()) t.setOut(t.getOut() + "#");
         t.add(goodLength());
-        t.setOut(t.getOut() + "#");
+        if (!goodLength().getPass()) t.setOut(t.getOut() + "#");
         t.add(selfAnneal());        // Note: need to specify WHERE it splits.
-        t.setOut(t.getOut() + "#");
+        if (!selfAnneal().getPass()) t.setOut(t.getOut() + "#");
         return t;
     }
 }

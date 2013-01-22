@@ -156,14 +156,14 @@ public class Sequence {
     
     public TestResult primerTest() {    //needs phrase fixing and optimisation
         TestResult test;
-        TestResult fTest = new TestResult(true, "Forward Primer:\n");
+        TestResult fTest = new TestResult(true, "Forward Primer:\t\n");
         fTest.add(fPrimer.test());
         fTest.add(fPrimer.isUnique(oStrand, cStrand)); //better than whole Seq
-        TestResult rTest = new TestResult(true, "Reverse Primer:\n");
+        TestResult rTest = new TestResult(true, "\nReverse Primer:\t\n");
         rTest.add(rPrimer.test());
         rTest.add(rPrimer.isUnique(oStrand, cStrand));
         if (fTest.getPass() || rTest.getPass() 
-                || fPrimer.pairAnneal(rPrimer).getPass())
+                && fPrimer.pairAnneal(rPrimer).getPass())
             test = new TestResult(true, "Congratulations, your primers work!");
         else {
             test = new TestResult(false, "Sorry, your primers violate the " +

@@ -291,14 +291,15 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-       //model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
-       model.TestResult pass = new model.TestResult(true, "Testing.");
-        PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-       ped.setText(pass.getOut());
+       PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(forwardPrimerTextField.getText()));
+       PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(reversePrimerTextField.getText()));
+       model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
+       System.out.println(pass.getOut());
+       PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
+       ped.setText(pass.toString());
        ped.setVisible(true);
-       if (pass.getPass()) {
-            PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(forwardPrimerTextField.getText()));
-            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(reversePrimerTextField.getText()));
+       //if (pass.getPass()) {
+
             PrimerDesign.window.remove(PrimerDesign.primerSelect);
             PrimerDesign.window.setVisible(false);
 
@@ -306,7 +307,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
             PrimerDesign.window.pack();
             PrimerDesign.window.setVisible(true);
-        }
+        //}
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void showRulesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesButtonActionPerformed
