@@ -82,16 +82,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setForeground(targetStyle, Color.MAGENTA);
         StyleConstants.setBackground(targetStyle, Color.black);
         
-        oDoc.setLogicalStyle(0, mainStyle);
-        cDoc.setLogicalStyle(0, mainStyle);
-        
-        try {
-            // Add the text to the document
-            oDoc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
-            cDoc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
-        } catch (BadLocationException ex) {
-            Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
         //Integer.parseInt(PrimerDesign.area.getStartTarget()) for start
         //Integer.parseInt(PrimerDesign.area.getEndTarget()) for end
         
