@@ -18,8 +18,7 @@ public class Primer {
         return code;
     }
     public void setCode(String c) {
-        code = c;
-         // Sequence.parser(new Scanner(c));
+       code = Sequence.parser(new Scanner(c));
     }
     
     public TestResult goodLength() {
