@@ -48,7 +48,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Primer Design Stage 4");
+        titleLabel.setText("Final Melting Temperatures");
 
         forwardPrimerLabel.setText("Forward Primer:");
 
