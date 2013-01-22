@@ -24,6 +24,8 @@ public class AreaSelection extends javax.swing.JPanel {
     //private int from;
     //private int to;
     private int startTarget, endTarget;
+    private String lineNums;
+
 
     public int getStartTarget() {
         return startTarget;
@@ -69,6 +71,18 @@ public class AreaSelection extends javax.swing.JPanel {
         
         oStrandTextPane.setDocument(oDoc);
         cStrandTextPane.setDocument(cDoc);
+        
+        lineNums = "";
+        int x = 1;
+        for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
+            lineNums += x + "\n";
+            x += 70;
+        }
+        lineNumberTextArea.setText(lineNums);
+        lineNumberTextArea.setCaretPosition(0);
+        
+        oStrandScroll.getVerticalScrollBar().setModel(lineAreaScroll.getVerticalScrollBar().getModel());
+        cStrandScroll.getVerticalScrollBar().setModel(lineAreaScroll.getVerticalScrollBar().getModel());
     }
 
     /**
@@ -89,12 +103,12 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel = new javax.swing.JLabel();
         toTextField = new javax.swing.JTextField();
         fromTextField = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        lineAreaScroll = new javax.swing.JScrollPane();
         lineNumberTextArea = new javax.swing.JTextArea();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        oStrandScroll = new javax.swing.JScrollPane();
         oStrandTextPane = new javax.swing.JTextPane();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        cStrandScroll = new javax.swing.JScrollPane();
         cStrandTextPane = new javax.swing.JTextPane();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -126,21 +140,23 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel.setText("To:");
 
         lineNumberTextArea.setColumns(5);
-        lineNumberTextArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        lineNumberTextArea.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
-        jScrollPane3.setViewportView(lineNumberTextArea);
+        lineAreaScroll.setViewportView(lineNumberTextArea);
 
         oStrandTextPane.setEditable(false);
         oStrandTextPane.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane5.setViewportView(oStrandTextPane);
+        oStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        oStrandScroll.setViewportView(oStrandTextPane);
 
-        jTabbedPane1.addTab("Original", jScrollPane5);
+        jTabbedPane1.addTab("Original", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
         cStrandTextPane.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane6.setViewportView(cStrandTextPane);
+        cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        cStrandScroll.setViewportView(cStrandTextPane);
 
-        jTabbedPane1.addTab("Complementary", jScrollPane6);
+        jTabbedPane1.addTab("Complementary", cStrandScroll);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,7 +169,7 @@ public class AreaSelection extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lineAreaScroll, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,17 +195,17 @@ public class AreaSelection extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(titleLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(titleLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromLabel)
@@ -260,17 +276,17 @@ public class AreaSelection extends javax.swing.JPanel {
     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JScrollPane cStrandScroll;
     private javax.swing.JTextPane cStrandTextPane;
     private javax.swing.JLabel fromLabel;
     private javax.swing.JTextField fromTextField;
     private javax.swing.JTextPane instructionTextPane;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane lineAreaScroll;
     private javax.swing.JTextArea lineNumberTextArea;
     private javax.swing.JButton nextButton;
+    private javax.swing.JScrollPane oStrandScroll;
     private javax.swing.JTextPane oStrandTextPane;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel toLabel;
