@@ -162,7 +162,7 @@ public class Sequence {
         TestResult rTest = new TestResult(true, "\nReverse Primer:\t\n");
         rTest.add(rPrimer.test());
         rTest.add(rPrimer.isUnique(oStrand, cStrand));
-        if (fTest.getPass() || rTest.getPass() 
+        if (fTest.getPass() && rTest.getPass() 
                 && fPrimer.pairAnneal(rPrimer).getPass())
             test = new TestResult(true, "Congratulations, your primers work!");
         else {

@@ -59,8 +59,9 @@ public class TestResult {
             while (printy.hasNext() ) {        
                 String next = printy.next();
                 if (next.contains("\t")) {
-                    print += next;
+                    print += next + "\n";
                     j = 1;
+                    continue;
                 }
                 print += j + ". " + next + "\n";
                 j++;
