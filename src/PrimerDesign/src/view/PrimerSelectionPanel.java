@@ -75,12 +75,15 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
         StyleConstants.setFontFamily(mainStyle, "monospaced");
+        StyleConstants.setForeground(mainStyle, Color.GRAY);
+
     
         // Create and add the constant width style
         final Style targetStyle = sc.addStyle("ConstantWidth", null);
         StyleConstants.setFontFamily(targetStyle, "monospaced");
-        StyleConstants.setForeground(targetStyle, Color.MAGENTA);
-        StyleConstants.setBackground(targetStyle, Color.black);
+        StyleConstants.setForeground(targetStyle, Color.BLACK);
+        //StyleConstants.setBackground(targetStyle, Color.black);
+        StyleConstants.setBold(targetStyle, true);
         
         //Integer.parseInt(PrimerDesign.area.getStartTarget()) for start
         //Integer.parseInt(PrimerDesign.area.getEndTarget()) for end
