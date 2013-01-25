@@ -43,23 +43,29 @@ public class TestResult {
         pass = (this.pass && t.getPass());
         if (!t.getPass())
             out += t.getOut() + " ";
-        else out += "PASS ";
     }
     
-    public String toString() {		
+    public String toString() {          //REFINE THIS.		
     	/* 
     	 * Returns a readable explanation of the test result,
     	 * also to be used for the final test result.
     	 */
     	if (pass) return ("Primer is good.");
     	else {
-    	    String print = "Primer fails, for the following reasons:\n";
-    	    Scanner printy = new Scanner(out).useDelimiter("#");
-    	    int i = 1; 
-    	    while (printy.hasNext()) {
-    	    	print += i + ". " + printy.next() + "\n";
-    	    	i++;
-    	    }
+    	    String print = "";
+            
+            Scanner printy = new Scanner(out).useDelimiter("#");
+            int j = 1; 
+            while (printy.hasNext() ) {        
+                String next = printy.next();
+                if (next.contains("\t")) {
+                    print += next + "\n";
+                    j = 1;
+                    continue;
+                }
+                print += j + ". " + next + "\n";
+                j++;
+            }
             return print;
     	}
     }

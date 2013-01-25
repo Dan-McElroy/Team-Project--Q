@@ -80,7 +80,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
         jLabel5.setText(PrimerDesign.start.getInSequence().getRPrimer().getCode());
 
-        jLabel6.setText("Now go to \"http://ncbi.nlm.nih.gov/tool/primer-blast/\" to see primer blast");
+        jLabel6.setText("<html>Now go to <a href=\"http://ncbi.nlm.nih.gov/tool/primer-blast/\">this link</a> to see primer blast</html>");
 
         jLabel7.setText(PrimerDesign.start.getInSequence().getFPrimer().meltingTemp().getOut() + "\u2103");
 
@@ -131,7 +131,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -165,7 +165,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                         .addGap(47, 47, 47)
                         .addComponent(jLabel3)
                         .addGap(58, 58, 58)
-                        .addComponent(jLabel6)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addComponent(backButton)
                         .addGap(0, 17, Short.MAX_VALUE))

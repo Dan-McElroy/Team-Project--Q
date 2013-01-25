@@ -49,7 +49,9 @@ public class Primer {
         if (meltTemp >= 50 && meltTemp <= 65)
             return new TestResult(true, (Integer.toString(meltTemp)));
         else
-            return new TestResult(false, (Integer.toString(meltTemp)));
+            return new TestResult(false, ("Melting temperature should be " + ""
+                    + "between 50-65\u2103, current temperature: " + 
+                    Integer.toString(meltTemp) + "\u2103"));
     }
     
     public boolean matches(int i, String x) {
@@ -90,10 +92,10 @@ public class Primer {
             return new TestResult(false, ("Primer is not unique, seen on" + 
                     "original strand at points " + oStartPoints + "."));
         else if (oStartPoints.length() == 0 && cStartPoints.length() > 0)
-            return new TestResult(false, ("Primer is not unique, seen on" + 
+            return new TestResult(false, ("Primer is not unique, seen on " + 
                     "complementary strand at points " + cStartPoints + "."));
         else if (oStartPoints.length() > 0 && cStartPoints.length() > 0)
-            return new TestResult(false, "Primer is not unique, seen on" +
+            return new TestResult(false, "Primer is not unique, seen on " +
                     "original strand at points " + oStartPoints + "and " +
                     "complementary strand at points " + cStartPoints + ".");
         else return new TestResult(true, null);
@@ -195,7 +197,7 @@ public class Primer {
         //
         // i.e.     agtcatcg
         //       acatca
-        int minStart = min.length() - 4;
+        int minStart = Math.max(min.length() - 4, 0);
         String minCheck, maxCheck;
         int matches;
         while (minStart != 0){
@@ -273,13 +275,13 @@ public class Primer {
                     back = back.substring(difference);
                 }
 
-                if ((matches = checkMatches(front, back)) > maxMatches)
-                        maxMatches = matches;
+                maxMatches = Math.max(maxMatches, checkMatches(front, back));
                 split++;
             }
         }
 
-        return (new TestResult(maxMatches >= 4, null)); 
+        return (new TestResult(maxMatches >= 4, "Primer self anneals in " +
+                maxMatches + "places.")); 
         // change to return useful info about matches
 }
     
@@ -323,15 +325,15 @@ public class Primer {
     	 */
         TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
-        t.setOut(t.getOut() + "#");
+        if (!meltingTemp().getPass()) t.setOut(t.getOut() + "#");
         t.add(gcContent());
-        t.setOut(t.getOut() + "#");
+        if (!gcContent().getPass()) t.setOut(t.getOut() + "#");
         t.add(repetition());
-        t.setOut(t.getOut() + "#");
+        if (!repetition().getPass()) t.setOut(t.getOut() + "#");
         t.add(goodLength());
-        t.setOut(t.getOut() + "#");
+        if (!goodLength().getPass()) t.setOut(t.getOut() + "#");
         t.add(selfAnneal());        // Note: need to specify WHERE it splits.
-        t.setOut(t.getOut() + "#");
+        if (!selfAnneal().getPass()) t.setOut(t.getOut() + "#");
         return t;
     }
 }
