@@ -6,7 +6,6 @@ package view;
 
 import controller.ContentListener;
 import controller.PrimerDesign;
-import javax.swing.JLabel;
 import javax.swing.event.DocumentListener;
 import model.*;
 
@@ -67,7 +66,7 @@ public class StartPanel extends javax.swing.JPanel {
         titleLabel.setText("DNA Sequence Entry");
 
         instructionTextPane.setEditable(false);
-        instructionTextPane.setText("Copy and Paste the sequence in the box below");
+        instructionTextPane.setText("Copy the DNA sequence on which you wish to perform PCR into the box below, then click next. Note: Every a, t, c and g character will be counted as part of the sequence.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         sequenceTextArea.setColumns(20);

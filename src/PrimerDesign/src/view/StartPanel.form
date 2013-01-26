@@ -80,7 +80,7 @@
         <Component class="javax.swing.JTextPane" name="instructionTextPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Copy and Paste the sequence in the box below"/>
+            <Property name="text" type="java.lang.String" value="Copy the DNA sequence on which you wish to perform PCR into the box below, then click next. Note: Every a, t, c and g character will be counted as part of the sequence."/>
           </Properties>
         </Component>
       </SubComponents>

@@ -5,12 +5,11 @@
 package view;
 
 import controller.PrimerDesign;
-import java.util.concurrent.ConcurrentSkipListSet;
-import javax.swing.JLabel;
-import javax.swing.text.*;
 import java.awt.*;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.*;
 /**
  *
  * @author ross
