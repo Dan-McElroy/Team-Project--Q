@@ -226,6 +226,11 @@ public class AreaSelection extends javax.swing.JPanel {
         try {
         startTarget = Integer.parseInt(fromTextField.getText());
         endTarget = Integer.parseInt(toTextField.getText());
+        if (startTarget < 1 || endTarget < 1)
+            throw new NumberFormatException();
+        if ((endTarget - startTarget + 1) < 80)
+            throw new Exception();
+
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
@@ -233,10 +238,15 @@ public class AreaSelection extends javax.swing.JPanel {
         PrimerDesign.window.getContentPane().add(PrimerDesign.primerSelect);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
+        
         } catch(NumberFormatException e) {
             NumberFormatErrorBox nfeb = new NumberFormatErrorBox(PrimerDesign.window, true);
             nfeb.setLocation(215, 450);
             nfeb.setVisible(true);
+        } catch(Exception e1) {
+            LowCountErrorBox lceb = new LowCountErrorBox(PrimerDesign.window, true);
+            lceb.setLocation(215, 438);
+            lceb.setVisible(true);
         }
         
     }//GEN-LAST:event_nextButtonActionPerformed
