@@ -159,7 +159,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         titleLabel.setText("Primer Selection");
 
         instructionTextPane.setEditable(false);
-        instructionTextPane.setText("Enter the primer pair in the text fields below, click the \"Show Primer Design Rules\" button below to see general primer design rules");
+        instructionTextPane.setText("Enter the primer pair in the text fields below (by manually typing or copying and pasting the desired section), click the \"Show Primer Design Rules\" button below to see general primer design rules");
         jScrollPane2.setViewportView(instructionTextPane);
 
         forwardPrimerTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -265,15 +265,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                     .addComponent(forwardPrimerLabel)
                     .addComponent(reversePrimerLabel)
                     .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(nextButton)
