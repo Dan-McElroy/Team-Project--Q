@@ -6,6 +6,7 @@ package view;
 
 import controller.PrimerDesign;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     
     private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
-    
+    private ArrayList<Character> validChars = new ArrayList<Character>();
+        
     /*
     private class PrimerFinder implements Runnable {
 
@@ -66,6 +68,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         initComponents();
         
         // Create the StyleContext and the document
+        validChars.add('a'); 
+        validChars.add('t'); 
+        validChars.add('c'); 
+        validChars.add('g'); 
+        validChars.add(' ');
+        validChars.add('\t');
+        validChars.add('\n');
+
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument oDoc = new DefaultStyledDocument(sc);
         final DefaultStyledDocument cDoc = new DefaultStyledDocument(sc);
@@ -292,23 +302,39 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-       PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(forwardPrimerTextField.getText()));
-       PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(reversePrimerTextField.getText()));
-       model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
-       System.out.println(pass.getOut());
-       PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-       ped.setText(pass.toString());
-       ped.setVisible(true);
-       //if (pass.getPass()) {
+       String fP = forwardPrimerTextField.getText();
+       String rP = reversePrimerTextField.getText();
+       try {
+           for (int i = 0; i < fP.length(); i++) {
+               if (!validChars.contains(fP.charAt(i)) ||
+                       !validChars.contains(rP.charAt(i)))
+                   throw new Exception();
+           }
+            PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
+            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
+            model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
+            System.out.println(pass.getOut());
+            PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
+            ped.setText(pass.toString());
+            ped.setLocation(96, 100);
+            ped.setVisible(true);
+            //if (pass.getPass()) {
 
-            PrimerDesign.window.remove(PrimerDesign.primerSelect);
-            PrimerDesign.window.setVisible(false);
+                 PrimerDesign.window.remove(PrimerDesign.primerSelect);
+                 PrimerDesign.window.setVisible(false);
 
-            PrimerDesign.temperature = new FinalTemperaturePanel();
-            PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
-            PrimerDesign.window.pack();
-            PrimerDesign.window.setVisible(true);
-        //}
+                 PrimerDesign.temperature = new FinalTemperaturePanel();
+                 PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
+                 PrimerDesign.window.pack();
+                 PrimerDesign.window.setVisible(true);
+             //}           
+           
+       } catch(Exception e) {
+           InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
+           iib.setLocation(187, 450);
+           iib.setVisible(true);
+       }
+
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void showRulesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesButtonActionPerformed

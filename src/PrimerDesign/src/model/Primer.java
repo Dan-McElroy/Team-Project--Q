@@ -18,7 +18,7 @@ public class Primer {
         return code;
     }
     public void setCode(String c) {
-       code = Sequence.parser(new Scanner(c));
+       code = c;
     }
     
     public TestResult goodLength() {
@@ -243,7 +243,7 @@ public class Primer {
         
         if (maxMatches >= 4)
             return (new TestResult(false, "Primers bases anneal to each " +
-                    "other in " + maxMatches + "places."));
+                    "other in " + maxMatches + " places."));
         else
             return new TestResult(true, null);
         // change to return useful info about matches
@@ -281,7 +281,7 @@ public class Primer {
         }
 
         return (new TestResult(maxMatches >= 4, "Primer self anneals in " +
-                maxMatches + "places.")); 
+                maxMatches + " places.")); 
         // change to return useful info about matches
 }
     
