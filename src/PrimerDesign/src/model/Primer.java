@@ -32,11 +32,8 @@ public class Primer {
                 String.valueOf(code.length())));
     }
     
-    public TestResult meltingTemp() {
-    	/*
-    	 * Returns true if the formula to calculate melting temp does not return
-    	 * a value outside the range of 50-65.
-    	 */
+    public Integer getMeltingTemp() {
+        
         int at = 0; int gc = 0;
         for (int i = 0; i < code.length(); i++) {
             char c = code.charAt(i);
@@ -45,7 +42,16 @@ public class Primer {
             else if (c == 'g' || c == 'c')
                 gc++;
         }
-        int meltTemp = (2*at) + (4*gc);
+        return ((2*at) + (4*gc));
+    }
+    
+    public TestResult meltingTemp() {
+    	/*
+    	 * Returns true if the formula to calculate melting temp does not return
+    	 * a value outside the range of 50-65.
+    	 */
+        int meltTemp = getMeltingTemp();
+        
         if (meltTemp >= 50 && meltTemp <= 65)
             return new TestResult(true, (Integer.toString(meltTemp)));
         else
@@ -280,8 +286,8 @@ public class Primer {
             }
         }
 
-        return (new TestResult(maxMatches >= 4, "Primer self anneals in " +
-                maxMatches + "places.")); 
+        return (new TestResult(!(maxMatches >= 4), "Primer self anneals in " +
+                maxMatches + " places.")); 
         // change to return useful info about matches
 }
     
@@ -325,15 +331,10 @@ public class Primer {
     	 */
         TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
-        if (!meltingTemp().getPass()) t.setOut(t.getOut() + "#");
         t.add(gcContent());
-        if (!gcContent().getPass()) t.setOut(t.getOut() + "#");
-        t.add(repetition());
-        if (!repetition().getPass()) t.setOut(t.getOut() + "#");
-        t.add(goodLength());
-        if (!goodLength().getPass()) t.setOut(t.getOut() + "#");
-        t.add(selfAnneal());        // Note: need to specify WHERE it splits.
-        if (!selfAnneal().getPass()) t.setOut(t.getOut() + "#");
+        t.add(repetition());                                  //COULD ELAB      
+        t.add(goodLength());                               
+        t.add(selfAnneal());
         return t;
     }
 }

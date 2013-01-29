@@ -42,7 +42,7 @@ public class TestResult {
             out = "";
         pass = (this.pass && t.getPass());
         if (!t.getPass())
-            out += t.getOut() + " ";
+            out += t.getOut() + "#";
     }
     
     public String toString() {          //REFINE THIS.		
