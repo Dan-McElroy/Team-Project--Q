@@ -42,6 +42,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         backButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -95,6 +96,13 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
             }
         });
 
+        nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,9 +131,12 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                                     .addComponent(meltTempLabelReverse, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -161,7 +172,9 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(backButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(nextButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +188,12 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        String[] x = new String [1];
+        x[0] = "";
+        view.Animation.main(x);
+    }//GEN-LAST:event_nextButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel forwardPrimerLabel;
@@ -186,6 +205,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
     private javax.swing.JLabel meltTempLabelReverse;
     private javax.swing.JLabel meltTempNameLabelL;
     private javax.swing.JLabel meltTempNameLabelR;
+    private javax.swing.JButton nextButton;
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JLabel reversePrimerNameLabel;
     private javax.swing.JLabel titleLabel;
