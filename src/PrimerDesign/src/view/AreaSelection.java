@@ -118,7 +118,7 @@ public class AreaSelection extends javax.swing.JPanel {
         titleLabel.setText("Target Sequence Selection");
 
         instructionTextPane.setEditable(false);
-        instructionTextPane.setText("Please specify the area to be contained in the PCR product, using the boxes provided");
+        instructionTextPane.setText("Specify the region to be amplified by PCR. Indicate the region using the numbers on the left hand side and write these in the boxes below.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         nextButton.setText("Next/Go");
@@ -211,7 +211,7 @@ public class AreaSelection extends javax.swing.JPanel {
                         .addComponent(jTabbedPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

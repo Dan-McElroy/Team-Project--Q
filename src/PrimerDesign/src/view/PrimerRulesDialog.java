@@ -35,8 +35,7 @@ public class PrimerRulesDialog extends javax.swing.JDialog {
         setTitle("Design Rules Dialogue");
 
         rulesTextPane.setEditable(false);
-        rulesTextPane.setText("Generally, primers should be 20 to 30 bases in length.\n\nThe sequence of characters you use should avoid long repetitions of a single letter.\n\nThe last character of the primer should be a 'c' or a 'g' (no quotation marks).\n\nYou should avoid sequences which could self-anneal.\n\nThe primers you choose should be unique to the sequence.\n\nAs a percentage of the number of characters in your primers, between 40% and 60% of each primer should consist of 'g' or 'c' characters.\n\nAlso keep in mind that the melting temperature should be between 50 and 60 degrees Centigrade (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those characters appear in a primer).");
-        rulesTextPane.setCaretPosition(0);
+        rulesTextPane.setText("Generally, primers should be 20 to 30 bases in length.\n\nThe sequence you use should avoid long repetitions of a single base.\n\nThe last base of the primer should be a 'c' or a 'g'.\n\nYou should avoid sequences which could self-anneal.\n\nThe primers you choose should be unique to the sequence.\n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.\n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
         rulesTextPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(rulesTextPane);
 

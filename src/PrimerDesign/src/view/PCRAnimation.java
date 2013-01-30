@@ -1,35 +1,29 @@
-
-package view;
-
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package view;
 
 /**
  *
- * @author 1002858t
- */
-public class Animation {
+ * @author Admin */
+//package org.main.graphics;
 
-     private static void initComponents() {
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.net.URL;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
+
+public class PCRAnimation {
+     private static void createAndShowUI() {
         int dw = 1024; //resolution width
         int dh = 768; //resolution height
-        int speed = 1; //speed of the animation, default 15
-        String path = "src/view/AnimationImages/";  //path to the images
+        String path = "src/view/AnimationImages/"; //path to the images
         Image taq = null;
         Image a1 = null;
         Image a2 = null;
@@ -43,18 +37,18 @@ public class Animation {
         Image thermom = null;
         Image thermoh = null;
         try {
-            taq = ImageIO.read(new File(path+"taq.png"));
-            a1 = ImageIO.read(new File(path+"nodeA1.png"));
-            a2 = ImageIO.read(new File(path+"nodeA2.png"));
-            c1 = ImageIO.read(new File(path+"nodeC1.png"));
-            c2 = ImageIO.read(new File(path+"nodeC2.png"));
-            g1 = ImageIO.read(new File(path+"nodeG1.png"));
-            g2 = ImageIO.read(new File(path+"nodeG2.png"));
-            t1 = ImageIO.read(new File(path+"nodeT1.png"));
-            t2 = ImageIO.read(new File(path+"nodeT2.png"));
-            thermol = ImageIO.read(new File(path+"thermo1.png"));
-            thermom = ImageIO.read(new File(path+"thermo2.png"));
-            thermoh = ImageIO.read(new File(path+"thermo3.png"));
+            taq = ImageIO.read(new File(path+"/taq.png"));
+            a1 = ImageIO.read(new File(path+"/nodeA1.png"));
+            a2 = ImageIO.read(new File(path+"/nodeA2.png"));
+            c1 = ImageIO.read(new File(path+"/nodeC1.png"));
+            c2 = ImageIO.read(new File(path+"/nodeC2.png"));
+            g1 = ImageIO.read(new File(path+"/nodeG1.png"));
+            g2 = ImageIO.read(new File(path+"/nodeG2.png"));
+            t1 = ImageIO.read(new File(path+"/nodeT1.png"));
+            t2 = ImageIO.read(new File(path+"/nodeT2.png"));
+            thermol = ImageIO.read(new File(path+"/thermo1.png"));
+            thermom = ImageIO.read(new File(path+"/thermo2.png"));
+            thermoh = ImageIO.read(new File(path+"/thermo3.png"));
             final MyPanel panel = new MyPanel(taq,a1,a2,c1,c2,g1,g2,t1,t2,thermol,thermom,thermoh,dw,dh);
 
             JFrame frame = new JFrame("AnimateDemo");
@@ -69,7 +63,7 @@ public class Animation {
                     panel.animate();
                 }
             };
-            Timer timer = new Timer(speed, timerAction);
+            Timer timer = new Timer(5, timerAction);
             timer.setRepeats(true);
             timer.start();
 
@@ -98,6 +92,8 @@ public class Animation {
         private String text2 = "";
         private String text3 = "";
         private int time = 0;
+        private int starttime=0;
+        int speed = 20; //speed of the animation, speed of 1 = fastest, default 15
         private boolean incrementX = true;
         private boolean incrementY = true;
         private String DNAseq;
@@ -123,18 +119,19 @@ public class Animation {
             this.thermol = thermol;
             this.thermom = thermom;
             this.thermoh = thermoh;
-            this.DNAseq = "tcgcagtttgtgcaatcgcagtttgtatcggctatacgat"; //forward strand
-            this.Bseq = "tcgcagtttgtgcaatcgcagtttgtgcgcagtttgt"; //backward strand
-            this.areaStart = 10; //area to be contained
-            this.areaEnd = DNAseq.length()-10; //area to be contained
-            this.fwPrimer = "gtttgtagt";
-            this.bwPrimer = "aacatcaac";
+            this.DNAseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttgtagtttgtagtttgtagtttgtagtttgtagtttgtgttcc"; //forward strand
+            this.Bseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttagcgtcaaacacgttcaaacatcaaacatcaaacatcaaacatcaaacatcaaacacaagg"; //backward strand
+            this.areaStart = 16; //area to be contained
+            this.areaEnd = 89; //area to be contained
+            this.fwPrimer = "aaaaagtttgtagtt";
+            this.bwPrimer = "aaaaaaacatcaaac";
             this.dw = dw;
             this.dh = dh;
         }
 
         @Override
         protected void paintComponent(Graphics g) {
+            int starttime;
             super.paintComponent(g);
             int taqWidth = taq.getWidth(null);
             int taqHeight = taq.getHeight(null);
@@ -143,7 +140,6 @@ public class Animation {
             int thermoWidth = thermol.getWidth(null);
             int thermoHeight = thermol.getHeight(null);
             int scaling = (DNAseq.length()*(nodeWidth*13/14)/this.dw);
-            int scale16 =(int) ((nodeHeight*((4*2) * (Math.pow(2,4))))/500);
             int nw = nodeWidth/scaling;
             int nh = nodeHeight/scaling;
             int bwstart;
@@ -152,7 +148,6 @@ public class Animation {
             String bwString;
             String fwString;
             int scfix = nw/14;
-            int smallscale = 64*nodeHeight/this.dh;
             if (time<650) {
             this.drawStrand(DNAseq, 0, 210, true, g, nw, nh, scfix);
             this.drawStrand(Bseq, 0, 210+(nh), false, g, nw, nh, scfix);
@@ -252,40 +247,44 @@ public class Animation {
                  {
                     Font font = new Font("Times New Roman", Font.PLAIN, 15);
                     g.setFont(font);
-                    scaling = smallscale;
+                    int spacing=0;
+                    fwString=DNAseq.substring(areaStart,areaEnd);
+                    bwString=Bseq.substring(areaStart,areaEnd);
+                    int widthscale = (int)((((fwString.length()*nodeWidth))*9)/(dw-8*15));
+                    int heightscale = 64*nodeHeight/this.dh;
+                    scaling=widthscale;
                     int snw = nodeWidth/scaling;
                     nw=snw;
-                    int spacing=0;
                     nh = nodeHeight/scaling;
-                    
-                    this.drawStrand(bwPrimer, 15, 500/2,false, g, nw, nh, scfix);
-                    this.drawStrand(fwPrimer, 15, 500/2-nh,true, g, nw, nh, scfix);
+                    this.drawStrand(bwString, 15, 500/2,false, g, nw, nh, scfix);
+                    this.drawStrand(fwString, 15, 500/2-nh,true, g, nw, nh, scfix);
                     for (int i=1;i<5;i++) {
                     spacing = 500/((int)Math.pow(2, i)+1);
                     scaling = (int) ((nodeHeight*((i*2) * (Math.pow(2,i))))/500);
-                    if(scaling<smallscale) scaling=smallscale;
-                    if(scaling>scale16) scaling=scale16;
+                    if(scaling<heightscale) scaling=heightscale;
+                    if(scaling<widthscale) scaling=widthscale;
                     nw = nodeWidth/scaling;
                     nh = nodeHeight/scaling;
-                    g.drawString(Integer.toString(i)+" cycle", i*((snw*bwPrimer.length())+15)+15, 550);
-                    g.drawString(Integer.toString((int)Math.pow(2,i)), i*(snw*bwPrimer.length()+15)+30, 570);
+                    g.drawString(Integer.toString(i)+" cycle", i*((snw*fwString.length())+15)+15, 550);
+                    g.drawString(Integer.toString((int)Math.pow(2,i)), i*(snw*fwString.length()+15)+30, 570);
                         for (int j=1;j<=((int)Math.pow(2,i));j++) {
-                            this.drawStrand(bwPrimer,(i*((snw*bwPrimer.length())+15)), j*spacing, false, g, nw, nh, scfix);
-                            this.drawStrand(fwPrimer,(i*((snw*fwPrimer.length())+15)), j*spacing-nh, true, g, nw, nh, scfix);
+                            this.drawStrand(bwString,(i*((snw*fwString.length())+15)), j*spacing, false, g, nw, nh, scfix);
+                            this.drawStrand(fwString,(i*((snw*fwString.length())+15)), j*spacing-nh, true, g, nw, nh, scfix);
                         }
                     }
-                    g.drawString(Integer.toString(5)+" cycle", 5*((snw*bwPrimer.length())+15)+15, 550);
-                    g.drawString(Integer.toString((int)Math.pow(2,5)), 5*(snw*bwPrimer.length()+15)+30, 570);
+                    g.drawString(Integer.toString(5)+" cycle", 5*((snw*fwString.length())+15)+30+(int)(snw*fwString.length()/2), 550);
+                    g.drawString(Integer.toString((int)Math.pow(2,5)), 5*(snw*fwString.length()+15)+45+(int)(snw*fwString.length()/2), 570);
                     for (int i=0;i<2;i++) {
                         for (int j=1;j<=((int)Math.pow(2,4));j++) {
-                                this.drawStrand(bwPrimer,(5*((snw*bwPrimer.length())+15))+i*(nw*(fwPrimer.length()))+5, j*spacing, false, g, nw, nh, scfix);
-                                this.drawStrand(fwPrimer,(5*((snw*fwPrimer.length())+15))+i*(nw*(fwPrimer.length()))+5, j*spacing-nh, true, g, nw, nh, scfix);
+                                this.drawStrand(bwString,(5*((snw*fwString.length())+15))+i*(snw*(fwString.length())+15)+15, j*spacing, false, g, nw, nh, scfix);
+                                this.drawStrand(fwString,(5*((snw*fwString.length())+15))+i*(snw*(fwString.length())+15)+15, j*spacing-nh, true, g, nw, nh, scfix);
                          }
                     }
-                    g.drawString("...", 6*((snw*bwPrimer.length())+15)+15, 500);
-                    g.drawString(Integer.toString(40)+" cycle", 7*((snw*bwPrimer.length())+15)+15, 550);
-                    g.drawString("10^12", 7*(snw*bwPrimer.length()+15)+30, 570);
-                    for(int i = spacing;i<450;i++) g.drawLine(7*((snw*bwPrimer.length())+15), i, 8*((snw*bwPrimer.length())+15), i);
+                    g.drawString("...", 7*((snw*bwString.length())+15)+15, 550);
+                    g.drawString(Integer.toString(40)+" cycle", 8*((snw*fwString.length())+15)+15
+                             , 550);
+                    g.drawString("10^12", 8*(snw*bwString.length()+15)+30, 570);
+                    for(int i = spacing;i<475;i++) { g.drawLine(8*(snw*bwString.length()+15), i, 9*(snw*bwString.length()+15), i);}
                     
                     
                 }
@@ -334,6 +333,8 @@ public class Animation {
         }
         
         public void animate() {
+                if(time==0) {starttime = (int)System.currentTimeMillis();
+                             time = 1;}
                 if(time<250) { text="PCR, or the Polymerase chain reaction,can target and amplify any ";
                              text2="specific nucleic acid from biological samples.";
                              text3="";}
@@ -366,8 +367,7 @@ public class Animation {
                     text2="and have a nice day!";
                     text3="";
                 }
-          
-                time++;
+                time=(int)(System.currentTimeMillis()-starttime)/speed+1;
                 repaint();
             
         }
@@ -376,7 +376,7 @@ public class Animation {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                initComponents();
+                createAndShowUI();
             }
         });
     }

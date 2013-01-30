@@ -77,7 +77,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Component id="lineAreaScroll" min="-2" pref="354" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
@@ -111,7 +111,7 @@
         <Component class="javax.swing.JTextPane" name="instructionTextPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Please specify the area to be contained in the PCR product, using the boxes provided"/>
+            <Property name="text" type="java.lang.String" value="Specify the region to be amplified by PCR. Indicate the region using the numbers on the left hand side and write these in the boxes below."/>
           </Properties>
         </Component>
       </SubComponents>

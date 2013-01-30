@@ -169,7 +169,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         titleLabel.setText("Primer Selection");
 
         instructionTextPane.setEditable(false);
-        instructionTextPane.setText("Enter the primer pair in the text fields below (by manually typing or copying and pasting the desired section), click the \"Show Primer Design Rules\" button below to see general primer design rules");
+        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         forwardPrimerTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +279,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

@@ -83,7 +83,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="displayTabbedPane" pref="386" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
                       <Component id="lineAreaScroll" min="-2" pref="348" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -118,7 +118,7 @@
         <Component class="javax.swing.JTextPane" name="instructionTextPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter the primer pair in the text fields below (by manually typing or copying and pasting the desired section), click the &quot;Show Primer Design Rules&quot; button below to see general primer design rules"/>
+            <Property name="text" type="java.lang.String" value="You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the &quot;Show Primer Design Rules&quot; button below to see general primer design rules."/>
           </Properties>
         </Component>
       </SubComponents>
