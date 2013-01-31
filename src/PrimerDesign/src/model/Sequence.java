@@ -181,8 +181,8 @@ public class Sequence {
                 && tempDifference().getPass())
             test = new TestResult(true, "Congratulations, your primers work!");
         else {
-            test = new TestResult(true, "Sorry, your primers violate the " +
-                    "following rules:\n\n");
+            test = new TestResult(true, "Sorry, your primers do not meet the " +
+                    "following requirements:\n\n");
             if (!fTest.getPass()) test.add(fTest);
             if (!rTest.getPass()) test.add(rTest);
             if (!fPrimer.pairAnneal(rPrimer).getPass()) {

@@ -48,7 +48,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Final Melting Temperatures");
+        titleLabel.setText("Melting Temperatures");
 
         reversePrimerNameLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
         reversePrimerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -96,7 +96,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
             }
         });
 
-        nextButton.setText("Next");
+        nextButton.setText("See Animation");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -136,7 +136,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );

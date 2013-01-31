@@ -63,25 +63,22 @@
               <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fromLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="toLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="toTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fromTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fromLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="toLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="toTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fromTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTabbedPane1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jTabbedPane1" pref="400" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                      <Component id="lineAreaScroll" min="-2" pref="354" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lineAreaScroll" min="-2" pref="367" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nextButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -118,7 +115,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="nextButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next/Go"/>
+        <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
@@ -174,8 +171,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Original">
-                <Property name="tabTitle" type="java.lang.String" value="Original"/>
+              <JTabbedPaneConstraints tabName="DNA Sequence">
+                <Property name="tabTitle" type="java.lang.String" value="DNA Sequence"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

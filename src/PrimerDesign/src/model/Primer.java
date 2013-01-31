@@ -21,7 +21,8 @@ public class Primer {
        code = c;
     }
     
-public TestResult goodLength() {
+    
+    public TestResult goodLength() {
     	/*
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
     	 */
@@ -95,7 +96,7 @@ public TestResult goodLength() {
         }
         
         if (oStartPoints.length() > 0 && cStartPoints.length() == 0) 
-            return new TestResult(false, ("Primer is not unique, seen on" + 
+            return new TestResult(false, ("Primer is not unique, seen on " + 
                     "original strand at points " + oStartPoints + "."));
         else if (oStartPoints.length() == 0 && cStartPoints.length() > 0)
             return new TestResult(false, ("Primer is not unique, seen on " + 
@@ -308,7 +309,7 @@ public TestResult goodLength() {
         return matches;
     }
     
-    public String reverse(String s) {
+    public static String reverse(String s) {
         if (s.length() <= 1) { 
             return s;
         }

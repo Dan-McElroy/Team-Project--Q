@@ -72,19 +72,19 @@
               <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="reversePrimerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" max="-2" attributes="0">
                   <Component id="forwardPrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="reversePrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forwardPrimerTextField" min="-2" max="-2" attributes="0"/>
+                  <Component id="forwardPrimerTextField" alignment="3" pref="25" max="32767" attributes="0"/>
+                  <Component id="reversePrimerTextField" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="displayTabbedPane" pref="386" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
-                      <Component id="lineAreaScroll" min="-2" pref="348" max="-2" attributes="0"/>
+                  <Component id="displayTabbedPane" pref="392" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lineAreaScroll" min="-2" pref="361" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -124,11 +124,21 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="forwardPrimerTextField">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[8, 25]"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="forwardPrimerTextFieldActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="reversePrimerTextField">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[8, 25]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forwardPrimerLabel">
       <Properties>
@@ -150,7 +160,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="nextButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next/Go"/>
+        <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
@@ -192,8 +202,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Original">
-                <Property name="tabTitle" type="java.lang.String" value="Original"/>
+              <JTabbedPaneConstraints tabName="DNA Sequence">
+                <Property name="tabTitle" type="java.lang.String" value="DNA Sequence"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

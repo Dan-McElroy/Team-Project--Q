@@ -172,11 +172,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.");
         jScrollPane2.setViewportView(instructionTextPane);
 
+        forwardPrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
         forwardPrimerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forwardPrimerTextFieldActionPerformed(evt);
             }
         });
+
+        reversePrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
 
         forwardPrimerLabel.setText("Forward Primer:");
 
@@ -189,7 +192,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             }
         });
 
-        nextButton.setText("Next/Go");
+        nextButton.setText("Next");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -214,7 +217,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         oStrandTextPane.setMaximumSize(new java.awt.Dimension(700, 2147483647));
         oStrandScroll.setViewportView(oStrandTextPane);
 
-        displayTabbedPane.addTab("Original", oStrandScroll);
+        displayTabbedPane.addTab("DNA Sequence", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
         cStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
@@ -269,18 +272,18 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(forwardPrimerLabel)
                     .addComponent(reversePrimerLabel)
-                    .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 41, Short.MAX_VALUE)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
