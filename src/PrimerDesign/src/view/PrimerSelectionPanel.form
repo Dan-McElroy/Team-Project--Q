@@ -73,11 +73,13 @@
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" max="-2" attributes="0">
-                  <Component id="forwardPrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="reversePrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forwardPrimerTextField" alignment="3" pref="25" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="reversePrimerTextField" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="forwardPrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="reversePrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="forwardPrimerTextField" alignment="3" pref="25" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">

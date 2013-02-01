@@ -6,6 +6,7 @@
 
 package model;
 
+import controller.PrimerDesign;
 import java.util.Scanner;
 import java.io.*;
 /**
@@ -72,6 +73,17 @@ public class Sequence {
         return oStrand.length();
     }
     
+    public boolean containsN(int s, int e) {
+        
+        String oString = (oStrand.substring(
+                PrimerDesign.primerSelect.realIndex(s, 10),
+                    PrimerDesign.primerSelect.realIndex(e, 10)));
+        String cString = cStrand.substring(
+                PrimerDesign.primerSelect.realIndex(s, 10),
+                    PrimerDesign.primerSelect.realIndex(e, 10));
+        return (oString.contains("n") || cString.contains("n"));
+    }
+    
     public static String parser(Scanner input) {
     	/* 
     	 * Takes in a string (should be from NCBI) and turns it
@@ -85,7 +97,7 @@ public class Sequence {
             String in = input.next();
             for (int i = 0; i < in.length(); i++) {
                 x = in.charAt(i);
-                if (x == 'a' || x == 't' || x == 'g' || x == 'c')
+                if (x == 'a' || x == 't' || x == 'g' || x == 'c'|| x == 'n')
                     parsed += x;
             }
         }

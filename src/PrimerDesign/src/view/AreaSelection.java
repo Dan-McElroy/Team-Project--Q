@@ -230,6 +230,8 @@ public class AreaSelection extends javax.swing.JPanel {
             throw new LowCountException();
         else if ((endTarget - startTarget + 1) > 1400)
             throw new HighCountException();
+        if (PrimerDesign.start.getInSequence().containsN(startTarget, endTarget))
+            throw new NException();
 
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
@@ -251,6 +253,10 @@ public class AreaSelection extends javax.swing.JPanel {
             HighCountErrorBox hceb = new HighCountErrorBox(PrimerDesign.window, true);
             hceb.setLocation(215, 438);
             hceb.setVisible(true);
+        } catch(NException e3) {
+            NSequenceBox nsb = new NSequenceBox(PrimerDesign.window, true);
+            nsb.setLocation(215, 438);
+            nsb.setVisible(true);
         }
         
     }//GEN-LAST:event_nextButtonActionPerformed

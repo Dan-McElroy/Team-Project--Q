@@ -275,11 +275,12 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(forwardPrimerLabel)
-                    .addComponent(reversePrimerLabel)
-                    .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(forwardPrimerLabel)
+                        .addComponent(reversePrimerLabel)
+                        .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
@@ -316,9 +317,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 if (!validChars.contains(rP.charAt(i)))
                     throw new Exception();
             }
-            
             fP = Sequence.parser(new Scanner(fP));
             rP = Sequence.parser(new Scanner(rP));
+            if (fP.contains("n") || rP.contains("n"))
+                throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
             model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
@@ -338,7 +340,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                  PrimerDesign.window.setVisible(true);
              //}           
            
-       } catch(Exception e) {
+       } catch(NException e1) {
+           NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);
+           npb.setLocation(187,450);
+           npb.setVisible(true);
+       }catch(Exception e) {
            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
            iib.setLocation(187, 450);
            iib.setVisible(true);
