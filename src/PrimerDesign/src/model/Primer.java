@@ -73,6 +73,9 @@ public class Primer {
          * if count > 1 return false, null
          * else return true, null
          */
+        
+        int oInstances = 0;
+        int cInstances = 0;
         String oStartPoints = "";
         String cStartPoints = "";
         char start = code.charAt(0);
@@ -83,6 +86,8 @@ public class Primer {
                     if (oStartPoints.length() != 0)
                     	oStartPoints += ", ";
                     oStartPoints += (i+1);
+                    oInstances++;
+                    //System.out.println("ADDED TO OINSTANCES");
                 }
         }
         //Repeats for complementary. Uneasy about repetition.
@@ -92,18 +97,19 @@ public class Primer {
                     if (cStartPoints.length() != 0)
                     	cStartPoints += ", ";
                     cStartPoints += (i+1);
+                    cInstances++;
                 }
         }
         
-        if (oStartPoints.length() > 0 && cStartPoints.length() == 0) 
+        if (oInstances > 1 && cInstances == 0) 
             return new TestResult(false, ("Primer is not unique, seen on " + 
                     "original strand at points " + oStartPoints + "."));
-        else if (oStartPoints.length() == 0 && cStartPoints.length() > 0)
+        else if (oInstances == 0 && cInstances > 1)
             return new TestResult(false, ("Primer is not unique, seen on " + 
                     "complementary strand at points " + cStartPoints + "."));
-        else if (oStartPoints.length() > 0 && cStartPoints.length() > 0)
+        else if (oInstances > 1 && cInstances > 1)    // THIS ONE MAY BE BROKEN: NOT SURE HOW CHECK WORKS - RossT
             return new TestResult(false, "Primer is not unique, seen on " +
-                    "original strand at points " + oStartPoints + "and " +
+                    "original " + oStartPoints + " times and " +
                     "complementary strand at points " + cStartPoints + ".");
         else return new TestResult(true, null);
     }

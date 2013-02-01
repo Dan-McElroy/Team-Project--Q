@@ -305,14 +305,20 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-       String fP = Sequence.parser(new Scanner(forwardPrimerTextField.getText()));
-       String rP = Sequence.parser(new Scanner(reversePrimerTextField.getText()));
-       try {
-           for (int i = 0; i < fP.length(); i++) {
-               if (!validChars.contains(fP.charAt(i)) ||
-                       !validChars.contains(rP.charAt(i)))
-                   throw new Exception();
-           }
+        String fP = forwardPrimerTextField.getText();
+        String rP = reversePrimerTextField.getText();
+        try {
+            for (int i = 0; i < fP.length(); i++) {
+                if (!validChars.contains(fP.charAt(i)))
+                    throw new Exception();
+            }
+            for (int i = 0; i < rP.length(); i++) {
+                if (!validChars.contains(rP.charAt(i)))
+                    throw new Exception();
+            }
+            
+            fP = Sequence.parser(new Scanner(fP));
+            rP = Sequence.parser(new Scanner(rP));
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
             model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
