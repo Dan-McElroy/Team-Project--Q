@@ -7,10 +7,12 @@ package view;
 import controller.PrimerDesign;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.text.*;
+import model.Sequence;
 /**
  *
  * @author ross
@@ -303,8 +305,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-       String fP = forwardPrimerTextField.getText();
-       String rP = reversePrimerTextField.getText();
+       String fP = Sequence.parser(new Scanner(forwardPrimerTextField.getText()));
+       String rP = Sequence.parser(new Scanner(reversePrimerTextField.getText()));
        try {
            for (int i = 0; i < fP.length(); i++) {
                if (!validChars.contains(fP.charAt(i)) ||
