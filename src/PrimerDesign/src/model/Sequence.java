@@ -130,16 +130,38 @@ public class Sequence {
          * into blocks of ten and lines of a specified amount.
          */ 
         String out = "";
-        String strand;
+        String strand = "";
         if (x == 'o')
             strand = oStrand;
-        else strand = cStrand;
-        for (int i = 0; i < strand.length(); i++) {
-            if (i % line == 0 && i != 0)
-                out += "\n";
-            else if (i % block == 0 && i != 0)
-                out += " ";
-             out += strand.charAt(i);
+        else if (x == 'c') strand = cStrand;
+        else strand = oStrand; // MAKE THIS LESS STUPID
+        
+        if (x == 'o' || x == 'c'){
+            for (int i = 0; i < strand.length(); i++) {
+                if (i % line == 0 && i != 0)
+                    out += "\n";
+                else if (i % block == 0 && i != 0)
+                    out += " ";
+                 out += strand.charAt(i);
+            }
+        } else {
+            for (int i = 0; i < strand.length(); i++) {
+                
+                if (i % line == 0 && i != 0)
+                    out += "\n";
+                else if (i % block == 0 && i != 0)
+                    out += " ";
+                
+                if (i % line == 0){
+                    if (strand == oStrand)
+                        strand = cStrand;
+                    else {
+                        strand = oStrand;
+                        i = i-70;
+                    }
+                }
+                out += strand.charAt(i);
+            }
         }
         return out;
     }
