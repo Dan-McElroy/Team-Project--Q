@@ -13,6 +13,7 @@ import view.AreaSelection;
 import view.FinalTemperaturePanel;
 import view.PrimerSelectionPanel;
 import view.StartPanel;
+import view.Splash;
 
 /**
  *
@@ -21,6 +22,7 @@ import view.StartPanel;
 public class PrimerDesign {
    
     public static JFrame window;
+    public static Splash splash;
     public static StartPanel start;
     public static AreaSelection area;
     public static PrimerSelectionPanel primerSelect;
@@ -34,8 +36,8 @@ public class PrimerDesign {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add start panel to frame
-        start = new StartPanel();
-        window.getContentPane().add(start);
+        splash = new Splash();
+        window.getContentPane().add(splash);
         
         // size the window and show it
         window.pack();
