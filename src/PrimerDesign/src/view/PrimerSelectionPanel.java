@@ -89,15 +89,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setForeground(mainStyle, Color.GRAY);
 
     
-        // Create and add the constant width style
-        final Style targetStyle = sc.addStyle("ConstantWidth", null);
+        // Create and add the target style
+        final Style targetStyle = sc.addStyle("TargetStyle", null);
         StyleConstants.setFontFamily(targetStyle, "monospaced");
         StyleConstants.setForeground(targetStyle, Color.BLACK);
-        //StyleConstants.setBackground(targetStyle, Color.black);
         StyleConstants.setBold(targetStyle, true);
-        
-        //Integer.parseInt(PrimerDesign.area.getStartTarget()) for start
-        //Integer.parseInt(PrimerDesign.area.getEndTarget()) for end
         
         int badStart = PrimerDesign.area.getStartTarget() -1;
         int badEnd = PrimerDesign.area.getEndTarget() -1;
@@ -283,10 +279,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                         .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
