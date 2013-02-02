@@ -119,6 +119,8 @@ public class Sequence {
                        break;
             case 'c': out = 'g';
                        break;
+            case 'n': out = 'n';
+                       break;
             default:  out = ' ';
         }
         return out;
@@ -143,10 +145,11 @@ public class Sequence {
          */ 
         String out = "";
         String strand = "";
+        int iReset = 0;
         if (x == 'o')
             strand = oStrand;
         else if (x == 'c') strand = cStrand;
-        else strand = oStrand; // MAKE THIS LESS STUPID
+        else strand = oStrand;
         
         if (x == 'o' || x == 'c'){
             for (int i = 0; i < strand.length(); i++) {
@@ -157,22 +160,29 @@ public class Sequence {
                  out += strand.charAt(i);
             }
         } else {
-            for (int i = 0; i < strand.length(); i++) {
+            int i = 0;
+            while (i < (strand.length() + 1)){
                 
-                if (i % line == 0 && i != 0)
+                if ((i % line == 0 && i != 0) || i == strand.length()){
                     out += "\n";
-                else if (i % block == 0 && i != 0)
+                    if (strand == oStrand){
+                        strand = cStrand;
+                        i = iReset;
+                    } else {
+                        strand = oStrand;
+                        iReset = i;
+                    }
+                } else if (i % block == 0 && i != 0)
                     out += " ";
                 
-                if (i % line == 0){
-                    if (strand == oStrand)
-                        strand = cStrand;
-                    else {
-                        strand = oStrand;
-                        i = i-70;
-                    }
+                try{
+                    out += strand.charAt(i);
                 }
-                out += strand.charAt(i);
+                catch(Exception E){
+                    break;
+                }
+            
+                i++;
             }
         }
         return out;
