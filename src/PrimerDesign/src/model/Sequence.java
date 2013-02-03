@@ -74,13 +74,12 @@ public class Sequence {
     }
     
     public boolean containsN(int s, int e) {
-        
-        System.out.println("S: " + s + " E: ");
-        int realS = PrimerDesign.primerSelect.realIndex(s, 10);
-        int realE = PrimerDesign.primerSelect.realIndex(e, 10);
-        String oString = oStrand.substring(realS, realE);
-        String cString = cStrand.substring(realS, realE);
-        return (oString.contains("n") || cString.contains("n"));
+            System.out.println("S: " + s + " E: ");
+            int realS = view.PrimerSelectionPanel.realIndex(s, 10);
+            int realE = view.PrimerSelectionPanel.realIndex(e, 10);
+            String oString = oStrand.substring(realS, realE);
+            String cString = cStrand.substring(realS, realE);
+            return (oString.contains("n") || cString.contains("n"));
     }
     
     public static String parser(Scanner input) {

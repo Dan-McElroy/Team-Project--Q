@@ -187,21 +187,18 @@ public class AreaSelection extends javax.swing.JPanel {
         add(fromTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 123, 77, -1));
 
         lineNumberTextArea.setColumns(5);
-        lineNumberTextArea.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
         lineAreaScroll.setViewportView(lineNumberTextArea);
 
-        add(lineAreaScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 193, 83, 360));
+        add(lineAreaScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 183, 83, 370));
 
         oStrandTextPane.setEditable(false);
-        oStrandTextPane.setBackground(new java.awt.Color(255, 255, 255));
         oStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         oStrandScroll.setViewportView(oStrandTextPane);
 
         jTabbedPane1.addTab("DNA Sequence", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
-        cStrandTextPane.setBackground(new java.awt.Color(255, 255, 255));
         cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         cStrandScroll.setViewportView(cStrandTextPane);
 
@@ -222,14 +219,22 @@ public class AreaSelection extends javax.swing.JPanel {
         try {
         startTarget = Integer.parseInt(fromTextField.getText());
         endTarget = Integer.parseInt(toTextField.getText());
+        System.out.println("Start target: " + startTarget +
+                "\tEnd target: " + endTarget);
+        // At this point, end target exists.
+        
         if (startTarget < 1 || endTarget < 1)
             throw new NumberFormatException();
+        if (view.PrimerSelectionPanel.realIndex(endTarget, 10) > 
+                PrimerDesign.start.getInSequence().getOStrand().length())
+            throw new OverShootException();
         if ((endTarget - startTarget + 1) < 80)
             throw new LowCountException();
-        else if ((endTarget - startTarget + 1) > 1400)
+        if ((endTarget - startTarget + 1) > 1400)
             throw new HighCountException();
         if (PrimerDesign.start.getInSequence().containsN(startTarget, endTarget))
             throw new NException();
+
 
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
@@ -241,19 +246,23 @@ public class AreaSelection extends javax.swing.JPanel {
         
         } catch(NumberFormatException e) {
             NumberFormatErrorBox nfeb = new NumberFormatErrorBox(PrimerDesign.window, true);
-            nfeb.setLocation(215, 450);
+            nfeb.setLocation(215, 138);
             nfeb.setVisible(true);
-        } catch(LowCountException e1) {
+        } catch(OverShootException e1) {
+            OverShootBox osb = new OverShootBox(PrimerDesign.window, true);
+            osb.setLocation(215,138);
+            osb.setVisible(true);
+        } catch(LowCountException e2) {
             LowCountErrorBox lceb = new LowCountErrorBox(PrimerDesign.window, true);
-            lceb.setLocation(215, 438);
+            lceb.setLocation(215, 138);
             lceb.setVisible(true);
-        } catch(HighCountException e2) {
+        } catch(HighCountException e3) {
             HighCountErrorBox hceb = new HighCountErrorBox(PrimerDesign.window, true);
-            hceb.setLocation(215, 438);
+            hceb.setLocation(215, 138);
             hceb.setVisible(true);
-        } catch(NException e3) {
+        } catch(NException e4) {
             NSequenceBox nsb = new NSequenceBox(PrimerDesign.window, true);
-            nsb.setLocation(215, 438);
+            nsb.setLocation(215, 138);
             nsb.setVisible(true);
         }
         

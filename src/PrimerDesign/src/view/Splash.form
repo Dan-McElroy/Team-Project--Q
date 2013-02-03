@@ -42,7 +42,7 @@
                           <Component id="overviewLabel" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jScrollPane3" linkSize="5" min="-2" pref="217" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -74,7 +74,7 @@
               <Component id="furtherReadingLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="startButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -124,6 +124,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="bottomTextArea">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>

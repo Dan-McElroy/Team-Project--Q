@@ -57,7 +57,7 @@ public class InvalidInputBox extends javax.swing.JDialog {
                         .addGap(68, 68, 68)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
+                        .addGap(137, 137, 137)
                         .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
