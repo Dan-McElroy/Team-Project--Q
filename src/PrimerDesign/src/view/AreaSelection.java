@@ -227,7 +227,7 @@ public class AreaSelection extends javax.swing.JPanel {
             throw new NumberFormatException();
         if (view.PrimerSelectionPanel.realIndex(endTarget, 10) > 
                 PrimerDesign.start.getInSequence().getOStrand().length())
-            throw new OverShootException();
+            throw new OverShootException();     //THROWN INCORRECTLY example: length 430, 34-391 safe, 34-392 not from doesn't affect
         if ((endTarget - startTarget + 1) < 80)
             throw new LowCountException();
         if ((endTarget - startTarget + 1) > 1400)

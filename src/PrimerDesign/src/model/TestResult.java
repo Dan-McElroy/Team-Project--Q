@@ -33,6 +33,10 @@ public class TestResult {
         out = o;
     }
     
+    public void add(String s) {
+        out += s + "\n";
+    }
+    
     public void add(TestResult t) {
     	/*
     	 * Adds one test result to another, to be used for the 
@@ -41,8 +45,16 @@ public class TestResult {
         if (out == null)
             out = "";
         pass = (this.pass && t.getPass());
-        if (!t.getPass())
-            out += t.getOut() + "#";
+        if (t.getPass())
+            out += "PASS:\t" + t.getOut() + "\n";
+        else if (!t.getPass())
+            out += "FAIL:\t" + t.getOut() + "\n";
+    }
+    public void addQuiet(TestResult t) {
+        if (out == null)
+            out = "";
+        pass = (this.pass && t.getPass());
+        out += t.getOut() + "\n";
     }
     
     public String toString() {          //REFINE THIS.		
@@ -50,7 +62,12 @@ public class TestResult {
     	 * Returns a readable explanation of the test result,
     	 * also to be used for the final test result.
     	 */
-    	if (pass) return ("Primer is good.");
+        
+        return out;
+        
+        /*
+        OLD, KEEPING FOR A RAINY DAY
+        if (pass) return ("Primer is good.");
     	else {
     	    String print = "";
             
@@ -68,6 +85,7 @@ public class TestResult {
             }
             return print;
     	}
+        */
     }
     
     public boolean equals(TestResult t) {

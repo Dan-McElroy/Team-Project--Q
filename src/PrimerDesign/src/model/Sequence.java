@@ -210,7 +210,35 @@ public class Sequence {
             return new TestResult(true, null);
     }
     
-    public TestResult primerTest() {    //needs phrase fixing and optimisation
+    public TestResult primerTest() {
+        TestResult test = new TestResult(true, "");
+        TestResult fTest = fPrimer.test();
+        TestResult rTest = rPrimer.test();
+        TestResult paTest = fPrimer.pairAnneal(rPrimer);
+        if (fTest.getPass() && rTest.getPass() && paTest.getPass()
+                && tempDifference().getPass()){ test.add("Congratulations, your"
+                        + " primers meet all the design requirements!");
+                return test;
+        }
+        test.add("Your primers haven't met the requirements in the "
+                + "following areas:\n\n");
+        if (!fTest.getPass()) {
+            test.add("Forward Primer:\n");
+            test.addQuiet(fPrimer.test());
+            test.add("\n");
+        }
+        if (!rTest.getPass()) {
+            test.add("Reverse Primer:\n");
+            test.addQuiet(rPrimer.test());
+            test.add("\n");
+        }
+        if (!(tempDifference().getPass() || paTest.getPass())) {
+            test.add("General:\n");
+        }
+        if (!tempDifference().getPass()) test.add(tempDifference());
+        if (!paTest.getPass()) test.add(paTest);
+        return test;
+        /*
         TestResult test;
         TestResult fTest = new TestResult(true, "Forward Primer:\t\n#");
         fTest.add(fPrimer.test());
@@ -235,6 +263,7 @@ public class Sequence {
         }
         
         return test;
+        */
     }
     /*public static void main(String[] args) {
         Sequence s = new Sequence(args[0]);

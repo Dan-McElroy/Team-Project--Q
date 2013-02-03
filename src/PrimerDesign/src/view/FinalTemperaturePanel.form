@@ -24,7 +24,7 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                       <Component id="titleLabel" min="-2" pref="777" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -93,7 +93,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jSeparator1" min="-2" pref="142" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -188,7 +188,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="PrimerDesign.start.getInSequence().getFPrimer().meltingTemp().getOut() + &quot;\u2103&quot;" type="code"/>
+          <Connection code="Integer.toString(PrimerDesign.start.getInSequence().getFPrimer().getMeltingTemp()) + &quot;\u2103&quot;" type="code"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
@@ -200,7 +200,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="PrimerDesign.start.getInSequence().getRPrimer().meltingTemp().getOut() + &quot;\u2103&quot;" type="code"/>
+          <Connection code="Integer.toString(PrimerDesign.start.getInSequence().getRPrimer().getMeltingTemp()) + &quot;\u2103&quot;" type="code"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>

@@ -27,9 +27,11 @@ public class Primer {
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
     	 */
         if (code.length() >= 20 && code.length() <= 30)
-            return new TestResult(true, null);
-        else return new TestResult(false, ("Primer length should be between " 
-                + "20 and 30 bases, current length: " + 
+            return new TestResult(true, "The primer has a length of " + 
+                    code.length() + " bases, which is within the optimal range "
+                    + "of 20 to 30 bases.");
+        else return new TestResult(false, ("The primer's length should be "
+                + "between 20 and 30 bases, current length is " + 
                 String.valueOf(code.length())));
     }
     
@@ -54,7 +56,9 @@ public class Primer {
         int meltTemp = getMeltingTemp();
         
         if (meltTemp >= 50 && meltTemp <= 65)
-            return new TestResult(true, (Integer.toString(meltTemp)));
+            return new TestResult(true, ("The primer's melting temperature of "
+                    + Integer.toString(meltTemp) + " is within the "
+                    + "bounds of 50-65\u2103"));
         else
             return new TestResult(false, ("Melting temperature should be " + ""
                     + "between 50-65\u2103, current temperature: " + 
@@ -102,16 +106,16 @@ public class Primer {
         }
         
         if (oInstances > 1 && cInstances == 0) 
-            return new TestResult(false, ("Primer is not unique, seen on " + 
+            return new TestResult(false, ("The primer is not unique, seen on " + 
                     "original strand at points " + oStartPoints + "."));
         else if (oInstances == 0 && cInstances > 1)
-            return new TestResult(false, ("Primer is not unique, seen on " + 
+            return new TestResult(false, ("The primer is not unique, seen on " + 
                     "complementary strand at points " + cStartPoints + "."));
         else if (oInstances > 1 && cInstances > 1)    // THIS ONE MAY BE BROKEN: NOT SURE HOW CHECK WORKS - RossT
-            return new TestResult(false, "Primer is not unique, seen on " +
+            return new TestResult(false, "The primer is not unique, seen on " +
                     "original " + oStartPoints + " times and " +
                     "complementary strand at points " + cStartPoints + ".");
-        else return new TestResult(true, null);
+        else return new TestResult(true, "The primer is unique to the sequence.");
     }
 
     public TestResult gcContent(){
@@ -130,12 +134,14 @@ public class Primer {
         
         double ratio = gcCount/(double) code.length();
         if (ratio >= 0.4 && ratio <= 0.6) {
-            return new TestResult(true, null);
+            return new TestResult(true, "GC content of this primer sits at "
+                    + String.format("%.2f", ratio*100) + "%, this rests within the "
+                    + "requisite bounds of 40-60%.");
         }
         else {
-            return new TestResult(false, ("Percentage of g's and c's" + 
-                    " in primer should be between 40% and 60%." 
-                    + "Current percentage: " + String.valueOf(ratio) + "%."));
+            return new TestResult(false, ("GC content in primer should sit "
+                    + "between 40% and 60%. The current percentage is " 
+                    + String.format("%.2f", ratio*100)+"%."));
         }
 
     }
@@ -166,7 +172,8 @@ public class Primer {
             }
         }   
     
-        return new TestResult(true, null);
+        return new TestResult(true, "The primer does not contain too many "
+                + "instances of any given base in a row.");
 
     }
 
@@ -182,7 +189,7 @@ public class Primer {
         if (last == 'g' || last == 'c')
             p = true;
 
-        return new TestResult(p,("Primer must end in a g or c, instead ends in "
+        return new TestResult(p,("Primer must end in a g or c, ends in "
                 + String.valueOf(last) + "." ));   
     }
 
@@ -255,10 +262,11 @@ public class Primer {
         }
         
         if (maxMatches >= 4)
-            return (new TestResult(false, "Primers bases anneal to each " +
+            return (new TestResult(false, "The primers' bases anneal to each " +
                     "other in " + maxMatches + " places."));
         else
-            return new TestResult(true, null);
+            return new TestResult(true, "Primers will not anneal to each other"
+                    + " to a significant degree.");
         // change to return useful info about matches
     }
     
@@ -292,9 +300,13 @@ public class Primer {
                 split++;
             }
         }
-
-        return (new TestResult(maxMatches >= 4, "Primer self anneals in " +
-                maxMatches + " places.")); 
+        if (maxMatches >= 4) {
+            return (new TestResult(false, "The primer self anneals in " +
+                    maxMatches + " places."));
+        }
+        else {
+            return (new TestResult(true, "The primer will not self anneal."));
+        }
         // change to return useful info about matches
 }
     
@@ -338,7 +350,7 @@ public class Primer {
         TestResult t = new TestResult(true, "");
         t.add(meltingTemp());
         t.add(gcContent());
-        t.add(repetition());                                  //COULD ELAB      
+        t.add(repetition());                                       
         t.add(goodLength());                               
         t.add(selfAnneal());
         return t;
