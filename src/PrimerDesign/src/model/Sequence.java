@@ -74,11 +74,8 @@ public class Sequence {
     }
     
     public boolean containsN(int s, int e) {
-            System.out.println("S: " + s + " E: ");
-            int realS = view.PrimerSelectionPanel.realIndex(s, 10);
-            int realE = view.PrimerSelectionPanel.realIndex(e, 10);
-            String oString = oStrand.substring(realS, realE);
-            String cString = cStrand.substring(realS, realE);
+            String oString = oStrand.substring(s-1, e-1);
+            String cString = cStrand.substring(s-1, e-1);
             return (oString.contains("n") || cString.contains("n"));
     }
     
