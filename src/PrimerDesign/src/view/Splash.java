@@ -58,6 +58,7 @@ public class Splash extends javax.swing.JPanel {
         bottomTextArea.setEditable(false);
         bottomTextArea.setColumns(20);
         bottomTextArea.setRows(5);
+        bottomTextArea.setText("NCBI Website: http://www.ncbi.nlm.nih.gov/\nUniversity of Glasgow School of Life Sciences Moodle Site");
         jScrollPane1.setViewportView(bottomTextArea);
 
         leftTextArea.setEditable(false);
@@ -105,7 +106,7 @@ public class Splash extends javax.swing.JPanel {
                             .addComponent(overviewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 14, Short.MAX_VALUE))))))
+                                .addGap(0, 12, Short.MAX_VALUE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,7 +132,7 @@ public class Splash extends javax.swing.JPanel {
                 .addComponent(furtherReadingLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(startButton)
                 .addContainerGap())
         );

@@ -79,7 +79,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         meltTempLabelReverse.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jTextPane1.setEditable(false);
-        jTextPane1.setText("\n\nCongratulations, your primers meet all requirements!\n\nYou should now go to the NCBI website and perform a \"Primer Blast\" on your primers by going to the following website, (insert link here), or by following instructions on your worksheet.\n\nClick the back button to return to earlier stages if you wish to review anything you have done.\n\nClick the next button to see an animation of the results you have provided.\n\nWhen you are done, close this program by closing the window. ");
+        jTextPane1.setText("\n\nCongratulations, your primers meet all requirements!\n\nYou should now go to the NCBI website and perform a \"Primer Blast\" on your primers by going to the following website, http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by following instructions on your worksheet.\n\nClick the back button to return to earlier stages if you wish to review anything you have done.\n\nClick the next button to see an animation of the results you have provided.\n\nWhen you are done, close this program by closing the window. ");
         jTextPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jTextPane1);
 
