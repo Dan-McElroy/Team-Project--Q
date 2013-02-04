@@ -101,6 +101,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         forwardPrimerTextArea.setColumns(20);
         forwardPrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
         forwardPrimerTextArea.setRows(1);
+        forwardPrimerTextArea.setToolTipText("Your Forward Primer");
         jScrollPane3.setViewportView(forwardPrimerTextArea);
         forwardPrimerTextArea.setText(PrimerDesign.start.getInSequence().getFPrimer().toString());
 
@@ -109,7 +110,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         reversePrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
         reversePrimerTextArea.setRows(1);
         jScrollPane4.setViewportView(reversePrimerTextArea);
-        forwardPrimerTextArea.setText(PrimerDesign.start.getInSequence().getRPrimer().toString());
+        reversePrimerTextArea.setText(PrimerDesign.start.getInSequence().getRPrimer().toString());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,7 +172,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                                 .addComponent(meltTempNameLabelL)
                                 .addGap(12, 12, 12)
                                 .addComponent(meltTempLabelForward)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                        .addGap(0, 16, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
