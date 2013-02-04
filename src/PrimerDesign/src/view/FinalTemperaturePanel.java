@@ -33,8 +33,6 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator(SwingConstants.VERTICAL);
         reversePrimerNameLabel = new javax.swing.JLabel();
         forwardPrimerNameLabel1 = new javax.swing.JLabel();
-        reversePrimerLabel = new javax.swing.JLabel();
-        forwardPrimerLabel = new javax.swing.JLabel();
         meltTempNameLabelL = new javax.swing.JLabel();
         meltTempNameLabelR = new javax.swing.JLabel();
         meltTempLabelForward = new javax.swing.JLabel();
@@ -43,6 +41,10 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         jTextPane1 = new javax.swing.JTextPane();
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        forwardPrimerTextArea = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        reversePrimerTextArea = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -57,14 +59,6 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         forwardPrimerNameLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
         forwardPrimerNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         forwardPrimerNameLabel1.setText("Forward Primer");
-
-        reversePrimerLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        reversePrimerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        reversePrimerLabel.setText(PrimerDesign.start.getInSequence().getRPrimer().toString());
-
-        forwardPrimerLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        forwardPrimerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        forwardPrimerLabel.setText(PrimerDesign.start.getInSequence().getFPrimer().toString());
 
         meltTempNameLabelL.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
         meltTempNameLabelL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -103,46 +97,54 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
             }
         });
 
+        forwardPrimerTextArea.setEditable(false);
+        forwardPrimerTextArea.setColumns(20);
+        forwardPrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        forwardPrimerTextArea.setRows(1);
+        jScrollPane3.setViewportView(forwardPrimerTextArea);
+        forwardPrimerTextArea.setText(PrimerDesign.start.getInSequence().getFPrimer().toString());
+
+        reversePrimerTextArea.setEditable(false);
+        reversePrimerTextArea.setColumns(20);
+        reversePrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        reversePrimerTextArea.setRows(1);
+        jScrollPane4.setViewportView(reversePrimerTextArea);
+        forwardPrimerTextArea.setText(PrimerDesign.start.getInSequence().getRPrimer().toString());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(forwardPrimerNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(meltTempNameLabelL, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                    .addComponent(meltTempLabelForward, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reversePrimerNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                    .addComponent(meltTempNameLabelR, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                    .addComponent(meltTempLabelReverse, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(13, Short.MAX_VALUE)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(forwardPrimerNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(forwardPrimerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(meltTempNameLabelL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(meltTempLabelForward, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(reversePrimerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(reversePrimerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(meltTempNameLabelR, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(meltTempLabelReverse, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerLabel, forwardPrimerNameLabel1, meltTempLabelForward, meltTempLabelReverse, meltTempNameLabelL, meltTempNameLabelR, reversePrimerLabel, reversePrimerNameLabel});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -150,29 +152,30 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(forwardPrimerNameLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(forwardPrimerLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(meltTempNameLabelL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(meltTempLabelForward, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(reversePrimerNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(reversePrimerLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(meltTempNameLabelR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(meltTempLabelReverse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 5, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(reversePrimerNameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(meltTempNameLabelR)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(meltTempLabelReverse))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(forwardPrimerNameLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(meltTempNameLabelL)
+                                .addGap(12, 12, 12)
+                                .addComponent(meltTempLabelForward)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backButton)
                     .addComponent(nextButton))
                 .addContainerGap())
@@ -200,9 +203,11 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JLabel forwardPrimerLabel;
     private javax.swing.JLabel forwardPrimerNameLabel1;
+    private javax.swing.JTextArea forwardPrimerTextArea;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel meltTempLabelForward;
@@ -210,8 +215,8 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
     private javax.swing.JLabel meltTempNameLabelL;
     private javax.swing.JLabel meltTempNameLabelR;
     private javax.swing.JButton nextButton;
-    private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JLabel reversePrimerNameLabel;
+    private javax.swing.JTextArea reversePrimerTextArea;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
