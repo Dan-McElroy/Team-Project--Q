@@ -63,11 +63,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         ArrayList<Integer> end = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
         
-        int firstStart = s + (s - (s %140));
-        int secondStart = firstStart + 70;
-        int firstEnd = secondStart - (secondStart % 70);
-        int secondEnd = e + (e - (e % 140));
-        int thirdEnd = secondEnd + 70;
+        int firstStart = s + (s - (s %140)) + 70;
+        int firstEnd = (firstStart + 70) - ((firstStart + 70) % 70);
+        int secondStart = firstEnd + 70;
+        int secondEnd = e + (e - (e % 140)) - 140;
+        int thirdEnd = secondEnd + 210;
         int thirdStart = thirdEnd - (thirdEnd % 70);
         
         start.add(realIndex(firstStart, 10)); 
@@ -127,6 +127,16 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setFontFamily(originalStyle, "monospaced");
         StyleConstants.setForeground(originalStyle, Color.ORANGE);
         
+        Style originalTargetStyle = sc.addStyle("OriginalTargetStyle", defaultStyle);
+        StyleConstants.setFontFamily(originalTargetStyle, "monospaced");
+        StyleConstants.setForeground(originalTargetStyle, Color.ORANGE);
+        StyleConstants.setBold(originalTargetStyle, true);
+        
+        Style complementaryTargetStyle = sc.addStyle("ComplemenaryTargetStyle", defaultStyle);
+        StyleConstants.setFontFamily(complementaryTargetStyle, "monospaced");
+        StyleConstants.setForeground(complementaryTargetStyle, Color.BLUE);
+        StyleConstants.setBold(complementaryTargetStyle, true);
+        
         int badStart = PrimerDesign.area.getStartTarget() -1;
         int badEnd = PrimerDesign.area.getEndTarget() -1;
         
@@ -149,12 +159,12 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         cStrandTextPane.setDocument(cDoc);
         bStrandTextPane.setDocument(bDoc);
         
-        // Section for colouring the complementary strand   77 - (bDoc.getLength() - colourStart)
+        // Section for colouring the complementary strand
         int colourStart = 0;
         while(colourStart <= bDoc.getLength()){
             
             if((colourStart + 154) > bDoc.getLength()){
-                bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
+                bDoc.setCharacterAttributes(colourStart, 77 - (154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
             }
             else{
                 bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
@@ -170,8 +180,28 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         ArrayList<ArrayList<Integer>> indices = doubleIndices(badStart, badEnd);
         ArrayList<Integer> starts = indices.get(0);
         ArrayList<Integer> ends = indices.get(1);
+        
+        // Bold target section
         for (int i = 0; i < starts.size(); i++) {
-            bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), targetStyle, false);
+            System.out.println(starts.get(i) + " to "  + ends.get(i));
+            if (i == 0){
+                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i)), complementaryTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i) + 77, (ends.get(i) - starts.get(i)), originalTargetStyle, false);
+            }
+            else if (i == 1){
+                colourStart = starts.get(i);
+                while(colourStart <= ends.get(i)){
+                        bDoc.setCharacterAttributes(colourStart, 77 , complementaryTargetStyle, false);
+                        bDoc.setCharacterAttributes(colourStart + 77, 77 , originalTargetStyle, false);
+            
+                        colourStart += 154;
+                }
+        
+            }
+            else if ( i == 2){
+                bDoc.setCharacterAttributes(starts.get(i) - 77, (ends.get(i) - starts.get(i) + 1), complementaryTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), originalTargetStyle, false);
+            }
         }
         
         lineNums = "";
