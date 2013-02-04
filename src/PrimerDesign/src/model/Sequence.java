@@ -218,19 +218,17 @@ public class Sequence {
                 return test;
         }
         test.add("Your primers haven't met the requirements in the "
-                + "following areas:\n\n");
+                + "following areas:\n");
         if (!fTest.getPass()) {
-            test.add("Forward Primer:\n");
+            test.add("Forward Primer:");
             test.addQuiet(fPrimer.test());
-            test.add("\n");
         }
         if (!rTest.getPass()) {
-            test.add("Reverse Primer:\n");
+            test.add("Reverse Primer:");
             test.addQuiet(rPrimer.test());
-            test.add("\n");
         }
         if (!(tempDifference().getPass() || paTest.getPass())) {
-            test.add("General:\n");
+            test.add("General:");
         }
         if (!tempDifference().getPass()) test.add(tempDifference());
         if (!paTest.getPass()) test.add(paTest);

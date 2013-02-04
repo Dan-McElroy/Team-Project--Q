@@ -58,6 +58,29 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         return (x + (xRounded /block));
     }
     
+    public static ArrayList<ArrayList<Integer>> doubleIndices(int s, int e) {
+        ArrayList<Integer> start = new ArrayList<Integer>();
+        ArrayList<Integer> end = new ArrayList<Integer>();
+        ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
+        
+        int firstStart = s + (s - (s %140));
+        int secondStart = firstStart + 70;
+        int firstEnd = secondStart - (secondStart % 70);
+        int secondEnd = e + (e - (e % 140));
+        int thirdEnd = secondEnd + 70;
+        int thirdStart = thirdEnd - (thirdEnd % 70);
+        
+        start.add(realIndex(firstStart, 10)); 
+        start.add(realIndex(secondStart, 10)); 
+        start.add(realIndex(thirdStart, 10));
+        end.add(realIndex(firstEnd, 10)); 
+        end.add(realIndex(secondEnd, 10)); 
+        end.add(realIndex(thirdEnd, 10));
+        out.add(start);
+        out.add(end);
+        return out;
+    }
+    
     public PrimerSelectionPanel() {
         
         /*
@@ -81,13 +104,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument oDoc = new DefaultStyledDocument(sc);
         final DefaultStyledDocument cDoc = new DefaultStyledDocument(sc);
+        final DefaultStyledDocument bDoc = new DefaultStyledDocument(sc);
 
         // Create and add the main document style
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
         StyleConstants.setFontFamily(mainStyle, "monospaced");
         StyleConstants.setForeground(mainStyle, Color.GRAY);
-
     
         // Create and add the target style
         final Style targetStyle = sc.addStyle("TargetStyle", null);
@@ -95,28 +118,61 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setForeground(targetStyle, Color.BLACK);
         StyleConstants.setBold(targetStyle, true);
         
+        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
+        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
+        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
+        
+        
+        Style originalStyle = sc.addStyle("OriginalStyle", defaultStyle);
+        StyleConstants.setFontFamily(originalStyle, "monospaced");
+        StyleConstants.setForeground(originalStyle, Color.ORANGE);
+        
         int badStart = PrimerDesign.area.getStartTarget() -1;
         int badEnd = PrimerDesign.area.getEndTarget() -1;
-        ///*
+        
         int realStart = realIndex(badStart, 10);
         int realEnd = realIndex(badEnd, 10) + 1;
         
         oDoc.setLogicalStyle(0, mainStyle);
         cDoc.setLogicalStyle(0, mainStyle);
+        bDoc.setLogicalStyle(0, originalStyle);
         try {
             // Add the text to the document
             oDoc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
             cDoc.insertString(0, PrimerDesign.start.getInSequence().toString('c', 10, 70), null);
+            bDoc.insertString(0, PrimerDesign.start.getInSequence().toString('b', 10, 70), null);
         } catch (BadLocationException ex) {
             Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         oStrandTextPane.setDocument(oDoc);
         cStrandTextPane.setDocument(cDoc);
+        bStrandTextPane.setDocument(bDoc);
         
-        // Apply the character attributes
+        // Section for colouring the complementary strand   77 - (bDoc.getLength() - colourStart)
+        int colourStart = 0;
+        while(colourStart <= bDoc.getLength()){
+            
+            if((colourStart + 154) > bDoc.getLength()){
+                bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
+            }
+            else{
+                bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
+            }
+            
+            colourStart += 154;
+        }
+        
+        // Apply the character attributes to target section
         oDoc.setCharacterAttributes(realStart, (realEnd - realStart), targetStyle, false);
         cDoc.setCharacterAttributes(realStart, (realEnd - realStart), targetStyle, false);
+        
+        ArrayList<ArrayList<Integer>> indices = doubleIndices(badStart, badEnd);
+        ArrayList<Integer> starts = indices.get(0);
+        ArrayList<Integer> ends = indices.get(1);
+        for (int i = 0; i < starts.size(); i++) {
+            bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), targetStyle, false);
+        }
         
         lineNums = "";
         int x = 1;
@@ -127,8 +183,12 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(lineAreaScroll.getVerticalScrollBar().getModel());
+        oStrandScroll.getVerticalScrollBar().setModel(
+                lineAreaScroll.getVerticalScrollBar().getModel());
+        cStrandScroll.getVerticalScrollBar().setModel(
+                lineAreaScroll.getVerticalScrollBar().getModel());
+        bStrandScroll.getVerticalScrollBar().setModel(
+                lineAreaScroll.getVerticalScrollBar().getModel());
         
     }
 
@@ -158,6 +218,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         oStrandTextPane = new javax.swing.JTextPane();
         cStrandScroll = new javax.swing.JScrollPane();
         cStrandTextPane = new javax.swing.JTextPane();
+        bStrandScroll = new javax.swing.JScrollPane();
+        bStrandTextPane = new javax.swing.JTextPane();
         reverseButton = new javax.swing.JButton();
 
         setToolTipText("");
@@ -224,6 +286,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
         displayTabbedPane.addTab("Complementary", cStrandScroll);
 
+        bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
+        bStrandScroll.setViewportView(bStrandTextPane);
+
+        displayTabbedPane.addTab("Double Stranded", bStrandScroll);
+
         reverseButton.setText("Reverse");
         reverseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,7 +332,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                                 .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(reverseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 20, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
@@ -285,14 +352,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                         .addComponent(reverseButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(forwardPrimerLabel)
-                        .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
+                        .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
@@ -381,6 +447,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_reverseButtonActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane bStrandScroll;
+    private javax.swing.JTextPane bStrandTextPane;
     private javax.swing.JButton backButton;
     private javax.swing.JScrollPane cStrandScroll;
     private javax.swing.JTextPane cStrandTextPane;

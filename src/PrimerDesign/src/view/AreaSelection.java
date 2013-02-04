@@ -86,13 +86,12 @@ public class AreaSelection extends javax.swing.JPanel {
         cStrandTextPane.setDocument(cDoc);
         bStrandTextPane.setDocument(bDoc);
         
-        // Section for colouring the complementary strand   77 - (bDoc.getLength() - colourStart)
+        // Section for colouring the complementary strand
         int colourStart = 0;
         while(colourStart <= bDoc.getLength()){
             
             if((colourStart + 154) > bDoc.getLength()){
                 bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
-                System.out.println("gets into here. Goes for: " + (154 - (bDoc.getLength() - colourStart))/2);
             }
             else{
                 bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
