@@ -86,14 +86,13 @@ public class AreaSelection extends javax.swing.JPanel {
         cStrandTextPane.setDocument(cDoc);
         bStrandTextPane.setDocument(bDoc);
         
+        // Section for colouring the complementary strand   77 - (bDoc.getLength() - colourStart)
         int colourStart = 0;
         while(colourStart <= bDoc.getLength()){
             
-            //System.out.println("colourStart = " + colourStart + ", bDoc.getLength() " + bDoc.getLength());
-            
             if((colourStart + 154) > bDoc.getLength()){
-                bDoc.setCharacterAttributes(colourStart, (bDoc.getLength() - colourStart), complementaryStyle, false);
-                System.out.println("gets into here. Goes for: " + (bDoc.getLength() - colourStart));
+                bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
+                System.out.println("gets into here. Goes for: " + (154 - (bDoc.getLength() - colourStart))/2);
             }
             else{
                 bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
@@ -192,13 +191,17 @@ public class AreaSelection extends javax.swing.JPanel {
 
         add(lineAreaScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 183, 83, 370));
 
+        jTabbedPane1.setBackground(new java.awt.Color(254, 254, 254));
+
         oStrandTextPane.setEditable(false);
+        oStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         oStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         oStrandScroll.setViewportView(oStrandTextPane);
 
         jTabbedPane1.addTab("DNA Sequence", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
+        cStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         cStrandScroll.setViewportView(cStrandTextPane);
 
