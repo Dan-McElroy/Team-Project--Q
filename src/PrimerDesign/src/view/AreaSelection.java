@@ -147,18 +147,14 @@ public class AreaSelection extends javax.swing.JPanel {
         bStrandTextPane = new javax.swing.JTextPane();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Target Sequence Selection");
-        add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 20, 776, -1));
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setText("Specify the region to be amplified by PCR. Indicate the region using the numbers on the left hand side and write these in the boxes below.");
         jScrollPane2.setViewportView(instructionTextPane);
-
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 67, 776, 50));
 
         nextButton.setText("Next");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +162,6 @@ public class AreaSelection extends javax.swing.JPanel {
                 nextButtonActionPerformed(evt);
             }
         });
-        add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 559, 83, -1));
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -174,21 +169,14 @@ public class AreaSelection extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 559, 83, -1));
 
         fromLabel.setText("From:");
-        add(fromLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 128, -1, -1));
 
         toLabel.setText("To:");
-        add(toLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 128, -1, -1));
-        add(toTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 123, 77, -1));
-        add(fromTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 123, 77, -1));
 
         lineNumberTextArea.setColumns(5);
         lineNumberTextArea.setRows(5);
         lineAreaScroll.setViewportView(lineNumberTextArea);
-
-        add(lineAreaScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 183, 83, 370));
 
         jTabbedPane1.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -213,7 +201,63 @@ public class AreaSelection extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Double Stranded", bStrandScroll);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 156, 687, 397));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addComponent(fromLabel)
+                .addGap(12, 12, 12)
+                .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(toLabel)
+                .addGap(12, 12, 12)
+                .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(610, 610, 610)
+                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(titleLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fromLabel)
+                            .addComponent(toLabel))))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButton)
+                    .addComponent(nextButton)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     

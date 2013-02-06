@@ -19,8 +19,76 @@
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,88,0,0,3,32"/>
   </AuxValues>
 
-  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-    <Property name="useNullLayout" type="boolean" value="false"/>
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="titleLabel" min="-2" pref="776" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="776" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="245" pref="245" max="-2" attributes="0"/>
+              <Component id="fromLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="fromTextField" min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
+              <Component id="toLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="toTextField" min="-2" pref="77" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="lineAreaScroll" min="-2" pref="83" max="-2" attributes="0"/>
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="687" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="backButton" min="-2" pref="83" max="-2" attributes="0"/>
+              <EmptySpace min="610" pref="610" max="-2" attributes="0"/>
+              <Component id="nextButton" min="-2" pref="83" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="fromTextField" min="-2" max="-2" attributes="0"/>
+                  <Component id="toTextField" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fromLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="toLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                      <Component id="lineAreaScroll" min="-2" pref="370" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jTabbedPane1" min="-2" pref="397" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="nextButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="titleLabel">
@@ -31,21 +99,11 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Target Sequence Selection"/>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="12" y="20" width="776" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="12" y="67" width="776" height="50"/>
-        </Constraint>
-      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
@@ -64,11 +122,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="705" y="559" width="83" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
       <Properties>
@@ -77,55 +130,25 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="12" y="559" width="83" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="fromLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="From:"/>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="245" y="128" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="toLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="To:"/>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="407" y="128" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="toTextField">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="438" y="123" width="77" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="fromTextField">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="294" y="123" width="77" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Container class="javax.swing.JScrollPane" name="lineAreaScroll">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="12" y="183" width="83" height="370"/>
-        </Constraint>
-      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
@@ -143,11 +166,6 @@
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="101" y="156" width="687" height="397"/>
-        </Constraint>
-      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
