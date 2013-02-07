@@ -1,0 +1,64 @@
+\documentclass[a4paper]{article}
+
+\title{User Guide: Primer Design}
+
+\author{Ross Barnie \\
+  Dmitrijs Jonins \\
+  Daniel McElroy \\
+  Murray Ross \\
+  Ross Taylor
+}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{About}
+
+This document will outline how to use the, provisionally named,
+PrimerDesign application created for use by students of Molecular
+Methods to learn about Polymerase Chain Reactions (PCR) and primer
+design. 
+
+If you encounter any problems while using the application, feel free
+to ask your tutor, or email us at \url{TeamProjectQ@gmail.com}.
+
+\section{Getting Started}
+
+You will need:
+\begin{itemize}
+\item{An operating system capable of running Java (you should not need
+    to worry about this as Java runs on almost all modern Windows,
+    Linux and Macintosh operating systems)
+\item{a web browser (such as Google Chrome or Mozilla
+Firefox)}
+\item{Java (at least version 6) installed on your computer (most modern computers have
+    Java, but if not it is freely available online from Oracle)}
+\item{Access to the Molecular Methods moodle site by the School of
+    Life Sciences at University of Glasgow}
+\item{An internet connection (unless you have downloaded the
+    application already)}
+\end{itemize}
+
+With that we can get started!
+
+First, download the file PrimerDesign.jar from the Molecular Methods
+moodle site and save it somewhere on your computer.
+Next, double-click on the PrimerDesign.jar file you just saved (note
+that Unix-based operating systems such as MacOS or Linux can run the
+file using the following terminal command:
+\begin{center}
+\verb£$ java -jar PrimerDesign£
+\end{center}
+If you encounter problems here, ensure that you have Java installed on
+your computer.
+
+\subsection{Obtaining DNA Sequence}
+
+\section{The Application}
+
+\subsection{
+
+
+
+\end{document}
