@@ -394,9 +394,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(showRulesButton)
-                        .addComponent(nextButton)))
+                    .addComponent(showRulesButton)
+                    .addComponent(nextButton))
                 .addGap(12, 12, 12))
         );
 
@@ -437,7 +436,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             ped.setText(pass.toString());
             ped.setLocation(96, 100);
             ped.setVisible(true);
-            //if (pass.getPass()) {
+            if (pass.getPass()) {
 
                  PrimerDesign.window.remove(PrimerDesign.primerSelect);
                  PrimerDesign.window.setVisible(false);
@@ -446,7 +445,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                  PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
                  PrimerDesign.window.pack();
                  PrimerDesign.window.setVisible(true);
-             //}           
+             }           
            
        } catch(NException e1) {
            NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);

@@ -87,10 +87,8 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="backButton" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="showRulesButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="nextButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="showRulesButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nextButton" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
