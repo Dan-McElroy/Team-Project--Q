@@ -127,7 +127,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="NCBI Website: http://www.ncbi.nlm.nih.gov/&#xa;University of Glasgow School of Life Sciences Moodle Site"/>
+            <Property name="text" type="java.lang.String" value="NCBI Website: &#x9;&#x9;&#x9;http://www.ncbi.nlm.nih.gov/&#xa;Molecular Methods Moodle Site:&#x9;&#x9;http://ibls.moodle.gla.ac.uk/course/view.php?id=104"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -145,7 +145,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa;Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly on primer design. You can use any sequence and any primers you like, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;&#xa;&#xa;&#xa;Created by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor."/>
+            <Property name="text" type="java.lang.String" value="Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly on primer design. You can use any sequence and any primers you like, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Created by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -164,7 +164,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa;Generally, primers should be 20 to 30 bases in length. &#xa;&#xa;The sequence you use should avoid long repetitions of a single base.  &#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.  You should avoid sequences which could self-anneal.  &#xa;&#xa;The primers you choose should be unique to the sequence. &#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.  &#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
+            <Property name="text" type="java.lang.String" value="Generally, primers should be 20 to 30 bases in length. &#xa;&#xa;The sequence you use should avoid long repetitions of a single base.  &#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.  You should avoid sequences which could self-anneal.  &#xa;&#xa;The primers you choose should be unique to the sequence. &#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.  &#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>

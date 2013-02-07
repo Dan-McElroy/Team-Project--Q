@@ -175,14 +175,16 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel.setText("To:");
 
         lineNumberTextArea.setColumns(5);
+        lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
+        lineNumberTextArea.setTabSize(4);
         lineAreaScroll.setViewportView(lineNumberTextArea);
 
         jTabbedPane1.setBackground(new java.awt.Color(254, 254, 254));
 
         oStrandTextPane.setEditable(false);
         oStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
-        oStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
+        oStrandTextPane.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         oStrandScroll.setViewportView(oStrandTextPane);
 
         jTabbedPane1.addTab("DNA Sequence", oStrandScroll);
@@ -250,8 +252,8 @@ public class AreaSelection extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

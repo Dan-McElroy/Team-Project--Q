@@ -100,7 +100,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
         forwardPrimerTextArea.setEditable(false);
         forwardPrimerTextArea.setColumns(20);
-        forwardPrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        forwardPrimerTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 13)); // NOI18N
         forwardPrimerTextArea.setRows(1);
         forwardPrimerTextArea.setToolTipText("Your Forward Primer");
         jScrollPane3.setViewportView(forwardPrimerTextArea);
@@ -108,7 +108,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
 
         reversePrimerTextArea.setEditable(false);
         reversePrimerTextArea.setColumns(20);
-        reversePrimerTextArea.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        reversePrimerTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 13)); // NOI18N
         reversePrimerTextArea.setRows(1);
         jScrollPane4.setViewportView(reversePrimerTextArea);
         reversePrimerTextArea.setText(PrimerDesign.start.getInSequence().getRPrimer().toString());

@@ -58,14 +58,14 @@ public class Splash extends javax.swing.JPanel {
         bottomTextArea.setEditable(false);
         bottomTextArea.setColumns(20);
         bottomTextArea.setRows(5);
-        bottomTextArea.setText("NCBI Website: http://www.ncbi.nlm.nih.gov/\nUniversity of Glasgow School of Life Sciences Moodle Site");
+        bottomTextArea.setText("NCBI Website: \t\t\thttp://www.ncbi.nlm.nih.gov/\nMolecular Methods Moodle Site:\t\thttp://ibls.moodle.gla.ac.uk/course/view.php?id=104");
         jScrollPane1.setViewportView(bottomTextArea);
 
         leftTextArea.setEditable(false);
         leftTextArea.setColumns(20);
         leftTextArea.setLineWrap(true);
         leftTextArea.setRows(5);
-        leftTextArea.setText("\nHello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly on primer design. You can use any sequence and any primers you like, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\n\n\n\nCreated by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor.");
+        leftTextArea.setText("Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly on primer design. You can use any sequence and any primers you like, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\n\n\n\n\nCreated by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor.");
         leftTextArea.setWrapStyleWord(true);
         jScrollPane2.setViewportView(leftTextArea);
 
@@ -73,7 +73,7 @@ public class Splash extends javax.swing.JPanel {
         rightTextArea.setColumns(20);
         rightTextArea.setLineWrap(true);
         rightTextArea.setRows(5);
-        rightTextArea.setText("\nGenerally, primers should be 20 to 30 bases in length. \n\nThe sequence you use should avoid long repetitions of a single base.  \n\nThe last base of the primer should be a 'c' or a 'g'.  You should avoid sequences which could self-anneal.  \n\nThe primers you choose should be unique to the sequence. \n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.  \n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
+        rightTextArea.setText("Generally, primers should be 20 to 30 bases in length. \n\nThe sequence you use should avoid long repetitions of a single base.  \n\nThe last base of the primer should be a 'c' or a 'g'.  You should avoid sequences which could self-anneal.  \n\nThe primers you choose should be unique to the sequence. \n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.  \n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
         rightTextArea.setWrapStyleWord(true);
         jScrollPane3.setViewportView(rightTextArea);
 
