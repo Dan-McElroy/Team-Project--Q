@@ -91,6 +91,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         });
 
         nextButton.setText("See Animation");
+        nextButton.setEnabled(false);
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -172,7 +173,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
                                 .addComponent(meltTempNameLabelL)
                                 .addGap(12, 12, 12)
                                 .addComponent(meltTempLabelForward)))
-                        .addGap(0, 16, Short.MAX_VALUE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
