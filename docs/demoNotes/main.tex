@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+
+\title{Notes taken During Demonstration}
+\date{8th February 2013}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+
+  \item{
+    There are inconsistencies in the interface when in
+    full-screen. Some of it looks terrible, others seem to resize with
+    no problems.
+  }
+  \item{
+    The user guide was confusing people because of the explanation of
+    how to run the program.
+    There is no need to save the application (it can be run from
+    clicking the link on moodle) and the explanation of running from
+    Unix-based machines was confusing Windows users.
+  }
+  \item{
+    There needs to be a back button on the Sequence Entry screen
+    (\texttt{StartPanel.java}) so that users can see the links again.
+  }
+  \item{
+    In Primer Selection, the Reverse button does not display correctly
+    on Windows (looks like ``Reve...'')
+  }
+  \item{
+    Highlighting should be changed so that the background colour is
+    changed, rather than the text colour.
+  }
+  \item{
+    BUG: Several people found that they would be told that their
+    primers' melting temperatures were not within 3 degrees when the
+    first temperature was higher than the last (most commonly 64 and 62).
+  }
+  \item{
+    BUG: There is no check to ensure that either primers actually
+    exist in the sequence.
+  }
+  \item{
+    Pass/fail windows are ``oddly sized''.
+  }
+  \item{
+    Two users had exactly the same primers except for one
+    character. The second user had an extra `g' at the end of their
+    sequence and found that they failed on self-annealing, whereas the
+    first user had passed this test. 
+  }
+  \item{
+    After primers have been entered in the text fields, the primers
+    should be highlighted in the sequence.
+  }
+  \item{
+    The user should be told where the primers anneal, if they do.
+  }
+\end{itemize}
+
+
+
+
+\end{document}
