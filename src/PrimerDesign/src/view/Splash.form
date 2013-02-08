@@ -145,7 +145,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly on primer design. You can use any sequence and any primers you like, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Created by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor."/>
+            <Property name="text" type="java.lang.String" value="Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Created by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
