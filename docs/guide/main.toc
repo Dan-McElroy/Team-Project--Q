@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {3.4}Primer Design}{4}
 \contentsline {subsection}{\numberline {3.5}Melting Temperature}{4}
 \contentsline {subsubsection}{\numberline {3.5.1}\date {8th February 2013} Demonstration Only}{4}
+\contentsline {section}{\numberline {4}Known Bugs}{4}
