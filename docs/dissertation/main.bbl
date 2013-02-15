@@ -1,8 +1,28 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[DeKanter(2004)]{gamingRedefines2004}
+Nick DeKanter.
+\newblock Gaming redefines interactivity for learning.
+\newblock \emph{TechTrends}, 49\penalty0 (3):\penalty0 26--31, 2004.
+
+\bibitem[`DNALearningCentre'(2010)]{youtube:PCR}
+User `DNALearningCentre'.
+\newblock {{Polymerase Chain Reaction (PCR)}}, 2010.
+\newblock URL \url{http://youtu.be/XXkG6m3yT1M}.
+
+\bibitem[`dwildridge'(2012)]{youtube:taqExtension}
+User `dwildridge'.
+\newblock {{Taq Extension (test).wmv}}, 2012.
+\newblock URL \url{http://youtu.be/XXkG6m3yT1M}.
+
+\bibitem[{{Genetic Science Learning Center}}(2012)]{genScienceCenter2012}
+{{Genetic Science Learning Center}}.
+\newblock {{PCR Virtual Lab}}, August 2012.
+\newblock URL \url{http://learn.genetics.utah.edu/content/labs/pcr/}.
 
 \end{thebibliography}
