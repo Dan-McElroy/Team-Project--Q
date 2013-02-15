@@ -30,6 +30,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
     private ArrayList<Character> validChars = new ArrayList<Character>();
+    private static int attempts;
+    private static boolean pass;
         
     /*
     private class PrimerFinder implements Runnable {
@@ -95,6 +97,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         */
         
         initComponents();
+        
+        attempts = 0;
         
         // Create the StyleContext and the document
         validChars.add('a'); 
@@ -405,6 +409,22 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String fP = forwardPrimerTextField.getText();
+        model.Primer fPrimer = new model.Primer(fP);
+        model.TestResult test = fPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
+        ied.setText(test.toString());
+    }
+    
+    private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String rP = reversePrimerTextField.getText();
+        model.Primer rPrimer = new model.Primer(rP);
+        model.TestResult test = rPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
+        ied.setText(test.toString());
+    }
+    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         PrimerDesign.window.remove(PrimerDesign.primerSelect);
         PrimerDesign.window.setVisible(false);
@@ -417,6 +437,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         String fP = forwardPrimerTextField.getText();
         String rP = reversePrimerTextField.getText();
+        attempts++;
         try {
             for (int i = 0; i < fP.length(); i++) {
                 if (!validChars.contains(fP.charAt(i)))
@@ -432,13 +453,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
-            model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
-            System.out.println(pass.getOut());
+            model.TestResult test = PrimerDesign.start.getInSequence().primerTest();
+            System.out.println(test.getOut());
+            pass = test.getPass();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-            ped.setText(pass.toString());
+            ped.setText(test.toString());
             ped.setLocation(96, 100);
             ped.setVisible(true);
-            if (pass.getPass()) {
+            if (pass) {
 
                  PrimerDesign.window.remove(PrimerDesign.primerSelect);
                  PrimerDesign.window.setVisible(false);
@@ -482,6 +504,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private void reverseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reverseButtonActionPerformed
         this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
     }//GEN-LAST:event_reverseButtonActionPerformed
+    
+    public int getAttempts() {
+        return attempts;
+    }
+    
+    public boolean getPass() {
+        return pass;
+    }
+    public void setPass(boolean p) {
+        pass = p;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane bStrandScroll;
