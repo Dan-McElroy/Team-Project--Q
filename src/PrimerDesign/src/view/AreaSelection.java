@@ -8,6 +8,8 @@ import controller.PrimerDesign;
 import java.awt.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
@@ -42,6 +44,25 @@ public class AreaSelection extends javax.swing.JPanel {
 
     public void setEndTarget(int endTarget) {
         this.endTarget = endTarget;
+    }
+    
+    private class AreaCaretListener implements CaretListener{
+
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            if (fromTextField.getText().toString().isEmpty() && toTextField.getText().toString().isEmpty()){
+                if (e.getSource().equals(oStrandTextPane) || e.getSource().equals(cStrandTextPane)) {
+                    fromTextField.setText(Integer.toString(e.getMark()));
+                    int numSpaces = (e.getDot() - e.getMark()) / 10;
+                    toTextField.setText(Integer.toString(e.getDot() - numSpaces));
+                }
+                if (fromTextField.getText().toString().equalsIgnoreCase(toTextField.getText().toString())) {
+                    fromTextField.setText(null);
+                    toTextField.setText(null);
+                }
+            }
+        }
+        
     }
     
     /**
@@ -115,6 +136,10 @@ public class AreaSelection extends javax.swing.JPanel {
                 lineAreaScroll.getVerticalScrollBar().getModel());
         bStrandScroll.getVerticalScrollBar().setModel(
                 lineAreaScroll.getVerticalScrollBar().getModel());
+        
+        CaretListener caretListener = new AreaCaretListener();
+        oStrandTextPane.addCaretListener(caretListener);
+        cStrandTextPane.addCaretListener(caretListener);
         
     }
 
