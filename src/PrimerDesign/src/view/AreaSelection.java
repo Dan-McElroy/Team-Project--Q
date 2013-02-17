@@ -55,6 +55,11 @@ public class AreaSelection extends javax.swing.JPanel {
                     fromTextField.setText(Integer.toString(e.getMark()));
                     int numSpaces = (e.getDot() - e.getMark()) / 10;
                     toTextField.setText(Integer.toString(e.getDot() - numSpaces));
+                    if (fromTextField.getText().toString().compareTo(toTextField.getText().toString()) < 0){
+                        String temp = fromTextField.getText().toString();
+                        fromTextField.setText(toTextField.getText());
+                        toTextField.setText(temp);
+                    }
                 }
                 if (fromTextField.getText().toString().equalsIgnoreCase(toTextField.getText().toString())) {
                     fromTextField.setText(null);
