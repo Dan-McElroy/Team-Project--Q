@@ -326,6 +326,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
         displayTabbedPane.addTab("Complementary", cStrandScroll);
 
+        bStrandTextPane.setEditable(false);
         bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         bStrandScroll.setViewportView(bStrandTextPane);
 
