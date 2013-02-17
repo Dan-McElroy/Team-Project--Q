@@ -205,6 +205,7 @@ public class AreaSelection extends javax.swing.JPanel {
 
         toLabel.setText("To:");
 
+        lineNumberTextArea.setEditable(false);
         lineNumberTextArea.setColumns(5);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);

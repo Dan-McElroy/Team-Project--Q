@@ -306,6 +306,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             }
         });
 
+        lineNumberTextArea.setEditable(false);
         lineNumberTextArea.setColumns(1);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
