@@ -1,7 +1,0 @@
-% Use this file to add package imports, keeps main document clean
-
-\ProvidesPackage{mystyle}
-
-\usepackage{url}
-\usepackage[round]{natbib}
-%\usepackage{hyperref}
