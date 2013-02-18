@@ -242,7 +242,7 @@ public class Primer {
         
         if (maxMatches >= 6)
             return (new TestResult(PassState.FAIL, "The primers' "
-                    + "bases anneal to each " + "other in " + maxMatches + 
+                    + "bases anneal to each other in " + maxMatches + 
                     " places."));
         else if (maxMatches >= 4)
             return (new TestResult(PassState.CLOSEFAIL, "Primers may"
@@ -287,7 +287,7 @@ public class Primer {
         if (maxMatches >= 6) {
             return (new TestResult(PassState.FAIL, "The primer bases anneal to "
                     + "each other in " + maxMatches + " places, well above the"
-                    + "recommended limit of 4."));
+                    + " recommended limit of 4."));
         }
         else if(maxMatches >= 4) {
             return (new TestResult(PassState.CLOSEFAIL, "The primer bases anneal"
