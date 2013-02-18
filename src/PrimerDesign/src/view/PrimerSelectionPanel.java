@@ -443,11 +443,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         try {
             for (int i = 0; i < fP.length(); i++) {
                 if (!validChars.contains(fP.charAt(i)))
-                    throw new Exception();
+                    throw new HighCountException();
             }
             for (int i = 0; i < rP.length(); i++) {
                 if (!validChars.contains(rP.charAt(i)))
-                    throw new Exception();
+                    throw new HighCountException();
             }
             fP = Sequence.parser(new Scanner(fP));
             rP = Sequence.parser(new Scanner(rP));
@@ -457,7 +457,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
             model.TestResult test = PrimerDesign.start.getInSequence().primerTest();
             System.out.println(test.getOut());
-            pass = test.getPass();
+            pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
             ped.setText(test.toString());
             ped.setLocation(96, 100);
@@ -477,7 +477,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
            NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);
            npb.setLocation(187,450);
            npb.setVisible(true);
-       }catch(Exception e) {
+       }catch(HighCountException e) {
            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
            iib.setLocation(187, 450);
            iib.setVisible(true);

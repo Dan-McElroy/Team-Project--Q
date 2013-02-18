@@ -1,7 +1,8 @@
 package model;
 
 import java.lang.Math;
-import java.util.Scanner;
+import java.util.ArrayList;
+import model.TestResult.PassState;
 
 /**
  *
@@ -27,12 +28,17 @@ public class Primer {
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
     	 */
         if (code.length() >= 20 && code.length() <= 30)
-            return new TestResult(true, "The primer has a length of " + 
+            return new TestResult(PassState.PASS, "The primer has a length of " + 
                     code.length() + " bases, which is within the optimal range "
                     + "of 20 to 30 bases.");
-        else return new TestResult(false, ("The primer's length should be "
+        else if (code.length() >= 17 && code.length() <= 33) 
+            return new TestResult(PassState.CLOSEFAIL, "The primer has a length"
+                    + " of " + code.length() + " bases, which is just outside the"
+                    + " optimal range of 20 to 30 bases.");
+        else return new TestResult(PassState.FAIL, ("The primer's length should be "
                 + "between 20 and 30 bases, current length is " + 
                 String.valueOf(code.length())));
+        
     }
     
     public Integer getMeltingTemp() {
@@ -56,13 +62,18 @@ public class Primer {
         int meltTemp = getMeltingTemp();
         
         if (meltTemp >= 50 && meltTemp <= 65)
-            return new TestResult(true, ("The primer's melting temperature of "
-                    + Integer.toString(meltTemp) + " is within the "
-                    + "bounds of 50-65\u2103"));
+            return new TestResult(PassState.PASS, "The primer's melting temperature of "
+                    + Integer.toString(meltTemp) + "\u2013 is within the "
+                    + "bounds of 50-65\u2013");
+        else if (meltTemp >= 45 && meltTemp <= 69) {
+            return new TestResult(PassState.CLOSEFAIL, "The primer's "
+                    + "melting temperature of " + Integer.toString(meltTemp)
+                    + "\u2013 is just outside the bounds of 50-65\u2013");
+        }
         else
-            return new TestResult(false, ("Melting temperature should be " + ""
-                    + "between 50-65\u2103, current temperature: " + 
-                    Integer.toString(meltTemp) + "\u2103"));
+            return new TestResult(PassState.FAIL, ("Melting "
+                    + "temperature should be between 50-65\u2013, current "
+                    + "temperature: " + Integer.toString(meltTemp) + "\u2013"));
     }
     
     public boolean matches(int i, String x) {
@@ -71,52 +82,7 @@ public class Primer {
             return false;
     } 
     
-    public TestResult isUnique(String oS, String cS) {
-        /*run through the string until char matches first char of code
-         * if subsection(i, i+code.length()) == code {add 1 to count}
-         * if count > 1 return false, null
-         * else return true, null
-         */
-        
-        int oInstances = 0;
-        int cInstances = 0;
-        String oStartPoints = "";
-        String cStartPoints = "";
-        char start = code.charAt(0);
-        //Original strand search
-        for (int i = 0; i < oS.length(); i++) {
-            if (oS.charAt(i) == start)
-                if (matches(i, oS)) {     
-                    if (oStartPoints.length() != 0)
-                    	oStartPoints += ", ";
-                    oStartPoints += (i+1);
-                    oInstances++;
-                    //System.out.println("ADDED TO OINSTANCES");
-                }
-        }
-        //Repeats for complementary. Uneasy about repetition.
-        for (int i = 0; i < cS.length(); i++) {
-            if (cS.charAt(i) == start)
-                if (matches(i, cS)) {     
-                    if (cStartPoints.length() != 0)
-                    	cStartPoints += ", ";
-                    cStartPoints += (i+1);
-                    cInstances++;
-                }
-        }
-        
-        if (oInstances > 1 && cInstances == 0) 
-            return new TestResult(false, ("The primer is not unique, seen on " + 
-                    "original strand at points " + oStartPoints + "."));
-        else if (oInstances == 0 && cInstances > 1)
-            return new TestResult(false, ("The primer is not unique, seen on " + 
-                    "complementary strand at points " + cStartPoints + "."));
-        else if (oInstances > 1 && cInstances > 1)    // THIS ONE MAY BE BROKEN: NOT SURE HOW CHECK WORKS - RossT
-            return new TestResult(false, "The primer is not unique, seen on " +
-                    "original " + oStartPoints + " times and " +
-                    "complementary strand at points " + cStartPoints + ".");
-        else return new TestResult(true, "The primer is unique to the sequence.");
-    }
+
 
     public TestResult gcContent(){
 
@@ -132,14 +98,20 @@ public class Primer {
                 gcCount++;
         }
         
-        double ratio = gcCount/(double) code.length();
+        double ratio = gcCount/(double) code.length();  
         if (ratio >= 0.4 && ratio <= 0.6) {
-            return new TestResult(true, "GC content of this primer sits at "
+            return new TestResult(PassState.PASS, "GC content of this primer sits at "
                     + String.format("%.2f", ratio*100) + "%, this rests within the "
-                    + "requisite bounds of 40-60%.");
+                    + "recommended bounds of 40-60%.");
+        }
+        else if (ratio >= 0.36 && ratio <= 0.64) {
+            return new TestResult(PassState.CLOSEFAIL, "GC content of"
+                    + " this primer sits at " + String.format("%.2f", ratio*100)
+                    + "%, this lies just outside the recommended bounds of 40%"
+                    + "-60%");
         }
         else {
-            return new TestResult(false, ("GC content in primer should sit "
+            return new TestResult(PassState.FAIL, ("GC content in primer should sit "
                     + "between 40% and 60%. The current percentage is " 
                     + String.format("%.2f", ratio*100)+"%."));
         }
@@ -160,10 +132,17 @@ public class Primer {
         for(int i = 1; i < code.length(); i++){
             if(current == code.charAt(i)){
                 reps++;
-                if(reps > 3){
-                    return new TestResult(false, 
+                if(reps > 5){
+                    return new TestResult(PassState.FAIL, 
                             ("Base " + String.valueOf(current) + 
-                            " repeats too many times" + " in a row."));
+                            " repeats "+ reps + " times in a row. Ideally, bases"
+                            + " should repeat a maximum of 3 times in a row."));
+                }
+                if(reps > 3){
+                    return new TestResult(PassState.CLOSEFAIL,
+                            "Base " + String.valueOf(current) +
+                            "repeats" + reps + " times in a row, just over the"
+                            + "ideal maximum for repeating bases of 3 in a row.");
                 }
             }
             else {
@@ -172,8 +151,8 @@ public class Primer {
             }
         }   
     
-        return new TestResult(true, "The primer does not contain too many "
-                + "instances of any given base in a row.");
+        return new TestResult(PassState.PASS, "The primer does not "
+                + "contain too many instances of any given base in a row.");
 
     }
 
@@ -187,10 +166,10 @@ public class Primer {
         boolean p = false;
 
         if (last == 'g' || last == 'c')
-            p = true;
-
-        return new TestResult(p,("Primer must end in a g or c, ends in "
-                + String.valueOf(last) + "." ));   
+            return new TestResult(PassState.PASS, "Last base of the "
+                    + "primer is a " + last + ".");
+        else return new TestResult(PassState.FAIL, "Last base of the"
+                + " primer is not g or c.");
     }
 
     public TestResult pairAnneal(Primer p){
@@ -261,12 +240,18 @@ public class Primer {
             minEnd--;
         }
         
-        if (maxMatches >= 4)
-            return (new TestResult(false, "The primers' bases anneal to each " +
-                    "other in " + maxMatches + " places."));
+        if (maxMatches >= 6)
+            return (new TestResult(PassState.FAIL, "The primers' "
+                    + "bases anneal to each " + "other in " + maxMatches + 
+                    " places."));
+        else if (maxMatches >= 4)
+            return (new TestResult(PassState.CLOSEFAIL, "Primers may"
+                    + " not anneal to each other to a significant degree, but "
+                    + "there are " + maxMatches + "instances where bases from "
+                    + "each primer anneal to each other."));
         else
-            return new TestResult(true, "Primers will not anneal to each other"
-                    + " to a significant degree.");
+            return new TestResult(PassState.PASS, "Primers will not "
+                    + "anneal to each other to a significant degree.");
         // change to return useful info about matches
     }
     
@@ -280,10 +265,9 @@ public class Primer {
         int difference;
     
         int split = 4;
-        int matches;
         
         if (code.length() <= 8){
-            return (new TestResult(true, null));
+            return (new TestResult(PassState.PASS, "The primer will not self anneal."));
         } else {
             while (split <= code.length() - 4){
                 front = code.substring(0,split);
@@ -300,14 +284,20 @@ public class Primer {
                 split++;
             }
         }
-        if (maxMatches >= 4) {
-            return (new TestResult(false, "The primer self anneals in " +
-                    maxMatches + " places."));
+        if (maxMatches >= 6) {
+            return (new TestResult(PassState.FAIL, "The primer bases anneal to "
+                    + "each other in " + maxMatches + " places, well above the"
+                    + "recommended limit of 4."));
+        }
+        else if(maxMatches >= 4) {
+            return (new TestResult(PassState.CLOSEFAIL, "The primer bases anneal"
+                    + " to each other in " + maxMatches + " places, just above "
+                    + "the recommended limit of 4."));
         }
         else {
-            return (new TestResult(true, "The primer will not self anneal."));
+            return (new TestResult(PassState.PASS, "The primer will not self "
+                    + "anneal."));
         }
-        // change to return useful info about matches
 }
     
     public int checkMatches(String min, String max){
@@ -347,7 +337,7 @@ public class Primer {
     	 * passes if all true and returns relevant comments if
     	 * not.
     	 */
-        TestResult t = new TestResult(true, "");
+        TestResult t = new TestResult(PassState.PASS, "");
         t.add(meltingTemp());
         t.add(gcContent());
         t.add(repetition());                                       
