@@ -60,7 +60,9 @@ public class AreaSelection extends javax.swing.JPanel {
                 toVal = temp;
             }
             int fromSpaces = fromVal/10;
-            int toSpaces = toVal/10 - fromSpaces;
+            fromSpaces = fromSpaces + fromVal/70;
+            int toSpaces = toVal/10;
+            toSpaces = toSpaces + toVal/70;
             fromVal = fromVal - fromSpaces;
             toVal = toVal - toSpaces;
             if ((toVal - fromVal) >= update) {
