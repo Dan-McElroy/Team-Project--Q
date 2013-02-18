@@ -92,7 +92,6 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         });
 
         nextButton.setText("See Animation");
-        nextButton.setEnabled(false);
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);

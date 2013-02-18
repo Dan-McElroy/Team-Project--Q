@@ -23,7 +23,7 @@ public class PCRAnimation {
      private static void createAndShowUI() {
         int dw = 1024; //resolution width
         int dh = 768; //resolution height
-        String path = "src/view/AnimationImages/"; //path to the images
+        
         Image taq = null;
         Image a1 = null;
         Image a2 = null;
@@ -37,18 +37,30 @@ public class PCRAnimation {
         Image thermom = null;
         Image thermoh = null;
         try {
-            taq = ImageIO.read(new File(path+"/taq.png"));
-            a1 = ImageIO.read(new File(path+"/nodeA1.png"));
-            a2 = ImageIO.read(new File(path+"/nodeA2.png"));
-            c1 = ImageIO.read(new File(path+"/nodeC1.png"));
-            c2 = ImageIO.read(new File(path+"/nodeC2.png"));
-            g1 = ImageIO.read(new File(path+"/nodeG1.png"));
-            g2 = ImageIO.read(new File(path+"/nodeG2.png"));
-            t1 = ImageIO.read(new File(path+"/nodeT1.png"));
-            t2 = ImageIO.read(new File(path+"/nodeT2.png"));
-            thermol = ImageIO.read(new File(path+"/thermo1.png"));
-            thermom = ImageIO.read(new File(path+"/thermo2.png"));
-            thermoh = ImageIO.read(new File(path+"/thermo3.png"));
+            URL path = ClassLoader.getSystemResource("view/AnimationImages/taq.png");
+taq = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeA1.png");
+a1 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeA2.png");
+a2 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeC1.png");
+c1 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeC2.png");
+c2 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeG1.png");
+g1 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeG2.png");
+g2 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeT1.png");
+t1 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/nodeT2.png");
+t2 = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/thermo1.png");
+thermol = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/thermo2.png");
+thermom = ImageIO.read(path);
+path = ClassLoader.getSystemResource("view/AnimationImages/thermo3.png");
+thermoh = ImageIO.read(path);
             final MyPanel panel = new MyPanel(taq,a1,a2,c1,c2,g1,g2,t1,t2,thermol,thermom,thermoh,dw,dh);
 
             JFrame frame = new JFrame("AnimateDemo");
