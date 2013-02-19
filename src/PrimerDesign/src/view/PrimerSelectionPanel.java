@@ -15,13 +15,16 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 import model.Sequence;
 /**
  *
  * @author ross
  */
-public class PrimerSelectionPanel extends javax.swing.JPanel {
+public class PrimerSelectionPanel extends javax.swing.JPanel implements DocumentListener {
 
     /**
      * Creates new form PrimerSelectionPanel
@@ -32,6 +35,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private ArrayList<Character> validChars = new ArrayList<Character>();
     private static int attempts;
     private static boolean pass;
+    final Highlighter highO; //, highC;
+    final Highlighter.HighlightPainter painterO; //, painterC;
+    private String parsedO; //, parsedC;
         
     /*
     private class PrimerFinder implements Runnable {
@@ -228,7 +234,59 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         bStrandScroll.getVerticalScrollBar().setModel(
                 lineAreaScroll.getVerticalScrollBar().getModel());
         
+        // ORIGINAL STRAND HIGHLIGHTING PREP
+        highO = new DefaultHighlighter();
+        painterO = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
+        oStrandTextPane.setHighlighter(highO);
+        parsedO = Sequence.parser(new Scanner(oStrandTextPane.getText()));
+        forwardPrimerTextField.getDocument().addDocumentListener(this);
+        
+        // COMPLEMENTARY STRAND HIGHLIGHTING PREP
+//        highC = new DefaultHighlighter();
+//        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.BLUE);
+//        cStrandTextPane.setHighlighter(highC);
+//        parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
+//        reversePrimerTextField.getDocument().addDocumentListener(this);
+ 
     }
+    
+    Runnable doSearch = new Runnable() {
+        public void run() {
+            
+            
+            // ORIGINAL STRAND - FORWARD PRIMER
+            forwardPrimerTextField.setText(forwardPrimerTextField.getText().replaceAll("\\s",""));
+            highO.removeAllHighlights();
+            String sO = forwardPrimerTextField.getText();
+            int indexO = parsedO.indexOf(sO, 0);
+            
+            if (indexO >= 0) {   // match found
+                    try {
+                        int endO = indexO + sO.length();
+                        highO.addHighlight(realIndex(indexO, 10), realIndex(endO, 10), painterO);
+                        oStrandTextPane.setCaretPosition(realIndex(endO, 10));
+                    } catch (BadLocationException e) {
+                        e.printStackTrace();
+                    }
+                }
+            
+            // COMPLEMENTARY STRAND - REVERSE PRIMER - BREAKS EVERYTHING
+//            reversePrimerTextField.setText(reversePrimerTextField.getText().replaceAll("\\s",""));
+//            highC.removeAllHighlights();
+//            String sC = reversePrimerTextField.getText();
+//
+//            int indexC = parsedC.indexOf(sC, 0);
+//                if (indexC >= 0) {   // match found
+//                    try {
+//                        int endC = indexC + sC.length();
+//                        highC.addHighlight(realIndex(indexC, 10), realIndex(endC, 10), painterC);
+//                        cStrandTextPane.setCaretPosition(realIndex(endC, 10));
+//                    } catch (BadLocationException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+            }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -540,4 +598,19 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private javax.swing.JButton showRulesButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        SwingUtilities.invokeLater(doSearch);
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        // SwingUtilities.invokeLater(doSearch); DO SOMETHING HERE ?
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
