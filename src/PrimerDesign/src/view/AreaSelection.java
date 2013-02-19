@@ -48,31 +48,42 @@ public class AreaSelection extends javax.swing.JPanel {
     
     private class AreaCaretListener implements CaretListener{
 
+        public int unrealIndex(int x) {
+        //Potential issue: assumes line % block= 0.
+        int xRounded = x - (x % 11);
+        return (x - (xRounded / 11));
+    }
+        
         @Override
         public void caretUpdate(CaretEvent e) {
             boolean debug = true; // make false for no debug
             int update = 150; // number of bases required to fire update
             int fromVal = e.getMark(); 
             int toVal = e.getDot();
-            if (fromVal > toVal) {
-                int temp = fromVal;
-                fromVal = toVal;
-                toVal = temp;
-            }
+
+            /*
             int fromSpaces = fromVal/10;
             fromSpaces = fromSpaces + fromVal/70;
             int toSpaces = toVal/10;
             toSpaces = toSpaces + toVal/70;
-            fromVal = fromVal - fromSpaces;
+            fromVal = fromVal - fromSpaces + 1;
             toVal = toVal - toSpaces;
-            if ((toVal - fromVal) >= update) {
+            */
+            fromVal = unrealIndex(fromVal) + 1;
+            toVal = unrealIndex(toVal);
+            if (fromVal > toVal) {
+                int temp = fromVal - 1;
+                fromVal = toVal + 1;
+                toVal = temp;
+            }
+            //if ((toVal - fromVal) >= update) {
                 fromTextField.setText(Integer.toString(fromVal));
                 toTextField.setText(Integer.toString(toVal));
-            }
+            //}
             if (debug){
                 System.out.println("------Update-------");
-                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromSpaces = " + fromSpaces);
-                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toSpaces = " + toSpaces);
+                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
+                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toVal = " + toVal);
                 System.out.println();
             }
             String fromText = fromTextField.getText().toString();
