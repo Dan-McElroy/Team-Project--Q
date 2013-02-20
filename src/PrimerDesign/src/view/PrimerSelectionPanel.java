@@ -75,12 +75,20 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         ArrayList<Integer> end = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
         
-        int firstStart = s + (s - (s %140)) + 70;
+        // gets the line 's' is on >>>> (((s - (s % 70))/70) + 1)
+        
+        int sLine = (((s - (s % 70))/70) + 1);
+        System.out.println(s + " is on line " + sLine);
+        
+        int eLine = (((e - (e % 70))/70) + 1);
+        System.out.println(e + " is on line " + eLine);
+        
+        int firstStart = (s + (s - (s %140)) + 70) - (70 * (sLine % 2));
         int firstEnd = (firstStart + 70) - ((firstStart + 70) % 70);
         int secondStart = firstEnd + 70;
-        int secondEnd = e + (e - (e % 140)) - 140;
-        int thirdEnd = secondEnd + 210;
+        int thirdEnd = (e + (e - (e % 140)) + 70) - (70 * (eLine % 2));
         int thirdStart = thirdEnd - (thirdEnd % 70);
+        int secondEnd = thirdStart - 140;
         
         start.add(realIndex(firstStart, 10)); 
         start.add(realIndex(secondStart, 10)); 
@@ -132,11 +140,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         StyleConstants.setForeground(targetStyle, Color.BLACK);
         StyleConstants.setBold(targetStyle, true);
         
-        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
-        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
-        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
-        
-        
         Style originalStyle = sc.addStyle("OriginalStyle", defaultStyle);
         StyleConstants.setFontFamily(originalStyle, "monospaced");
         StyleConstants.setForeground(originalStyle, Color.ORANGE);
@@ -150,6 +153,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         StyleConstants.setFontFamily(complementaryTargetStyle, "monospaced");
         StyleConstants.setForeground(complementaryTargetStyle, Color.BLUE);
         StyleConstants.setBold(complementaryTargetStyle, true);
+        
+        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
+        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
+        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
         
         int badStart = PrimerDesign.area.getStartTarget() -1;
         int badEnd = PrimerDesign.area.getEndTarget() -1;
@@ -213,8 +220,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         
             }
             else if ( i == 2){
-                bDoc.setCharacterAttributes(starts.get(i) - 77, (ends.get(i) - starts.get(i) + 1), complementaryTargetStyle, false);
-                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), originalTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), complementaryTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i) + 77, (ends.get(i) - starts.get(i) + 1), originalTargetStyle, false);
             }
         }
         
