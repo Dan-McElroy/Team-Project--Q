@@ -76,10 +76,11 @@ public class AreaSelection extends javax.swing.JPanel {
                 fromVal = toVal + 1;
                 toVal = temp;
             }
-            //if ((toVal - fromVal) >= update) {
+            if ((toVal - fromVal) >= update) {
                 fromTextField.setText(Integer.toString(fromVal));
                 toTextField.setText(Integer.toString(toVal));
-            //}
+            }
+            
             if (debug){
                 System.out.println("------Update-------");
                 System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
