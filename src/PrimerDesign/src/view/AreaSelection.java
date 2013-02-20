@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
@@ -23,11 +25,10 @@ import javax.swing.text.StyleContext;
 public class AreaSelection extends javax.swing.JPanel {
     
     private boolean isOStrand = true;
-    //private Highlighter high;
-    //private int from;
-    //private int to;
     private int startTarget, endTarget;
     private String lineNums;
+    private String doubleLineNums;
+
 
 
     public int getStartTarget() {
@@ -176,25 +177,50 @@ public class AreaSelection extends javax.swing.JPanel {
         }
         
         lineNums = "";
+        doubleLineNums = "";
         int x = 1;
         for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
+            doubleLineNums += x + "\n\n";
             x += 70;
         }
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        bStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
+        lineAreaScroll.getVerticalScrollBar().setModel(
+                oStrandScroll.getVerticalScrollBar().getModel());
         
         CaretListener caretListener = new AreaCaretListener();
         oStrandTextPane.addCaretListener(caretListener);
         cStrandTextPane.addCaretListener(caretListener);
         
+        jTabbedPane1.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                updateLineNums(jTabbedPane1.getSelectedIndex());
+                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
+            }
+        });
+        
+    }
+    
+    public void updateLineNums(int tab){
+        
+        if (tab == 0){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    oStrandScroll.getVerticalScrollBar().getModel());
+        }else if (tab == 1){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    cStrandScroll.getVerticalScrollBar().getModel());
+        } else {
+            lineNumberTextArea.setText(doubleLineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    bStrandScroll.getVerticalScrollBar().getModel());
+        }
     }
 
     /**

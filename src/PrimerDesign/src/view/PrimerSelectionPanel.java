@@ -16,6 +16,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
@@ -32,12 +34,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     
     private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
+    private String doubleLineNums;
     private ArrayList<Character> validChars = new ArrayList<Character>();
     private static int attempts;
     private static boolean pass;
     final Highlighter highO; //, highC;
     final Highlighter.HighlightPainter painterO; //, painterC;
     private String parsedO; //, parsedC;
+    //private javax.swing.JTextArea dubslineNumberTextArea;
         
     /*
     private class PrimerFinder implements Runnable {
@@ -226,20 +230,18 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         }
         
         lineNums = "";
+        doubleLineNums = "";
         int x = 1;
         for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
+            doubleLineNums += x + "\n\n";
             x += 70;
         }
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        bStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
+        lineAreaScroll.getVerticalScrollBar().setModel(
+                oStrandScroll.getVerticalScrollBar().getModel());
         
         // ORIGINAL STRAND HIGHLIGHTING PREP
         highO = new DefaultHighlighter();
@@ -254,7 +256,34 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 //        cStrandTextPane.setHighlighter(highC);
 //        parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
 //        reversePrimerTextField.getDocument().addDocumentListener(this);
- 
+        
+        displayTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                updateLineNums(displayTabbedPane.getSelectedIndex());
+                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
+            }
+        });
+        
+    }
+    
+    public void updateLineNums(int tab){
+        
+        if (tab == 0){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    oStrandScroll.getVerticalScrollBar().getModel());
+        }else if (tab == 1){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    cStrandScroll.getVerticalScrollBar().getModel());
+        } else {
+            lineNumberTextArea.setText(doubleLineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    bStrandScroll.getVerticalScrollBar().getModel());
+        }
     }
     
     Runnable doSearch = new Runnable() {
