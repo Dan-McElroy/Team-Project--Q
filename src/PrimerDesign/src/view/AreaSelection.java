@@ -8,6 +8,10 @@ import controller.PrimerDesign;
 import java.awt.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
@@ -21,11 +25,10 @@ import javax.swing.text.StyleContext;
 public class AreaSelection extends javax.swing.JPanel {
     
     private boolean isOStrand = true;
-    //private Highlighter high;
-    //private int from;
-    //private int to;
     private int startTarget, endTarget;
     private String lineNums;
+    private String doubleLineNums;
+
 
 
     public int getStartTarget() {
@@ -42,6 +45,79 @@ public class AreaSelection extends javax.swing.JPanel {
 
     public void setEndTarget(int endTarget) {
         this.endTarget = endTarget;
+    }
+    
+    private class AreaCaretListener implements CaretListener{
+
+        public int unrealIndex(int x) {
+        //Potential issue: assumes line % block= 0.
+        int xRounded = x - (x % 11);
+        return (x - (xRounded / 11));
+    }
+        
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            boolean debug = true; // make false for no debug
+            int update = 150; // number of bases required to fire update
+            int fromVal = e.getMark(); 
+            int toVal = e.getDot();
+
+            /*
+            int fromSpaces = fromVal/10;
+            fromSpaces = fromSpaces + fromVal/70;
+            int toSpaces = toVal/10;
+            toSpaces = toSpaces + toVal/70;
+            fromVal = fromVal - fromSpaces + 1;
+            toVal = toVal - toSpaces;
+            */
+            fromVal = unrealIndex(fromVal) + 1;
+            toVal = unrealIndex(toVal);
+            if (fromVal > toVal) {
+                int temp = fromVal - 1;
+                fromVal = toVal + 1;
+                toVal = temp;
+            }
+            if ((toVal - fromVal) >= update) {
+                fromTextField.setText(Integer.toString(fromVal));
+                toTextField.setText(Integer.toString(toVal));
+            }
+            
+            if (debug){
+                System.out.println("------Update-------");
+                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
+                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toVal = " + toVal);
+                System.out.println();
+            }
+            String fromText = fromTextField.getText().toString();
+            String toText = toTextField.getText().toString();
+            if (fromText.equalsIgnoreCase(toText)) {
+                fromTextField.setText(null);
+                toTextField.setText(null);
+            }
+        }
+
+        /*
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            if (fromTextField.getText().toString().isEmpty() && toTextField.getText().toString().isEmpty()){
+                if (e.getSource().equals(oStrandTextPane) || e.getSource().equals(cStrandTextPane)) {
+                    fromTextField.setText(Integer.toString(e.getMark()));
+                    int numSpaces = (e.getDot() - e.getMark()) / 10;
+                    toTextField.setText(Integer.toString(e.getDot() - numSpaces));
+                    if (fromTextField.getText().toString().compareTo(toTextField.getText().toString()) < 0){
+                        String temp = fromTextField.getText().toString();
+                        fromTextField.setText(toTextField.getText());
+                        toTextField.setText(temp);
+                    }
+                }
+                if (fromTextField.getText().toString().equalsIgnoreCase(toTextField.getText().toString())) {
+                    fromTextField.setText(null);
+                    toTextField.setText(null);
+                }
+            }
+        }
+        */
+        
     }
     
     /**
@@ -101,21 +177,50 @@ public class AreaSelection extends javax.swing.JPanel {
         }
         
         lineNums = "";
+        doubleLineNums = "";
         int x = 1;
         for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
+            doubleLineNums += x + "\n\n";
             x += 70;
         }
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        bStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
+        lineAreaScroll.getVerticalScrollBar().setModel(
+                oStrandScroll.getVerticalScrollBar().getModel());
         
+        CaretListener caretListener = new AreaCaretListener();
+        oStrandTextPane.addCaretListener(caretListener);
+        cStrandTextPane.addCaretListener(caretListener);
+        
+        jTabbedPane1.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                updateLineNums(jTabbedPane1.getSelectedIndex());
+                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
+            }
+        });
+        
+    }
+    
+    public void updateLineNums(int tab){
+        
+        if (tab == 0){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    oStrandScroll.getVerticalScrollBar().getModel());
+        }else if (tab == 1){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    cStrandScroll.getVerticalScrollBar().getModel());
+        } else {
+            lineNumberTextArea.setText(doubleLineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    bStrandScroll.getVerticalScrollBar().getModel());
+        }
     }
 
     /**
@@ -175,6 +280,7 @@ public class AreaSelection extends javax.swing.JPanel {
 
         toLabel.setText("To:");
 
+        lineNumberTextArea.setEditable(false);
         lineNumberTextArea.setColumns(5);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);

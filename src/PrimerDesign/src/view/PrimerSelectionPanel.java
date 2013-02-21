@@ -15,13 +15,18 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 import model.Sequence;
 /**
  *
  * @author ross
  */
-public class PrimerSelectionPanel extends javax.swing.JPanel {
+public class PrimerSelectionPanel extends javax.swing.JPanel implements DocumentListener {
 
     /**
      * Creates new form PrimerSelectionPanel
@@ -29,7 +34,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     
     private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
+    private String doubleLineNums;
     private ArrayList<Character> validChars = new ArrayList<Character>();
+    private static int attempts;
+    private static boolean pass;
+    final Highlighter highO; //, highC;
+    final Highlighter.HighlightPainter painterO; //, painterC;
+    private String parsedO; //, parsedC;
+    //private javax.swing.JTextArea dubslineNumberTextArea;
         
     /*
     private class PrimerFinder implements Runnable {
@@ -67,12 +79,20 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         ArrayList<Integer> end = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
         
-        int firstStart = s + (s - (s %140)) + 70;
+        // gets the line 's' is on >>>> (((s - (s % 70))/70) + 1)
+        
+        int sLine = (((s - (s % 70))/70) + 1);
+        System.out.println(s + " is on line " + sLine);
+        
+        int eLine = (((e - (e % 70))/70) + 1);
+        System.out.println(e + " is on line " + eLine);
+        
+        int firstStart = (s + (s - (s %140)) + 70) - (70 * (sLine % 2));
         int firstEnd = (firstStart + 70) - ((firstStart + 70) % 70);
         int secondStart = firstEnd + 70;
-        int secondEnd = e + (e - (e % 140)) - 140;
-        int thirdEnd = secondEnd + 210;
+        int thirdEnd = (e + (e - (e % 140)) + 70) - (70 * (eLine % 2));
         int thirdStart = thirdEnd - (thirdEnd % 70);
+        int secondEnd = thirdStart - 140;
         
         start.add(realIndex(firstStart, 10)); 
         start.add(realIndex(secondStart, 10)); 
@@ -95,6 +115,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         */
         
         initComponents();
+        
+        attempts = 0;
         
         // Create the StyleContext and the document
         validChars.add('a'); 
@@ -122,11 +144,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setForeground(targetStyle, Color.BLACK);
         StyleConstants.setBold(targetStyle, true);
         
-        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
-        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
-        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
-        
-        
         Style originalStyle = sc.addStyle("OriginalStyle", defaultStyle);
         StyleConstants.setFontFamily(originalStyle, "monospaced");
         StyleConstants.setForeground(originalStyle, Color.ORANGE);
@@ -140,6 +157,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         StyleConstants.setFontFamily(complementaryTargetStyle, "monospaced");
         StyleConstants.setForeground(complementaryTargetStyle, Color.BLUE);
         StyleConstants.setBold(complementaryTargetStyle, true);
+        
+        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
+        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
+        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
         
         int badStart = PrimerDesign.area.getStartTarget() -1;
         int badEnd = PrimerDesign.area.getEndTarget() -1;
@@ -203,28 +224,105 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         
             }
             else if ( i == 2){
-                bDoc.setCharacterAttributes(starts.get(i) - 77, (ends.get(i) - starts.get(i) + 1), complementaryTargetStyle, false);
-                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), originalTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i) + 1), complementaryTargetStyle, false);
+                bDoc.setCharacterAttributes(starts.get(i) + 77, (ends.get(i) - starts.get(i) + 1), originalTargetStyle, false);
             }
         }
         
         lineNums = "";
+        doubleLineNums = "";
         int x = 1;
         for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
+            doubleLineNums += x + "\n\n";
             x += 70;
         }
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        bStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
+        lineAreaScroll.getVerticalScrollBar().setModel(
+                oStrandScroll.getVerticalScrollBar().getModel());
+        
+        // ORIGINAL STRAND HIGHLIGHTING PREP
+        highO = new DefaultHighlighter();
+        painterO = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
+        oStrandTextPane.setHighlighter(highO);
+        parsedO = Sequence.parser(new Scanner(oStrandTextPane.getText()));
+        forwardPrimerTextField.getDocument().addDocumentListener(this);
+        
+        // COMPLEMENTARY STRAND HIGHLIGHTING PREP
+//        highC = new DefaultHighlighter();
+//        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.BLUE);
+//        cStrandTextPane.setHighlighter(highC);
+//        parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
+//        reversePrimerTextField.getDocument().addDocumentListener(this);
+        
+        displayTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                updateLineNums(displayTabbedPane.getSelectedIndex());
+                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
+            }
+        });
         
     }
+    
+    public void updateLineNums(int tab){
+        
+        if (tab == 0){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    oStrandScroll.getVerticalScrollBar().getModel());
+        }else if (tab == 1){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    cStrandScroll.getVerticalScrollBar().getModel());
+        } else {
+            lineNumberTextArea.setText(doubleLineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    bStrandScroll.getVerticalScrollBar().getModel());
+        }
+    }
+    
+    Runnable doSearch = new Runnable() {
+        public void run() {
+            
+            
+            // ORIGINAL STRAND - FORWARD PRIMER
+            forwardPrimerTextField.setText(forwardPrimerTextField.getText().replaceAll("\\s",""));
+            highO.removeAllHighlights();
+            String sO = forwardPrimerTextField.getText();
+            int indexO = parsedO.indexOf(sO, 0);
+            
+            if (indexO >= 0) {   // match found
+                    try {
+                        int endO = indexO + sO.length();
+                        highO.addHighlight(realIndex(indexO, 10), realIndex(endO, 10), painterO);
+                        oStrandTextPane.setCaretPosition(realIndex(endO, 10));
+                    } catch (BadLocationException e) {
+                        e.printStackTrace();
+                    }
+                }
+            
+            // COMPLEMENTARY STRAND - REVERSE PRIMER - BREAKS EVERYTHING
+//            reversePrimerTextField.setText(reversePrimerTextField.getText().replaceAll("\\s",""));
+//            highC.removeAllHighlights();
+//            String sC = reversePrimerTextField.getText();
+//
+//            int indexC = parsedC.indexOf(sC, 0);
+//                if (indexC >= 0) {   // match found
+//                    try {
+//                        int endC = indexC + sC.length();
+//                        highC.addHighlight(realIndex(indexC, 10), realIndex(endC, 10), painterC);
+//                        cStrandTextPane.setCaretPosition(realIndex(endC, 10));
+//                    } catch (BadLocationException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+            }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -302,6 +400,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
             }
         });
 
+        lineNumberTextArea.setEditable(false);
         lineNumberTextArea.setColumns(1);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
@@ -322,6 +421,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
         displayTabbedPane.addTab("Complementary", cStrandScroll);
 
+        bStrandTextPane.setEditable(false);
         bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         bStrandScroll.setViewportView(bStrandTextPane);
 
@@ -405,6 +505,22 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String fP = forwardPrimerTextField.getText();
+        model.Primer fPrimer = new model.Primer(fP);
+        model.TestResult test = fPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
+        ied.setText(test.toString());
+    }
+    
+    private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String rP = reversePrimerTextField.getText();
+        model.Primer rPrimer = new model.Primer(rP);
+        model.TestResult test = rPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
+        ied.setText(test.toString());
+    }
+    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         PrimerDesign.window.remove(PrimerDesign.primerSelect);
         PrimerDesign.window.setVisible(false);
@@ -417,14 +533,15 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         String fP = forwardPrimerTextField.getText();
         String rP = reversePrimerTextField.getText();
+        attempts++;
         try {
             for (int i = 0; i < fP.length(); i++) {
                 if (!validChars.contains(fP.charAt(i)))
-                    throw new Exception();
+                    throw new HighCountException();
             }
             for (int i = 0; i < rP.length(); i++) {
                 if (!validChars.contains(rP.charAt(i)))
-                    throw new Exception();
+                    throw new HighCountException();
             }
             fP = Sequence.parser(new Scanner(fP));
             rP = Sequence.parser(new Scanner(rP));
@@ -432,13 +549,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
                 throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
-            model.TestResult pass = PrimerDesign.start.getInSequence().primerTest();
-            System.out.println(pass.getOut());
+            model.TestResult test = PrimerDesign.start.getInSequence().primerTest();
+            System.out.println(test.getOut());
+            pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-            ped.setText(pass.toString());
+            ped.setText(test.toString());
             ped.setLocation(96, 100);
             ped.setVisible(true);
-            if (pass.getPass()) {
+            if (pass) {
 
                  PrimerDesign.window.remove(PrimerDesign.primerSelect);
                  PrimerDesign.window.setVisible(false);
@@ -453,7 +571,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
            NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);
            npb.setLocation(187,450);
            npb.setVisible(true);
-       }catch(Exception e) {
+       }catch(HighCountException e) {
            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
            iib.setLocation(187, 450);
            iib.setVisible(true);
@@ -483,6 +601,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
         this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
     }//GEN-LAST:event_reverseButtonActionPerformed
     
+    public int getAttempts() {
+        return attempts;
+    }
+    
+    public boolean getPass() {
+        return pass;
+    }
+    public void setPass(boolean p) {
+        pass = p;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane bStrandScroll;
     private javax.swing.JTextPane bStrandTextPane;
@@ -505,4 +634,19 @@ public class PrimerSelectionPanel extends javax.swing.JPanel {
     private javax.swing.JButton showRulesButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        SwingUtilities.invokeLater(doSearch);
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        // SwingUtilities.invokeLater(doSearch); DO SOMETHING HERE ?
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

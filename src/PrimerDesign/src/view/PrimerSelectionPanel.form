@@ -184,6 +184,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="lineNumberTextArea">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="1"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans Typewriter" size="13" style="0"/>
@@ -270,6 +271,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextPane" name="bStrandTextPane">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>

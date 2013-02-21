@@ -9,6 +9,7 @@ package view;
  * @author Admin */
 //package org.main.graphics;
 
+import controller.PrimerDesign;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -20,10 +21,11 @@ import javax.imageio.*;
 import javax.swing.*;
 
 public class PCRAnimation {
+    
      private static void createAndShowUI() {
         int dw = 1024; //resolution width
         int dh = 768; //resolution height
-        String path = "src/view/AnimationImages/"; //path to the images
+        int phase=0;
         Image taq = null;
         Image a1 = null;
         Image a2 = null;
@@ -37,27 +39,62 @@ public class PCRAnimation {
         Image thermom = null;
         Image thermoh = null;
         try {
-            taq = ImageIO.read(new File(path+"/taq.png"));
-            a1 = ImageIO.read(new File(path+"/nodeA1.png"));
-            a2 = ImageIO.read(new File(path+"/nodeA2.png"));
-            c1 = ImageIO.read(new File(path+"/nodeC1.png"));
-            c2 = ImageIO.read(new File(path+"/nodeC2.png"));
-            g1 = ImageIO.read(new File(path+"/nodeG1.png"));
-            g2 = ImageIO.read(new File(path+"/nodeG2.png"));
-            t1 = ImageIO.read(new File(path+"/nodeT1.png"));
-            t2 = ImageIO.read(new File(path+"/nodeT2.png"));
-            thermol = ImageIO.read(new File(path+"/thermo1.png"));
-            thermom = ImageIO.read(new File(path+"/thermo2.png"));
-            thermoh = ImageIO.read(new File(path+"/thermo3.png"));
-            final MyPanel panel = new MyPanel(taq,a1,a2,c1,c2,g1,g2,t1,t2,thermol,thermom,thermoh,dw,dh);
-
-            JFrame frame = new JFrame("AnimateDemo");
-            frame.getContentPane().add(panel);
+            URL path = ClassLoader.getSystemResource("view/AnimationImages/taq.png");
+            taq = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeA1.png");
+            a1 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeA2.png");
+            a2 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeC1.png");
+            c1 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeC2.png");
+            c2 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeG1.png");
+            g1 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeG2.png");
+            g2 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeT1.png");
+            t1 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/nodeT2.png");
+            t2 = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/thermo1.png");
+            thermol = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/thermo2.png");
+            thermom = ImageIO.read(path);
+            path = ClassLoader.getSystemResource("view/AnimationImages/thermo3.png");
+            thermoh = ImageIO.read(path);
+            final MyPanel panel = new MyPanel(taq,a1,a2,c1,c2,g1,g2,t1,t2,thermol,thermom,thermoh,dw,dh); 
+            JFrame frame = new JFrame("PCR Animation");
+           
+            //frame.getContentPane().add(prevBtn);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
             frame.setSize(new Dimension(dw, dh));
+            frame.getContentPane().add(panel);
+            
+            JButton nextBtn = new JButton("Next");
+            JButton prevBtn = new JButton("Previous");
+            panel.setLayout(null);
+            prevBtn.setBounds((dw/2)-200, dh-270, 150, 30);
+            nextBtn.setBounds((dw/2)+50, dh-270, 150, 30);
+            panel.add(nextBtn);
+            panel.add(prevBtn);
+
+            
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            nextBtn.addActionListener(new ActionListener(){
 
+                   public void actionPerformed(ActionEvent event){    
+                         panel.nextStage();
+                   }
+             });
+            prevBtn.addActionListener(new ActionListener(){
+
+                   public void actionPerformed(ActionEvent event){    
+                         panel.previousStage();
+                   }
+             });
             ActionListener timerAction = new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     panel.animate();
@@ -73,6 +110,7 @@ public class PCRAnimation {
 
     }
 
+     
     static class MyPanel extends JPanel {
         private Image taq;
         private Image  a1; 
@@ -93,7 +131,8 @@ public class PCRAnimation {
         private String text3 = "";
         private int time = 0;
         private int starttime=0;
-        int speed = 20; //speed of the animation, speed of 1 = fastest, default 15
+        int step=0;
+        int speed = 15; //speed of the animation, speed of 1 = fastest, default 15
         private boolean incrementX = true;
         private boolean incrementY = true;
         private String DNAseq;
@@ -119,19 +158,18 @@ public class PCRAnimation {
             this.thermol = thermol;
             this.thermom = thermom;
             this.thermoh = thermoh;
-            this.DNAseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttgtagtttgtagtttgtagtttgtagtttgtagtttgtgttcc"; //forward strand
-            this.Bseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttagcgtcaaacacgttcaaacatcaaacatcaaacatcaaacatcaaacatcaaacacaagg"; //backward strand
-            this.areaStart = 16; //area to be contained
-            this.areaEnd = 89; //area to be contained
-            this.fwPrimer = "aaaaagtttgtagtt";
-            this.bwPrimer = "aaaaaaacatcaaac";
+            this.DNAseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtg"; //forward strand
+            this.Bseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttagcgtcaaacac"; //backward strand
+            this.areaStart = 15; //area to be contained
+            this.areaEnd = 45; //area to be contained
+            this.fwPrimer = "tttcgcag";
+            this.bwPrimer = "gttttcgc";
             this.dw = dw;
             this.dh = dh;
         }
 
         @Override
         protected void paintComponent(Graphics g) {
-            int starttime;
             super.paintComponent(g);
             int taqWidth = taq.getWidth(null);
             int taqHeight = taq.getHeight(null);
@@ -301,9 +339,9 @@ public class PCRAnimation {
                 g.drawString("T", dw-180, dh- 95); }
             Font font = new Font("Times New Roman", Font.PLAIN, 20);
             g.setFont(font);
-            g.drawString(text, 30, 610);
-            g.drawString(text2, 30, 640);
-            g.drawString(text3, 30, 670); }
+            g.drawString(text, 30, dh-170);
+            g.drawString(text2, 30, dh-130);
+            g.drawString(text3, 30, dh-90); }
         
         public void drawStrand (String s, int x, int y, boolean dir, Graphics g, int nw, int nh, int scfix) { //dir: forward-true, backward-false
             for (int i=0; i<s.length(); i++) {
@@ -332,10 +370,64 @@ public class PCRAnimation {
             } 
         }
         
+        public void nextStage() {
+            step+=1;
+            if(step>7) step=0;
+            starttime = (int)System.currentTimeMillis();
+            switch (step) {
+                    case 7: starttime=starttime - 3100*speed;
+                        break;
+                    case 6: starttime=starttime - 2700*speed;
+                        break;
+                    case 5: starttime=starttime - 2350*speed;
+                        break;
+                    case 4: starttime=starttime - 1900*speed;
+                        break;
+                    case 3: starttime=starttime - 1200*speed;
+                        break;
+                    case 2: starttime=starttime - 600*speed;
+                        break;      
+                    case 1: starttime=starttime - 250*speed;
+                        break;
+                    case 0:
+                        break;
+                }
+            }
+            
+            
+            
+        
+        
+         public void previousStage() {
+            step-=1;
+            if(step<0) step=7;
+            starttime = (int)System.currentTimeMillis();
+            switch (step) {
+                    case 7: starttime=starttime - 3100*speed;
+                        break;
+                    case 6: starttime=starttime - 2700*speed;
+                        break;
+                    case 5: starttime=starttime - 2350*speed;
+                        break;
+                    case 4: starttime=starttime - 1900*speed;
+                        break;
+                    case 3: starttime=starttime - 1200*speed;
+                        break;
+                    case 2: starttime=starttime - 600*speed;
+                        break;      
+                    case 1: starttime=starttime - 250*speed;
+                        break;
+                    case 0:
+                        break;
+                }
+            }
+         
         public void animate() {
+                
                 if(time==0) {starttime = (int)System.currentTimeMillis();
                              time = 1;}
-                if(time<250) { text="PCR, or the Polymerase chain reaction,can target and amplify any ";
+                if(time<250) { 
+                             text="PCR, or the Polymerase chain reaction,can target and amplify any ";
                              text2="specific nucleic acid from biological samples.";
                              text3="";}
                 else if (time<600) {
@@ -358,7 +450,7 @@ public class PCRAnimation {
                              text="The temperature is lowered, allowing primers to bind and";
                              text2="the taq polymerase to synthesize complementary strands";
                              text3="when the temperature is slightly raised again.";}
-                else if(time<3100) {
+                else if(time<3100) {  
                              text="With each cycle, the number of copies doubles, so after 40 cycles,";
                              text2="there will be a trillion copies of the target sequence.";
                              text3="";
@@ -368,6 +460,7 @@ public class PCRAnimation {
                     text3="";
                 }
                 time=(int)(System.currentTimeMillis()-starttime)/speed+1;
+                
                 repaint();
             
         }
