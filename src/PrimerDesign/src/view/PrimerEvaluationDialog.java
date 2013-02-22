@@ -50,7 +50,7 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
             }
         });
 
-        overrideButton.setText("Override");
+        overrideButton.setText("Accept & Continue");
         overrideButton.setEnabled(false);
         overrideButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

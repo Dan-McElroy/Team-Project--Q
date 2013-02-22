@@ -74,7 +74,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="overrideButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Override"/>
+        <Property name="text" type="java.lang.String" value="Accept &amp; Continue"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

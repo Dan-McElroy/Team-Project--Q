@@ -353,6 +353,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         bStrandScroll = new javax.swing.JScrollPane();
         bStrandTextPane = new javax.swing.JTextPane();
         reverseButton = new javax.swing.JButton();
+        fPrimerCheckButton = new javax.swing.JButton();
+        rPrimerCheckButton = new javax.swing.JButton();
 
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -434,6 +436,20 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             }
         });
 
+        fPrimerCheckButton.setText("Forward Primer Check");
+        fPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fPrimerCheckButtonActionPerformed(evt);
+            }
+        });
+
+        rPrimerCheckButton.setText("Reverse Primer Check");
+        rPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rPrimerCheckButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -444,9 +460,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fPrimerCheckButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rPrimerCheckButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(showRulesButton)
-                        .addGap(216, 216, 216)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -495,9 +515,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backButton)
-                    .addComponent(showRulesButton)
-                    .addComponent(nextButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backButton)
+                        .addComponent(fPrimerCheckButton)
+                        .addComponent(rPrimerCheckButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nextButton)
+                        .addComponent(showRulesButton)))
                 .addGap(12, 12, 12))
         );
 
@@ -505,21 +529,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        String fP = forwardPrimerTextField.getText();
-        model.Primer fPrimer = new model.Primer(fP);
-        model.TestResult test = fPrimer.test();
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
-        ied.setText(test.toString());
-    }
-    
-    private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        String rP = reversePrimerTextField.getText();
-        model.Primer rPrimer = new model.Primer(rP);
-        model.TestResult test = rPrimer.test();
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, true);
-        ied.setText(test.toString());
-    }
     
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         PrimerDesign.window.remove(PrimerDesign.primerSelect);
@@ -600,6 +609,24 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private void reverseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reverseButtonActionPerformed
         this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
     }//GEN-LAST:event_reverseButtonActionPerformed
+
+    private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fPrimerCheckButtonActionPerformed
+        String fP = forwardPrimerTextField.getText();
+        model.Primer fPrimer = new model.Primer(fP);
+        model.TestResult test = fPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, false);
+        ied.setText(test.toString());
+        ied.setVisible(true);
+    }//GEN-LAST:event_fPrimerCheckButtonActionPerformed
+
+    private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPrimerCheckButtonActionPerformed
+        String rP = reversePrimerTextField.getText();
+        model.Primer rPrimer = new model.Primer(rP);
+        model.TestResult test = rPrimer.test();
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, false);
+        ied.setText(test.toString());
+        ied.setVisible(true);
+    }//GEN-LAST:event_rPrimerCheckButtonActionPerformed
     
     public int getAttempts() {
         return attempts;
@@ -619,6 +646,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JScrollPane cStrandScroll;
     private javax.swing.JTextPane cStrandTextPane;
     private javax.swing.JTabbedPane displayTabbedPane;
+    private javax.swing.JButton fPrimerCheckButton;
     private javax.swing.JLabel forwardPrimerLabel;
     private javax.swing.JTextField forwardPrimerTextField;
     private javax.swing.JTextPane instructionTextPane;
@@ -628,6 +656,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JButton nextButton;
     private javax.swing.JScrollPane oStrandScroll;
     private javax.swing.JTextPane oStrandTextPane;
+    private javax.swing.JButton rPrimerCheckButton;
     private javax.swing.JButton reverseButton;
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JTextField reversePrimerTextField;
