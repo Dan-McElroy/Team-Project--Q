@@ -589,9 +589,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void showRulesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesButtonActionPerformed
-        // should create a jdialog(?) showing the rules for primer design
-       PrimerRulesDialog dialog = new PrimerRulesDialog(PrimerDesign.window, true);
-       dialog.setVisible(true);
+       //PrimerRulesDialog dialog = new PrimerRulesDialog(PrimerDesign.window, true);
+       //dialog.setVisible(true);
+       String []args = null; 
+       PrimerRulesDialog.main(args);
     }//GEN-LAST:event_showRulesButtonActionPerformed
    
     private void forwardPrimerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPrimerTextFieldActionPerformed
