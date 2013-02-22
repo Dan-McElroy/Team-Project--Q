@@ -97,13 +97,7 @@ public class PrimerRulesDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PrimerRulesDialog dialog = new PrimerRulesDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
+                PrimerRulesDialog dialog = new PrimerRulesDialog(new javax.swing.JFrame(), false);
                 dialog.setVisible(true);
             }
         });
