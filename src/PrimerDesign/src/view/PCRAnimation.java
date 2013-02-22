@@ -285,7 +285,7 @@ public class PCRAnimation {
                     
             } else
                  {
-                    Font font = new Font("Times New Roman", Font.PLAIN, 15);
+                    Font font = new Font("DejaVu Sans", Font.PLAIN, 15);
                     g.setFont(font);
                     int spacing=0;
                     fwString=DNAseq.substring(areaStart,areaEnd);
@@ -333,13 +333,13 @@ public class PCRAnimation {
                 g.drawImage(c1, dw-230, dh- 230, nodeWidth/20, nodeHeight/20, null);
                 g.drawImage(a1, dw-230, dh- 180, nodeWidth/20, nodeHeight/20, null);
                 g.drawImage(t1, dw-230, dh- 130, nodeWidth/20, nodeHeight/20, null);
-                Font font = new Font("Times New Roman", Font.PLAIN, 30);
+                Font font = new Font("Lucida Sans Typewriter", Font.PLAIN, 30);
                 g.setFont(font);
                 g.drawString("G", dw-180, dh- 245);
                 g.drawString("C", dw-180, dh- 195);
                 g.drawString("A", dw-180, dh- 145);
                 g.drawString("T", dw-180, dh- 95); }
-            Font font = new Font("Times New Roman", Font.PLAIN, 20);
+            Font font = new Font("DejaVu Sans", Font.PLAIN, 20);
             g.setFont(font);
             g.drawString(text, 30, dh-170);
             g.drawString(text2, 30, dh-130);

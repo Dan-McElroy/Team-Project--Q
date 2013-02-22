@@ -67,6 +67,7 @@ public class Splash extends javax.swing.JPanel {
         leftTextArea.setRows(5);
         leftTextArea.setText("Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\n\n\n\n\nCreated by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor.");
         leftTextArea.setWrapStyleWord(true);
+        leftTextArea.setCaretPosition(0);
         jScrollPane2.setViewportView(leftTextArea);
 
         rightTextArea.setEditable(false);
