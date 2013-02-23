@@ -8,6 +8,10 @@ import controller.PrimerDesign;
 import java.awt.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
@@ -20,12 +24,11 @@ import javax.swing.text.StyleContext;
  */
 public class AreaSelection extends javax.swing.JPanel {
     
-    private boolean isOStrand = true;
-    //private Highlighter high;
-    //private int from;
-    //private int to;
+//    private boolean isOStrand = true;  <<< What does this do ?
     private int startTarget, endTarget;
     private String lineNums;
+//    private String doubleLineNums;
+
 
 
     public int getStartTarget() {
@@ -44,6 +47,79 @@ public class AreaSelection extends javax.swing.JPanel {
         this.endTarget = endTarget;
     }
     
+    private class AreaCaretListener implements CaretListener{
+
+        public int unrealIndex(int x) {
+        //Potential issue: assumes line % block= 0.
+        int xRounded = x - (x % 11);
+        return (x - (xRounded / 11));
+    }
+        
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            boolean debug = true; // make false for no debug
+            int update = 150; // number of bases required to fire update
+            int fromVal = e.getMark(); 
+            int toVal = e.getDot();
+
+            /*
+            int fromSpaces = fromVal/10;
+            fromSpaces = fromSpaces + fromVal/70;
+            int toSpaces = toVal/10;
+            toSpaces = toSpaces + toVal/70;
+            fromVal = fromVal - fromSpaces + 1;
+            toVal = toVal - toSpaces;
+            */
+            fromVal = unrealIndex(fromVal) + 1;
+            toVal = unrealIndex(toVal);
+            if (fromVal > toVal) {
+                int temp = fromVal - 1;
+                fromVal = toVal + 1;
+                toVal = temp;
+            }
+            if ((toVal - fromVal) >= update) {
+                fromTextField.setText(Integer.toString(fromVal));
+                toTextField.setText(Integer.toString(toVal));
+            }
+            
+            if (debug){
+                System.out.println("------Update-------");
+                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
+                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toVal = " + toVal);
+                System.out.println();
+            }
+            String fromText = fromTextField.getText().toString();
+            String toText = toTextField.getText().toString();
+            if (fromText.equalsIgnoreCase(toText)) {
+                fromTextField.setText(null);
+                toTextField.setText(null);
+            }
+        }
+
+        /*
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            if (fromTextField.getText().toString().isEmpty() && toTextField.getText().toString().isEmpty()){
+                if (e.getSource().equals(oStrandTextPane) || e.getSource().equals(cStrandTextPane)) {
+                    fromTextField.setText(Integer.toString(e.getMark()));
+                    int numSpaces = (e.getDot() - e.getMark()) / 10;
+                    toTextField.setText(Integer.toString(e.getDot() - numSpaces));
+                    if (fromTextField.getText().toString().compareTo(toTextField.getText().toString()) < 0){
+                        String temp = fromTextField.getText().toString();
+                        fromTextField.setText(toTextField.getText());
+                        toTextField.setText(temp);
+                    }
+                }
+                if (fromTextField.getText().toString().equalsIgnoreCase(toTextField.getText().toString())) {
+                    fromTextField.setText(null);
+                    toTextField.setText(null);
+                }
+            }
+        }
+        */
+        
+    }
+    
     /**
      * Creates new form areaSelection
      */
@@ -55,67 +131,96 @@ public class AreaSelection extends javax.swing.JPanel {
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument oDoc = new DefaultStyledDocument(sc);
         final DefaultStyledDocument cDoc = new DefaultStyledDocument(sc);
-        final DefaultStyledDocument bDoc = new DefaultStyledDocument(sc);
+//        final DefaultStyledDocument bDoc = new DefaultStyledDocument(sc);
         
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
         final Style mainStyle = sc.addStyle("MainStyle", defaultStyle);
         StyleConstants.setFontFamily(mainStyle, "monospaced");
         
-        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
-        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
-        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
-        
-        Style originalStyle = sc.addStyle("OriginalStyle", defaultStyle);
-        StyleConstants.setFontFamily(originalStyle, "monospaced");
-        StyleConstants.setForeground(originalStyle, Color.ORANGE);
+//        Style complementaryStyle = sc.addStyle("ComplementaryStyle", defaultStyle);
+//        StyleConstants.setFontFamily(complementaryStyle, "monospaced");
+//        StyleConstants.setForeground(complementaryStyle, Color.BLUE);
+//        
+//        Style originalStyle = sc.addStyle("OriginalStyle", defaultStyle);
+//        StyleConstants.setFontFamily(originalStyle, "monospaced");
+//        StyleConstants.setForeground(originalStyle, Color.ORANGE);
         
         oDoc.setLogicalStyle(0, mainStyle);
         cDoc.setLogicalStyle(0, mainStyle);
-        bDoc.setLogicalStyle(0, originalStyle);
+//        bDoc.setLogicalStyle(0, originalStyle);
         
         try {
             // Add the text to the document
             oDoc.insertString(0, PrimerDesign.start.getInSequence().toString('o', 10, 70), null);
             cDoc.insertString(0, PrimerDesign.start.getInSequence().toString('c', 10, 70), null);
-            bDoc.insertString(0, PrimerDesign.start.getInSequence().toString('b', 10, 70), null);
+//            bDoc.insertString(0, PrimerDesign.start.getInSequence().toString('b', 10, 70), null);
         } catch (BadLocationException ex) {
             Logger.getLogger(PrimerSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         oStrandTextPane.setDocument(oDoc);
         cStrandTextPane.setDocument(cDoc);
-        bStrandTextPane.setDocument(bDoc);
+//        bStrandTextPane.setDocument(bDoc);
         
         // Section for colouring the complementary strand
-        int colourStart = 0;
-        while(colourStart <= bDoc.getLength()){
-            
-            if((colourStart + 154) > bDoc.getLength()){
-                bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
-            }
-            else{
-                bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
-            }
-            
-            colourStart += 154;
-        }
-        
+//        int colourStart = 0;
+//        while(colourStart <= bDoc.getLength()){
+//            
+//            if((colourStart + 154) > bDoc.getLength()){
+//                bDoc.setCharacterAttributes(colourStart, 77 -(154 - (bDoc.getLength() - colourStart))/2, complementaryStyle, false);
+//            }
+//            else{
+//                bDoc.setCharacterAttributes(colourStart, 77, complementaryStyle, false);
+//            }
+//            
+//            colourStart += 154;
+//        }
+//        
         lineNums = "";
+//        doubleLineNums = "";
         int x = 1;
         for(int i = 0; x < PrimerDesign.start.getInSequence().length(); i++){
             lineNums += x + "\n";
+//            doubleLineNums += x + "\n\n";
             x += 70;
         }
         lineNumberTextArea.setText(lineNums);
         lineNumberTextArea.setCaretPosition(0);
         
-        oStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        cStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
-        bStrandScroll.getVerticalScrollBar().setModel(
-                lineAreaScroll.getVerticalScrollBar().getModel());
+        lineAreaScroll.getVerticalScrollBar().setModel(
+                oStrandScroll.getVerticalScrollBar().getModel());
         
+        CaretListener caretListener = new AreaCaretListener();
+        oStrandTextPane.addCaretListener(caretListener);
+        cStrandTextPane.addCaretListener(caretListener);
+        
+        displayTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                updateLineNums(displayTabbedPane.getSelectedIndex());
+                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
+            }
+        });
+        
+    }
+    
+    public void updateLineNums(int tab){
+        
+        if (tab == 0){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    oStrandScroll.getVerticalScrollBar().getModel());
+        }else if (tab == 1){
+            lineNumberTextArea.setText(lineNums);
+            lineNumberTextArea.setCaretPosition(0);
+            lineAreaScroll.getVerticalScrollBar().setModel(
+                    cStrandScroll.getVerticalScrollBar().getModel());
+        } //else {
+//            lineNumberTextArea.setText(doubleLineNums);
+//            lineNumberTextArea.setCaretPosition(0);
+//            lineAreaScroll.getVerticalScrollBar().setModel(
+//                    bStrandScroll.getVerticalScrollBar().getModel());
+//        }
     }
 
     /**
@@ -138,13 +243,11 @@ public class AreaSelection extends javax.swing.JPanel {
         fromTextField = new javax.swing.JTextField();
         lineAreaScroll = new javax.swing.JScrollPane();
         lineNumberTextArea = new javax.swing.JTextArea();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        displayTabbedPane = new javax.swing.JTabbedPane();
         oStrandScroll = new javax.swing.JScrollPane();
         oStrandTextPane = new javax.swing.JTextPane();
         cStrandScroll = new javax.swing.JScrollPane();
         cStrandTextPane = new javax.swing.JTextPane();
-        bStrandScroll = new javax.swing.JScrollPane();
-        bStrandTextPane = new javax.swing.JTextPane();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -153,6 +256,7 @@ public class AreaSelection extends javax.swing.JPanel {
         titleLabel.setText("Target Sequence Selection");
 
         instructionTextPane.setEditable(false);
+        instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         instructionTextPane.setText("Specify the region to be amplified by PCR. Indicate the region using the numbers on the left hand side and write these in the boxes below.");
         jScrollPane2.setViewportView(instructionTextPane);
 
@@ -174,91 +278,89 @@ public class AreaSelection extends javax.swing.JPanel {
 
         toLabel.setText("To:");
 
+        lineNumberTextArea.setEditable(false);
         lineNumberTextArea.setColumns(5);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
         lineNumberTextArea.setTabSize(4);
         lineAreaScroll.setViewportView(lineNumberTextArea);
 
-        jTabbedPane1.setBackground(new java.awt.Color(254, 254, 254));
+        displayTabbedPane.setBackground(new java.awt.Color(254, 254, 254));
 
         oStrandTextPane.setEditable(false);
         oStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         oStrandTextPane.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         oStrandScroll.setViewportView(oStrandTextPane);
 
-        jTabbedPane1.addTab("DNA Sequence", oStrandScroll);
+        displayTabbedPane.addTab("DNA Sequence", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
         cStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         cStrandScroll.setViewportView(cStrandTextPane);
 
-        jTabbedPane1.addTab("Complementary", cStrandScroll);
-
-        bStrandTextPane.setEditable(false);
-        bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
-        bStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
-        bStrandScroll.setViewportView(bStrandTextPane);
-
-        jTabbedPane1.addTab("Double Stranded", bStrandScroll);
+        displayTabbedPane.addTab("Complementary", cStrandScroll);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(displayTabbedPane))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(fromLabel)
+                        .addGap(12, 12, 12)
+                        .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(toLabel)
+                        .addGap(12, 12, 12)
+                        .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 610, Short.MAX_VALUE)
+                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(fromLabel)
-                .addGap(12, 12, 12)
-                .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(toLabel)
-                .addGap(12, 12, 12)
-                .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(610, 610, 610)
-                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(titleLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fromLabel)
-                            .addComponent(toLabel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(toTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(toLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fromLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                        .addGap(7, 7, 7))
+                    .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backButton)
-                    .addComponent(nextButton)))
+                    .addComponent(nextButton))
+                .addGap(12, 12, 12))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -351,16 +453,14 @@ public class AreaSelection extends javax.swing.JPanel {
     }
     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane bStrandScroll;
-    private javax.swing.JTextPane bStrandTextPane;
     private javax.swing.JButton backButton;
     private javax.swing.JScrollPane cStrandScroll;
     private javax.swing.JTextPane cStrandTextPane;
+    private javax.swing.JTabbedPane displayTabbedPane;
     private javax.swing.JLabel fromLabel;
     private javax.swing.JTextField fromTextField;
     private javax.swing.JTextPane instructionTextPane;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JScrollPane lineAreaScroll;
     private javax.swing.JTextArea lineNumberTextArea;
     private javax.swing.JButton nextButton;

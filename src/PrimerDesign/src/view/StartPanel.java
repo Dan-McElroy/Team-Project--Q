@@ -51,6 +51,7 @@ public class StartPanel extends javax.swing.JPanel {
         instructionTextPane = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         sequenceTextArea = new javax.swing.JTextArea();
+        backButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -74,6 +75,13 @@ public class StartPanel extends javax.swing.JPanel {
         sequenceTextArea.setRows(5);
         jScrollPane4.setViewportView(sequenceTextArea);
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,7 +91,8 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4)
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -99,7 +108,9 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextButton)
+                    .addComponent(backButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -120,7 +131,17 @@ public class StartPanel extends javax.swing.JPanel {
         PrimerDesign.window.setVisible(true);
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        PrimerDesign.window.remove(PrimerDesign.start);
+        PrimerDesign.window.setVisible(false);
+
+        PrimerDesign.window.getContentPane().add(PrimerDesign.splash);
+        PrimerDesign.window.pack();
+        PrimerDesign.window.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JTextPane instructionTextPane;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;

@@ -30,7 +30,7 @@
                       <Component id="backButton" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="showRulesButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                       <Component id="nextButton" min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -59,11 +59,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="forwardPrimerTextField" linkSize="7" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
@@ -76,12 +76,13 @@
                       <Component id="forwardPrimerLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="displayTabbedPane" min="-2" pref="389" max="-2" attributes="0"/>
+                  <Component id="displayTabbedPane" pref="389" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="lineAreaScroll" min="-2" pref="346" max="-2" attributes="0"/>
+                      <Component id="lineAreaScroll" pref="346" max="32767" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -115,6 +116,9 @@
         <Component class="javax.swing.JTextPane" name="instructionTextPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the &quot;Show Primer Design Rules&quot; button below to see general primer design rules."/>
           </Properties>
         </Component>
@@ -180,6 +184,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="lineNumberTextArea">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="1"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans Typewriter" size="13" style="0"/>
@@ -266,6 +271,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextPane" name="bStrandTextPane">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
