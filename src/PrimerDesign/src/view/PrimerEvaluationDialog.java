@@ -5,6 +5,14 @@
 package view;
 
 import controller.PrimerDesign;
+import java.awt.Color;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
+import model.TestResult;
+import model.TestResult.PassState;
 
 /**
  *
@@ -17,9 +25,56 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
      */
     public PrimerEvaluationDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
+        
+        TestResult test = PrimerDesign.primerSelect.test;
+        
+        StyleContext sc = new StyleContext();
+        Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
+        
+        final DefaultStyledDocument doc = new DefaultStyledDocument(sc);
+        
+        final Style passStyle = sc.addStyle("PassStyle", defaultStyle);
+        StyleConstants.setFontFamily(passStyle, "monospaced");
+        StyleConstants.setForeground(passStyle, Color.GREEN);
+        
+        final Style closeFailStyle = sc.addStyle("CloseFailStyle", defaultStyle);
+        StyleConstants.setFontFamily(closeFailStyle, "monospaced");
+        StyleConstants.setForeground(closeFailStyle, Color.ORANGE);
+        
+        final Style failStyle = sc.addStyle("FailStyle", defaultStyle);
+        StyleConstants.setFontFamily(failStyle, "monospaced");
+        StyleConstants.setForeground(failStyle, Color.RED);        
+        
+        doc.setLogicalStyle(0, defaultStyle);
+        try {doc.insertString(0, test.toString(), null);}
+        catch(BadLocationException e) {System.out.println("Herp.");}
+        
+        infoTextPane.setDocument(doc);
+        
+        int strIndex = 0, i, length;
+        for (i = 0; i < test.size(); i++) {
+            length = test.getOut(i).length();
+            if (test.getPass(i) == PassState.PASS) {
+                doc.setCharacterAttributes(strIndex, length, passStyle, false);
+                System.out.println(strIndex + " " + length + 
+                        test.toString().substring(strIndex, strIndex+length));
+            }
+            else if (test.getPass(i) == PassState.CLOSEFAIL) {
+                doc.setCharacterAttributes(strIndex, length, closeFailStyle, false);
+            }
+            else if (test.getPass(i) == PassState.FAIL) {
+                doc.setCharacterAttributes(strIndex, length, failStyle, false);
+            }
+            else {
+                doc.setCharacterAttributes(strIndex, length, defaultStyle, false);
+            }
+            strIndex += length + 1;
+        }
+        
         if (PrimerDesign.primerSelect.getAttempts() > 3)
-            overrideButton.setEnabled(true);
+                overrideButton.setEnabled(true);
     }
 
     /**
@@ -31,17 +86,12 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        infoTextArea = new javax.swing.JTextArea();
         jToggleButton1 = new javax.swing.JToggleButton();
         overrideButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        infoTextPane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        infoTextArea.setEditable(false);
-        infoTextArea.setColumns(20);
-        infoTextArea.setRows(5);
-        jScrollPane1.setViewportView(infoTextArea);
 
         jToggleButton1.setText("OK");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,23 +108,29 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
             }
         });
 
+        infoTextPane.setEditable(false);
+        infoTextPane.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(infoTextPane);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(overrideButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jToggleButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 586, Short.MAX_VALUE)
+                        .addComponent(overrideButton)))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton1)
@@ -137,14 +193,11 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
             }
         });
     }
-    
-    public void setText(String s) {
-        infoTextArea.setText(s);
-    }
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea infoTextArea;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane infoTextPane;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton overrideButton;
     // End of variables declaration//GEN-END:variables

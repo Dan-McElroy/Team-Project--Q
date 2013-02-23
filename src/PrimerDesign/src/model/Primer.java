@@ -63,17 +63,17 @@ public class Primer {
         
         if (meltTemp >= 50 && meltTemp <= 65)
             return new TestResult(PassState.PASS, "The primer's melting temperature of "
-                    + Integer.toString(meltTemp) + "\u2013 is within the "
-                    + "bounds of 50-65\u2013");
+                    + Integer.toString(meltTemp) + "\u2103 is within the "
+                    + "bounds of 50-65\u2103");
         else if (meltTemp >= 45 && meltTemp <= 69) {
             return new TestResult(PassState.CLOSEFAIL, "The primer's "
                     + "melting temperature of " + Integer.toString(meltTemp)
-                    + "\u2013 is just outside the bounds of 50-65\u2013");
+                    + "\u2103 is just outside the bounds of 50-65\u2103");
         }
         else
             return new TestResult(PassState.FAIL, ("Melting "
-                    + "temperature should be between 50-65\u2013, current "
-                    + "temperature: " + Integer.toString(meltTemp) + "\u2013"));
+                    + "temperature should be between 50-65\u2103, current "
+                    + "temperature: " + Integer.toString(meltTemp) + "\u2103"));
     }
     
     public boolean matches(int i, String x) {
@@ -141,8 +141,8 @@ public class Primer {
                 if(reps > 3){
                     return new TestResult(PassState.CLOSEFAIL,
                             "Base " + String.valueOf(current) +
-                            "repeats" + reps + " times in a row, just over the"
-                            + "ideal maximum for repeating bases of 3 in a row.");
+                            " repeats " + reps + " times in a row, just over the"
+                            + " ideal maximum for repeating bases of 3 in a row.");
                 }
             }
             else {
@@ -337,8 +337,7 @@ public class Primer {
     	 * passes if all true and returns relevant comments if
     	 * not.
     	 */
-        TestResult t = new TestResult(PassState.PASS, "");
-        t.add(meltingTemp());
+        TestResult t = meltingTemp();
         t.add(gcContent());
         t.add(repetition());                                       
         t.add(goodLength());                               

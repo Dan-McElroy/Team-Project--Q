@@ -204,8 +204,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="DNA Sequence">
-                <Property name="tabTitle" type="java.lang.String" value="DNA Sequence"/>
+              <JTabbedPaneConstraints tabName="DNA Sequence (5&apos; - 3&apos;)">
+                <Property name="tabTitle" type="java.lang.String" value="DNA Sequence (5&apos; - 3&apos;)"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -234,8 +234,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Complementary">
-                <Property name="tabTitle" type="java.lang.String" value="Complementary"/>
+              <JTabbedPaneConstraints tabName="Complementary (3&apos; - 5&apos;)">
+                <Property name="tabTitle" type="java.lang.String" value="Complementary (3&apos; - 5&apos;)"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

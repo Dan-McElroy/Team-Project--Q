@@ -41,6 +41,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     final Highlighter highO; //, highC;
     final Highlighter.HighlightPainter painterO; //, painterC;
     private String parsedO; //, parsedC;
+    public static model.TestResult test;
+    public static model.TestResult fTest;
+    public static model.TestResult rTest;
     //private javax.swing.JTextArea dubslineNumberTextArea;
         
     /*
@@ -412,14 +415,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         oStrandTextPane.setMaximumSize(new java.awt.Dimension(700, 2147483647));
         oStrandScroll.setViewportView(oStrandTextPane);
 
-        displayTabbedPane.addTab("DNA Sequence", oStrandScroll);
+        displayTabbedPane.addTab("DNA Sequence (5' - 3')", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
         cStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         cStrandScroll.setViewportView(cStrandTextPane);
 
-        displayTabbedPane.addTab("Complementary", cStrandScroll);
+        displayTabbedPane.addTab("Complementary (3' - 5')", cStrandScroll);
 
         bStrandTextPane.setEditable(false);
         bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
@@ -549,11 +552,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
-            model.TestResult test = PrimerDesign.start.getInSequence().primerTest();
-            System.out.println(test.getOut());
+            test = PrimerDesign.start.getInSequence().primerTest();
+            System.out.println(test.toString());
             pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-            ped.setText(test.toString());
             ped.setLocation(96, 100);
             ped.setVisible(true);
             if (pass) {
