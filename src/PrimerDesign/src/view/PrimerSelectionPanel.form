@@ -38,12 +38,12 @@
                       <Component id="forwardPrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="forwardPrimerTextField" linkSize="8" min="-2" pref="190" max="-2" attributes="0"/>
-                      <EmptySpace pref="80" max="32767" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
                       <Component id="reversePrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reversePrimerTextField" linkSize="8" min="-2" pref="190" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="reverseButton" min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="reverseButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="lineAreaScroll" min="-2" pref="83" max="-2" attributes="0"/>
@@ -281,7 +281,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="reverseButton">
+    <Component class="javax.swing.JToggleButton" name="reverseButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reverse"/>
       </Properties>
