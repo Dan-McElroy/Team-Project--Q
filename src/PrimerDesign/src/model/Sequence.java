@@ -271,28 +271,27 @@ public class Sequence {
                     + " above the highest recommended difference of 3\u2103");
         else
             return new TestResult(PassState.PASS, "Your primers are"
-                    + "within 3\u2013C of each other.");
+                    + " within 3\u2103 of each other.");
     }
     
     public TestResult primerTest() {
         TestResult test = new TestResult(PassState.PASS, "");
         TestResult fTest = fPrimer.test(); fTest.add(isUnique(fPrimer, 'o'));
         TestResult rTest = rPrimer.test(); rTest.add(isUnique(rPrimer, 'c'));
-        TestResult paTest = fPrimer.pairAnneal(rPrimer);
-        if (fTest.acceptable() && rTest.acceptable() && paTest.passes()
+        if (fTest.acceptable() && rTest.acceptable() && fPrimer.pairAnneal(rPrimer).passes()
                 && tempDifference().passes()){ test.add("Congratulations, your"
                         + " primers meet all the design requirements!");
                 return test;
         }
         test.add("Your primers haven't met the requirements in the "
                 + "following areas:\n");
-            test.add("Forward Primer:");
-            test.addQuiet(fPrimer.test());
-            test.add("Reverse Primer:");
-            test.addQuiet(rPrimer.test());
-            test.add("General:");
+            test.add("Forward Primer:\n");
+            test.addFull(fPrimer.test());
+            test.add("\nReverse Primer:\n");
+            test.addFull(rPrimer.test());
+            test.add("\nGeneral:");
             test.add(tempDifference());
-            test.add(paTest);
+            test.add(fPrimer.pairAnneal(rPrimer));
         return test;
         /*
         TestResult test;
