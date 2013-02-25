@@ -298,19 +298,18 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     Runnable searchC = new Runnable() {
         @Override
         public void run() {
-            //this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
             // COMPLEMENTARY STRAND - REVERSE PRIMER
             String sC = reversePrimerTextField.getText().replaceAll("\\s", "");
-            //reversePrimerTextField.setText(reversePrimerTextField.getText().replaceAll("\\s",""));
+            
+            if (reverseButton.isSelected()){
+                sC = model.Primer.reverse(sC);
+            }
             highC.removeAllHighlights();
             int indexC = parsedC.indexOf(sC, 0);
             int endC = 0;
             int checked = 0;
             
-            if (reverseButton.isSelected()){
-                sC = model.Primer.reverse(sC);
-                System.out.println(sC);
-            }
+            
                 
             
             while (indexC >= 0 && sC.length() > 0) {   // match found
