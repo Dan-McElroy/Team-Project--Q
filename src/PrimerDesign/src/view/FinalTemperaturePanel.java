@@ -191,7 +191,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        String[] x = new String [1];        // What does this do? -Dan
+        String[] x = new String [1];
         x[0] = "";
         
         PrimerDesign.window.remove(PrimerDesign.temperature);

@@ -32,7 +32,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
      * Creates new form PrimerSelectionPanel
      */
     
-    private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
     private String doubleLineNums;
     private ArrayList<Character> validChars = new ArrayList<Character>();
@@ -46,31 +45,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     public static model.TestResult rTest;
     private boolean reversed;
         
-    /*
-    private class PrimerFinder implements Runnable {
-
-        private String primer;
-        private String strand;
-
-        public PrimerFinder(String p, String s) {
-            primer = p;
-            strand = s;
-        }
-
-        @Override
-        public void run() {
-            for (int i = 0; i < strand.length(); i++) {
-                
-                if (primer.length() > 0 && strand.substring(i, (i + primer.length() - 1)).equalsIgnoreCase(primer)) {
-                    matchSet.add(i);
-                } 
-                //else if (matchSet.contains(i)) {
-                //    matchSet.remove(i);
-                //}
-            }
-        }
-    }
-    */
+    
     public static int realIndex(int x, int block) {
         //Potential issue: assumes line % block= 0.
         int xRounded = x - (x % block);
@@ -630,15 +605,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     }//GEN-LAST:event_showRulesButtonActionPerformed
    
     private void forwardPrimerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPrimerTextFieldActionPerformed
-        /*
-        Thread t = new Thread(new PrimerFinder(
-                forwardPrimerTextField.getText(),
-                PrimerDesign.start.getInSequence().getOStrand()));
         
-        t.start();
-        
-        System.out.println(matchSet.toString());
-        */
     }//GEN-LAST:event_forwardPrimerTextFieldActionPerformed
 
     private void reverseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reverseButtonActionPerformed

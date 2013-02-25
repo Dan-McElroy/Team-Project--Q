@@ -24,10 +24,8 @@ import javax.swing.text.StyleContext;
  */
 public class AreaSelection extends javax.swing.JPanel {
     
-//    private boolean isOStrand = true;  <<< What does this do ?
     private int startTarget, endTarget;
     private String lineNums;
-//    private String doubleLineNums;
 
 
 
@@ -57,19 +55,11 @@ public class AreaSelection extends javax.swing.JPanel {
         
         @Override
         public void caretUpdate(CaretEvent e) {
-            boolean debug = true; // make false for no debug
+            boolean debug = false; // make false for no debug
             int update = 150; // number of bases required to fire update
             int fromVal = e.getMark(); 
             int toVal = e.getDot();
 
-            /*
-            int fromSpaces = fromVal/10;
-            fromSpaces = fromSpaces + fromVal/70;
-            int toSpaces = toVal/10;
-            toSpaces = toSpaces + toVal/70;
-            fromVal = fromVal - fromSpaces + 1;
-            toVal = toVal - toSpaces;
-            */
             fromVal = unrealIndex(fromVal) + 1;
             toVal = unrealIndex(toVal);
             if (fromVal > toVal) {
@@ -369,8 +359,6 @@ public class AreaSelection extends javax.swing.JPanel {
         try {
         startTarget = Integer.parseInt(fromTextField.getText());
         endTarget = Integer.parseInt(toTextField.getText());
-        System.out.println("Start target: " + startTarget +
-                "\tEnd target: " + endTarget);
         // At this point, end target exists.
         
         if (startTarget < 1 || endTarget < 1)
