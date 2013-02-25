@@ -386,7 +386,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         cStrandTextPane = new javax.swing.JTextPane();
         bStrandScroll = new javax.swing.JScrollPane();
         bStrandTextPane = new javax.swing.JTextPane();
-        reverseButton = new javax.swing.JButton();
+        reverseButton = new javax.swing.JToggleButton();
         fPrimerCheckButton = new javax.swing.JButton();
         rPrimerCheckButton = new javax.swing.JButton();
 
@@ -693,12 +693,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JButton nextButton;
     private javax.swing.JScrollPane oStrandScroll;
     private javax.swing.JTextPane oStrandTextPane;
-<<<<<<< HEAD
     private javax.swing.JButton rPrimerCheckButton;
-    private javax.swing.JButton reverseButton;
-=======
     private javax.swing.JToggleButton reverseButton;
->>>>>>> 4dc9806fbf3a2305cd794767693cbee053455712
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JTextField reversePrimerTextField;
     private javax.swing.JButton showRulesButton;
