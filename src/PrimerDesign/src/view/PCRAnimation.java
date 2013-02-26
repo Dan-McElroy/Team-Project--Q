@@ -94,24 +94,16 @@ public class PCRAnimation {
 
                    public void actionPerformed(ActionEvent event){    
                          frame.dispose();
+                         System.exit(0);
                    }
              });
             restartBtn.addActionListener(new ActionListener(){
 
                    public void actionPerformed(ActionEvent event){    
                          frame.dispose();
-                         JFrame window;
-                         Splash splash;
-                         window = new JFrame("Primer Design");
-                         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-                         // add start panel to frame
-                         splash = new Splash();
-                         window.getContentPane().add(splash);
-
-                         // size the window and show it
-                         window.pack();
-                         window.setVisible(true);
+                         PrimerDesign.window.getContentPane().add(PrimerDesign.splash);
+                         PrimerDesign.window.pack();
+                         PrimerDesign.window.setVisible(true);
                    }
              });
             nextBtn.addActionListener(new ActionListener(){
@@ -368,7 +360,7 @@ public class PCRAnimation {
                 g.drawString("C", dw-180, dh- 195);
                 g.drawString("A", dw-180, dh- 145);
                 g.drawString("T", dw-180, dh- 95); }
-            Font font = new Font("DejaVu Sans", Font.PLAIN, 19);
+            Font font = new Font("DejaVu Sans", Font.PLAIN, 16);
             g.setFont(font);
             g.drawString(text, 30, dh-170);
             g.drawString(text2, 30, dh-130);
