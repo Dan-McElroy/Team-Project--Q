@@ -293,41 +293,5 @@ public class Sequence {
             test.add(tempDifference());
             test.add(fPrimer.pairAnneal(rPrimer));
         return test;
-        /*
-        TestResult test;
-        TestResult fTest = new TestResult(true, "Forward Primer:\t\n#");
-        fTest.add(fPrimer.test());
-        fTest.add(fPrimer.isUnique(oStrand, cStrand)); //better than whole Seq
-        TestResult rTest = new TestResult(true, "\nReverse Primer:\t\n#");
-        rTest.add(rPrimer.test());
-        rTest.add(rPrimer.isUnique(oStrand, cStrand));
-        if (fTest.getPass() && rTest.getPass() 
-                && fPrimer.pairAnneal(rPrimer).getPass()
-                && tempDifference().getPass())
-            test = new TestResult(true, "Congratulations, your primers work!");
-        else {
-            test = new TestResult(true, "Sorry, your primers do not meet the " +
-                    "following requirements:\n\n");
-            if (!fTest.getPass()) test.add(fTest);
-            if (!rTest.getPass()) test.add(rTest);
-            if (!fPrimer.pairAnneal(rPrimer).getPass()) {
-                test.add(new TestResult(true, "General:\n"));
-                test.add(fPrimer.pairAnneal(rPrimer));
-                test.add(tempDifference());
-            }
-        }
-        
-        return test;
-        */
     }
-    /*public static void main(String[] args) {
-        Sequence s = new Sequence(args[0]);
-        System.out.println("Sequence:\n" + s);
-        Primer p = new Primer(s.getCStrand());
-        System.out.println("Primer:\n" + p);
-        TestResult t = p.test();
-        System.out.println("Test Result:\n" + t);
-        
-    }
-    */
 }

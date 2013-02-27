@@ -43,7 +43,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     public static model.TestResult test;
     public static model.TestResult fTest;
     public static model.TestResult rTest;
-    private boolean reversed;
+    public static boolean useF;
         
     
     public static int realIndex(int x, int block) {
@@ -92,7 +92,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         initComponents();
         
         attempts = 0;
-        reversed = false;
         
         // Create the StyleContext and the document
         validChars.add('a'); 
@@ -568,7 +567,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
             PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
             test = PrimerDesign.start.getInSequence().primerTest();
-            System.out.println(test.toString());
             pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
             ped.setLocation(96, 100);
@@ -614,18 +612,22 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fPrimerCheckButtonActionPerformed
         String fP = forwardPrimerTextField.getText();
         model.Primer fPrimer = new model.Primer(fP);
-        model.TestResult test = fPrimer.test();
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, false);
-        ied.setText(test.toString());
+        fTest = new model.TestResult();
+        fTest.addFull(fPrimer.test());
+        useF = true;
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+                                                    PrimerDesign.window, false);
         ied.setVisible(true);
     }//GEN-LAST:event_fPrimerCheckButtonActionPerformed
 
     private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPrimerCheckButtonActionPerformed
         String rP = reversePrimerTextField.getText();
         model.Primer rPrimer = new model.Primer(rP);
-        model.TestResult test = rPrimer.test();
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(PrimerDesign.window, false);
-        ied.setText(test.toString());
+        rTest = new model.TestResult();
+        rTest.addFull(rPrimer.test());
+        useF = false;
+        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+                                                    PrimerDesign.window, false);
         ied.setVisible(true);
     }//GEN-LAST:event_rPrimerCheckButtonActionPerformed
     

@@ -23,6 +23,11 @@ public class TestResult {
         out.add(o);
     }
     
+    public TestResult() {
+        passes = new ArrayList<PassState>();
+        out = new ArrayList<String>();
+    }
+    
     public PassState getPass(int x) {
         return passes.get(x);
     }

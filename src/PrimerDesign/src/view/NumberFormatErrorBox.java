@@ -56,7 +56,7 @@ public class NumberFormatErrorBox extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(148, 148, 148)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

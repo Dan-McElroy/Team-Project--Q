@@ -55,7 +55,6 @@ public class AreaSelection extends javax.swing.JPanel {
         
         @Override
         public void caretUpdate(CaretEvent e) {
-            boolean debug = false; // make false for no debug
             int update = 150; // number of bases required to fire update
             int fromVal = e.getMark(); 
             int toVal = e.getDot();
@@ -71,13 +70,7 @@ public class AreaSelection extends javax.swing.JPanel {
                 fromTextField.setText(Integer.toString(fromVal));
                 toTextField.setText(Integer.toString(toVal));
             }
-            
-            if (debug){
-                System.out.println("------Update-------");
-                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
-                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toVal = " + toVal);
-                System.out.println();
-            }
+
             String fromText = fromTextField.getText().toString();
             String toText = toTextField.getText().toString();
             if (fromText.equalsIgnoreCase(toText)) {
@@ -187,7 +180,6 @@ public class AreaSelection extends javax.swing.JPanel {
         displayTabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 updateLineNums(displayTabbedPane.getSelectedIndex());
-                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
             }
         });
         
@@ -342,7 +334,7 @@ public class AreaSelection extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                         .addGap(7, 7, 7))
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))

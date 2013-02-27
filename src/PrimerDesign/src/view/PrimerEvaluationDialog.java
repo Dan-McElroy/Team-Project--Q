@@ -49,7 +49,7 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
         
         doc.setLogicalStyle(0, defaultStyle);
         try {doc.insertString(0, test.toString(), null);}
-        catch(BadLocationException e) {System.out.println("Herp.");}
+        catch(BadLocationException e) {}
         
         infoTextPane.setDocument(doc);
         
@@ -58,8 +58,6 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
             length = test.getOut(i).length();
             if (test.getPass(i) == PassState.PASS) {
                 doc.setCharacterAttributes(strIndex, length, passStyle, false);
-                System.out.println(strIndex + " " + length + 
-                        test.toString().substring(strIndex, strIndex+length));
             }
             else if (test.getPass(i) == PassState.CLOSEFAIL) {
                 doc.setCharacterAttributes(strIndex, length, closeFailStyle, false);
@@ -94,6 +92,9 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jToggleButton1.setText("OK");
+        jToggleButton1.setMaximumSize(new java.awt.Dimension(43, 29));
+        jToggleButton1.setMinimumSize(new java.awt.Dimension(43, 29));
+        jToggleButton1.setPreferredSize(new java.awt.Dimension(43, 29));
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -121,8 +122,8 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 586, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 573, Short.MAX_VALUE)
                         .addComponent(overrideButton)))
                 .addContainerGap())
         );
@@ -133,7 +134,7 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(overrideButton))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
