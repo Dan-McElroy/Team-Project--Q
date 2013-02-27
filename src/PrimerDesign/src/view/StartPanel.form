@@ -26,9 +26,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" alignment="1" pref="776" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="backButton" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="backButton" linkSize="1" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="nextButton" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="nextButton" linkSize="1" min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                   <Component id="titleLabel" alignment="0" max="32767" attributes="0"/>
@@ -45,7 +45,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane4" pref="417" max="32767" attributes="0"/>
+              <Component id="jScrollPane4" pref="418" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nextButton" alignment="3" min="-2" max="-2" attributes="0"/>
