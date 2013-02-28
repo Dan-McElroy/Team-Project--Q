@@ -66,8 +66,8 @@ public class PCRAnimation {
             path = ClassLoader.getSystemResource("view/AnimationImages/thermo3.png");
             thermoh = ImageIO.read(path);
             final MyPanel panel = new MyPanel(taq,a1,a2,c1,c2,g1,g2,t1,t2,thermol,thermom,thermoh,dw,dh); 
-            JFrame frame = new JFrame("PCR Animation");
-           
+            final JFrame frame = new JFrame("PCR Animation");
+            
             //frame.getContentPane().add(prevBtn);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
@@ -76,15 +76,44 @@ public class PCRAnimation {
             
             JButton nextBtn = new JButton("Next");
             JButton prevBtn = new JButton("Previous");
+            JButton closeBtn = new JButton("Close");
+            JButton restartBtn = new JButton("Restart exercise");
             panel.setLayout(null);
-            prevBtn.setBounds((dw/2)-200, dh-270, 150, 30);
-            nextBtn.setBounds((dw/2)+50, dh-270, 150, 30);
+            closeBtn.setBounds((dw-180)/6, dh-270, (dw-180)/6 -15 , 30);
+            restartBtn.setBounds(2*(dw-180)/6, dh-270, (dw-180)/6 -25, 30);
+            prevBtn.setBounds(3*(dw-180)/6, dh-270, (dw-180)/6 -15, 30);
+            nextBtn.setBounds(4*(dw-180)/6, dh-270, (dw-180)/6 -15, 30);
             panel.add(nextBtn);
             panel.add(prevBtn);
-
+            panel.add(closeBtn);
+            panel.add(restartBtn);
             
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            closeBtn.addActionListener(new ActionListener(){
+
+                   public void actionPerformed(ActionEvent event){    
+                         frame.dispose();
+                   }
+             });
+            restartBtn.addActionListener(new ActionListener(){
+
+                   public void actionPerformed(ActionEvent event){    
+                         frame.dispose();
+                         JFrame window;
+                         Splash splash;
+                         window = new JFrame("Primer Design");
+                         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                         // add start panel to frame
+                         splash = new Splash();
+                         window.getContentPane().add(splash);
+
+                         // size the window and show it
+                         window.pack();
+                         window.setVisible(true);
+                   }
+             });
             nextBtn.addActionListener(new ActionListener(){
 
                    public void actionPerformed(ActionEvent event){    
@@ -161,11 +190,11 @@ public class PCRAnimation {
             this.thermom = thermom;
             this.thermoh = thermoh;
             this.DNAseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtg"; //forward strand
-            this.Bseq = "tcgcagtttgtgcaagttttcgcagtttgtgcaagttttcgcagtttgtgcaagtttagcgtcaaacac"; //backward strand
+            this.Bseq = "agcgtcaaacacgttcaaaagcgtcaaacacgttcaaaagcgtcaaacacgttcaaaagcgtcaaacac"; //backward strand
             this.areaStart = 15; //area to be contained
             this.areaEnd = 45; //area to be contained
-            this.fwPrimer = "tttcgcag";
-            this.bwPrimer = "gttttcgc";
+            this.fwPrimer = "agttttcgca";
+            this.bwPrimer = "aaaagcgtca";
             this.dw = dw;
             this.dh = dh;
         }
@@ -321,9 +350,9 @@ public class PCRAnimation {
                          }
                     }
                     g.drawString("...", 7*((snw*bwString.length())+15)+15, 550);
-                    g.drawString(Integer.toString(40)+" cycle", 8*((snw*fwString.length())+15)+15
+                    g.drawString(Integer.toString(30)+" cycle", 8*((snw*fwString.length())+15)+15
                              , 550);
-                    g.drawString("10^12", 8*(snw*bwString.length()+15)+30, 570);
+                    g.drawString("10^9", 8*(snw*bwString.length()+15)+30, 570);
                     for(int i = spacing;i<475;i++) { g.drawLine(8*(snw*bwString.length()+15), i, 9*(snw*bwString.length()+15), i);}
                     
                     
@@ -374,7 +403,7 @@ public class PCRAnimation {
         
         public void nextStage() {
             step+=1;
-            if(step>7) step=0;
+            if(step>7) step=7;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
                     case 7: starttime=starttime - 3100*speed;
@@ -402,7 +431,7 @@ public class PCRAnimation {
         
          public void previousStage() {
             step-=1;
-            if(step<0) step=7;
+            if(step<0) step=0;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
                     case 7: starttime=starttime - 3100*speed;
@@ -429,32 +458,32 @@ public class PCRAnimation {
                 if(time==0) {starttime = (int)System.currentTimeMillis();
                              time = 1;}
                 if(time<250) { 
-                             text="PCR, or the Polymerase chain reaction,can target and amplify any ";
-                             text2="specific nucleic acid from biological samples.";
+                             text="Polymerase chain reaction (PCR) is a technique used to amplify";
+                             text2="specific nucleic acid sequences from DNA samples.";
                              text3="";}
                 else if (time<600) {
-                             text="The reaction requires three ingredients besides the DNA sample: a good";
-                             text2="supply of each of the nucleotides, a large supply of primers and a DNA";
-                             text3="polymerase enzyme, all mixed together in a termocycler.";
+                             text="The reaction requires a DNA sample, a left and right primer, nucleotides(dNTPs),";
+                             text2="a suitable buffer and Taq DNA polymerase. These ingredients are mixed and placed in";
+                             text3="a thermocycler where three reactions take place at different temperatures for ~ 30 cycles.";
                 } else if(time<1200) {
-                             text="First, the temperature is raised to a point where DNA melts (~95C),";
-                             text2="causing the strands to separate. The temperature is then lowered (~55C),";
-                             text3="so that your primers can bind to the two strands.";
+                             text="First, denaturation occurs at ~ 95°C separating the two DNA strands.";
+                             text2="The temperature is then lowered to ~ 55-65°C so primers bind to the two";
+                             text3="single strands. This defines what is amplified.";
                 } else if(time<1900) {
-                             text="Then the temperature is raised slightly (~72C), and the taq polymerase";
-                             text2="finds the free prime ends of the primers and the enzyme begins to";
-                             text3="add nucleotides, using the complementary strand as a template.";}
+                             text="The temperature is then raised to 72°C and the Taq DNA polymerase binds to";
+                             text2="the 3’ end of the primer and the enzyme adds nucleotides, using the complementary ";
+                             text3="strand as a template, creating a complementary copy.";}
                 else if (time<2350) {
                              text="The same process is repeated in all subsequent cycles of the PCR.";
-                             text2="First the thermocycler heats up the sample, separating all the";
-                             text3="complementary strands, including the newly created ones.";}
+                             text2="The thermocycler re-heats the DNA sample, separating the";
+                             text3="complementary strands, including the newly created copies of DNA.";}
                 else if (time<2700) {
-                             text="The temperature is lowered, allowing primers to bind and";
-                             text2="the taq polymerase to synthesize complementary strands";
-                             text3="when the temperature is slightly raised again.";}
+                             text="The temperature is again lowered, allowing primers to bind, followed by the";
+                             text2="Taq DNA polymerase synthesizing complementary strands when ";
+                             text3="the temperature is slightly raised again to 72°C.";}
                 else if(time<3100) {  
-                             text="With each cycle, the number of copies doubles, so after 40 cycles,";
-                             text2="there will be a trillion copies of the target sequence.";
+                             text="With each cycle, the number of copies doubles, so after 30 cycles,";
+                             text2="there will be a billion copies of the target sequence.";
                              text3="";
                 } else {
                     text="This concludes the PCR exercise, thank you for your participation,";
