@@ -154,7 +154,9 @@ public class PCRAnimation {
         private String text3 = "";
         private int time = 0;
         private int starttime=0;
+        String step_state = "finished, press next";
         int step=0;
+        int cur_temp=55;
         int speed = 15; //speed of the animation, speed of 1 = fastest, default 15
         private boolean incrementX = true;
         private boolean incrementY = true;
@@ -213,20 +215,20 @@ public class PCRAnimation {
             this.drawStrand(DNAseq, 0, 210, true, g, nw, nh, scfix);
             this.drawStrand(Bseq, 0, 210+(nh), false, g, nw, nh, scfix);
             if (time<600) {
-                g.drawImage(thermol, dw-150, dh-280, 78, 240, null);
+                drawThermol(g);
             } else
-                g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                drawThermom(g);
             } else
             if(time<900) {
                     g.drawImage(thermoh, dw-150, dh-280, 78, 240, null);
                     this.drawStrand(DNAseq, 0, 210-((time-650)*200/250), true, g, nw, nh, scfix);
                     this.drawStrand(Bseq, 0, 210+((time-650)*200/250)+(nh), false, g, nw, nh, scfix);
-                    g.drawImage(thermoh, dw-150, dh-280, 78, 240, null);
+                    drawThermoh(g);
             } else
-            if (time<2700) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            if (time<=2700) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                     this.drawStrand(DNAseq, 0, 10, true, g, nw, nh, scfix);
                     this.drawStrand(Bseq, 0, 410+(nh), false, g, nw, nh, scfix);
-                    g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                    drawThermom(g);
                     if(time>2350) {
                         bwstart = areaEnd-bwPrimer.length()+1;
                         bwcur = bwstart - (bwstart*(time-2350))/200;
@@ -253,7 +255,7 @@ public class PCRAnimation {
                         g.drawImage(taq, ((fwcur-1)*(nw))-((fwcur-1)*scfix), 410, 3*nw, nh*3/2, null);
                     }
                     if(time>2250) {
-                        if(time<2330) g.drawImage(thermol, dw-150, dh-280, 78, 240, null);
+                        if(time<2330) drawThermol(g);
                         bwString = Bseq.substring(0, areaEnd);
                         bwstart = areaEnd-bwPrimer.length()+1;
                         fwString = DNAseq.substring(areaStart-1, DNAseq.length());
@@ -269,9 +271,9 @@ public class PCRAnimation {
                         fwString = DNAseq.substring(areaStart-1, DNAseq.length());
                         this.drawStrand(bwString, 0, 10+nh + ((time-2000)*150/250), false, g, nw, nh, scfix);
                         this.drawStrand(fwString, ((areaStart-1)*(nw))-((areaStart-1)*scfix), 410-((time-2000)*150/250), true, g, nw, nh, scfix);
-                        g.drawImage(thermoh, dw-150, dh-280, 78, 240, null);
+                        drawThermoh(g);
                         if(time>2200) {
-                            g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                            drawThermom(g);
                         }
                     }   else
                     if (time>1650) {
@@ -291,17 +293,17 @@ public class PCRAnimation {
                         bwstart = areaEnd-bwPrimer.length()+1; 
                         this.drawStrand(bwPrimer, ((bwstart-1)*(nw))-((bwstart-1)*scfix), 10+nh, false, g, nw, nh, scfix);
                         this.drawStrand(fwPrimer, ((areaStart-1)*(nw))-((areaStart-1)*scfix), 410, true, g, nw, nh, scfix);
-                        g.drawImage(thermol, dw-150, dh-280, 78, 240, null);
+                        drawThermol(g);
                         if (time>1550) {
                             g.drawImage(taq, ((bwstart-1)*(nw))-((bwstart-1)*scfix)-3*nw, 10+nh, 3*nw, nh*3/2, null);
                             g.drawImage(taq, ((areaStart+fwPrimer.length()-1)*(nw))-((areaStart+fwPrimer.length()-1)*scfix), 410, 3*nw, nh*3/2, null);
-                            g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                            drawThermom(g);
                         } else if(time>1350) {
-                            g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                            drawThermom(g);
                         }
                     }
                     else if(time>1000) {
-                        g.drawImage(thermol, dw-150, dh-280, 78, 240, null);
+                        drawThermol(g);
                     }
                     
             } else
@@ -345,12 +347,15 @@ public class PCRAnimation {
                     g.drawString(Integer.toString(30)+" cycle", 8*((snw*fwString.length())+15)+15
                              , 550);
                     g.drawString("10^9", 8*(snw*bwString.length()+15)+30, 570);
-                    for(int i = spacing;i<475;i++) { g.drawLine(8*(snw*bwString.length()+15), i, 9*(snw*bwString.length()+15), i);}
+                    //for(int i = spacing;i<475;i++) { g.drawLine(8*(snw*bwString.length()+15), i, 9*(snw*bwString.length()+15), i);}
                     
                     
                 }
-            if(time<2700) {
-                g.drawImage(g1, dw-230, dh- 280, nodeWidth/20, nodeHeight/20, null);
+            if(time<=2700) {
+                Font font = new Font("Lucida Sans Typewriter", Font.PLAIN, 30);
+                g.setFont(font);
+                g.drawString(Integer.toString(cur_temp)+"°C", dw-215, dh- 215);
+                /*g.drawImage(g1, dw-230, dh- 280, nodeWidth/20, nodeHeight/20, null);
                 g.drawImage(c1, dw-230, dh- 230, nodeWidth/20, nodeHeight/20, null);
                 g.drawImage(a1, dw-230, dh- 180, nodeWidth/20, nodeHeight/20, null);
                 g.drawImage(t1, dw-230, dh- 130, nodeWidth/20, nodeHeight/20, null);
@@ -359,13 +364,29 @@ public class PCRAnimation {
                 g.drawString("G", dw-180, dh- 245);
                 g.drawString("C", dw-180, dh- 195);
                 g.drawString("A", dw-180, dh- 145);
-                g.drawString("T", dw-180, dh- 95); }
+                g.drawString("T", dw-180, dh- 95); */
+            }
             Font font = new Font("DejaVu Sans", Font.PLAIN, 16);
             g.setFont(font);
             g.drawString(text, 30, dh-170);
             g.drawString(text2, 30, dh-130);
-            g.drawString(text3, 30, dh-90); }
-        
+            g.drawString(text3, 30, dh-90);
+            font = new Font("Lucida Sans Typewriter", Font.PLAIN, 13);
+            g.setFont(font);
+            g.drawString("Stage "+Integer.toString(step)+" "+step_state+".", 60, dh-60);}
+        public void drawThermom(Graphics g) {
+                g.drawImage(thermom, dw-150, dh-280, 78, 240, null);
+                cur_temp=72;
+        }
+        public void drawThermoh(Graphics g) {
+                g.drawImage(thermoh, dw-150, dh-280, 78, 240, null);
+                cur_temp=95;
+        }
+        public void drawThermol(Graphics g) {
+                g.drawImage(thermol, dw-150, dh-280, 78, 240, null);
+                cur_temp=55;
+                
+        }
         public void drawStrand (String s, int x, int y, boolean dir, Graphics g, int nw, int nh, int scfix) { //dir: forward-true, backward-false
             for (int i=0; i<s.length(); i++) {
                 if (dir) {
@@ -395,6 +416,9 @@ public class PCRAnimation {
         
         public void nextStage() {
             step+=1;
+            if(step<2) step_state="finished, press next"; 
+                else if (step>5) step_state = "finished"; 
+                    else step_state="in progress";
             if(step>7) step=7;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
@@ -402,7 +426,7 @@ public class PCRAnimation {
                         break;
                     case 6: starttime=starttime - 2700*speed;
                         break;
-                    case 5: starttime=starttime - 2350*speed;
+                    case 5: starttime=starttime - 2249*speed;
                         break;
                     case 4: starttime=starttime - 1900*speed;
                         break;
@@ -415,6 +439,7 @@ public class PCRAnimation {
                     case 0:
                         break;
                 }
+            time=(int)(System.currentTimeMillis()-starttime)/speed+1;
             }
             
             
@@ -423,6 +448,9 @@ public class PCRAnimation {
         
          public void previousStage() {
             step-=1;
+            if(step<2) step_state="finished, press next"; 
+                else if (step>5) step_state = "finished"; 
+                    else step_state="in progress";
             if(step<0) step=0;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
@@ -430,7 +458,7 @@ public class PCRAnimation {
                         break;
                     case 6: starttime=starttime - 2700*speed;
                         break;
-                    case 5: starttime=starttime - 2350*speed;
+                    case 5: starttime=starttime - 2249*speed;
                         break;
                     case 4: starttime=starttime - 1900*speed;
                         break;
@@ -443,45 +471,82 @@ public class PCRAnimation {
                     case 0:
                         break;
                 }
-            }
+            time=(int)(System.currentTimeMillis()-starttime)/speed+1; }
          
         public void animate() {
                 
                 if(time==0) {starttime = (int)System.currentTimeMillis();
                              time = 1;}
-                if(time<250) { 
+                if(time<=250) {
+                           
                              text="Polymerase chain reaction (PCR) is a technique used to amplify";
                              text2="specific nucleic acid sequences from DNA samples.";
                              text3="";}
-                else if (time<600) {
-                             text="The reaction requires a DNA sample, a left and right primer, nucleotides(dNTPs),";
+                else if (time<=600) {
+                             if(step!=1) {
+                                 time=250;
+                                 starttime= (int)System.currentTimeMillis() - (250*speed);
+                                 step_state="finished, press next";
+                             } else {
+                             text=" The reaction requires a DNA sample, a left and right primer, nucleotides(dNTPs),";
                              text2="a suitable buffer and Taq DNA polymerase. These ingredients are mixed and placed in";
-                             text3="a thermocycler where three reactions take place at different temperatures for ~ 30 cycles.";
-                } else if(time<1200) {
+                             text3="a thermocycler where three reactions take place at different temperatures for ~ 30 cycles."; }
+                } else if(time<=1200) {
+                            if(step!=2) {
+                                 time=600;
+                                 starttime= (int)System.currentTimeMillis() - (600*speed);
+                                 step_state="finished, press next";
+                             } else {
                              text="First, denaturation occurs at ~ 95°C separating the two DNA strands.";
                              text2="The temperature is then lowered to ~ 55-65°C so primers bind to the two";
-                             text3="single strands. This defines what is amplified.";
-                } else if(time<1900) {
+                             text3="single strands. This defines what is amplified."; }
+                } else if(time<=1900) {
+                            if(step!=3) {
+                                 time=1200;
+                                 starttime= (int)System.currentTimeMillis() - (1200*speed);
+                                 step_state="finished, press next";
+                             } else {
                              text="The temperature is then raised to 72°C and the Taq DNA polymerase binds to";
                              text2="the 3’ end of the primer and the enzyme adds nucleotides, using the complementary ";
-                             text3="strand as a template, creating a complementary copy.";}
-                else if (time<2350) {
+                             text3="strand as a template, creating a complementary copy.";} }
+                else if (time<=2249) {
+                            if(step!=4) {
+                                 time=1900;
+                                 starttime= (int)System.currentTimeMillis() - (1900*speed);
+                                 step_state="finished, press next";
+                             } else {
                              text="The same process is repeated in all subsequent cycles of the PCR.";
                              text2="The thermocycler re-heats the DNA sample, separating the";
-                             text3="complementary strands, including the newly created copies of DNA.";}
-                else if (time<2700) {
+                             text3="complementary strands, including the newly created copies of DNA.";} }
+                else if (time<=2699) {
+                            if(step!=5) {
+                                 time=2249;
+                                 starttime= (int)System.currentTimeMillis() - (2249*speed);
+                                 step_state="finished, press next";
+                             } else {
                              text="The temperature is again lowered, allowing primers to bind, followed by the";
                              text2="Taq DNA polymerase synthesizing complementary strands when ";
-                             text3="the temperature is slightly raised again to 72°C.";}
+                             text3="the temperature is slightly raised again to 72°C.";} }
                 else if(time<3100) {  
+                            if(step!=6) {
+                                 time=2699;
+                                 starttime= (int)System.currentTimeMillis() - (2699*speed);
+                                 step_state="finished, press next";
+                             } else {
                              text="With each cycle, the number of copies doubles, so after 30 cycles,";
                              text2="there will be a billion copies of the target sequence.";
-                             text3="";
+                             text3=""; }
                 } else {
+                             if(step!=7) {
+                                 time=3100;
+                                 starttime= (int)System.currentTimeMillis() - (3100*speed);
+                                 step_state="finished, press next";
+                             } else {
                     text="This concludes the PCR exercise, thank you for your participation,";
                     text2="and have a nice day!";
-                    text3="";
+                    text3=""; }
                 }
+               
                 time=(int)(System.currentTimeMillis()-starttime)/speed+1;
                 
                 repaint();
