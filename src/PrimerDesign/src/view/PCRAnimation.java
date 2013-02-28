@@ -368,7 +368,7 @@ public class PCRAnimation {
                 g.drawString("C", dw-180, dh- 195);
                 g.drawString("A", dw-180, dh- 145);
                 g.drawString("T", dw-180, dh- 95); }
-            Font font = new Font("DejaVu Sans", Font.PLAIN, 20);
+            Font font = new Font("DejaVu Sans", Font.PLAIN, 19);
             g.setFont(font);
             g.drawString(text, 30, dh-170);
             g.drawString(text2, 30, dh-130);
