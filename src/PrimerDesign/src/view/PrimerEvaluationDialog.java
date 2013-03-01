@@ -20,6 +20,7 @@ import model.TestResult.PassState;
  */
 public class PrimerEvaluationDialog extends javax.swing.JDialog {
 
+    TestResult test;
     /**
      * Creates new form PrimerEvaluationDialog
      */
@@ -28,7 +29,7 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
         
         initComponents();
         
-        TestResult test = PrimerDesign.primerSelect.test;
+        test = PrimerDesign.primerSelect.test;
         
         StyleContext sc = new StyleContext();
         Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
@@ -143,12 +144,17 @@ public class PrimerEvaluationDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        if (test.perfect()) PrimerDesign.temperature.gzMessage = 
+                "Congratulations, your primers meet all the requirements!";
+        else if (test.acceptable()) PrimerDesign.temperature.gzMessage =
+                "Congratulations, your primers meet most of the requirements!";
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void overrideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overrideButtonActionPerformed
         PrimerDesign.primerSelect.setPass(true);
+        TemperaturePanel.gzMessage = "";
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_overrideButtonActionPerformed

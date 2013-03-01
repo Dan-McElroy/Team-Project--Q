@@ -12,7 +12,6 @@ import controller.PrimerDesign;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -225,7 +224,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         forwardPrimerTextField.getDocument().addDocumentListener(this);
         // COMPLEMENTARY STRAND HIGHLIGHTING PREP
         highC = new DefaultHighlighter();
-        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.YELLOW);
+        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
         cStrandTextPane.setHighlighter(highC);
         parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
         
@@ -363,7 +362,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         fPrimerCheckButton = new javax.swing.JButton();
         rPrimerCheckButton = new javax.swing.JButton();
 
-
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -373,7 +371,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.");
+        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules. Use the \"Reverse\" button to flip the reverse primer.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         forwardPrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
@@ -576,7 +574,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                  PrimerDesign.window.remove(PrimerDesign.primerSelect);
                  PrimerDesign.window.setVisible(false);
 
-                 PrimerDesign.temperature = new FinalTemperaturePanel();
+                 PrimerDesign.temperature = new TemperaturePanel();
                  PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
                  PrimerDesign.window.pack();
                  PrimerDesign.window.setVisible(true);

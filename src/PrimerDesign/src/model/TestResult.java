@@ -58,6 +58,13 @@ public class TestResult {
         return true;
     }
     
+    public boolean perfect() {
+       for (PassState p : passes) 
+           if (p != PassState.PASS && p != null)
+               return false;
+       return true;
+    }
+    
     public boolean passes() {
         if (passes.get(0) == PassState.PASS)
             return true;
@@ -71,7 +78,14 @@ public class TestResult {
     
     public void add(TestResult t) {
         passes.add(t.getPass(0));
+        String addy = "\u2022 ";
         out.add("\u2022 " + t.getOut(0));
+        if (t.getPass(0) == PassState.PASS)
+            out.add(addy + "Pass: " + t.getOut(0));
+        if (t.getPass(0) == PassState.CLOSEFAIL)
+            out.add(addy + "Close Fail: " + t.getOut(0));
+        if (t.getPass(0) == PassState.FAIL)
+            out.add(addy + "Fail: " + t.getOut(0));
     }
     
     public void addFull(TestResult t) {

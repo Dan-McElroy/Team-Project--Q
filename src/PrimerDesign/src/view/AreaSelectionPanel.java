@@ -22,7 +22,7 @@ import javax.swing.text.StyleContext;
  *
  * @author 0907822r
  */
-public class AreaSelection extends javax.swing.JPanel {
+public class AreaSelectionPanel extends javax.swing.JPanel {
     
     private int startTarget, endTarget;
     private String lineNums;
@@ -106,7 +106,7 @@ public class AreaSelection extends javax.swing.JPanel {
     /**
      * Creates new form areaSelection
      */
-    public AreaSelection() {
+    public AreaSelectionPanel() {
         initComponents();
         //high = sequenceTextArea.getHighlighter();
         //from = 0;
@@ -261,7 +261,7 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel.setText("To:");
 
         lineNumberTextArea.setEditable(false);
-        lineNumberTextArea.setColumns(5);
+        lineNumberTextArea.setColumns(1);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
         lineNumberTextArea.setTabSize(4);
@@ -418,7 +418,7 @@ public class AreaSelection extends javax.swing.JPanel {
             try {
                 high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
             } catch (BadLocationException ex) {
-                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AreaSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (e.getSource().equals(toTextField)) {
@@ -426,7 +426,7 @@ public class AreaSelection extends javax.swing.JPanel {
             try {
                 high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
             } catch (BadLocationException ex) {
-                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AreaSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

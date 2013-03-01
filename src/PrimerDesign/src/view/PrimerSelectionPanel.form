@@ -129,7 +129,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the &quot;Show Primer Design Rules&quot; button below to see general primer design rules."/>
+            <Property name="text" type="java.lang.String" value="You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the &quot;Show Primer Design Rules&quot; button below to see general primer design rules. Use the &quot;Reverse&quot; button to flip the reverse primer."/>
           </Properties>
         </Component>
       </SubComponents>

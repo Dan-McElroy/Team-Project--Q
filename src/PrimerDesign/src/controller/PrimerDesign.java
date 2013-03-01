@@ -9,11 +9,11 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import view.AreaSelection;
-import view.FinalTemperaturePanel;
+import view.AreaSelectionPanel;
+import view.TemperaturePanel;
 import view.PrimerSelectionPanel;
+import view.SequenceEntryPanel;
 import view.StartPanel;
-import view.Splash;
 
 /**
  *
@@ -22,11 +22,11 @@ import view.Splash;
 public class PrimerDesign {
    
     public static JFrame window;
-    public static Splash splash;
-    public static StartPanel start;
-    public static AreaSelection area;
+    public static StartPanel splash;
+    public static SequenceEntryPanel start;
+    public static AreaSelectionPanel area;
     public static PrimerSelectionPanel primerSelect;
-    public static FinalTemperaturePanel temperature;
+    public static TemperaturePanel temperature;
     
     /* all GUI configuration should be placed here unless specific to some class
      */
@@ -36,7 +36,7 @@ public class PrimerDesign {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add start panel to frame
-        splash = new Splash();
+        splash = new StartPanel();
         window.getContentPane().add(splash);
         
         // size the window and show it

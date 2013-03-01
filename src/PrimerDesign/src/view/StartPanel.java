@@ -4,10 +4,7 @@
  */
 package view;
 
-import controller.ContentListener;
 import controller.PrimerDesign;
-import javax.swing.event.DocumentListener;
-import model.*;
 
 /**
  *
@@ -15,25 +12,11 @@ import model.*;
  */
 public class StartPanel extends javax.swing.JPanel {
 
-    private String input;
-    private Sequence inSequence;
-    
-    public String getInput(){
-        return input;
-    }
-    
-    public Sequence getInSequence(){
-        return inSequence;
-    }
-    
     /**
-     * Creates new form startPanel
+     * Creates new form StartPanel
      */
     public StartPanel() {
         initComponents();
-        
-        DocumentListener textListener = new ContentListener(nextButton, sequenceTextArea);
-        sequenceTextArea.getDocument().addDocumentListener(textListener);
     }
 
     /**
@@ -45,40 +28,62 @@ public class StartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nextButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
+        leftLabel = new javax.swing.JLabel();
+        bottomLabel = new javax.swing.JLabel();
+        rightLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bottomTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        instructionTextPane = new javax.swing.JTextPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        sequenceTextArea = new javax.swing.JTextArea();
-        backButton = new javax.swing.JButton();
+        leftTextArea = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        rightTextArea = new javax.swing.JTextArea();
+        startButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        nextButton.setText("Next");
-        nextButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextButtonActionPerformed(evt);
-            }
-        });
-
         titleLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("DNA Sequence Entry");
+        titleLabel.setText("Polymerase Chain Reaction Tutorial");
 
-        instructionTextPane.setEditable(false);
-        instructionTextPane.setText("Copy the DNA sequence on which you wish to perform PCR into the box below, then click next. Note: Every a, t, c and g character will be counted as part of the sequence.");
-        jScrollPane2.setViewportView(instructionTextPane);
+        leftLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        leftLabel.setText("Overview");
 
-        sequenceTextArea.setColumns(20);
-        sequenceTextArea.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
-        sequenceTextArea.setRows(5);
-        jScrollPane4.setViewportView(sequenceTextArea);
+        bottomLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        bottomLabel.setText("Further Reading");
 
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        rightLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        rightLabel.setText("Primer Design Rules");
+
+        bottomTextArea.setEditable(false);
+        bottomTextArea.setColumns(20);
+        bottomTextArea.setRows(5);
+        bottomTextArea.setText("NCBI Website: \t\t\thttp://www.ncbi.nlm.nih.gov/\nMolecular Methods Moodle Site:\t\thttp://ibls.moodle.gla.ac.uk/course/view.php?id=104");
+        jScrollPane1.setViewportView(bottomTextArea);
+
+        leftTextArea.setEditable(false);
+        leftTextArea.setColumns(20);
+        leftTextArea.setLineWrap(true);
+        leftTextArea.setRows(5);
+        leftTextArea.setText("Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\n\n\n\n\nCreated by Ross Barnie, Dmitrijs Jonins, Daniel McElroy, Murray Ross and Ross Taylor.");
+        leftTextArea.setWrapStyleWord(true);
+        leftTextArea.setCaretPosition(0);
+        jScrollPane2.setViewportView(leftTextArea);
+
+        rightTextArea.setEditable(false);
+        rightTextArea.setColumns(20);
+        rightTextArea.setLineWrap(true);
+        rightTextArea.setRows(5);
+        rightTextArea.setText("Generally, primers should be 20 to 30 bases in length. \n\nThe sequence you use should avoid long repetitions of a single base.  \n\nThe last base of the primer should be a 'c' or a 'g'.  You should avoid sequences which could self-anneal.  \n\nThe primers you choose should be unique to the sequence. \n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.  \n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
+        rightTextArea.setWrapStyleWord(true);
+        rightTextArea.setCaretPosition(0);
+        jScrollPane3.setViewportView(rightTextArea);
+
+        startButton.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        startButton.setText("Start");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                startButtonActionPerformed(evt);
             }
         });
 
@@ -89,67 +94,75 @@ public class StartPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(leftLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                                .addGap(12, 12, 12))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bottomLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {backButton, nextButton});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextButton)
-                    .addComponent(backButton))
+                    .addComponent(leftLabel)
+                    .addComponent(rightLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(bottomLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(startButton)
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane2, jScrollPane3});
+
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        // set input to whatever has been copied into the text area
-        input = sequenceTextArea.getText();
-        inSequence = new Sequence(input);
-        
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // remove current panel from window
-        PrimerDesign.window.getContentPane().remove(PrimerDesign.start);
+        PrimerDesign.window.getContentPane().remove(PrimerDesign.splash);
         PrimerDesign.window.setVisible(false);
         
         // add next panel to window and display
-        PrimerDesign.area = new AreaSelection();
-        PrimerDesign.window.getContentPane().add(PrimerDesign.area);
+        PrimerDesign.start = new SequenceEntryPanel();
+        PrimerDesign.window.getContentPane().add(PrimerDesign.start);
         PrimerDesign.window.pack();
         PrimerDesign.window.setVisible(true);
-    }//GEN-LAST:event_nextButtonActionPerformed
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        PrimerDesign.window.remove(PrimerDesign.start);
-        PrimerDesign.window.setVisible(false);
-
-        PrimerDesign.window.getContentPane().add(PrimerDesign.splash);
-        PrimerDesign.window.pack();
-        PrimerDesign.window.setVisible(true);
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_startButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
-    private javax.swing.JTextPane instructionTextPane;
+    private javax.swing.JLabel bottomLabel;
+    private javax.swing.JTextArea bottomTextArea;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JButton nextButton;
-    private javax.swing.JTextArea sequenceTextArea;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel leftLabel;
+    private javax.swing.JTextArea leftTextArea;
+    private javax.swing.JLabel rightLabel;
+    private javax.swing.JTextArea rightTextArea;
+    private javax.swing.JButton startButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
