@@ -418,7 +418,19 @@ public class PCRAnimation {
             step+=1;
             if(step<2) step_state="finished, press next"; 
                 else if (step>5) step_state = "finished"; 
-                    else step_state="in progress";
+                    else switch(step) {
+                        case 2:
+                            step_state ="(Melting+Annealing) in progress";
+                            break;
+                        case 3:
+                            step_state ="(Adding nucleotides) in progress";
+                            break;
+                        case 4:
+                            step_state="(Melting) in progress";
+                            break;
+                        case 5:
+                            step_state="(Annealing+adding nucleotides) in progress";
+                    }
             if(step>7) step=7;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
@@ -450,7 +462,20 @@ public class PCRAnimation {
             step-=1;
             if(step<2) step_state="finished, press next"; 
                 else if (step>5) step_state = "finished"; 
-                    else step_state="in progress";
+                    else switch(step) {
+                        case 2:
+                            step_state ="(Melting+Annealing) in progress";
+                            break;
+                        case 3:
+                            step_state ="(Adding nucleotides) in progress";
+                            break;
+                        case 4:
+                            step_state="(Melting) in progress";
+                            break;
+                        case 5:
+                            step_state="(Annealing+adding nucleotides) in progress";
+                            break;
+                    }
             if(step<0) step=0;
             starttime = (int)System.currentTimeMillis();
             switch (step) {
@@ -504,7 +529,7 @@ public class PCRAnimation {
                             if(step!=3) {
                                  time=1200;
                                  starttime= (int)System.currentTimeMillis() - (1200*speed);
-                                 step_state="finished, press next";
+                                 step_state="(Melting+Annealing) finished, press next";
                              } else {
                              text="The temperature is then raised to 72°C and the Taq DNA polymerase binds to";
                              text2="the 3’ end of the primer and the enzyme adds nucleotides, using the complementary ";
@@ -513,7 +538,7 @@ public class PCRAnimation {
                             if(step!=4) {
                                  time=1900;
                                  starttime= (int)System.currentTimeMillis() - (1900*speed);
-                                 step_state="finished, press next";
+                                 step_state="(Adding nucleotides) finished, press next";
                              } else {
                              text="The same process is repeated in all subsequent cycles of the PCR.";
                              text2="The thermocycler re-heats the DNA sample, separating the";
@@ -522,7 +547,7 @@ public class PCRAnimation {
                             if(step!=5) {
                                  time=2249;
                                  starttime= (int)System.currentTimeMillis() - (2249*speed);
-                                 step_state="finished, press next";
+                                 step_state=step_state="(Melting) finished, press next";
                              } else {
                              text="The temperature is again lowered, allowing primers to bind, followed by the";
                              text2="Taq DNA polymerase synthesizing complementary strands when ";
@@ -531,7 +556,7 @@ public class PCRAnimation {
                             if(step!=6) {
                                  time=2699;
                                  starttime= (int)System.currentTimeMillis() - (2699*speed);
-                                 step_state="finished, press next";
+                                 step_state="(Annealing+adding nucleotides) finished, press next";
                              } else {
                              text="With each cycle, the number of copies doubles, so after 30 cycles,";
                              text2="there will be a billion copies of the target sequence.";
@@ -540,7 +565,7 @@ public class PCRAnimation {
                              if(step!=7) {
                                  time=3100;
                                  starttime= (int)System.currentTimeMillis() - (3100*speed);
-                                 step_state="finished, press next";
+                                 step_state="finished";
                              } else {
                     text="This concludes the PCR exercise, thank you for your participation,";
                     text2="and have a nice day!";
