@@ -79,7 +79,6 @@ public class TestResult {
     public void add(TestResult t) {
         passes.add(t.getPass(0));
         String addy = "\u2022 ";
-        out.add("\u2022 " + t.getOut(0));
         if (t.getPass(0) == PassState.PASS)
             out.add(addy + "Pass: " + t.getOut(0));
         if (t.getPass(0) == PassState.CLOSEFAIL)
