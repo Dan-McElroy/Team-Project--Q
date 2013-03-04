@@ -38,6 +38,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private static boolean pass;
     final Highlighter highO, highC;
     final Highlighter.HighlightPainter painterO, painterC;
+    private Highlighter.HighlightPainter failPaint, acceptPaint, perfectPaint, activePaint;
     private String parsedO, parsedC;
     public static model.TestResult test;
     public static model.TestResult fTest;
@@ -234,6 +235,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             }
         });
      
+        failPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
+        acceptPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.YELLOW);
+        perfectPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.CYAN);
         
     }
     
@@ -277,10 +281,23 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             
             while (indexO >= 0 && sO.length() > 0) {   // match found
                 try {
+                    if (sO.length() > 15){
+                        model.Primer fPrimer = new model.Primer(sO);
+                        fTest = new model.TestResult();
+                        fTest.addFull(fPrimer.test());
+                        if (fTest.perfect()){
+                            activePaint = perfectPaint;
+                        } else if (fTest.acceptable()){
+                            activePaint = acceptPaint;
+                        } else {
+                            activePaint = failPaint;
+                        }
+                    } else {
+                        activePaint = failPaint;
+                    } 
                     endO = indexO + sO.length();
-                    highO.addHighlight(realIndex(indexO + checked, 10), realIndex(endO + checked, 10), painterO);
+                    highO.addHighlight(realIndex(indexO + checked, 10), realIndex(endO + checked, 10), activePaint);
                     oStrandTextPane.setCaretPosition(realIndex(endO, 10));
-
                 } catch (BadLocationException e) {
                     e.printStackTrace();    // PROPER HANDLING NEEDED
                 }
@@ -312,8 +329,22 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             
             while (indexC >= 0 && sC.length() > 0) {   // match found
                 try {
+                    if (sC.length() > 15){
+                        model.Primer rPrimer = new model.Primer(sC);
+                        rTest = new model.TestResult();
+                        rTest.addFull(rPrimer.test());
+                        if (rTest.perfect()){
+                            activePaint = perfectPaint;
+                        } else if (rTest.acceptable()){
+                            activePaint = acceptPaint;
+                        } else {
+                            activePaint = failPaint;
+                        }
+                    } else {
+                        activePaint = failPaint;
+                    } 
                     endC = indexC + sC.length();
-                    highC.addHighlight(realIndex(indexC + checked, 10), realIndex(endC + checked, 10), painterC);
+                    highC.addHighlight(realIndex(indexC + checked, 10), realIndex(endC + checked, 10), activePaint);
                     cStrandTextPane.setCaretPosition(realIndex(endC, 10));
                 } catch (BadLocationException e) {
                     e.printStackTrace();    // PROPER HANDLING NEEDED
@@ -584,7 +615,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
            NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);
            npb.setLocation(187,450);
            npb.setVisible(true);
-       }catch(HighCountException e) {
+       } catch(HighCountException e) {
+           InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
+           iib.setLocation(187, 450);
+           iib.setVisible(true);
+       } catch(StringIndexOutOfBoundsException e) {
            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
            iib.setLocation(187, 450);
            iib.setVisible(true);
@@ -608,25 +643,41 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     }//GEN-LAST:event_reverseButtonActionPerformed
 
     private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fPrimerCheckButtonActionPerformed
-        String fP = forwardPrimerTextField.getText();
-        model.Primer fPrimer = new model.Primer(fP);
-        fTest = new model.TestResult();
-        fTest.addFull(fPrimer.test());
-        useF = true;
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
-                                                    PrimerDesign.window, false);
-        ied.setVisible(true);
+        try {
+            String fP = forwardPrimerTextField.getText();
+            fP = Sequence.parser(new Scanner(fP));
+            model.Primer fPrimer = new model.Primer(fP);
+            fTest = new model.TestResult();
+            fTest.addFull(fPrimer.test());
+            fTest.add(fPrimer.isUnique(PrimerDesign.start.getInSequence(), 'o'));
+            useF = true;
+            IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+                                                        PrimerDesign.window, false);
+            ied.setVisible(true);
+        } catch(StringIndexOutOfBoundsException e) {
+            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, false);
+            iib.setLocation(187, 450);
+            iib.setVisible(true);
+        }
     }//GEN-LAST:event_fPrimerCheckButtonActionPerformed
 
     private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPrimerCheckButtonActionPerformed
-        String rP = reversePrimerTextField.getText();
-        model.Primer rPrimer = new model.Primer(rP);
-        rTest = new model.TestResult();
-        rTest.addFull(rPrimer.test());
-        useF = false;
-        IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+        try {
+            String rP = reversePrimerTextField.getText();
+            rP = Sequence.parser(new Scanner(rP));
+            model.Primer rPrimer = new model.Primer(rP);
+            rTest = new model.TestResult();
+            rTest.addFull(rPrimer.test());        
+            rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
+            useF = false;
+            IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
                                                     PrimerDesign.window, false);
-        ied.setVisible(true);
+            ied.setVisible(true);
+        } catch(StringIndexOutOfBoundsException e) {
+            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, false);
+            iib.setLocation(187, 450);
+            iib.setVisible(true);
+        }
     }//GEN-LAST:event_rPrimerCheckButtonActionPerformed
     
     

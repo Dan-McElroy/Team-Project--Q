@@ -143,7 +143,7 @@ public class Sequence {
         String strand;
         int instances = 0;
         ArrayList<Integer> startPoints = new ArrayList<Integer>();        
-        char start = p.getCode().charAt(0);
+        char cStart = p.getCode().charAt(0);
         if (s == 'o' && cStrand.contains(p.getCode()))
             return new TestResult(PassState.FAIL, "Primer appears on"
                     + " the wrong strand.");
@@ -154,7 +154,7 @@ public class Sequence {
         if (s == 'o') strand = oStrand;
         else strand = cStrand;
         for (int i = 0; i < strand.length(); i++) {
-            if (strand.charAt(i) == p.getCode().charAt(0))
+            if (strand.charAt(i) == cStart)
                 if (p.matches(i, strand)) {
                     startPoints.add(i);
                     instances++;
@@ -172,8 +172,10 @@ public class Sequence {
         }
         if (instances == 1) {
             int point = startPoints.get(0);
-            int diff = start - point;  
-            if (diff >= 15 && diff <= 30)
+            int diff;
+            if (s == 'o') diff = (start - point);
+            else diff = -(end - (point + p.size()));
+            if (diff >= 0 && diff <= p.size() + 10)
                 return new TestResult(PassState.PASS, "Primer is "
                         + "unique to the sequence, and is situated "
                         + "correctly.");
@@ -286,9 +288,9 @@ public class Sequence {
         test.add("Your primers haven't met the requirements in the "
                 + "following areas:\n");
             test.add("Forward Primer:");
-            test.addFull(fPrimer.test());
+            test.addFull(fTest);
             test.add("\nReverse Primer:");
-            test.addFull(rPrimer.test());
+            test.addFull(rTest);
             test.add("\nGeneral:");
             test.add(tempDifference());
             test.add(fPrimer.pairAnneal(rPrimer));

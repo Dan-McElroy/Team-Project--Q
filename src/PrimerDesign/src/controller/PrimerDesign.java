@@ -96,4 +96,10 @@ public class PrimerDesign {
             }
         });
     }
+    
+    public static int unrealIndex(int x) {
+        //Potential issue: assumes line % block= 0.
+        int xRounded = x - (x % 11);
+        return (x - (xRounded / 11));
+    }
 }

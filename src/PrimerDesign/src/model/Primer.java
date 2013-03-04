@@ -22,7 +22,10 @@ public class Primer {
        code = c;
     }
     
-    
+    public int size() {
+        return code.length();
+    }
+   
     public TestResult goodLength() {
     	/*
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
@@ -77,8 +80,11 @@ public class Primer {
     }
     
     public boolean matches(int i, String x) {
-            if (x.substring(i, Math.min(x.length(),
-                    (i + code.length()))).equals(code)) return true;
+            if (x.substring(
+                    i,
+                    Math.min(x.length(), (i + code.length()))).equals(
+                    code)) 
+                return true;
             return false;
     } 
     
@@ -317,6 +323,10 @@ public class Primer {
         return matches;
     }
     
+    public TestResult isUnique(Sequence s, char c) {
+        return s.isUnique(this, c);
+    }
+    
     public static String reverse(String s) {
         if (s.length() <= 1) { 
             return s;
@@ -342,6 +352,7 @@ public class Primer {
         t.add(repetition());                                       
         t.add(goodLength());                               
         t.add(selfAnneal());
+        t.add(lastLetter());
         return t;
     }
 }

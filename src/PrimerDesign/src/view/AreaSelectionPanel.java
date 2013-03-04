@@ -44,14 +44,9 @@ public class AreaSelectionPanel extends javax.swing.JPanel {
     public void setEndTarget(int endTarget) {
         this.endTarget = endTarget;
     }
+
     
     private class AreaCaretListener implements CaretListener{
-
-        public int unrealIndex(int x) {
-        //Potential issue: assumes line % block= 0.
-        int xRounded = x - (x % 11);
-        return (x - (xRounded / 11));
-    }
         
         @Override
         public void caretUpdate(CaretEvent e) {
@@ -59,8 +54,8 @@ public class AreaSelectionPanel extends javax.swing.JPanel {
             int fromVal = e.getMark(); 
             int toVal = e.getDot();
 
-            fromVal = unrealIndex(fromVal) + 1;
-            toVal = unrealIndex(toVal);
+            fromVal = PrimerDesign.unrealIndex(fromVal) + 1;
+            toVal = PrimerDesign.unrealIndex(toVal);
             if (fromVal > toVal) {
                 int temp = fromVal - 1;
                 fromVal = toVal + 1;
@@ -365,7 +360,9 @@ public class AreaSelectionPanel extends javax.swing.JPanel {
         if (PrimerDesign.start.getInSequence().containsN(startTarget, endTarget))
             throw new NException();
 
-
+        PrimerDesign.start.getInSequence().start = startTarget-1;
+        PrimerDesign.start.getInSequence().end = endTarget;
+        
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
