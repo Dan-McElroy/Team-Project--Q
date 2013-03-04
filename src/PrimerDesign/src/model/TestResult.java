@@ -28,6 +28,10 @@ public class TestResult {
         out = new ArrayList<String>();
     }
     
+    public ArrayList<PassState> getPasses() {
+        return passes;
+    }
+    
     public PassState getPass(int x) {
         return passes.get(x);
     }
@@ -59,10 +63,11 @@ public class TestResult {
     }
     
     public boolean perfect() {
-       for (PassState p : passes) 
-           if (p != PassState.PASS && p != null)
-               return false;
-       return true;
+        if (size() > 0)
+            for (PassState p : passes)
+                if (p != PassState.PASS && p != null)
+                    return false;
+        return true;
     }
     
     public boolean passes() {
@@ -88,43 +93,27 @@ public class TestResult {
     }
     
     public void addFull(TestResult t) {
-        for (int i = 0; i < t.size() -1; i++) {
-            passes.add(t.getPass(i));
-            if (i == 0)
-                out.add("\u2022 " + t.getOut(i));
+        int i = 0;
+        for (PassState p : t.getPasses()) {
+            passes.add(p);
+            if (i == 0) {
+                if (p == PassState.PASS)
+                    out.add("\u2022 Pass: " + t.getOut(i));
+                else if (p == PassState.CLOSEFAIL)
+                    out.add("\u2022 Close Fail: " + t.getOut(i));
+                else if (p == PassState.FAIL) 
+                    out.add("\u2022 Fail: " + t.getOut(i));
+            }
             else
                 out.add(t.getOut(i));
+            i++;
         }
     }
     
-    public TestResult get(int i) {          //REFINE THIS.		
-    	/* 
-    	 * Returns a readable explanation of the test result,
-    	 * also to be used for the final test result.
-    	 */
-        return new TestResult(passes.get(i), out.get(i));
-        
-        /*
-        OLD, KEEPING FOR A RAINY DAY
-        if (pass) return ("Primer is good.");
-    	else {
-    	    String print = "";
-            
-            Scanner printy = new Scanner(out).useDelimiter("#");
-            int j = 1; 
-            while (printy.hasNext() ) {        
-                String next = printy.next();
-                if (next.contains("\t")) {
-                    print += next + "\n";
-                    j = 1;
-                    continue;
-                }
-                print += j + ". " + next + "\n";
-                j++;
-            }
-            return print;
-    	}
-        */
+    public TestResult get(int i) {
+    	if (i < size() && i > 0)
+            return new TestResult(passes.get(i), out.get(i));
+        return null;
     }
     
     public String toString() {

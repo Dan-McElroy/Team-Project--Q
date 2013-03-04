@@ -285,9 +285,9 @@ public class Sequence {
         }
         test.add("Your primers haven't met the requirements in the "
                 + "following areas:\n");
-            test.add("Forward Primer:\n");
+            test.add("Forward Primer:");
             test.addFull(fPrimer.test());
-            test.add("\nReverse Primer:\n");
+            test.add("\nReverse Primer:");
             test.addFull(rPrimer.test());
             test.add("\nGeneral:");
             test.add(tempDifference());
