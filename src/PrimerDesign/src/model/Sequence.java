@@ -175,7 +175,7 @@ public class Sequence {
             int diff;
             if (s == 'o') diff = (start - point);
             else diff = -(end - (point + p.size()));
-            if (diff >= 0 && diff <= p.size() + 10)
+            if (diff >= 0 && diff <= 100)
                 return new TestResult(PassState.PASS, "Primer is "
                         + "unique to the sequence, and is situated "
                         + "correctly.");
