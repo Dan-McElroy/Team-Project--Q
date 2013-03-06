@@ -20,6 +20,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
+import model.Primer;
 import model.Sequence;
 /**
  *
@@ -315,22 +316,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         public void run() {
             // COMPLEMENTARY STRAND - REVERSE PRIMER
             String sC = reversePrimerTextField.getText().replaceAll("\\s", "");
+            reverseTextPane.setText(Primer.reverse(sC));
             
-            if (reverseButton.isSelected()){
-                sC = model.Primer.reverse(sC);
-            }
             highC.removeAllHighlights();
             int indexC = parsedC.indexOf(sC, 0);
             int endC = 0;
             int checked = 0;
-            
-            
-                
-            
+
             while (indexC >= 0 && sC.length() > 0) {   // match found
                 try {
                     if (sC.length() > 15){
-                        model.Primer rPrimer = new model.Primer(sC);
+                        Primer rPrimer = new Primer(Primer.reverse(sC));
                         rTest = new model.TestResult();
                         rTest.addFull(rPrimer.test());
                         if (rTest.perfect()){
@@ -358,8 +354,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         
         
     };
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -389,9 +383,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         cStrandTextPane = new javax.swing.JTextPane();
         bStrandScroll = new javax.swing.JScrollPane();
         bStrandTextPane = new javax.swing.JTextPane();
-        reverseButton = new javax.swing.JToggleButton();
         fPrimerCheckButton = new javax.swing.JButton();
         rPrimerCheckButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reverseTextPane = new javax.swing.JTextPane();
 
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -414,9 +409,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
         reversePrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
 
-        forwardPrimerLabel.setText("Forward Primer:");
+        forwardPrimerLabel.setText("Forward:");
 
-        reversePrimerLabel.setText("Reverse Primer:");
+        reversePrimerLabel.setText("Reverse:");
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -466,13 +461,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
         displayTabbedPane.addTab("Double Stranded", bStrandScroll);
 
-        reverseButton.setText("Reverse");
-        reverseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reverseButtonActionPerformed(evt);
-            }
-        });
-
         fPrimerCheckButton.setText("Forward Primer Check");
         fPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -486,6 +474,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 rPrimerCheckButtonActionPerformed(evt);
             }
         });
+
+        reverseTextPane.setEditable(false);
+        jScrollPane1.setViewportView(reverseTextPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -501,7 +492,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addComponent(fPrimerCheckButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rPrimerCheckButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(showRulesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -510,12 +501,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addComponent(forwardPrimerLabel)
                         .addGap(14, 14, 14)
                         .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(reversePrimerLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reverseButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -524,7 +516,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, jScrollPane1, reversePrimerTextField});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,11 +530,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(reversePrimerLabel)
-                        .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(reverseButton))
+                        .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addComponent(forwardPrimerLabel)))
+                        .addComponent(forwardPrimerLabel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
@@ -562,7 +554,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 .addGap(12, 12, 12))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {forwardPrimerTextField, jScrollPane1, reversePrimerTextField});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -594,7 +586,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             if (fP.contains("n") || rP.contains("n"))
                 throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
-            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
+            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(Primer.reverse(rP)));
             test = PrimerDesign.start.getInSequence().primerTest();
             pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
@@ -638,10 +630,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         
     }//GEN-LAST:event_forwardPrimerTextFieldActionPerformed
 
-    private void reverseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reverseButtonActionPerformed
-        this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
-    }//GEN-LAST:event_reverseButtonActionPerformed
-
     private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fPrimerCheckButtonActionPerformed
         try {
             String fP = forwardPrimerTextField.getText();
@@ -665,7 +653,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         try {
             String rP = reversePrimerTextField.getText();
             rP = Sequence.parser(new Scanner(rP));
-            model.Primer rPrimer = new model.Primer(rP);
+            model.Primer rPrimer = new model.Primer(Primer.reverse(rP));
             rTest = new model.TestResult();
             rTest.addFull(rPrimer.test());        
             rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
@@ -704,6 +692,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JLabel forwardPrimerLabel;
     private javax.swing.JTextField forwardPrimerTextField;
     private javax.swing.JTextPane instructionTextPane;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane lineAreaScroll;
     private javax.swing.JTextArea lineNumberTextArea;
@@ -711,9 +700,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JScrollPane oStrandScroll;
     private javax.swing.JTextPane oStrandTextPane;
     private javax.swing.JButton rPrimerCheckButton;
-    private javax.swing.JToggleButton reverseButton;
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JTextField reversePrimerTextField;
+    private javax.swing.JTextPane reverseTextPane;
     private javax.swing.JButton showRulesButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

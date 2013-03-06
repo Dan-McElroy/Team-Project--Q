@@ -32,7 +32,7 @@
                       <Component id="fPrimerCheckButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="rPrimerCheckButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="93" max="32767" attributes="0"/>
                       <Component id="showRulesButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="nextButton" min="-2" pref="83" max="-2" attributes="0"/>
@@ -42,12 +42,13 @@
                       <Component id="forwardPrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="forwardPrimerTextField" linkSize="8" min="-2" pref="190" max="-2" attributes="0"/>
-                      <EmptySpace pref="90" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="reversePrimerLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reversePrimerTextField" linkSize="8" min="-2" pref="190" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="reverseButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" linkSize="8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="lineAreaScroll" min="-2" pref="83" max="-2" attributes="0"/>
@@ -73,14 +74,14 @@
                       <Component id="forwardPrimerTextField" linkSize="7" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="reversePrimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="reversePrimerTextField" linkSize="7" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="reverseButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                       <Component id="forwardPrimerLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" linkSize="7" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="displayTabbedPane" pref="389" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -153,12 +154,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="forwardPrimerLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Forward Primer:"/>
+        <Property name="text" type="java.lang.String" value="Forward:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="reversePrimerLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reverse Primer:"/>
+        <Property name="text" type="java.lang.String" value="Reverse:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
@@ -291,14 +292,6 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JToggleButton" name="reverseButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reverse"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reverseButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="fPrimerCheckButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Forward Primer Check"/>
@@ -315,5 +308,19 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rPrimerCheckButtonActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextPane" name="reverseTextPane">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

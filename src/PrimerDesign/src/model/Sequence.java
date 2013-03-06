@@ -144,15 +144,19 @@ public class Sequence {
         int instances = 0;
         ArrayList<Integer> startPoints = new ArrayList<Integer>();        
         char cStart = p.getCode().charAt(0);
+        //System.out.println(p.getCode());
         if (s == 'o' && cStrand.contains(p.getCode()))
             return new TestResult(PassState.FAIL, "Primer appears on"
                     + " the wrong strand.");
-        if (s == 'c' && oStrand.contains(p.getCode()))
+        if (s == 'c' && oStrand.contains(Primer.reverse(p.getCode())))
             return new TestResult(PassState.FAIL, "Primer appears on"
                     + " the wrong strand.");
         //Original strand search
         if (s == 'o') strand = oStrand;
-        else strand = cStrand;
+        else {
+            strand = cStrand;
+            p.setCode(Primer.reverse(p.getCode()));
+        }
         for (int i = 0; i < strand.length(); i++) {
             if (strand.charAt(i) == cStart)
                 if (p.matches(i, strand)) {
@@ -161,7 +165,7 @@ public class Sequence {
                 }
         }
         if (instances == 0 && s == 'c') {
-            Primer r = new Primer(p.reverse(p.getCode()));
+            Primer r = new Primer(p.getCode());
             for (int i = 0; i < strand.length(); i++) {
                 if (strand.charAt(i) == r.getCode().charAt(0))
                     if (p.matches(i, strand)) {
