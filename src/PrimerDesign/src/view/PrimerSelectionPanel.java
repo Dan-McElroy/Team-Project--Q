@@ -286,6 +286,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         model.Primer fPrimer = new model.Primer(sO);
                         fTest = new model.TestResult();
                         fTest.addFull(fPrimer.test());
+                        fTest.add(fPrimer.isUnique(PrimerDesign.start.getInSequence(), 'o'));
                         if (fTest.perfect()){
                             activePaint = perfectPaint;
                         } else if (fTest.acceptable()){
@@ -329,6 +330,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         Primer rPrimer = new Primer(Primer.reverse(sC));
                         rTest = new model.TestResult();
                         rTest.addFull(rPrimer.test());
+                        rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
                         if (rTest.perfect()){
                             activePaint = perfectPaint;
                         } else if (rTest.acceptable()){
