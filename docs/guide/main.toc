@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}About}{2}
+\contentsline {section}{\numberline {2}Getting Started}{2}
+\contentsline {subsection}{\numberline {2.1}Downloading and Starting the Application}{2}
+\contentsline {subsection}{\numberline {2.2}Obtaining a DNA Sequence}{2}
+\contentsline {section}{\numberline {3}The Application}{2}
+\contentsline {subsection}{\numberline {3.1}Overview Screen}{3}
+\contentsline {subsection}{\numberline {3.2}Sequence Entry}{3}
+\contentsline {subsection}{\numberline {3.3}Target Area Selection}{3}
+\contentsline {subsection}{\numberline {3.4}Primer Design}{3}
+\contentsline {subsection}{\numberline {3.5}Melting Temperature}{4}
+\contentsline {section}{\numberline {4}Known Bugs}{4}

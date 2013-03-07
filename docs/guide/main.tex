@@ -58,7 +58,7 @@ If you encounter problems here, ensure that you have Java 6 or newer
 installed on your computer.
 
 \subsection{Obtaining a DNA Sequence}
-\label{sec:getsequence}
+\label{sec:gettingsequence}
 
 You will need an internet connection to perform these steps.
 
@@ -72,10 +72,10 @@ for Biotechnology Information) website at
 Use your web browser of choice to go to the NCBI website.
 You should see something similar to figure \ref{fig:ncbihome}.
 
-\begin{figure}[h] 
+\begin{figure}[b] 
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiHome}
-    \caption{\label{fig:ncbihome}NCBI Home Page}
+    \caption{NCBI Home Page\label{fig:ncbihome}}
   \end{center}
 \end{figure}
 
@@ -86,7 +86,7 @@ for the sequence you want, for our example this is ``\verb£L1CAM£'',
 using the search bar (highlighted in red in figure
 \ref{fig:ncbihomesearch}).
 
-\begin{figure}[t]   
+\begin{figure}[b]   
   \begin{center}
     \includegraphics[width=\textwidth]{ncbiHomeSearch}
     \caption{Searching for a sequence\label{fig:ncbihomesearch}}
@@ -97,17 +97,17 @@ Now you will be presented with your search results, if you are
 following our example click on the link highlighted in
 yellow on figure \ref{fig:ncbisearchresults}.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=\textwidth]{ncbiSearchResults}
-    \caption{\label{fig:ncbisearchresults}Search Results}
+    \caption{Search Results\label{fig:ncbisearchresults}}
   \end{center}
 \end{figure}
 
 Once clicked, you should be presented with something similar to figure
 \ref{fig:ncbiSequenceSelected}.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiSequenceSelected}
     \caption{\label{fig:ncbiSequenceSelected}Sequence Page}
@@ -121,7 +121,7 @@ Now you can simply highlight the sequence (highlighted in yellow in
 figure \ref{fig:ncbiSequenceFound}) and press Ctrl-c (or equivalent)
 to copy the sequence.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiSequenceFound}
     \caption{\label{fig:ncbiSequenceFound}The Sequence}
@@ -144,15 +144,16 @@ Use your best judgement where differences appear.
 \label{sec:overviewScreen}
 
 On starting the application (as described in section
-\ref{sec:startingApp}), you should see the overview screen (figure
-\ref{fig:PDSplash}) with a button on the bottom right labelled
+\ref{sec:startingapp}), you should see the overview screen (figure
+\ref{fig:pdsplash} ) with a button on the bottom right labelled
 ``Start''. Once you have finished reading the information on this
 page, you should press start.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{StartPanel}
-    \caption{\label{fig:PDSplash}Overview Screen}
+    \caption{Overview Screen}
+    \label{fig:pdsplash}
   \end{center}
 \end{figure}
 
@@ -162,17 +163,17 @@ page, you should press start.
 \label{sec:sequenceEntry}
 
 Remember the DNA sequence you copied in section
-\ref{sec:gettingSequence}? Well now is the time to paste it!
-Simply paste (using Ctrl-V or using the Edit->Paste menu) the sequence
+\ref{sec:gettingsequence}? Well now is the time to paste it!
+Simply paste (using Ctrl-V or using the EditPaste menu) the sequence
 into the large white area and press the next button.
-As you can see in figure \ref{fig:PDStartWithSeq}, you do not need to
+As you can see in figure \ref{fig:pdstartwithseq}, you do not need to
 worry about including the ``ORIGIN'' from the sequence as this will be
 removed when you press the `Next' button.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{SequenceEntry}
-    \caption{\label{fig:PDStartWithSeq}DNA Sequence Entry Example}
+    \caption{\label{fig:pdstartwithseq}DNA Sequence Entry Example}
   \end{center}
 \end{figure}
 
@@ -185,7 +186,7 @@ Now we have to select what it is we want to produce from the reaction.
 To do this, you have to specify the first and the last base of the
 sequence you wish to copy, using it's position in the sequence.
 So if you wish to copy a sequence from position 100 to 500, as in the
-example on figure \ref{fig:PDAreaSelection}, you would enter these
+example on figure \ref{fig:pdareaselection}, you would enter these
 into the ``From'' and ``To'' text boxes.
 An easier way to do this is to highlight the sequence you wish to use
 and the numbers will be filled in for you.
@@ -193,10 +194,11 @@ and the numbers will be filled in for you.
 Note that you can also view the complementary strand, by using the
 tabs just above where the sequence is.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{TargetSelection}
-    \caption{\label{fig:PDAreaSelection}Target Area Selection Example}
+    \caption{Target Area Selection Example}
+    \label{fig:pdareaselection}
   \end{center}
 \end{figure}
 
@@ -244,7 +246,7 @@ window.
 These will give you information on where your primers pass and where
 they fail.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{PrimerAllCorrect}
     \caption{\label{fig:PDPrimerSelection}Primer Selection Example}
@@ -256,7 +258,7 @@ described at the start of the application, and you are given a report
 of where your primers pass and where they fail, if at all.
 This will look something like \ref{fig:PDPrimerFeedback}.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{PrimerFeedback}
     \caption{\label{fig:PDPrimerFeedback}Primer Design Feedback Example}
@@ -281,7 +283,7 @@ melting temperatures of both primers and the primers themselves.
 Note that for our example we should not have been allowed to get here
 due to the feedback we received in figure \ref{fig:PDPrimerFeedback}.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{Temperature}
     \caption{\label{fig:PDMeltingTemp}Melting Temperature Screen Example}
@@ -300,3 +302,5 @@ These are constantly changing with the development of the application
 so are not listed here.
 If you suspect you have found something which should not have, please
 feel free to e-mail us at \texttt{TeamProjectQ@gmail.com}.
+
+\end{document}
