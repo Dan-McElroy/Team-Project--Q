@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,25 +12,47 @@ import java.util.Scanner;
  */
 public class TestResult {
  
-    private boolean pass;
+    public enum PassState {PASS, FAIL, CLOSEFAIL};
+    private ArrayList<PassState> passes;
     private String out;
     
-    public TestResult(boolean p, String o) {
-        pass = p;
+    public TestResult(PassState p, String o) {
+        passes = new ArrayList<PassState>();
+        passes.add(p);
         out = o;
     }
     
-    public boolean getPass() {
-        return pass;
+    public PassState getPass(int x) {
+        return passes.get(x);
     }
     public String getOut() {
         return out;
     }
-    public void setPass(boolean p) {
-        pass = p;
+    public void setPass(PassState p) {
+        passes.set(0, p);
     }
     public void setOut(String o) {
         out = o;
+    }
+    
+    public boolean acceptable() {
+        int total = passes.size();
+        int cfails = 0;
+        if (passes.contains(PassState.FAIL))
+            return false;
+        for (PassState p : passes) {
+            if (p == PassState.CLOSEFAIL)
+                cfails++;
+        }
+        if ((double) cfails / (double) total > 0.6)
+            return false;
+        return true;
+    }
+    
+    public boolean passes() {
+        if (passes.get(0) == PassState.PASS)
+            return true;
+        else return false;
     }
     
     public void add(String s) {
@@ -38,22 +60,25 @@ public class TestResult {
     }
     
     public void add(TestResult t) {
+        System.out.println(out);
     	/*
     	 * Adds one test result to another, to be used for the 
     	 * final cumulative test result.
     	 */
         if (out == null)
             out = "";
-        pass = (this.pass && t.getPass());
-        if (t.getPass())
-            out += "PASS:\t" + t.getOut() + "\n";
-        else if (!t.getPass())
-            out += "FAIL:\t" + t.getOut() + "\n";
+        passes.add(t.getPass(0));
+        if (t.getPass(0) == PassState.PASS)
+            out += "Pass:\t" + t.getOut() + "\n";
+        else if (t.getPass(0) == PassState.FAIL)
+            out += "Fail:\t" + t.getOut() + "\n";
+        else if (t.getPass(0) == PassState.CLOSEFAIL)
+            out += "Close Fail:\t" + t.getOut() + "\n";
     }
     public void addQuiet(TestResult t) {
         if (out == null)
             out = "";
-        pass = (this.pass && t.getPass());
+        passes.add(t.getPass(0));
         out += t.getOut() + "\n";
     }
     
@@ -89,6 +114,6 @@ public class TestResult {
     }
     
     public boolean equals(TestResult t) {
-        return (this.pass == t.getPass() && this.out.equals(t.getOut()));
+        return (this.acceptable() == t.acceptable() && this.out.equals(t.getOut()));
     }
 }

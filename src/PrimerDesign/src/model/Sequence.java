@@ -9,6 +9,8 @@ package model;
 import controller.PrimerDesign;
 import java.util.Scanner;
 import java.io.*;
+import java.util.ArrayList;
+import model.TestResult.PassState;
 /**
  *
  * @author 1002852m
@@ -20,6 +22,7 @@ public class Sequence {
     private String cStrand; //generated strand
     private Primer fPrimer; //forward primer
     private Primer rPrimer; //reverse primer
+    public int start, end;
     
     public Sequence(String o) {
         oStrand = parser(new Scanner(o));
@@ -132,6 +135,59 @@ public class Sequence {
         }
         return r;
     }
+    
+        public TestResult isUnique(Primer p, char s) {
+        /*
+         * MOVE TO SEQUENCE
+         */
+        String strand;
+        int instances = 0;
+        ArrayList<Integer> startPoints = new ArrayList<Integer>();        
+        char start = p.getCode().charAt(0);
+        if (s == 'o' && cStrand.contains(p.getCode()))
+            return new TestResult(PassState.FAIL, "Primer appears on"
+                    + " the wrong strand.");
+        if (s == 'c' && oStrand.contains(p.getCode()))
+            return new TestResult(PassState.FAIL, "Primer appears on"
+                    + " the wrong strand.");
+        //Original strand search
+        if (s == 'o') strand = oStrand;
+        else strand = cStrand;
+        for (int i = 0; i < strand.length(); i++) {
+            if (strand.charAt(i) == p.getCode().charAt(0))
+                if (p.matches(i, strand)) {
+                    startPoints.add(i);
+                    instances++;
+                }
+        }
+        if (instances == 0 && s == 'c') {
+            Primer r = new Primer(p.reverse(p.getCode()));
+            for (int i = 0; i < strand.length(); i++) {
+                if (strand.charAt(i) == r.getCode().charAt(0))
+                    if (p.matches(i, strand)) {
+                        startPoints.add(i);
+                        instances++;
+                    }
+            }
+        }
+        if (instances == 1) {
+            int point = startPoints.get(0);
+            int diff = start - point;  
+            if (diff >= 15 && diff <= 30)
+                return new TestResult(PassState.PASS, "Primer is "
+                        + "unique to the sequence, and is situated "
+                        + "correctly.");
+            else return new TestResult(PassState.FAIL, "Primer is "
+                    + "unique to the sequence, and is located in the right "
+                    + "strand, but is located in the wrong part of the sequence.");
+        }
+        else if (instances == 0) {
+            return new TestResult(PassState.FAIL, "Primer does not appear in the "
+                    + "correct strand.");
+        }
+        return new TestResult(PassState.FAIL, "Primer is not unique"
+                + " to the sequence.");
+    }
         
     public String toString(char x, int block, int line) {
         /*
@@ -193,45 +249,50 @@ public class Sequence {
                 this.rPrimer.equals(s.getRPrimer()));
     }
     
+    public int difference(int i, int j) {
+        int difference = i - j;
+        if (difference < 0)
+            difference -= 2*difference;
+        return difference;
+    }
+    
     public TestResult tempDifference() {
         
         int fTemp = fPrimer.getMeltingTemp();
         int rTemp = rPrimer.getMeltingTemp();
         
-        if (((fTemp < rTemp) && ((rTemp - fTemp) < 3))
-                || ((rTemp < fTemp) && ((fTemp - rTemp) < 3)))
-            return new TestResult(false, "Primer melting temperatures should be"
-                    + " within 3 degrees of each other. Your temperatues are: "
+        if (difference(fTemp, rTemp) > 5)
+            return new TestResult(PassState.FAIL, "Primer melting temperatures should be"
+                    + " within 3\u2103 of each other. Your temperatures are: "
                     + fTemp + " and " + rTemp + ".");
+        else if (difference(fTemp, rTemp) > 3)
+            return new TestResult(PassState.CLOSEFAIL, "Your primers"
+                    + " are " + difference(fTemp, rTemp) + "\u2103 apart, just"
+                    + " above the highest recommended difference of 3\u2103");
         else
-            return new TestResult(true, null);
+            return new TestResult(PassState.PASS, "Your primers are"
+                    + "within 3\u2013C of each other.");
     }
     
     public TestResult primerTest() {
-        TestResult test = new TestResult(true, "");
-        TestResult fTest = fPrimer.test();
-        TestResult rTest = rPrimer.test();
+        TestResult test = new TestResult(PassState.PASS, "");
+        TestResult fTest = fPrimer.test(); fTest.add(isUnique(fPrimer, 'o'));
+        TestResult rTest = rPrimer.test(); rTest.add(isUnique(rPrimer, 'c'));
         TestResult paTest = fPrimer.pairAnneal(rPrimer);
-        if (fTest.getPass() && rTest.getPass() && paTest.getPass()
-                && tempDifference().getPass()){ test.add("Congratulations, your"
+        if (fTest.acceptable() && rTest.acceptable() && paTest.passes()
+                && tempDifference().passes()){ test.add("Congratulations, your"
                         + " primers meet all the design requirements!");
                 return test;
         }
         test.add("Your primers haven't met the requirements in the "
                 + "following areas:\n");
-        if (!fTest.getPass()) {
             test.add("Forward Primer:");
             test.addQuiet(fPrimer.test());
-        }
-        if (!rTest.getPass()) {
             test.add("Reverse Primer:");
             test.addQuiet(rPrimer.test());
-        }
-        if (!(tempDifference().getPass() || paTest.getPass())) {
             test.add("General:");
-        }
-        if (!tempDifference().getPass()) test.add(tempDifference());
-        if (!paTest.getPass()) test.add(paTest);
+            test.add(tempDifference());
+            test.add(paTest);
         return test;
         /*
         TestResult test;
