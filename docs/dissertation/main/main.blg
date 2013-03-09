@@ -2,44 +2,50 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-You've used 4 entries,
+Warning--to sort, need author or key in swingTutorial
+Warning--to sort, need author or key in javafxOverview
+Warning--empty year in javafxOverview
+Warning--empty year in swingTutorial
+Warning--empty year in swingAPI
+You've used 7 entries,
             2774 wiz_defined-function locations,
-            620 strings with 5320 characters,
-and the built_in function-call counts, 1257 in all, are:
-= -- 111
+            633 strings with 5657 characters,
+and the built_in function-call counts, 1958 in all, are:
+= -- 185
 > -- 40
 < -- 4
-+ -- 16
++ -- 19
 - -- 12
-* -- 67
-:= -- 201
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 12
-chr.to.int$ -- 4
-cite$ -- 8
-duplicate$ -- 61
-empty$ -- 131
+* -- 110
+:= -- 266
+add.period$ -- 19
+call.type$ -- 7
+change.case$ -- 18
+chr.to.int$ -- 7
+cite$ -- 21
+duplicate$ -- 105
+empty$ -- 227
 format.name$ -- 16
-if$ -- 267
+if$ -- 439
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 1
-newline$ -- 28
+newline$ -- 41
 num.names$ -- 16
-pop$ -- 43
+pop$ -- 80
 preamble$ -- 1
-purify$ -- 8
+purify$ -- 12
 quote$ -- 0
-skip$ -- 51
+skip$ -- 87
 stack$ -- 0
-substring$ -- 23
-swap$ -- 5
+substring$ -- 33
+swap$ -- 9
 text.length$ -- 0
-text.prefix$ -- 0
+text.prefix$ -- 1
 top$ -- 0
-type$ -- 44
-warning$ -- 0
+type$ -- 77
+warning$ -- 5
 while$ -- 13
 width$ -- 0
-write$ -- 56
+write$ -- 85
+(There were 5 warnings)

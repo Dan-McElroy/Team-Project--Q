@@ -1,9 +1,18 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[jav()]{javafxOverview}
+{{JavaFX}} overview.
+\newblock URL
+  \url{http://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm}.
+
+\bibitem[swi()]{swingTutorial}
+Trail: Creating a gui with jfc/swing.
+\newblock URL \url{http://docs.oracle.com/javase/tutorial/uiswing/}.
 
 \bibitem[DeKanter(2004)]{gamingRedefines2004}
 Nick DeKanter.
@@ -24,5 +33,12 @@ User `dwildridge'.
 {{Genetic Science Learning Center}}.
 \newblock {{PCR Virtual Lab}}, August 2012.
 \newblock URL \url{http://learn.genetics.utah.edu/content/labs/pcr/}.
+
+\bibitem[Ora()]{swingAPI}
+\emph{Java {{Swing API}} Summary}.
+\newblock Oracle.
+\newblock URL
+  \url{http://docs.oracle.com/javase/6/docs/api/javax/swing/package-summary.ht%
+ml}.
 
 \end{thebibliography}

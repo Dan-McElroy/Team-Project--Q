@@ -8,6 +8,9 @@
 \BOOKMARK [1][-]{section.2.2}{UI}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{Implementation}{}
 \BOOKMARK [1][-]{section.3.1}{UI}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{GUI Framework}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{IDE}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Models, Custom Methods}{chapter.3}
 \BOOKMARK [0][-]{chapter.4}{Evaluation}{}
 \BOOKMARK [1][-]{section.4.1}{Testing}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.1.1}{Demonstration}{section.4.1}
