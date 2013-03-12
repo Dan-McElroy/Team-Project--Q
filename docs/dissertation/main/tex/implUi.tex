@@ -1,0 +1,178 @@
+The implementation of the graphical user interface (GUI) required a number
+of decisions to be made before writing it could begin.
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+\subsection{GUI Framework}
+\label{impl:ui:guiframework}
+
+%---------------------------------------------------------------------
+
+\subsubsection{Swing}
+\label{impl:ui:guiframwork:swing}
+
+Each member of the group had experience with the Swing framework,
+though not all of it good.
+The experience each member of the team had with Swing varied, and
+although every member had agreed that they had not liked using it in
+the past, we conceded that its integration with the Netbeans
+Integrated Development Environment (IDE), discussed in section
+\ref{impl:ui:ide:netbeans}, was extremely useful.
+
+However, on investigating the framework more closely it was clear that
+Swing was extremely well documented with full API specification
+(\cite{swingAPI}), and in-depth tutorials (\cite{swingTutorial}).
+This was a huge part of our decision as we felt that the documentation
+provided would be more than adequate to allow us to use the framework
+with relative comfort.
+
+%---------------------------------------------------------------------
+
+\subsubsection{JavaFX}
+\label{impl:ui:guiframwork:javafx}
+
+Another framework considered was JavaFX which no member of the team
+had any experience with. 
+Some members felt that this was a risk worth taking, given how much
+they disliked Swing, discussed above.
+In reality JavaFX was only briefly considered and totally disregarded
+when, upon brief investigation, JavaFX was still a relatively new
+framework, and was thus not quite as well documented as Swing,
+particularly when it came to troubleshooting on online forums.
+
+In addition, JavaFX required Java 7, which, again, no member of the
+group had used before and which was not available, at the time, in the
+Level 3 Laboratory where we would be working for the majority of the
+year.
+It seemed like too much of a risk to try to learn two different
+technologies at the same time, while having to provide our own
+development platforms, which, with various members of the team never
+having used the Linux OS before, could potentially cause a number of
+problems.
+
+%---------------------------------------------------------------------
+
+\subsubsection{Decision}
+\label{impl:ui:guiframework:decision}
+
+The investigation was carried out by the group's Toolsmith, Ross
+Barnie, who presented the evidence discussed in the sections above
+regarding the two frameworks to the rest of the team.
+With this evidence the team voted in favor of using the Swing
+framework with Java 6.
+
+Retrospectively, Swing, and Java 6, are out-of-date technologies and
+JavaFX is now packaged with Java 7 \cite{javafxOverview}, so the
+application would have been more up-to-date or future-proof had we
+used JavaFX.
+Additionally, (some of) the computers in the level 3 lab now do have
+Java 7 installed upon another project team requesting it, so our fears
+over development platform problems were nullified, though this was
+only after we had started development.
+
+It was an unfortunate shortcoming of the research into JavaFX that the
+group did not know about JavaFX's integration with the Netbeans IDE
+which was seen as one of the key differences between the two
+frameworks at the time of making the decision.
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+\subsection{IDE}
+\label{impl:ui:ide}
+
+One concern was that, in some members' experience, using two separate
+IDEs was extremely time consuming, particularly while using version
+control.
+This was mostly due to various metadata that IDEs keep track of in
+various files, however this meant that any small change to the source
+code would change the metadata and therefore each commit would have to
+involve adding it, which would be very time-consuming.
+
+It is because of this experience that the group decided to work from a
+single IDE, researched again by Ross Barnie.
+
+%---------------------------------------------------------------------
+\subsubsection{Netbeans}
+\label{impl:ui:ide:netbeans}
+
+Netbeans is an IDE which the team had had little experience with and had
+only used in the context of building applications with GUIs created
+using the Swing framework.
+There was some trepidation to using Netbeans since most of the team
+had associated their problems with Swing with Netbeans itself.
+Upon further research, which involved using the IDE to build small
+applications, Netbeans started much faster than Eclipse, discussed
+below.
+And the design interface was very simple and easy to use, with each
+element being laid out the way you wish and the associated source code
+being generated for you.
+This meant that the design layout could be finished very quickly,
+rather than spending our time writing hundreds of lines of source code
+just for the interface.
+
+In terms of Netbeans' metadata, it was quite minimal and would not
+clutter the version control repository to an unacceptable degree.
+
+%---------------------------------------------------------------------
+\subsubsection{Eclipse}
+\label{impl:ui:ide:eclipse}
+
+The team had used Eclipse many times in the past, given that the
+entirety of the coursework for level 2 was to be done using it.
+Again, our experience of Eclipse is somewhat tainted by associations
+with problems we faced at the time, such as a bug on the version for
+Windows which meant that Eclipse would freeze if you tried to copy or
+paste anything.
+
+The team felt, unanimously, that Eclipse was slow, not only to
+initially load, but also when trying to write code.
+Editing-wise, Eclipse was rather cumbersome and not much better than a
+text editor.
+Also the requirement to bind the ``Workspace'' was seen as a potential
+point for confusion and errors.
+
+In addition, the team felt that the missing design interface seen on
+Netbeans, discussed above, was a huge disadvantage and would cause a
+significant loss of time, simply due to the volume of code we would
+have to write instead of being auto-generated.
+
+Members of the team also pointed out that Eclipse has a tendency to
+create a large amount of metadata which would clutter the version
+control repository.
+
+%---------------------------------------------------------------------
+\subsubsection{No IDE}
+\label{impl:ui:ide:noide}
+
+It was briefly considered to have no IDE at all and simply use text
+editors.
+This would allow for extremely fast editing in a very comfortable
+environment, since most text editors, such as Vim or Emacs, are highly
+customisable and can launch in a matter of seconds.
+Text editors would also not require metadata, keeping our version
+controlled directories clean.
+
+However, the obvious problem with no IDE is that troubleshooting
+problems becomes very tedious very quickly, and unlike IDEs, you
+cannot automatically import a missing package or method, nor can there
+be any auto-generated code for that matter.
+
+%---------------------------------------------------------------------
+\subsubsection{Decision}
+\label{impl:ui:ide:decision}
+
+When the evidence above was given to the team, we were also discussing
+which GUI Framework to use (as discussed in section
+\ref{impl:ui:guiframework}) and it became obvious that integration
+with the framework would be key to helping us develop the GUI.
+
+We therefore decided to work with the Netbeans IDE because of the
+design interface, minimal metadata, and lack of (known) bugs that
+would affect us in any meaningful way.
+
+Retrospectively, this was the correct decision.
+Even if we had chosen a different GUI framework, the advantages of the
+easy-to-edit design interface far outweigh any problems we had with
+it.
+ 
