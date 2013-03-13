@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.9.3)  13 MAR 2013 18:30
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.9.3)  13 MAR 2013 18:41
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -370,7 +370,7 @@ Underfull \hbox (badness 2460) in paragraph at lines 19--21
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  3087 strings out of 256216
- 42118 string characters out of 1917073
+ 42119 string characters out of 1917073
  101763 words of memory out of 1500000
  6255 multiletter control sequences out of 10000+200000
  24975 words of font info for 50 fonts, out of 1200000 for 2000
@@ -381,9 +381,9 @@ Here is how much of TeX's memory you used:
 y8.pfb></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/f
 onts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (18 pages, 136421 bytes).
+Output written on main.pdf (18 pages, 136855 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
+ 296 PDF objects out of 1000 (max. 8388607)
  63 named destinations out of 1000 (max. 131072)
  198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
