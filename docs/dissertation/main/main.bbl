@@ -5,6 +5,11 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[JP2()]{javaProgramming2}
+Course catalogue entry of the Java Programming 2 course.
+\newblock URL 
+ \url{http://www.gla.ac.uk/coursecatalogue/course/?code=COMPSCI2001}.
+
 \bibitem[jav()]{javafxOverview}
 {{JavaFX}} overview.
 \newblock URL

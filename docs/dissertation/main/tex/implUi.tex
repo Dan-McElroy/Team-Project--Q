@@ -1,21 +1,40 @@
 The implementation of the graphical user interface (GUI) required a number
 of decisions to be made before writing it could begin.
 %---------------------------------------------------------------------
+
+% Not the best place for this, but finding a better one will require
+% restructuring during editing process.
+
+\subsection{Programming Language}
+\label{impl:ui:programminglanguage}
+
+When discussing implementation, the group quickly settled on Java as
+the language in which to implement the application, due to our 
+collective experience with it as a consequence of the Java Programming
+course taken in the previous academic year, and our knowledge of
+existing GUI frameworks that would suit our purposes.
+
 %---------------------------------------------------------------------
 
 \subsection{GUI Framework}
 \label{impl:ui:guiframework}
+
+From a brief research period at the start of the implementation 
+process, we settled on two possible options for a GUI framework to use
+for the application. It's important to note that other GUI options are
+available, but upon further analysis, it became clear that Swing and 
+JavaFX were the most suitable to our needs.
 
 %---------------------------------------------------------------------
 
 \subsubsection{Swing}
 \label{impl:ui:guiframwork:swing}
 
-Each member of the group had experience with the Swing framework,
-though not all of it good.
+Each member of the group had some limited experience with the Swing 
+framework, though not all of it had been positive.
 The experience each member of the team had with Swing varied, and
-although every member had agreed that they had not liked using it in
-the past, we conceded that its integration with the Netbeans
+although every member had agreed that their experience had not been
+entirely problem-free, we conceded that its integration with the Netbeans
 Integrated Development Environment (IDE), discussed in section
 \ref{impl:ui:ide:netbeans}, was extremely useful.
 
@@ -37,8 +56,9 @@ Some members felt that this was a risk worth taking, given how much
 they disliked Swing, discussed above.
 In reality JavaFX was only briefly considered and totally disregarded
 when, upon brief investigation, JavaFX was still a relatively new
-framework, and was thus not quite as well documented as Swing,
-particularly when it came to troubleshooting on online forums.
+framework, and consequently, comprehensive documentation was not as
+readily available for JavaFX as with Swing, particularly when it came 
+to troubleshooting on online forums.
 
 In addition, JavaFX required Java 7, which, again, no member of the
 group had used before and which was not available, at the time, in the
@@ -118,15 +138,14 @@ clutter the version control repository to an unacceptable degree.
 \subsubsection{Eclipse}
 \label{impl:ui:ide:eclipse}
 
-The team had used Eclipse many times in the past, given that the
-entirety of the coursework for level 2 was to be done using it.
-Again, our experience of Eclipse is somewhat tainted by associations
-with problems we faced at the time, such as a bug on the version for
-Windows which meant that Eclipse would freeze if you tried to copy or
-paste anything.
+The team had substantial knowledge of Eclipse from its mandated use in
+Java Programming 2 \citep{javaProgramming2}. Again, our experience of 
+Eclipse is somewhat tainted by associations with problems we faced at 
+the time, such as a bug on the version for Windows which meant that 
+Eclipse would freeze if you tried to copy or paste anything.
 
-The team felt, unanimously, that Eclipse was slow, not only to
-initially load, but also when trying to write code.
+In our experience, we found Eclipse to be very slow, both during 
+start-up and normal operation. 
 Editing-wise, Eclipse was rather cumbersome and not much better than a
 text editor.
 Also the requirement to bind the ``Workspace'' was seen as a potential
