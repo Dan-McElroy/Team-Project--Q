@@ -1,51 +1,49 @@
 This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: main.aux
-The style file: plainnat.bst
+The style file: plain.bst
 Database file #1: references.bib
+Warning--I didn't find a database entry for "javaProgramming2"
 Warning--to sort, need author or key in swingTutorial
 Warning--to sort, need author or key in javafxOverview
-Warning--empty year in javafxOverview
-Warning--empty year in swingTutorial
-Warning--empty year in swingAPI
 You've used 7 entries,
-            2774 wiz_defined-function locations,
-            633 strings with 5657 characters,
-and the built_in function-call counts, 1958 in all, are:
-= -- 185
-> -- 40
-< -- 4
-+ -- 19
-- -- 12
-* -- 110
-:= -- 266
-add.period$ -- 19
+            2118 wiz_defined-function locations,
+            536 strings with 4780 characters,
+and the built_in function-call counts, 1377 in all, are:
+= -- 132
+> -- 31
+< -- 0
++ -- 15
+- -- 8
+* -- 57
+:= -- 214
+add.period$ -- 18
 call.type$ -- 7
-change.case$ -- 18
-chr.to.int$ -- 7
-cite$ -- 21
-duplicate$ -- 105
-empty$ -- 227
-format.name$ -- 16
-if$ -- 439
-int.to.chr$ -- 1
-int.to.str$ -- 1
+change.case$ -- 25
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 54
+empty$ -- 155
+format.name$ -- 8
+if$ -- 309
+int.to.chr$ -- 0
+int.to.str$ -- 7
 missing$ -- 1
-newline$ -- 41
-num.names$ -- 16
-pop$ -- 80
+newline$ -- 35
+num.names$ -- 8
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 19
 quote$ -- 0
-skip$ -- 87
+skip$ -- 48
 stack$ -- 0
-substring$ -- 33
-swap$ -- 9
+substring$ -- 51
+swap$ -- 7
 text.length$ -- 0
-text.prefix$ -- 1
+text.prefix$ -- 0
 top$ -- 0
-type$ -- 77
-warning$ -- 5
-while$ -- 13
-width$ -- 0
-write$ -- 85
-(There were 5 warnings)
+type$ -- 28
+warning$ -- 2
+while$ -- 9
+width$ -- 8
+write$ -- 64
+(There were 3 warnings)
