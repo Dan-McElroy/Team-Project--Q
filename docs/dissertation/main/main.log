@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  14 MAR 2013 16:31
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  14 MAR 2013 17:21
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -299,11 +299,21 @@ File: ./images/demoBuild/areaSelection.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [13 <./images/demoBuild/sequenceEntry.png>]
-<./images/demoBuild/primerFeedback.png, id=246, 618.31pt x 426.59375pt>
+<./images/demoBuild/primerDesign.png, id=247, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/primerDesign.png Graphic file (type png)
+
+<use ./images/demoBuild/primerDesign.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/demoBuild/primerFeedback.png, id=248, 618.31pt x 426.59375pt>
 File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 
-<use ./images/demoBuild/primerFeedback.png>) (./tex/models.tex [14 <./images/de
-moBuild/areaSelection.png> <./images/demoBuild/primerFeedback.png>])
+<use ./images/demoBuild/primerFeedback.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./tex/models.tex [14 <./images/demoBuild/areaSelection.png>])
 (./tex/PrimerChecks.tex
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -347,7 +357,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--42
 
  []
 
-[15]) (./tex/DynHigh.tex
+[15 <./images/demoBuild/primerDesign.png>]) (./tex/DynHigh.tex [16 <./images/de
+moBuild/primerFeedback.png>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
@@ -360,13 +371,13 @@ Missing character: There is no œ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no  in font ptmr7t!
-) [16]
+) [17]
 Chapter 4.
-[17
+[18
 
 ]
 Chapter 5.
-[18
+[19
 
 ] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 7--9
@@ -374,7 +385,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 . oracle . com / javafx / 2 / overview /
  []
 
-) [19
+) [20
 
 
 ] (./main.aux)
@@ -383,10 +394,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2888 strings out of 256216
- 40371 string characters out of 1917073
+ 2896 strings out of 256216
+ 40591 string characters out of 1917073
  96647 words of memory out of 1500000
- 6040 multiletter control sequences out of 10000+200000
+ 6045 multiletter control sequences out of 10000+200000
  24975 words of font info for 50 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  32i,7n,36p,825b,449s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -395,9 +406,9 @@ luesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/s
 hare/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (21 pages, 206197 bytes).
+Output written on main.pdf (22 pages, 252587 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 131072)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 336 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 131072)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 
