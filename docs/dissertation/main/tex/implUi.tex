@@ -43,7 +43,7 @@ Integrated Development Environment (IDE), discussed in section
 
 However, on investigating the framework more closely it was clear that
 Swing was extremely well documented with full API specification
-(\cite{swingAPI}), and in-depth tutorials (\cite{swingTutorial}).
+\cite{swingAPI}, and in-depth tutorials \cite{swingTutorial}.
 This was a huge part of our decision as we felt that the documentation
 provided would be more than adequate to allow us to use the framework
 with relative comfort.
@@ -197,3 +197,51 @@ Retrospectively, this was the correct decision.
 Even if we had chosen a different GUI framework, the advantages of the
 easy-to-edit design interface far outweigh any problems we had with
 it.
+
+%---------------------------------------------------------------------
+\section{Builds}
+\label{impl:ui:builds}
+
+To demonstrate the GUI and the changes we made to it over time, we
+will discuss two builds of the system at two crucial points in time.
+
+The first is what the team refer to as the ``demo build'', which was
+the first build of the system in general to be used by anyone outwith
+the project.
+
+The second is the current build of the system, which is currently
+linked to on the Molecular Methods moodle site to be used by any of
+its 160 students.
+This build by nature has developed from the demo build in that most of
+the changes made were based on the evaluation and feedback we received
+from the demonstration itself (discussed in section *SECTION
+REFERENCE*)
+
+\subsection{Demo Build}
+
+\subsubsection{Start}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=\textwidth]{./images/demoBuild/sequenceEntry.png}
+    \caption{
+      \label{fig:demoBuild:sequenceEntry}
+      Demo Build, sequence entry panel 
+    }
+  \end{center}
+\end{figure}
+
+Figure \ref{fig:demoBuild:sequenceEntry} shows the first panel,
+referred to by the team as the ``sequence entry panel'', to
+appear when you run the application.
+While based on the design in figure *REFERENCE INITIAL UI DESIGN* it
+has been altered slightly to maximise the amount of space to be used
+for entering in the sequence, as this is the primary purpose of this
+panel.
+
+It was expected of the user to go to the National Center for
+Biotechnology Information (NCBI) website and obtain a DNA sequence by
+copying it to their clipboard and then pasting this into the sequence
+entry panel and this was explained in the accompanying user guide
+(appendix *USER GUIDE APPENDIX*).
+

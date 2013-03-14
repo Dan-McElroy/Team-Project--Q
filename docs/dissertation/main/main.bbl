@@ -1,5 +1,8 @@
 \begin{thebibliography}{1}
 
+\bibitem{swingAPI}
+Java {{Swing API}} summary.
+
 \bibitem{javafxOverview}
 {{JavaFX}} overview.
 \newblock \url{http://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm}.
@@ -27,9 +30,5 @@ User `dwildridge'.
 {{Genetic Science Learning Center}}.
 \newblock {{PCR Virtual Lab}}.
 \newblock \url{http://learn.genetics.utah.edu/content/labs/pcr/}, August 2012.
-
-\bibitem{swingAPI}
-Oracle.
-\newblock {\em Java {{Swing API}} Summary}.
 
 \end{thebibliography}

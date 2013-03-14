@@ -3,47 +3,48 @@ The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for "javaProgramming2"
+Warning--to sort, need author or key in swingAPI
 Warning--to sort, need author or key in swingTutorial
 Warning--to sort, need author or key in javafxOverview
 You've used 7 entries,
             2118 wiz_defined-function locations,
             536 strings with 4780 characters,
-and the built_in function-call counts, 1377 in all, are:
-= -- 132
+and the built_in function-call counts, 1381 in all, are:
+= -- 129
 > -- 31
 < -- 0
 + -- 15
 - -- 8
-* -- 57
-:= -- 214
-add.period$ -- 18
+* -- 56
+:= -- 208
+add.period$ -- 17
 call.type$ -- 7
 change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 54
-empty$ -- 155
+cite$ -- 10
+duplicate$ -- 53
+empty$ -- 161
 format.name$ -- 8
-if$ -- 309
+if$ -- 313
 int.to.chr$ -- 0
 int.to.str$ -- 7
 missing$ -- 1
-newline$ -- 35
+newline$ -- 34
 num.names$ -- 8
-pop$ -- 47
+pop$ -- 50
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 18
 quote$ -- 0
-skip$ -- 48
+skip$ -- 54
 stack$ -- 0
-substring$ -- 51
+substring$ -- 50
 swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 28
-warning$ -- 2
+warning$ -- 3
 while$ -- 9
 width$ -- 8
-write$ -- 64
-(There were 3 warnings)
+write$ -- 62
+(There were 4 warnings)
