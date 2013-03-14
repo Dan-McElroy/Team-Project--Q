@@ -22,15 +22,16 @@
 \contentsline {subsubsection}{Decision}{12}{section*.10}
 \contentsline {subsection}{\numberline {3.2.4}Builds}{12}{subsection.3.2.4}
 \contentsline {subsubsection}{Demo Build}{13}{section*.11}
-\contentsline {paragraph}{Start}{13}{figure.3.1}
-\contentsline {paragraph}{Area Selection}{13}{figure.3.2}
-\contentsline {paragraph}{Primer Design}{14}{section*.14}
-\contentsline {paragraph}{Melting Temperature}{15}{section*.15}
-\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{15}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Models}{15}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{16}{subsection.3.3.2}
+\contentsline {paragraph}{Splash}{13}{section*.12}
+\contentsline {paragraph}{Sequence Entry}{13}{figure.3.2}
+\contentsline {paragraph}{Area Selection}{14}{figure.3.3}
+\contentsline {paragraph}{Primer Design}{14}{section*.15}
+\contentsline {paragraph}{Melting Temperature}{15}{section*.16}
+\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{16}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Models}{16}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{17}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Other Methods}{17}{subsection.3.3.3}
-\contentsline {subsubsection}{Dynamic Primer Highlighting}{17}{section*.16}
+\contentsline {subsubsection}{Dynamic Primer Highlighting}{17}{section*.17}
 \contentsline {chapter}{\numberline {4}Evaluation}{19}{chapter.4}
 \contentsline {section}{\numberline {4.1}Testing}{19}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Demonstration}{19}{subsection.4.1.1}

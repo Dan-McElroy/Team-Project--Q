@@ -224,11 +224,29 @@ REFERENCE*)
 \subsubsection{Demo Build}
 
 %---------------------------------------------------------------------
-\paragraph{Start}
+\paragraph{Splash}
+
+Before the demonstration (discussed in section *REFERENCE*), the team
+were asked to include an ``overview'' screen to tell the user what
+they can expect from the application, as well as show the primer
+design rules to remind the user about them.
+This can be seen in figure \ref{fig:demoBuild:splash}.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{./images/demoBuild/sequenceEntry.png}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/splash.png}
+    \caption{
+      \label{fig:demoBuild:splash}
+      Demo Build, Overview Panel 
+    }
+  \end{center}
+\end{figure}
+
+\paragraph{Sequence Entry}
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/sequenceEntry.png}
     \caption{
       \label{fig:demoBuild:sequenceEntry}
       Demo Build, sequence entry panel 
@@ -236,9 +254,8 @@ REFERENCE*)
   \end{center}
 \end{figure}
 
-Figure \ref{fig:demoBuild:sequenceEntry} shows the first panel,
-referred to by the team as the ``sequence entry panel'', to
-appear when you run the application.
+Figure \ref{fig:demoBuild:sequenceEntry} shows the next panel,
+referred to by the team as the ``sequence entry'' panel.
 While based on the design in figure *REFERENCE INITIAL UI DESIGN* it
 has been altered slightly to maximise the amount of space to be used
 for entering in the sequence, as this is the primary purpose of this
@@ -262,7 +279,7 @@ them.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{./images/demoBuild/areaSelection.png}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/areaSelection.png}
     \caption{
       \label{fig:demoBuild:areaSelection}
       Demo Build, Area Selection Panel
@@ -309,7 +326,7 @@ user to enter forward and reverse primers.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerDesign.png}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/primerDesign.png}
     \caption{
       \label{fig:demoBuild:primerDesign}
       Demo Build, Primer Design Panel
@@ -335,7 +352,7 @@ improvement however this was a feature still in early development.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerFeedback.png}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/primerFeedback.png}
     \caption{
       \label{fig:demoBuild:primerFeedback}
       Demo Build, Feedback on User-entered Primer
@@ -353,13 +370,30 @@ DEMO FEEDBACK SECTION*)
 
 After designing a primer, the user is presented with the ``Melting
 Temperature'' panel as seen in figure \ref{fig:demoBuild:meltingTemp}
+for the user to evaluate their primers.
+
+In the case of the demonstration, this panel was blocked from the user
+unless they had a correct primer.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{./images/demoBuild/meltingTemp.png}
+    \includegraphics[width=0.5\textwidth]{./images/demoBuild/meltingTemp.png}
     \caption{
       \label{fig:demoBuild:meltingTemp}
       Demo Build, Melting Temperatures of User's Primers.
     }
   \end{center}
 \end{figure}
+
+In terms of design, the initial design proved to be near-impossible to
+reproduce in Swing and make it look professional and after several
+iterations became what it is.
+The emphasis on the primers and the melting temperatures in bold means
+that the user can easily see their primers and the associated melting
+temperatures, while the separator down the center visually separates
+the forward from the reverse primer.
+
+Unfortunately the animation was not available in time for the
+demonstration and although the button for it was included in this
+panel it was disabled.
+

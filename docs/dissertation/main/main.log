@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  14 MAR 2013 19:07
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  14 MAR 2013 21:53
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -286,43 +286,37 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 LaTeX Warning: Citation `javaProgramming2' on page 11 undefined on input line 1
 45.
 
-[11] [12]
-<./images/demoBuild/sequenceEntry.png, id=227, 811.03pt x 628.3475pt>
+[11] [12] <./images/demoBuild/splash.png, id=228, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/splash.png Graphic file (type png)
+
+<use ./images/demoBuild/splash.png>
+<./images/demoBuild/sequenceEntry.png, id=229, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/sequenceEntry.png Graphic file (type png)
 
-<use ./images/demoBuild/sequenceEntry.png>
-<./images/demoBuild/areaSelection.png, id=229, 811.03pt x 628.3475pt>
+<use ./images/demoBuild/sequenceEntry.png> [13 <./images/demoBuild/splash.png> 
+<./images/demoBuild/sequenceEntry.png>]
+<./images/demoBuild/areaSelection.png, id=242, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/areaSelection.png Graphic file (type png)
 
 <use ./images/demoBuild/areaSelection.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[13 <./images/demoBuild/sequenceEntry.png>]
-<./images/demoBuild/primerDesign.png, id=243, 811.03pt x 628.3475pt>
+<./images/demoBuild/primerDesign.png, id=246, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/primerDesign.png Graphic file (type png)
 
 <use ./images/demoBuild/primerDesign.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/demoBuild/primerFeedback.png, id=245, 618.31pt x 426.59375pt>
+[14 <./images/demoBuild/areaSelection.png>]
+<./images/demoBuild/primerFeedback.png, id=257, 720.6925pt x 427.5975pt>
 File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 
-<use ./images/demoBuild/primerFeedback.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./images/demoBuild/meltingTemp.png, id=247, 811.03pt x 628.3475pt>
+<use ./images/demoBuild/primerFeedback.png> [15 <./images/demoBuild/primerDesig
+n.png> <./images/demoBuild/primerFeedback.png>]
+<./images/demoBuild/meltingTemp.png, id=268, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/meltingTemp.png Graphic file (type png)
 
-<use ./images/demoBuild/meltingTemp.png> [14 <./images/demoBuild/areaSelection.
-png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./tex/models.tex) [15 <./images/demoBuild/primerDesign.png>]
-(./tex/PrimerChecks.tex
+<use ./images/demoBuild/meltingTemp.png>) (./tex/models.tex [16 <./images/demoB
+uild/meltingTemp.png>]) (./tex/PrimerChecks.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
@@ -365,20 +359,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--42
 
  []
 
-[16 <./images/demoBuild/primerFeedback.png>]) (./tex/DynHigh.tex
+) (./tex/DynHigh.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
+ [17]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
- [17 <./images/demoBuild/meltingTemp.png>]) [18]
+) [18]
 Chapter 4.
 [19
 
@@ -401,10 +396,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2904 strings out of 256216
- 40803 string characters out of 1917073
+ 2912 strings out of 256216
+ 40991 string characters out of 1917073
  96647 words of memory out of 1500000
- 6049 multiletter control sequences out of 10000+200000
+ 6054 multiletter control sequences out of 10000+200000
  24975 words of font info for 50 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  32i,7n,36p,825b,449s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -413,9 +408,9 @@ luesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/s
 hare/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (23 pages, 273750 bytes).
+Output written on main.pdf (23 pages, 342749 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 131072)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 131072)
+ 244 words of extra memory for PDF output out of 10000 (max. 10000000)
 
