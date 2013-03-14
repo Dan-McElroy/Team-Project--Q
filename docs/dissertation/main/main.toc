@@ -20,18 +20,19 @@
 \contentsline {subsubsection}{Eclipse}{11}{section*.8}
 \contentsline {subsubsection}{No IDE}{12}{section*.9}
 \contentsline {subsubsection}{Decision}{12}{section*.10}
-\contentsline {section}{\numberline {3.3}Builds}{12}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Demo Build}{13}{subsection.3.3.1}
-\contentsline {subsubsection}{Start}{13}{section*.11}
-\contentsline {subsubsection}{Area Selection}{13}{section*.12}
-\contentsline {subsubsection}{Primer Design}{14}{section*.13}
-\contentsline {section}{\numberline {3.4}Models \& Custom Methods}{14}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Models}{14}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Primer Checking}{15}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Other Methods}{16}{subsection.3.4.3}
-\contentsline {subsubsection}{Dynamic Primer Highlighting}{16}{section*.14}
-\contentsline {chapter}{\numberline {4}Evaluation}{18}{chapter.4}
-\contentsline {section}{\numberline {4.1}Testing}{18}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Demonstration}{18}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Questionnaire}{18}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5}Conclusion}{19}{chapter.5}
+\contentsline {subsection}{\numberline {3.2.4}Builds}{12}{subsection.3.2.4}
+\contentsline {subsubsection}{Demo Build}{13}{section*.11}
+\contentsline {paragraph}{Start}{13}{figure.3.1}
+\contentsline {paragraph}{Area Selection}{13}{figure.3.2}
+\contentsline {paragraph}{Primer Design}{14}{section*.14}
+\contentsline {paragraph}{Melting Temperature}{15}{section*.15}
+\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{15}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Models}{15}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{16}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Other Methods}{17}{subsection.3.3.3}
+\contentsline {subsubsection}{Dynamic Primer Highlighting}{17}{section*.16}
+\contentsline {chapter}{\numberline {4}Evaluation}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testing}{19}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Demonstration}{19}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Questionnaire}{19}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5}Conclusion}{20}{chapter.5}

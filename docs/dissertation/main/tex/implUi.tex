@@ -199,7 +199,7 @@ easy-to-edit design interface far outweigh any problems we had with
 it.
 
 %---------------------------------------------------------------------
-\section{Builds}
+\subsection{Builds}
 \label{impl:ui:builds}
 
 To demonstrate the GUI and the changes we made to it over time, we
@@ -208,6 +208,8 @@ will discuss two builds of the system at two crucial points in time.
 The first is what the team refer to as the ``demo build'', which was
 the first build of the system in general to be used by anyone outwith
 the project.
+The demonstration itself is discussed in more detail in section
+*REFERENCE TO DEMONSTRATION FEEDBACK*.
 
 The second is the current build of the system, which is currently
 linked to on the Molecular Methods moodle site to be used by any of
@@ -219,10 +221,10 @@ REFERENCE*)
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
-\subsection{Demo Build}
+\subsubsection{Demo Build}
 
 %---------------------------------------------------------------------
-\subsubsection{Start}
+\paragraph{Start}
 
 \begin{figure}[h]
   \begin{center}
@@ -256,7 +258,7 @@ them.
 
 %---------------------------------------------------------------------
 
-\subsubsection{Area Selection}
+\paragraph{Area Selection}
 
 \begin{figure}[h]
   \begin{center}
@@ -299,7 +301,7 @@ useful way for students to spend their time.
 
 %---------------------------------------------------------------------
 
-\subsubsection{Primer Design}
+\paragraph{Primer Design}
 
 Following the Area Selection panel is the ``Primer Design'' panel,
 shown in figure \ref{fig:demoBuild:primerDesign}, which allows the
@@ -315,6 +317,22 @@ user to enter forward and reverse primers.
   \end{center}
 \end{figure}
 
+One of the design features we had intended to provide was ``dynamic
+highlighting'', as referred to by the team, which was going to provide
+a highlight around what the user enters into the primer text fields.
+This highlighting was unfortunately missing in the demo build due to
+time constraints.
+
+However, we had always intended to give feedback to the user should
+they break rules of primer design and the demo build version of this
+can be seen in figure \ref{fig:demoBuild:primerFeedback}.
+
+Again based on the design *REFERENCE*, this dialogue window shows the
+user any rules which they have broken, and which primer the feedback
+is referring to.
+In terms of user-friendliness and design it could have used a lot of
+improvement however this was a feature still in early development.
+
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerFeedback.png}
@@ -325,3 +343,23 @@ user to enter forward and reverse primers.
   \end{center}
 \end{figure}
 
+Again, due to time constraints this was not as fully featured as we
+had hoped for in the demonstration, however it did display enough
+information to give an idea to our clients of what the feedback might
+look like in the future (see further discussion in section *REFERENCE
+DEMO FEEDBACK SECTION*)
+
+\paragraph{Melting Temperature}
+
+After designing a primer, the user is presented with the ``Melting
+Temperature'' panel as seen in figure \ref{fig:demoBuild:meltingTemp}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/meltingTemp.png}
+    \caption{
+      \label{fig:demoBuild:meltingTemp}
+      Demo Build, Melting Temperatures of User's Primers.
+    }
+  \end{center}
+\end{figure}
