@@ -232,9 +232,18 @@ they can expect from the application, as well as show the primer
 design rules to remind the user about them.
 This can be seen in figure \ref{fig:demoBuild:splash}.
 
+It's design is to maximise the separation of ideas, so the Overview
+section is to the left, which due to the way English is read, is the
+more likely of the three sections to be read first, at least by fluent
+English readers.
+In this overview section it was decided to include contact details
+of the team in case the user found technical problems with the
+program since, as discussed in section *REFERENCE FUTURE WORK*, the
+team plan on maintaining the system for future use.
+
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/splash.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/splash.png}
     \caption{
       \label{fig:demoBuild:splash}
       Demo Build, Overview Panel 
@@ -244,9 +253,9 @@ This can be seen in figure \ref{fig:demoBuild:splash}.
 
 \paragraph{Sequence Entry}
 
-\begin{figure}[h!]
+\begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/sequenceEntry.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/sequenceEntry.png}
     \caption{
       \label{fig:demoBuild:sequenceEntry}
       Demo Build, sequence entry panel 
@@ -275,11 +284,11 @@ them.
 
 %---------------------------------------------------------------------
 
-\paragraph{Area Selection}
+\paragraph{Target Selection}
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/areaSelection.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/areaSelection.png}
     \caption{
       \label{fig:demoBuild:areaSelection}
       Demo Build, Area Selection Panel
@@ -287,10 +296,11 @@ them.
   \end{center}
 \end{figure}
 
-Following the Sequence Entry panel is the ``Area Selection'' panel,
-seen in figure \ref{fig:demoBuild:areaSelection}, which requires the
-user to specify the ``target'' sequence, ie the desired output
-sequence of the PCR process.
+Following the Sequence Entry panel is the ``Area Selection'' or
+``Target Selection'' panel, seen in figure
+\ref{fig:demoBuild:areaSelection}, which requires the user to specify
+the ``target'' sequence, ie the desired output sequence of the PCR
+process.
 This is accomplished by the user entering the start of the sequence
 that they want and the end of the sequence they want, both by the
 index of that base in the sequence, into the ``From'' and ``To''
@@ -326,7 +336,7 @@ user to enter forward and reverse primers.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/primerDesign.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerDesign.png}
     \caption{
       \label{fig:demoBuild:primerDesign}
       Demo Build, Primer Design Panel
@@ -335,24 +345,23 @@ user to enter forward and reverse primers.
 \end{figure}
 
 One of the design features we had intended to provide was ``dynamic
-highlighting'', as referred to by the team, which was going to provide
-a highlight around what the user enters into the primer text fields.
+highlighting'', as it was referred to by the team, which was going to
+provide a highlight around what the user enters into the primer text
+fields.
 This highlighting was unfortunately missing in the demo build due to
 time constraints.
 
 However, we had always intended to give feedback to the user should
 they break rules of primer design and the demo build version of this
-can be seen in figure \ref{fig:demoBuild:primerFeedback}.
-
+can be seen in figure \ref{fig:demoBuild:primerFeedback} and appears
+when the user clicks the ``Next'' button.
 Again based on the design *REFERENCE*, this dialogue window shows the
 user any rules which they have broken, and which primer the feedback
 is referring to.
-In terms of user-friendliness and design it could have used a lot of
-improvement however this was a feature still in early development.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/primerFeedback.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerFeedback.png}
     \caption{
       \label{fig:demoBuild:primerFeedback}
       Demo Build, Feedback on User-entered Primer
@@ -364,7 +373,36 @@ Again, due to time constraints this was not as fully featured as we
 had hoped for in the demonstration, however it did display enough
 information to give an idea to our clients of what the feedback might
 look like in the future (see further discussion in section *REFERENCE
-DEMO FEEDBACK SECTION*)
+DEMO FEEDBACK SECTION*).
+
+In order to design a reverse primer outwith the system, the
+complementary strand would have to be calculated (which would be in
+the 3'---5' direction) and reversed to be in the correct direction
+(5'---3').
+In the application, the complementary strand is already calculated, so
+the user can simply copy and paste a primer of their choosing from the
+sequence and put it in the reverse primer text field.
+However, this does not solve the problem of reversing it, so the
+``Reverse'' button was put next to the reverse primer text field,
+which, intuitively, reverses the order of the primer in the text
+field. 
+
+At the bottom of the panel in the middle of the ``Back'' and ``Next''
+buttons is the ``Primer Design Rules'' button, which shows,
+intuitively enough, the primer design rules set out at the beginning of the
+program.
+This was part of the initial design *REFERENCE* and can be seen in
+figure \ref{fig:demoBuild:primerDesignRules}.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/primerDesignRules.png}
+    \caption{
+      \label{fig:demoBuild:primerDesignRules}
+      Demo Build, Primer Design Rules Dialogue
+    }
+  \end{center}
+\end{figure}
 
 \paragraph{Melting Temperature}
 
@@ -377,7 +415,7 @@ unless they had a correct primer.
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{./images/demoBuild/meltingTemp.png}
+    \includegraphics[width=0.6\textwidth]{./images/demoBuild/meltingTemp.png}
     \caption{
       \label{fig:demoBuild:meltingTemp}
       Demo Build, Melting Temperatures of User's Primers.
@@ -397,3 +435,170 @@ Unfortunately the animation was not available in time for the
 demonstration and although the button for it was included in this
 panel it was disabled.
 
+%---------------------------------------------------------------------
+
+\subsubsection{Current Build}
+
+Addressing feedback from the demonstration (see section *REFERENCE*),
+and adding new elements to provide extra functionality, the current
+build is several iterations ahead of the demo build discussed above
+and is currently available to all Molecular Methods students.
+
+While there have been many changes to the build in this time, not much
+has been changed in terms of the UI as most feedback about it at the
+demonstration was positive.
+Most changes stem from either additional requirements or from the
+demonstration feedback.
+
+\paragraph{Overview}
+The overview screen (seen in figure \ref{fig:demoBuild:splash})
+changed only because of the addition of the menu bar, discussed
+below.
+It was felt that this needed very little change, if any, from the demo
+build and is therefore the same as the demo build version in almost
+every respect.
+
+\paragraph{Sequence Entry}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/sequenceEntry.png}
+    \caption{
+      \label{fig:currentBuild:sequenceEntry}
+      Current Build, Sequence Entry Panel
+    }
+  \end{center}
+\end{figure}
+
+In terms of changes made after the demo build, this panel is similar
+to the Overview panel above in that neither have been changed to any
+significant degree.
+
+Though, as can be seen in figure \ref{fig:currentBuild:sequenceEntry}
+there have been some minor changes.
+
+Firstly, the menu bar at the top of the panel, which was added to
+address the issue of people not being familiar with keyboard
+shortcuts.
+The menu itself was named ``Edit'' to conform to standards set by most
+applications with menu bars in that the ``Copy'' and ``Paste''
+features are usually found under the ``Edit'' menu.
+
+Lastly, the ``Back'' button on this panel which was not present for
+the demo build.
+For the demo build, it felt unnecessary to have a back button since
+any information that people would actually need to use the program is
+available throughout the application (ie Primer Design Rules is
+available on Primer Design panel, NCBI website is given to user in the
+instructions at top of panel).
+However, the clients asked that we put the ``Back'' button in.
+
+\paragraph{Target Selection}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/areaSelection.png}
+    \caption{
+      \label{fig:currentBuild:areaSelection}
+      Current Build, Target Selection Panel
+    }
+  \end{center}
+\end{figure}
+
+While the interface of the Target Selection panel may not have changed
+(much) from the demo build, the way a user pulls their desired
+sequence has changed to make the process much easier.
+
+Previously, as discussed in section \ref{fig:demoBuild:areaSelection},
+the user would have to find the indexes of the start and end of the
+sequence they wanted to copy.
+Now, as can be seen in figure \ref{fig:currentBuild:areaSelection},
+the user simply has to highlight the desired sequence and the indexes
+are calculated automatically.
+This change means that users do not have to depend on the unreliable
+line numbers, and can focus instead on the actual sequence.
+It also provides a visual way of seeing where your sequence is,
+without having to switch between this and the next panel, which was
+one of the issues brought up in the demonstration (see section
+*REFERENCE DEMO EVAL*).
+
+\paragraph{Primer Design}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/forwardPrimerDesignRed.png}
+    \caption{
+      \label{fig:currentBuild:forwardPrimerDesignRed}
+      Current Build, (Forward) Primer Design, showing invalid primer selection
+    }
+  \end{center}
+\end{figure}
+
+Primer design received a lot of attention in that it received the
+majority of new features in the application since the demo build.
+
+Firstly, a feature referred to by the team as ``dynamic highlighting''
+which, when a user types in a sequence to the primer text fields,
+highlights that sequence within the whole sequence and this can be
+seen in figure \ref{fig:currentBuild:forwardPrimerDesignRed}.
+Initially, this highlighting was going to be a single colour simply to
+help the user see if the primer is unique to the sequence, and so that
+they can visualise where the primer is within the sequence.
+The lack of visual aids in the demo build was something we strove to
+rectify especially after the feedback from the demonstration (section
+*REFERENCE DEMO FEEDBACK*).
+To this end we also made the highlight change colour depending on the
+correctness of the primer, how this is decided is discussed in section
+*REFERENCE DYNAMIC HIGHLIGHTING SECTION*.
+This can be seen in figure
+\ref{fig:currentBuild:forwardPrimerDesignRed} with an incorrect
+primer, and figure \ref{fig:currentBuild:forwardPerfectPrimer} with a
+perfect primer.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/forwardPerfectPrimer.png}
+    \caption{
+      \label{fig:currentBuild:forwardPerfectPrimer}
+      Current Build, (Forward) Primer Design, showing perfect primer selection
+    }
+  \end{center}
+\end{figure}
+
+Another new feature added based on the demonstration feedback was the
+two new buttons at the bottom of the panel, which give feedback on a
+single primer, depending on which button the user presses.
+An example of what that feedback looks like can be seen in figure
+\ref{fig:currentBuild:primerEvalRed}.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/primerEvalRed.png}
+    \caption{
+      \label{fig:currentBuild:primerEvalRed}
+      Current Build, Single Primer Feedback
+    }
+  \end{center}
+\end{figure}
+
+This feedback is also colour-coded to make any problems with the
+user's primer(s) more immediately apparent than in the demo build.
+
+With the emphasis on direction of the sequence being made more obvious
+in this version with the direction shown in the tab names, it is more
+obvious as to which direction the user should be thinking about when
+creating the reverse primer.
+To allow the user to only have to worry about one direction, the
+``Reverse'' button from the demo build was replaced by an uneditable
+text field which auto-generates the reverse order of the reverse
+primer, see figure \ref{fig:currentBuild:reversePrimerPerfect}.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/reversePrimerPerfect.png}
+    \caption{
+      \label{fig:currentBuild:reversePrimerPerfect}
+      Current Build, Reverse Primer (showing perfect primer)
+    }
+  \end{center}
+\end{figure}

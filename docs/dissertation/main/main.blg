@@ -2,49 +2,49 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "javaProgramming2"
 Warning--to sort, need author or key in swingAPI
 Warning--to sort, need author or key in swingTutorial
 Warning--to sort, need author or key in javafxOverview
-You've used 7 entries,
+Warning--to sort, need author or key in javaProgramming2
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            536 strings with 4780 characters,
-and the built_in function-call counts, 1381 in all, are:
-= -- 129
-> -- 31
+            539 strings with 4888 characters,
+and the built_in function-call counts, 1540 in all, are:
+= -- 144
+> -- 32
 < -- 0
-+ -- 15
++ -- 16
 - -- 8
-* -- 56
-:= -- 208
-add.period$ -- 17
-call.type$ -- 7
-change.case$ -- 25
+* -- 61
+:= -- 225
+add.period$ -- 19
+call.type$ -- 8
+change.case$ -- 28
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 53
-empty$ -- 161
+cite$ -- 12
+duplicate$ -- 60
+empty$ -- 184
 format.name$ -- 8
-if$ -- 313
+if$ -- 353
 int.to.chr$ -- 0
-int.to.str$ -- 7
+int.to.str$ -- 8
 missing$ -- 1
-newline$ -- 34
+newline$ -- 38
 num.names$ -- 8
-pop$ -- 50
+pop$ -- 58
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 20
 quote$ -- 0
-skip$ -- 54
+skip$ -- 62
 stack$ -- 0
-substring$ -- 50
-swap$ -- 7
+substring$ -- 55
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 3
+type$ -- 32
+warning$ -- 4
 while$ -- 9
-width$ -- 8
-write$ -- 62
+width$ -- 9
+write$ -- 69
 (There were 4 warnings)
