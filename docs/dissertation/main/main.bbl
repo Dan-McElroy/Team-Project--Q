@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{swingAPI}
+Java {{Swing API}} summary.
+
+\bibitem{javafxOverview}
+{{JavaFX}} overview.
+\newblock \url{http://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm}.
+
+\bibitem{swingTutorial}
+Trail: Creating a gui with jfc/swing.
+\newblock \url{http://docs.oracle.com/javase/tutorial/uiswing/}.
+
+\bibitem{gamingRedefines2004}
+Nick DeKanter.
+\newblock Gaming redefines interactivity for learning.
+\newblock {\em TechTrends}, 49(3):26--31, 2004.
+
+\bibitem{youtube:PCR}
+User `DNALearningCentre'.
+\newblock {{Polymerase Chain Reaction (PCR)}}.
+\newblock \url{http://youtu.be/XXkG6m3yT1M}, 2010.
+
+\bibitem{youtube:taqExtension}
+User `dwildridge'.
+\newblock {{Taq Extension (test).wmv}}.
+\newblock \url{http://youtu.be/XXkG6m3yT1M}, 2012.
+
+\bibitem{genScienceCenter2012}
+{{Genetic Science Learning Center}}.
+\newblock {{PCR Virtual Lab}}.
+\newblock \url{http://learn.genetics.utah.edu/content/labs/pcr/}, August 2012.
+
+\end{thebibliography}

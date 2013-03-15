@@ -1,0 +1,21 @@
+* Intro
+
+* Design
+** UI - DJ
+** Requirement Gathering - DM
+
+* Implementation
+** UI - RB MR
+** Application - RT DM
+*** Animation - DJ
+*** Models/Methods - RT DM
+
+* Evaluation
+** Testing - MR
+*** Demo - RB/RT/MR
+*** Questionnaire - RB
+
+* Conclusion - ALL
+
+* Contributions? - ALL
+
