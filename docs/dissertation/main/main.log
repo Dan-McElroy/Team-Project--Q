@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  14 MAR 2013 21:53
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.1)  15 MAR 2013 16:25
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -281,42 +281,133 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
  [9
 
-] [10]
-
-LaTeX Warning: Citation `javaProgramming2' on page 11 undefined on input line 1
-45.
-
-[11] [12] <./images/demoBuild/splash.png, id=228, 811.03pt x 628.3475pt>
+] [10] [11] [12]
+<./images/demoBuild/splash.png, id=230, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/splash.png Graphic file (type png)
 
 <use ./images/demoBuild/splash.png>
-<./images/demoBuild/sequenceEntry.png, id=229, 811.03pt x 628.3475pt>
+<./images/demoBuild/sequenceEntry.png, id=231, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/sequenceEntry.png Graphic file (type png)
 
-<use ./images/demoBuild/sequenceEntry.png> [13 <./images/demoBuild/splash.png> 
-<./images/demoBuild/sequenceEntry.png>]
-<./images/demoBuild/areaSelection.png, id=242, 811.03pt x 628.3475pt>
-File: ./images/demoBuild/areaSelection.png Graphic file (type png)
-
-<use ./images/demoBuild/areaSelection.png>
-<./images/demoBuild/primerDesign.png, id=246, 811.03pt x 628.3475pt>
-File: ./images/demoBuild/primerDesign.png Graphic file (type png)
-
-<use ./images/demoBuild/primerDesign.png>
+<use ./images/demoBuild/sequenceEntry.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14 <./images/demoBuild/areaSelection.png>]
+<./images/demoBuild/areaSelection.png, id=233, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/areaSelection.png Graphic file (type png)
+
+<use ./images/demoBuild/areaSelection.png> [13 <./images/demoBuild/splash.png>]
+[14 <./images/demoBuild/sequenceEntry.png> <./images/demoBuild/areaSelection.pn
+g>] <./images/demoBuild/primerDesign.png, id=255, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/primerDesign.png Graphic file (type png)
+
+<use ./images/demoBuild/primerDesign.png>
 <./images/demoBuild/primerFeedback.png, id=257, 720.6925pt x 427.5975pt>
 File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 
-<use ./images/demoBuild/primerFeedback.png> [15 <./images/demoBuild/primerDesig
-n.png> <./images/demoBuild/primerFeedback.png>]
-<./images/demoBuild/meltingTemp.png, id=268, 811.03pt x 628.3475pt>
+<use ./images/demoBuild/primerFeedback.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15 <./images/demoBuild/primerDesign.png>]
+<./images/demoBuild/primerDesignRules.png, id=267, 501.875pt x 430.60875pt>
+File: ./images/demoBuild/primerDesignRules.png Graphic file (type png)
+
+<use ./images/demoBuild/primerDesignRules.png>
+<./images/demoBuild/meltingTemp.png, id=269, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/meltingTemp.png Graphic file (type png)
 
-<use ./images/demoBuild/meltingTemp.png>) (./tex/models.tex [16 <./images/demoB
-uild/meltingTemp.png>]) (./tex/PrimerChecks.tex
+<use ./images/demoBuild/meltingTemp.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[16 <./images/demoBuild/primerFeedback.png> <./images/demoBuild/primerDesignRul
+es.png>]
+<./images/currentBuild/sequenceEntry.png, id=280, 811.03pt x 649.42625pt>
+File: ./images/currentBuild/sequenceEntry.png Graphic file (type png)
+
+<use ./images/currentBuild/sequenceEntry.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17 <./images/demoBuild/meltingTemp.png>]
+<./images/currentBuild/areaSelection.png, id=292, 811.03pt x 649.42625pt>
+File: ./images/currentBuild/areaSelection.png Graphic file (type png)
+
+<use ./images/currentBuild/areaSelection.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+<./images/currentBuild/forwardPrimerDesignRed.png, id=295, 834.11626pt x 649.42
+625pt>
+File: ./images/currentBuild/forwardPrimerDesignRed.png Graphic file (type png)
+ <use ./images/currentBuild/forwardPrimerDesignRed.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18 <./images/currentBuild/sequenceEntry.png>]
+<./images/currentBuild/forwardPerfectPrimer.png, id=307, 834.11626pt x 649.4262
+5pt>
+File: ./images/currentBuild/forwardPerfectPrimer.png Graphic file (type png)
+ <use ./images/currentBuild/forwardPerfectPrimer.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/currentBuild/primerEvalRed.png, id=309, 699.61375pt x 262.9825pt>
+File: ./images/currentBuild/primerEvalRed.png Graphic file (type png)
+
+<use ./images/currentBuild/primerEvalRed.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+<./images/currentBuild/reversePrimerPerfect.png, id=311, 834.11626pt x 649.4262
+5pt>
+File: ./images/currentBuild/reversePrimerPerfect.png Graphic file (type png)
+ <use ./images/currentBuild/reversePrimerPerfect.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./tex/models.tex [19 <./images/currentBuild/areaSelection.png>]
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+Missing character: There is no £ in font pcrr7t!
+Missing character: There is no £ in font ptmr7t!
+)
+(./tex/PrimerChecks.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
@@ -359,58 +450,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--42
 
  []
 
-) (./tex/DynHigh.tex
+[20 <./images/currentBuild/forwardPrimerDesignRed.png>] [21 <./images/currentBu
+ild/forwardPerfectPrimer.png> <./images/currentBuild/primerEvalRed.png>])
+(./tex/DynHigh.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
- [17]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
-) [18]
+ [22 <./images/currentBuild/reversePrimerPerfect.png>])
+[23]
 Chapter 4.
-[19
+[24
 
 ]
 Chapter 5.
-[20
+[25
 
 ] (./main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 7--9
+Underfull \hbox (badness 1292) in paragraph at lines 4--6
+[]\OT1/ptm/m/n/10.95 Java pro-gram-ming 2 moo-dle site.  [][]$\OT1/pcr/m/n/10.9
+5 http : / / fims . moodle . gla . ac . uk / course /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
 []\OT1/ptm/m/n/10.95 JavaFX overview.  [][]$\OT1/pcr/m/n/10.95 http : / / docs 
 . oracle . com / javafx / 2 / overview /
  []
 
-) [21
+) [26
 
 
-] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2912 strings out of 256216
- 40991 string characters out of 1917073
- 96647 words of memory out of 1500000
- 6054 multiletter control sequences out of 10000+200000
+ 2974 strings out of 256216
+ 42920 string characters out of 1917073
+ 97662 words of memory out of 1500000
+ 6089 multiletter control sequences out of 10000+200000
  24975 words of font info for 50 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  32i,7n,36p,825b,449s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/b
-luesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/s
-hare/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw
-/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/shar
-e/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (23 pages, 342749 bytes).
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf
+/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cms
+y8.pfb></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/f
+onts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (28 pages, 679851 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 131072)
- 244 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 131072)
+ 279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
