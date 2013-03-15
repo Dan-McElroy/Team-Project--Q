@@ -1,22 +1,32 @@
-- 3 objects, Sequence, Primer, TestResult
+%- 3 objects, Sequence, Primer, TestResult
+%Basic in construction, all classes have toStrings and booleans.
 
-Basic in construction, all classes have toStrings and booleans.
 
-Sequence:
-2 strings to represent each strand of the sequence, ints to represent the start and end of the desired PART of that sequence, 2 Primer objects.
+The models used in the application are few in number and very simple, BLAH BLAH BLAH BLAH
 
-Complement method taking a base and returning its complement, isUnique tests if primer is unique (durr), tempDifference compares the temperature
-of both primers, primerTest combines all methods that return a TestResult and produce an overall TestResult, the toString of which should be
-shown in the Primer Evaluation Dialog.
+We used three model classes, Primer, TestResult and Sequence.
 
-Primer:
-Basically a class to test user primers, string to represent this primer, and all primer tests methods, each returning a test result. Method named
-test() adds all of these TestResults together when run against the code String, and returns a larger TestResult to be used both in the individual 
-primer checks and in Sequence's primerTest method.
+\paragraph{Primer}
+The Primer class is purely designed to test user-designed primers. It has one attribute, \verb£code£, the String representing the user's primer
+which is tested against in the primer test methods, which make up the remainder of the primer. The class is primarily made up of methods designed
+to test \verb£code£ against the various rules described in Section \ref{intro:prelims}. The method \verb£test()£ gathers runs all above test methods
+and returns a larger TestResult, indicating if the user's Primer is adequate outside of the larger context of the sequence.
 
-TestResult:
-A class to format output of one or multiple primer tests. Uses an enum called PassState with three states, PASS, FAIL, CLOSEFAIL, indicating
-the outcome of a particular test. An ArrayList of these Pass States is used to keep track of all individual results, and an ArrayList of Strings
-contains each test's corresponding message.
+\paragraph{TestResult}
+TestResult is a class used to format the output of one or multiple primer tests. TestResult uses an enumerated type called PassState with values
+\verb£PASS£, \verb£FAIL£ and \verb£CLOSEFAIL£, the last of which describes a state where the primer's value from a test lies outside of the recommended
+values, but is close enough to a pass to be acceptable, provided this is only the state of a minority of tests. TestResult uses two ArrayLists, one of
+PassStates (\verb£passes£) and another of Strings (\verb£out£), to keep track of the state and informative message to be displayed to the user for each test. Its methods are concerned with concatenating results into larger TestResults. \verb£perfect()£ will return true if all entries in \verb£passes£ equal a \verb£PASS£.
+\verb£adequate()£, the method that is checked to gate the user's access past the Primer Selection panel returns false if any of the tests returned \verb£{FAIL}£,
+or if more than 60\% returned \verb£CLOSEFAIL£, and returns true otherwise.
 
-Methods used to add TestResults together and access or mutate various elements of the ArrayLists.
+%Sequence:
+%2 strings to represent each strand of the sequence, ints to represent the start and end of the desired PART of that sequence, 2 Primer objects.
+%
+%Complement method taking a base and returning its complement, isUnique tests if primer is unique (durr), tempDifference compares the temperature
+%of both primers, primerTest combines all methods that return a TestResult and produce an overall TestResult, the toString of which should be
+%shown in the Primer Evaluation Dialog.
+\paragraph{Sequence}
+This class contains two Strings, \verb£oStrand£ and \verb£cStrand£, representing the strand of DNA that the user took in and the ''complementary'' strand that
+is generated when the sequence is constructed. Integers \verb£start£ and \verb£end£ represent the indexes of the start and end of the selected area in the
+sequence.
