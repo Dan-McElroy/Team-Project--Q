@@ -588,7 +588,7 @@ With the emphasis on direction of the sequence being made more obvious
 in this version with the direction shown in the tab names, it is more
 obvious as to which direction the user should be thinking about when
 creating the reverse primer.
-To allow the user to only have to worry about one direction, the
+To allow the user to only have to think about one direction, the
 ``Reverse'' button from the demo build was replaced by an uneditable
 text field which auto-generates the reverse order of the reverse
 primer, see figure \ref{fig:currentBuild:reversePrimerPerfect}.
@@ -599,6 +599,22 @@ primer, see figure \ref{fig:currentBuild:reversePrimerPerfect}.
     \caption{
       \label{fig:currentBuild:reversePrimerPerfect}
       Current Build, Reverse Primer (showing perfect primer)
+    }
+  \end{center}
+\end{figure}
+
+When the user presses the ``Next'' button, they are presented with a
+dialogue box, giving a list of all the passed, failed and
+``close-fail''-ed rules for the primers individually and the more
+general rules (see figure \ref{fig:currentBuild:primerDesignBothFeedback}.
+Again, these are colour-coded.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/currentBuild/primerDesignBothFeedback.png}
+    \caption{
+      \label{fig:currentBuild:primerDesignBothFeedback}
+      Current Build, Feedback on both primers dialogue
     }
   \end{center}
 \end{figure}
