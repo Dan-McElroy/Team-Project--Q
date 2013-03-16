@@ -1,7 +1,5 @@
 The implementation of the graphical user interface (GUI) required a number
-of decisions to be made before writing it could begin, including of
-course, how the team would be distributed between implementing the GUI
-and the data models.
+of decisions to be made before writing it could begin.
 
 %---------------------------------------------------------------------
 
@@ -24,9 +22,9 @@ existing GUI frameworks that would suit our purposes.
 
 From a brief research period at the start of the implementation 
 process, we settled on two possible options for a GUI framework to use
-for the application. It's important to note that other GUI options are
-available, but upon further analysis, it became clear that Swing and 
-JavaFX were the most suitable to our needs.
+for the application. It is important to note that other GUI options are
+available, but based on the team's experience, it became clear that
+Swing or JavaFX would be the most suitable.
 
 %---------------------------------------------------------------------
 
@@ -57,7 +55,7 @@ Another framework considered was JavaFX which no member of the team
 had any experience with. 
 Some members felt that this was a risk worth taking, given how much
 they disliked Swing, discussed above.
-In reality JavaFX was only briefly considered and totally disregarded
+In reality, JavaFX was only briefly considered and totally disregarded
 when, upon brief investigation, JavaFX was still a relatively new
 framework, and consequently, comprehensive documentation was not as
 readily available for JavaFX as with Swing, particularly when it came 
@@ -101,7 +99,7 @@ frameworks at the time of making the decision.
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
-\subsection{IDE}
+\subsection{Integrated Development Environment (IDE)}
 \label{impl:ui:ide}
 
 One concern was that, in some members' experience, using two separate
@@ -149,9 +147,9 @@ Eclipse would freeze if you tried to copy or paste anything.
 
 In our experience, we found Eclipse to be very slow, both during 
 start-up and normal operation. 
-Editing-wise, Eclipse was rather cumbersome and not much better than a
-text editor.
-Also the requirement to bind the ``Workspace'' was seen as a potential
+Editing-wise, Eclipse was rather cumbersome and had few benefits over
+a text editor.
+Also, the requirement to bind the ``Workspace'' was seen as a potential
 point for confusion and errors.
 
 In addition, the team felt that the missing design interface seen on
@@ -170,15 +168,17 @@ control repository.
 It was briefly considered to have no IDE at all and simply use text
 editors.
 This would allow for extremely fast editing in a very comfortable
-environment, since most text editors, such as Vim or Emacs, are highly
-customisable and can launch in a matter of seconds.
+environment, since most text editors, such as Vim \cite{vim} or Emacs
+\cite{emacs}, are highly customisable and can launch in a matter of
+seconds.
 Text editors would also not require metadata, keeping our version
 controlled directories clean.
 
 However, the obvious problem with no IDE is that troubleshooting
-problems becomes very tedious very quickly, and unlike IDEs, you
-cannot automatically import a missing package or method, nor can there
-be any auto-generated code for that matter.
+source code problems without any real-time error-checking like in IDEs
+is more difficult and, unlike with IDEs, you cannot automatically
+import a missing package or method, nor can there be any
+auto-generated code at all for that matter.
 
 %---------------------------------------------------------------------
 \subsubsection{Decision}

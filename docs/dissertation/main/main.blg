@@ -2,49 +2,54 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
+Warning--I didn't find a database entry for "surveyMonkey"
+Warning--I didn't find a database entry for "freeOnlineSurveys"
+Warning--I didn't find a database entry for "googleDriveForm"
 Warning--to sort, need author or key in swingAPI
 Warning--to sort, need author or key in swingTutorial
 Warning--to sort, need author or key in javafxOverview
 Warning--to sort, need author or key in javaProgramming2
-You've used 8 entries,
+Warning--to sort, need author or key in vim
+Warning--to sort, need author or key in emacs
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            539 strings with 4888 characters,
-and the built_in function-call counts, 1540 in all, are:
-= -- 144
-> -- 32
+            554 strings with 5167 characters,
+and the built_in function-call counts, 1871 in all, are:
+= -- 177
+> -- 34
 < -- 0
-+ -- 16
++ -- 18
 - -- 8
-* -- 61
-:= -- 225
-add.period$ -- 19
-call.type$ -- 8
-change.case$ -- 28
+* -- 71
+:= -- 264
+add.period$ -- 24
+call.type$ -- 10
+change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 60
-empty$ -- 184
+cite$ -- 16
+duplicate$ -- 74
+empty$ -- 230
 format.name$ -- 8
-if$ -- 353
+if$ -- 436
 int.to.chr$ -- 0
-int.to.str$ -- 8
+int.to.str$ -- 10
 missing$ -- 1
-newline$ -- 38
+newline$ -- 47
 num.names$ -- 8
-pop$ -- 58
+pop$ -- 74
 preamble$ -- 1
-purify$ -- 20
+purify$ -- 24
 quote$ -- 0
-skip$ -- 62
+skip$ -- 75
 stack$ -- 0
-substring$ -- 55
-swap$ -- 8
+substring$ -- 65
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
-warning$ -- 4
+type$ -- 40
+warning$ -- 6
 while$ -- 9
-width$ -- 9
-write$ -- 69
-(There were 4 warnings)
+width$ -- 12
+write$ -- 85
+(There were 9 warnings)

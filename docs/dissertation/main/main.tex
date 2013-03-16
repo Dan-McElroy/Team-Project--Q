@@ -20,6 +20,7 @@
 Abstract-like things
 
 \end{abstract}
+\input{./tex/acknowledgements.tex}
 \educationalconsent
 \tableofcontents
 
@@ -85,20 +86,33 @@ Abstract-like things
 
 \section{Testing}
 \label{eval:testing}
+\input{./tex/testing.tex}
 
 \subsection{Demonstration}
 \label{eval:demo}
 
 \subsection{Questionnaire}
 \label{eval:question}
+\input{./tex/evalQuestion.tex}
 
 %=====================================================================
 \chapter{Conclusion}
 \label{conc}
 
 %=====================================================================
+\appendix
+
+\chapter{Questionnaire Responses}
+\label{app:questionnaireResponses}
+\includepdf[pages=-]{questionnaireResponses.pdf}
+
+\chapter{Current User Guide}
+\label{app:userGuideCurrent}
+\includepdf[pages=-]{PrimerDesignGuide.pdf}
+
 \clearpage
 \bibliographystyle{plain}
 \bibliography{references}
+
 
 \end{document}
