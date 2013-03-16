@@ -1,4 +1,8 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{emacs}
+Emacs website.
+\newblock \url{http://www.gnu.org/software/emacs/}.
 
 \bibitem{javaProgramming2}
 Java programming 2 moodle site.
@@ -6,6 +10,9 @@ Java programming 2 moodle site.
 
 \bibitem{swingAPI}
 Java {{Swing API}} summary.
+\newblock
+  \url{http://docs.oracle.com/javase/6/docs/api/javax/swing/package-summary.ht%
+ml}.
 
 \bibitem{javafxOverview}
 {{JavaFX}} overview.
@@ -14,6 +21,10 @@ Java {{Swing API}} summary.
 \bibitem{swingTutorial}
 Trail: Creating a gui with jfc/swing.
 \newblock \url{http://docs.oracle.com/javase/tutorial/uiswing/}.
+
+\bibitem{vim}
+Vim website.
+\newblock \url{http://www.vim.org/index.php}.
 
 \bibitem{gamingRedefines2004}
 Nick DeKanter.

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  16 MAR 2013 17:45
+=======
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  16 MAR 2013 16:04
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -118,6 +122,38 @@ Package: mystyle
 
 (/usr/share/texmf/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+(/usr/share/texmf/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2006/08/12 v0.4a Insert pages of external PDF documents (AM)
+
+(/usr/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count96
+\calc@Bcount=\count97
+\calc@Adimen=\dimen108
+\calc@Bdimen=\dimen109
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count98
+\calc@Cskip=\skip45
+)
+(/usr/share/texmf/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2006/07/14 v1.1d eso-pic (RN)
+
+(/usr/share/texmf/tex/latex/everyshi/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texmf/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2006/08/12 v0.4a Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box26
+\AM@toc@title=\toks17
+\c@AM@survey=\count99
 )) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -156,7 +192,7 @@ Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
 (/usr/share/texmf/tex/latex/oberdiek/refcount.sty
 Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
 )
-\c@section@level=\count96
+\c@section@level=\count100
 )
 LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
@@ -176,7 +212,8 @@ Package gensymb Info: Using \Omega for \ohm on input line 16.
 
 Package gensymb Warning: Not defining \micro.
 
-<images/CompSci_mono.pdf, id=103, 340.27126pt x 49.18375pt>
+ABD: EveryShipout initializing macros
+<images/CompSci_mono.pdf, id=123, 340.27126pt x 49.18375pt>
 File: images/CompSci_mono.pdf Graphic file (type pdf)
 
 <use images/CompSci_mono.pdf>
@@ -273,7 +310,11 @@ Missing character: There is no ô in font ptmr7t!
 ]) (./tex/aims.tex [6])
 (./tex/motiv.tex [7]) [8]
 Chapter 2.
+<<<<<<< HEAD
 (./tex/reqs.tex [9
+=======
+(./tex/reqs.tex [8
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 
 ]
 Missing character: There is no ‚ in font ptmr7t!
@@ -282,6 +323,7 @@ Missing character: There is no ô in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
+<<<<<<< HEAD
 ) [10]
 Chapter 3.
 (./tex/teamDist.tex) (./tex/implUi.tex
@@ -295,12 +337,28 @@ File: ./images/demoBuild/splash.png Graphic file (type png)
 
 <use ./images/demoBuild/splash.png>
 <./images/demoBuild/sequenceEntry.png, id=244, 811.03pt x 628.3475pt>
+=======
+) [9]
+Chapter 3.
+(./tex/teamDist.tex) (./tex/implUi.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 9.
+ [10
+
+] [11] [12] [13]
+<./images/demoBuild/splash.png, id=268, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/splash.png Graphic file (type png)
+
+<use ./images/demoBuild/splash.png>
+<./images/demoBuild/sequenceEntry.png, id=269, 811.03pt x 628.3475pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/demoBuild/sequenceEntry.png Graphic file (type png)
 
 <use ./images/demoBuild/sequenceEntry.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <./images/demoBuild/areaSelection.png, id=246, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/areaSelection.png Graphic file (type png)
 
@@ -311,35 +369,67 @@ File: ./images/demoBuild/primerDesign.png Graphic file (type png)
 
 <use ./images/demoBuild/primerDesign.png>
 <./images/demoBuild/primerFeedback.png, id=270, 720.6925pt x 427.5975pt>
+=======
+<./images/demoBuild/areaSelection.png, id=271, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/areaSelection.png Graphic file (type png)
+
+<use ./images/demoBuild/areaSelection.png> [14 <./images/demoBuild/splash.png>]
+[15 <./images/demoBuild/sequenceEntry.png> <./images/demoBuild/areaSelection.pn
+g>] <./images/demoBuild/primerDesign.png, id=293, 811.03pt x 628.3475pt>
+File: ./images/demoBuild/primerDesign.png Graphic file (type png)
+
+<use ./images/demoBuild/primerDesign.png>
+<./images/demoBuild/primerFeedback.png, id=295, 720.6925pt x 427.5975pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 
 <use ./images/demoBuild/primerFeedback.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [17 <./images/demoBuild/primerDesign.png>]
 <./images/demoBuild/primerDesignRules.png, id=281, 501.875pt x 430.60875pt>
 File: ./images/demoBuild/primerDesignRules.png Graphic file (type png)
 
 <use ./images/demoBuild/primerDesignRules.png>
 <./images/demoBuild/meltingTemp.png, id=283, 811.03pt x 628.3475pt>
+=======
+[16 <./images/demoBuild/primerDesign.png>]
+<./images/demoBuild/primerDesignRules.png, id=305, 501.875pt x 430.60875pt>
+File: ./images/demoBuild/primerDesignRules.png Graphic file (type png)
+
+<use ./images/demoBuild/primerDesignRules.png>
+<./images/demoBuild/meltingTemp.png, id=307, 811.03pt x 628.3475pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/demoBuild/meltingTemp.png Graphic file (type png)
 
 <use ./images/demoBuild/meltingTemp.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [18 <./images/demoBuild/primerFeedback.png> <./images/demoBuild/primerDesignRul
 es.png>]
 <./images/currentBuild/sequenceEntry.png, id=294, 811.03pt x 649.42625pt>
+=======
+[17 <./images/demoBuild/primerFeedback.png> <./images/demoBuild/primerDesignRul
+es.png>]
+<./images/currentBuild/sequenceEntry.png, id=319, 811.03pt x 649.42625pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/currentBuild/sequenceEntry.png Graphic file (type png)
 
 <use ./images/currentBuild/sequenceEntry.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [19 <./images/demoBuild/meltingTemp.png>]
 <./images/currentBuild/areaSelection.png, id=305, 811.03pt x 649.42625pt>
+=======
+[18 <./images/demoBuild/meltingTemp.png>]
+<./images/currentBuild/areaSelection.png, id=330, 811.03pt x 649.42625pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/currentBuild/areaSelection.png Graphic file (type png)
 
 <use ./images/currentBuild/areaSelection.png>
@@ -347,22 +437,35 @@ File: ./images/currentBuild/areaSelection.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+<<<<<<< HEAD
 <./images/currentBuild/forwardPrimerDesignRed.png, id=308, 834.11626pt x 649.42
+=======
+<./images/currentBuild/forwardPrimerDesignRed.png, id=333, 834.11626pt x 649.42
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 625pt>
 File: ./images/currentBuild/forwardPrimerDesignRed.png Graphic file (type png)
  <use ./images/currentBuild/forwardPrimerDesignRed.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [20 <./images/currentBuild/sequenceEntry.png>]
 <./images/currentBuild/forwardPerfectPrimer.png, id=320, 834.11626pt x 649.4262
+=======
+[19 <./images/currentBuild/sequenceEntry.png>]
+<./images/currentBuild/forwardPerfectPrimer.png, id=345, 834.11626pt x 649.4262
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 5pt>
 File: ./images/currentBuild/forwardPerfectPrimer.png Graphic file (type png)
  <use ./images/currentBuild/forwardPerfectPrimer.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <./images/currentBuild/primerEvalRed.png, id=322, 699.61375pt x 262.9825pt>
+=======
+<./images/currentBuild/primerEvalRed.png, id=347, 699.61375pt x 262.9825pt>
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 File: ./images/currentBuild/primerEvalRed.png Graphic file (type png)
 
 <use ./images/currentBuild/primerEvalRed.png>
@@ -370,7 +473,11 @@ File: ./images/currentBuild/primerEvalRed.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+<<<<<<< HEAD
 <./images/currentBuild/reversePrimerPerfect.png, id=324, 834.11626pt x 649.4262
+=======
+<./images/currentBuild/reversePrimerPerfect.png, id=349, 834.11626pt x 649.4262
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 5pt>
 File: ./images/currentBuild/reversePrimerPerfect.png Graphic file (type png)
  <use ./images/currentBuild/reversePrimerPerfect.png>
@@ -378,7 +485,11 @@ File: ./images/currentBuild/reversePrimerPerfect.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+<<<<<<< HEAD
 <./images/currentBuild/primerDesignBothFeedback.png, id=326, 825.0825pt x 421.5
+=======
+<./images/currentBuild/primerDesignBothFeedback.png, id=351, 825.0825pt x 421.5
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 75pt>
 File: ./images/currentBuild/primerDesignBothFeedback.png Graphic file (type png
 )
@@ -387,14 +498,24 @@ File: ./images/currentBuild/primerDesignBothFeedback.png Graphic file (type png
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./tex/models.tex
+<<<<<<< HEAD
 <./images/currentBuild/modelClassDiagram.png, id=327, 2028.57875pt x 1951.29pt>
 File: ./images/currentBuild/modelClassDiagram.png Graphic file (type png)
 <use ./images/currentBuild/modelClassDiagram.png> [21 <./images/currentBuild/ar
+=======
+<./images/currentBuild/modelClassDiagram.png, id=352, 2028.57875pt x 1951.29pt>
+File: ./images/currentBuild/modelClassDiagram.png Graphic file (type png)
+<use ./images/currentBuild/modelClassDiagram.png> [20 <./images/currentBuild/ar
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 eaSelection.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [22 <./images/currentBuild/forwardPrimerDesignRed.png>])
+=======
+[21 <./images/currentBuild/forwardPrimerDesignRed.png>])
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 (./tex/PrimerChecks.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -438,8 +559,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--42
 
  []
 
+<<<<<<< HEAD
 [23 <./images/currentBuild/forwardPerfectPrimer.png> <./images/currentBuild/pri
 merEvalRed.png>] [24 <./images/currentBuild/reversePrimerPerfect.png> <./images
+=======
+[22 <./images/currentBuild/forwardPerfectPrimer.png> <./images/currentBuild/pri
+merEvalRed.png>] [23 <./images/currentBuild/reversePrimerPerfect.png> <./images
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 /currentBuild/primerDesignBothFeedback.png>]) (./tex/DynHigh.tex
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -447,13 +573,18 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
+<<<<<<< HEAD
  [25 <./images/currentBuild/modelClassDiagram.png (PNG copy)>]
+=======
+ [24 <./images/currentBuild/modelClassDiagram.png (PNG copy)>]
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
+<<<<<<< HEAD
 ) [26]
 Chapter 4.
 (./tex/testing.tex
@@ -462,28 +593,192 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--11
  []
 
 ) [27
+=======
+) [25]
+Chapter 4.
+(./tex/evalQuestion.tex
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 
-]
+LaTeX Warning: Citation `surveyMonkey' on page 26 undefined on input line 12.
+
+
+LaTeX Warning: Citation `freeOnlineSurveys' on page 26 undefined on input line 
+13.
+
+
+LaTeX Warning: Citation `googleDriveForm' on page 26 undefined on input line 14
+.
+
+[26
+
+]) [27]
 Chapter 5.
 [28
 
-] (./main.bbl
-Underfull \hbox (badness 1292) in paragraph at lines 4--6
-[]\OT1/ptm/m/n/10.95 Java pro-gram-ming 2 moo-dle site.  [][]$\OT1/pcr/m/n/10.9
-5 http : / / fims . moodle . gla . ac . uk / course /
- []
+]
+Appendix A.
+[29
 
+] <questionnaireResponses.pdf, id=418, page=1, 845.1575pt x 597.23125pt>
+File: questionnaireResponses.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
+<use questionnaireResponses.pdf, page 1>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 1>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 1>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 1>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 1> [30 <./questionnaireResponses.pdf
+
+pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
+ge Group detected which pdfTeX can't handle. Ignoring it.
+>] <questionnaireResponses.pdf, id=435, page=2, 845.1575pt x 597.23125pt>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 2>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 2>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 2> [31 <./questionnaireResponses.pdf
+
+pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
+ge Group detected which pdfTeX can't handle. Ignoring it.
+>] <questionnaireResponses.pdf, id=441, page=3, 845.1575pt x 597.23125pt>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 3>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 3>
+File: questionnaireResponses.pdf Graphic file (type pdf)
+
+<use questionnaireResponses.pdf, page 3> [32 <./questionnaireResponses.pdf
+
+pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
+ge Group detected which pdfTeX can't handle. Ignoring it.
+>]
+Appendix B.
+[33
+
+] <PrimerDesignGuide.pdf, id=453, page=1, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 1> [34 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=484, page=2, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 2>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 2>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 2> [35 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=495, page=3, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 3>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 3>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 3> [36 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=500, page=4, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 4>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 4>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 4> [37 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=505, page=5, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 5>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 5>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 5> [38 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=513, page=6, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 6>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 6>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 6> [39 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=520, page=7, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 7>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 7>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 7> [40 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=527, page=8, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 8>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 8>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 8> [41 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=535, page=9, 597.50829pt x 845.0471pt>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 9>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 9>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 9> [42 <./PrimerDesignGuide.pdf>] (./main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
 []\OT1/ptm/m/n/10.95 JavaFX overview.  [][]$\OT1/pcr/m/n/10.95 http : / / docs 
 . oracle . com / javafx / 2 / overview /
  []
 
+<<<<<<< HEAD
 ) [29
+=======
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
+
+Underfull \hbox (badness 3547) in paragraph at lines 22--24
+[]\OT1/ptm/m/n/10.95 Trail: Cre-at-ing a gui with jfc/swing.  [][]$\OT1/pcr/m/n
+/10.95 http : / / docs . oracle . com / javase /
+ []
+
+) [43
 
 
-] (./main.aux) ) 
+] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  3004 strings out of 256216
  43685 string characters out of 1917072
  97906 words of memory out of 1500000
@@ -501,4 +796,27 @@ PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  110 named destinations out of 1000 (max. 131072)
  289 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ 3739 strings out of 256216
+ 55462 string characters out of 1917072
+ 111047 words of memory out of 1500000
+ 6789 multiletter control sequences out of 10000+200000
+ 24975 words of font info for 50 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 35i,16n,37p,825b,456s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/b
+luesky/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/blue
+sky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr17.pfb></usr/share
+/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb></usr/share/te
+xmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw/times/
+utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf
+/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (45 pages, 2440782 bytes).
+PDF statistics:
+ 621 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 131072)
+ 409 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> 7806b93f66e2499e8f85d97735273798dfe8dc98
 

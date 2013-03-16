@@ -1,4 +1,6 @@
 * Intro
+** Background
+** Abstract
 
 * Design
 ** UI - DJ
@@ -17,5 +19,4 @@
 
 * Conclusion - ALL
 
-* Contributions? - ALL
 
