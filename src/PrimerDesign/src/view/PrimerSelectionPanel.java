@@ -12,7 +12,6 @@ import controller.PrimerDesign;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -21,6 +20,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
+import model.Primer;
 import model.Sequence;
 /**
  *
@@ -32,42 +32,21 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
      * Creates new form PrimerSelectionPanel
      */
     
-    private static ConcurrentSkipListSet<Integer> matchSet;
     private String lineNums;
     private String doubleLineNums;
     private ArrayList<Character> validChars = new ArrayList<Character>();
     private static int attempts;
     private static boolean pass;
-    final Highlighter highO; //, highC;
-    final Highlighter.HighlightPainter painterO; //, painterC;
-    private String parsedO; //, parsedC;
-    //private javax.swing.JTextArea dubslineNumberTextArea;
+    final Highlighter highO, highC;
+    final Highlighter.HighlightPainter painterO, painterC;
+    private Highlighter.HighlightPainter failPaint, acceptPaint, perfectPaint, activePaint;
+    private String parsedO, parsedC;
+    public static model.TestResult test;
+    public static model.TestResult fTest;
+    public static model.TestResult rTest;
+    public static boolean useF;
         
-    /*
-    private class PrimerFinder implements Runnable {
-
-        private String primer;
-        private String strand;
-
-        public PrimerFinder(String p, String s) {
-            primer = p;
-            strand = s;
-        }
-
-        @Override
-        public void run() {
-            for (int i = 0; i < strand.length(); i++) {
-                
-                if (primer.length() > 0 && strand.substring(i, (i + primer.length() - 1)).equalsIgnoreCase(primer)) {
-                    matchSet.add(i);
-                } 
-                //else if (matchSet.contains(i)) {
-                //    matchSet.remove(i);
-                //}
-            }
-        }
-    }
-    */
+    
     public static int realIndex(int x, int block) {
         //Potential issue: assumes line % block= 0.
         int xRounded = x - (x % block);
@@ -82,10 +61,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         // gets the line 's' is on >>>> (((s - (s % 70))/70) + 1)
         
         int sLine = (((s - (s % 70))/70) + 1);
-        System.out.println(s + " is on line " + sLine);
-        
         int eLine = (((e - (e % 70))/70) + 1);
-        System.out.println(e + " is on line " + eLine);
         
         int firstStart = (s + (s - (s %140)) + 70) - (70 * (sLine % 2));
         int firstEnd = (firstStart + 70) - ((firstStart + 70) % 70);
@@ -208,7 +184,6 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         
         // Bold target section
         for (int i = 0; i < starts.size(); i++) {
-            System.out.println(starts.get(i) + " to "  + ends.get(i));
             if (i == 0){
                 bDoc.setCharacterAttributes(starts.get(i), (ends.get(i) - starts.get(i)), complementaryTargetStyle, false);
                 bDoc.setCharacterAttributes(starts.get(i) + 77, (ends.get(i) - starts.get(i)), originalTargetStyle, false);
@@ -249,20 +224,21 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         oStrandTextPane.setHighlighter(highO);
         parsedO = Sequence.parser(new Scanner(oStrandTextPane.getText()));
         forwardPrimerTextField.getDocument().addDocumentListener(this);
-        
         // COMPLEMENTARY STRAND HIGHLIGHTING PREP
-//        highC = new DefaultHighlighter();
-//        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.BLUE);
-//        cStrandTextPane.setHighlighter(highC);
-//        parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
-//        reversePrimerTextField.getDocument().addDocumentListener(this);
+        highC = new DefaultHighlighter();
+        painterC = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
+        cStrandTextPane.setHighlighter(highC);
+        parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
         
         displayTabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 updateLineNums(displayTabbedPane.getSelectedIndex());
-                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
             }
         });
+     
+        failPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
+        acceptPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.YELLOW);
+        perfectPaint = new DefaultHighlighter.DefaultHighlightPainter(Color.CYAN);
         
     }
     
@@ -273,11 +249,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             lineNumberTextArea.setCaretPosition(0);
             lineAreaScroll.getVerticalScrollBar().setModel(
                     oStrandScroll.getVerticalScrollBar().getModel());
+            reversePrimerTextField.getDocument().removeDocumentListener(this);
+            forwardPrimerTextField.getDocument().addDocumentListener(this);
+            SwingUtilities.invokeLater(searchO);
         }else if (tab == 1){
             lineNumberTextArea.setText(lineNums);
             lineNumberTextArea.setCaretPosition(0);
             lineAreaScroll.getVerticalScrollBar().setModel(
                     cStrandScroll.getVerticalScrollBar().getModel());
+            forwardPrimerTextField.getDocument().removeDocumentListener(this);
+            reversePrimerTextField.getDocument().addDocumentListener(this);
+            SwingUtilities.invokeLater(searchC);
         } else {
             lineNumberTextArea.setText(doubleLineNums);
             lineNumberTextArea.setCaretPosition(0);
@@ -286,42 +268,93 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         }
     }
     
-    Runnable doSearch = new Runnable() {
+    Runnable searchO = new Runnable() {
+        @Override
         public void run() {
-            
-            
+
             // ORIGINAL STRAND - FORWARD PRIMER
-            forwardPrimerTextField.setText(forwardPrimerTextField.getText().replaceAll("\\s",""));
+            String sO = forwardPrimerTextField.getText().replaceAll("\\s", "");
+            //forwardPrimerTextField.setText(forwardPrimerTextField.getText().replaceAll("\\s",""));
             highO.removeAllHighlights();
-            String sO = forwardPrimerTextField.getText();
             int indexO = parsedO.indexOf(sO, 0);
+            int endO = 0;
+            int checked = 0;
             
-            if (indexO >= 0) {   // match found
-                    try {
-                        int endO = indexO + sO.length();
-                        highO.addHighlight(realIndex(indexO, 10), realIndex(endO, 10), painterO);
-                        oStrandTextPane.setCaretPosition(realIndex(endO, 10));
-                    } catch (BadLocationException e) {
-                        e.printStackTrace();
-                    }
+            while (indexO >= 0 && sO.length() > 0) {   // match found
+                try {
+                    if (sO.length() > 15){
+                        model.Primer fPrimer = new model.Primer(sO);
+                        fTest = new model.TestResult();
+                        fTest.addFull(fPrimer.test());
+                        fTest.add(fPrimer.isUnique(PrimerDesign.start.getInSequence(), 'o'));
+                        if (fTest.perfect()){
+                            activePaint = perfectPaint;
+                        } else if (fTest.acceptable()){
+                            activePaint = acceptPaint;
+                        } else {
+                            activePaint = failPaint;
+                        }
+                    } else {
+                        activePaint = failPaint;
+                    } 
+                    endO = indexO + sO.length();
+                    highO.addHighlight(realIndex(indexO + checked, 10), realIndex(endO + checked, 10), activePaint);
+                    oStrandTextPane.setCaretPosition(realIndex(endO, 10));
+                } catch (BadLocationException e) {
+                    e.printStackTrace();    // PROPER HANDLING NEEDED
                 }
-            
-            // COMPLEMENTARY STRAND - REVERSE PRIMER - BREAKS EVERYTHING
-//            reversePrimerTextField.setText(reversePrimerTextField.getText().replaceAll("\\s",""));
-//            highC.removeAllHighlights();
-//            String sC = reversePrimerTextField.getText();
-//
-//            int indexC = parsedC.indexOf(sC, 0);
-//                if (indexC >= 0) {   // match found
-//                    try {
-//                        int endC = indexC + sC.length();
-//                        highC.addHighlight(realIndex(indexC, 10), realIndex(endC, 10), painterC);
-//                        cStrandTextPane.setCaretPosition(realIndex(endC, 10));
-//                    } catch (BadLocationException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+                parsedO = parsedO.substring(endO);
+                checked += endO;
+                indexO = parsedO.indexOf(sO, 0);
+                
             }
+            parsedO = Sequence.parser(new Scanner(oStrandTextPane.getText()));
+        }
+    };
+    
+    Runnable searchC = new Runnable() {
+        @Override
+        public void run() {
+            // COMPLEMENTARY STRAND - REVERSE PRIMER
+            String sC = reversePrimerTextField.getText().replaceAll("\\s", "");
+            reverseTextPane.setText(Primer.reverse(sC));
+            
+            highC.removeAllHighlights();
+            int indexC = parsedC.indexOf(sC, 0);
+            int endC = 0;
+            int checked = 0;
+
+            while (indexC >= 0 && sC.length() > 0) {   // match found
+                try {
+                    if (sC.length() > 15){
+                        Primer rPrimer = new Primer(Primer.reverse(sC));
+                        rTest = new model.TestResult();
+                        rTest.addFull(rPrimer.test());
+                        rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
+                        if (rTest.perfect()){
+                            activePaint = perfectPaint;
+                        } else if (rTest.acceptable()){
+                            activePaint = acceptPaint;
+                        } else {
+                            activePaint = failPaint;
+                        }
+                    } else {
+                        activePaint = failPaint;
+                    } 
+                    endC = indexC + sC.length();
+                    highC.addHighlight(realIndex(indexC + checked, 10), realIndex(endC + checked, 10), activePaint);
+                    cStrandTextPane.setCaretPosition(realIndex(endC, 10));
+                } catch (BadLocationException e) {
+                    e.printStackTrace();    // PROPER HANDLING NEEDED
+                }
+                parsedC = parsedC.substring(endC);
+                checked += endC;
+                indexC = parsedC.indexOf(sC, 0);
+            }
+            parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
+        }
+        
+        
     };
 
     /**
@@ -352,9 +385,16 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         cStrandTextPane = new javax.swing.JTextPane();
         bStrandScroll = new javax.swing.JScrollPane();
         bStrandTextPane = new javax.swing.JTextPane();
+<<<<<<< HEAD
+        fPrimerCheckButton = new javax.swing.JButton();
+        rPrimerCheckButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reverseTextPane = new javax.swing.JTextPane();
+=======
         reverseButton = new javax.swing.JButton();
         fPrimerCheckButton = new javax.swing.JButton();
         rPrimerCheckButton = new javax.swing.JButton();
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
 
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -364,8 +404,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         titleLabel.setText("Primer Selection");
 
         instructionTextPane.setEditable(false);
-        instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the region. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.");
+        instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the target. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.  The grey box next to where you enter the reverse primer will show the reverse primer in the opposite direction, so enter the reverse primer in 3'-5' direction.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         forwardPrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
@@ -377,9 +417,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
         reversePrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
 
-        forwardPrimerLabel.setText("Forward Primer:");
+        forwardPrimerLabel.setText("Forward:");
 
-        reversePrimerLabel.setText("Reverse Primer:");
+        reversePrimerLabel.setText("Reverse:");
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -414,27 +454,20 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         oStrandTextPane.setMaximumSize(new java.awt.Dimension(700, 2147483647));
         oStrandScroll.setViewportView(oStrandTextPane);
 
-        displayTabbedPane.addTab("DNA Sequence", oStrandScroll);
+        displayTabbedPane.addTab("DNA Sequence (5' - 3')", oStrandScroll);
 
         cStrandTextPane.setEditable(false);
         cStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         cStrandTextPane.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 13)); // NOI18N
         cStrandScroll.setViewportView(cStrandTextPane);
 
-        displayTabbedPane.addTab("Complementary", cStrandScroll);
+        displayTabbedPane.addTab("Complementary (3' - 5')", cStrandScroll);
 
         bStrandTextPane.setEditable(false);
         bStrandTextPane.setBackground(new java.awt.Color(254, 254, 254));
         bStrandScroll.setViewportView(bStrandTextPane);
 
         displayTabbedPane.addTab("Double Stranded", bStrandScroll);
-
-        reverseButton.setText("Reverse");
-        reverseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reverseButtonActionPerformed(evt);
-            }
-        });
 
         fPrimerCheckButton.setText("Forward Primer Check");
         fPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
@@ -450,6 +483,25 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             }
         });
 
+<<<<<<< HEAD
+        reverseTextPane.setEditable(false);
+        jScrollPane1.setViewportView(reverseTextPane);
+=======
+        fPrimerCheckButton.setText("Forward Primer Check");
+        fPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fPrimerCheckButtonActionPerformed(evt);
+            }
+        });
+
+        rPrimerCheckButton.setText("Reverse Primer Check");
+        rPrimerCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rPrimerCheckButtonActionPerformed(evt);
+            }
+        });
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -460,6 +512,15 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fPrimerCheckButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rPrimerCheckButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addComponent(showRulesButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+=======
                         .addGap(18, 18, 18)
                         .addComponent(fPrimerCheckButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -467,6 +528,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addGap(55, 55, 55)
                         .addComponent(showRulesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(forwardPrimerLabel)
@@ -476,8 +538,8 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addComponent(reversePrimerLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reverseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -486,13 +548,27 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {forwardPrimerTextField, jScrollPane1, reversePrimerTextField});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(titleLabel)
+<<<<<<< HEAD
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(reversePrimerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(forwardPrimerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -503,6 +579,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                     .addComponent(reverseButton)
                     .addComponent(forwardPrimerLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -513,18 +590,29 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
+<<<<<<< HEAD
+                        .addComponent(fPrimerCheckButton)
+                        .addComponent(rPrimerCheckButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nextButton)
+                        .addComponent(showRulesButton)))
+=======
                         .addComponent(showRulesButton)
                         .addComponent(fPrimerCheckButton)
                         .addComponent(rPrimerCheckButton))
                     .addComponent(nextButton))
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
                 .addGap(12, 12, 12))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {forwardPrimerTextField, reversePrimerTextField});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {forwardPrimerTextField, jScrollPane1, reversePrimerTextField});
 
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
     
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         PrimerDesign.window.remove(PrimerDesign.primerSelect);
@@ -553,12 +641,10 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             if (fP.contains("n") || rP.contains("n"))
                 throw new NException();
             PrimerDesign.start.getInSequence().setFPrimer(new model.Primer(fP));
-            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(rP));
-            model.TestResult test = PrimerDesign.start.getInSequence().primerTest();
-            System.out.println(test.getOut());
+            PrimerDesign.start.getInSequence().setRPrimer(new model.Primer(Primer.reverse(rP)));
+            test = PrimerDesign.start.getInSequence().primerTest();
             pass = test.acceptable();
             PrimerEvaluationDialog ped = new PrimerEvaluationDialog(PrimerDesign.window, true);
-            ped.setText(test.toString());
             ped.setLocation(96, 100);
             ped.setVisible(true);
             if (pass) {
@@ -566,7 +652,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                  PrimerDesign.window.remove(PrimerDesign.primerSelect);
                  PrimerDesign.window.setVisible(false);
 
-                 PrimerDesign.temperature = new FinalTemperaturePanel();
+                 PrimerDesign.temperature = new TemperaturePanel();
                  PrimerDesign.window.getContentPane().add(PrimerDesign.temperature);
                  PrimerDesign.window.pack();
                  PrimerDesign.window.setVisible(true);
@@ -576,7 +662,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
            NPrimerBox npb = new NPrimerBox(PrimerDesign.window, true);
            npb.setLocation(187,450);
            npb.setVisible(true);
-       }catch(HighCountException e) {
+       } catch(HighCountException e) {
+           InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
+           iib.setLocation(187, 450);
+           iib.setVisible(true);
+       } catch(StringIndexOutOfBoundsException e) {
            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, true);
            iib.setLocation(187, 450);
            iib.setVisible(true);
@@ -592,17 +682,50 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     }//GEN-LAST:event_showRulesButtonActionPerformed
    
     private void forwardPrimerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPrimerTextFieldActionPerformed
-        /*
-        Thread t = new Thread(new PrimerFinder(
-                forwardPrimerTextField.getText(),
-                PrimerDesign.start.getInSequence().getOStrand()));
         
-        t.start();
-        
-        System.out.println(matchSet.toString());
-        */
     }//GEN-LAST:event_forwardPrimerTextFieldActionPerformed
 
+<<<<<<< HEAD
+    private void fPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fPrimerCheckButtonActionPerformed
+        try {
+            String fP = forwardPrimerTextField.getText();
+            fP = Sequence.parser(new Scanner(fP));
+            model.Primer fPrimer = new model.Primer(fP);
+            fTest = new model.TestResult();
+            fTest.addFull(fPrimer.test());
+            fTest.add(fPrimer.isUnique(PrimerDesign.start.getInSequence(), 'o'));
+            useF = true;
+            IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+                                                        PrimerDesign.window, false);
+            ied.setVisible(true);
+        } catch(StringIndexOutOfBoundsException e) {
+            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, false);
+            iib.setLocation(187, 450);
+            iib.setVisible(true);
+        }
+    }//GEN-LAST:event_fPrimerCheckButtonActionPerformed
+
+    private void rPrimerCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPrimerCheckButtonActionPerformed
+        try {
+            String rP = reversePrimerTextField.getText();
+            rP = Sequence.parser(new Scanner(rP));
+            model.Primer rPrimer = new model.Primer(Primer.reverse(rP));
+            rTest = new model.TestResult();
+            rTest.addFull(rPrimer.test());        
+            rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
+            useF = false;
+            IndividualEvaluationDialog ied = new IndividualEvaluationDialog(
+                                                    PrimerDesign.window, false);
+            ied.setVisible(true);
+        } catch(StringIndexOutOfBoundsException e) {
+            InvalidInputBox iib = new InvalidInputBox(PrimerDesign.window, false);
+            iib.setLocation(187, 450);
+            iib.setVisible(true);
+        }
+    }//GEN-LAST:event_rPrimerCheckButtonActionPerformed
+    
+    
+=======
     private void reverseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reverseButtonActionPerformed
         this.reversePrimerTextField.setText(model.Primer.reverse(this.reversePrimerTextField.getText()));
     }//GEN-LAST:event_reverseButtonActionPerformed
@@ -624,6 +747,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         ied.setText(test.toString());
         ied.setVisible(true);
     }//GEN-LAST:event_rPrimerCheckButtonActionPerformed
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
     
     public int getAttempts() {
         return attempts;
@@ -647,6 +771,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JLabel forwardPrimerLabel;
     private javax.swing.JTextField forwardPrimerTextField;
     private javax.swing.JTextPane instructionTextPane;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane lineAreaScroll;
     private javax.swing.JTextArea lineNumberTextArea;
@@ -654,21 +779,33 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private javax.swing.JScrollPane oStrandScroll;
     private javax.swing.JTextPane oStrandTextPane;
     private javax.swing.JButton rPrimerCheckButton;
+<<<<<<< HEAD
+=======
     private javax.swing.JButton reverseButton;
+>>>>>>> 73f72985bef37b454ed03c0557d0bf5dc0ed8f17
     private javax.swing.JLabel reversePrimerLabel;
     private javax.swing.JTextField reversePrimerTextField;
+    private javax.swing.JTextPane reverseTextPane;
     private javax.swing.JButton showRulesButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-        SwingUtilities.invokeLater(doSearch);
+        if (e.getDocument() == forwardPrimerTextField.getDocument()){
+            searchO.run();
+        } else if (e.getDocument() == reversePrimerTextField.getDocument()){
+            searchC.run();
+        }
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-        // SwingUtilities.invokeLater(doSearch); DO SOMETHING HERE ?
+        if (e.getDocument() == forwardPrimerTextField.getDocument()){
+            searchO.run();
+        } else if (e.getDocument() == reversePrimerTextField.getDocument()){
+            searchC.run();
+        }
     }
 
     @Override

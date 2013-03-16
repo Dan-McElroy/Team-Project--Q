@@ -9,11 +9,82 @@
 % Links to Youtube videos and Utah thang
 The requirements gathering process for the application began immediately.
 At the first meeting, our clients presented us with a document outlining
-what it was that they wanted from the end product. This included a sample
+what it was that they wanted from the end product, including a very
+early step-by-step walkthrough of the application they envisioned. This
+proved to be a key tool in bringing us up to speed with what the %thing
+should accomplish, and really sped up the initial requirements gathering
+phase. Obviously, this design was altered and adapted throughout the
+project, but the steps served to provide a rough guidline that we
+followed throughout development. The aim of the project, as described in
+the aforementioned document, are as follows:
+\begin{quotation}
+To design a PCR-primer design exercise to complement teaching of a
+Molecular Methods course to Level 3 Life Sciences Undergraduates. This
+exercise will be integrated into a new part of the lab which we are
+designing based around diagnosis of HIV using PCR. You will need to
+understand the theory behind PCR and primer design in order to achieve
+this.
+\end{quotation}
+This statement alone is helpful as it tells us about our userbase, where
+and how the application will be used, and what background knowledge is
+required in order to thoroughly understand the premise of the project.
+
+On the subject of background knowledge, along with this document, we 
+were given the Molecular Methods lab book, in order to see how Primer 
+Design is currently taught in the course and get a better idea of how
+it worked ourselves.
+% TALK ABOUT MOL METHODS BOOK, WHAT COULD BE IMPROVED.
+
+Finally, within the first two or three meetings we were sent links to
+various multimedia teaching tools for Primer Design, as described in
+Section \ref{intro:currentSystems}. Along with our own research, this
+gave us an informed view of what else is out there, the positives and
+negatives of these current approaches, and what we could improve upon
+in our own product.
+
+From these first few weeks of meetings with the clients, we drafted a
+requirements document, which was presented to the clients and agreed upon,
+and presented the following requirements:
+
+\textbf{System Scope}
+\begin{itemize}
+\item{The main aim of this system is to act as a teaching tool to aid students in learning how to design
+primers for PCR experiments and should be usable in a teaching environment or by people on their
+home computers.}
+\item{It should function as an interactive, step-by-step guide through the process of PCR on a DNA sequence
+of the users choice. The user is required to access the NCBI website and copy and paste their choice
+of DNA sequence into the system. The system should provide feedback if the user enters incorrect
+primers. The system should then check if the melting temperatures of the primers are in the required
+range. The user is then given a link to perform primer blast to check if the primers they have chosen
+are unique.}
+\item{The system should also provide the user help with completing each task by providing relevant rules
+for each task and giving the user instructions about how to use websites and resources outwith the
+system (NCBI, primer blast etc.).}
+\item{When the user has provided an appropriate pair of primers the system will then show an animation of
+the PCR reaction taking place.}
+\end{itemize}
+\textbf{Non-Functional Requirements}
+\begin{itemize}
+\item{The system is expected to be used at students’ homes or in the Biology lab computers, so
+portability is essential for the system to work to the clients’ expectations.}
+\end{itemize}
+
+
 \subsubsection{Design Feedback}
 % Weekly meetings, reaffirming theory behind PCR and primer design
 % Produced several versions of user interface mockups
+Throughout the project, we maintained a weekly meeting schedule with our
+supervisor and clients, and despite scheduling difficulties at least one
+of the clients was present at every one of these meetings. This allowed
+us the opportunity to improve our design iteratively through multiple
+pitches, internalising the feedback given over the following week to 
+produce a design more in line with their requirements.
 
+Over the course of these meetings, the clients provided us with  
+
+When the team had formed a solid idea of the layout and flow of the
+system, we drew up some early mockups of the system's user interface
+(discussed in further detail in Section \ref{impl:ui}
 
 \subsubsection{Implementation Feedback}
 % At weekly meetings during implementation, gave repeated demonstrations

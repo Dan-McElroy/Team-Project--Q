@@ -22,7 +22,10 @@ public class Primer {
        code = c;
     }
     
-    
+    public int size() {
+        return code.length();
+    }
+   
     public TestResult goodLength() {
     	/*
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
@@ -63,22 +66,25 @@ public class Primer {
         
         if (meltTemp >= 50 && meltTemp <= 65)
             return new TestResult(PassState.PASS, "The primer's melting temperature of "
-                    + Integer.toString(meltTemp) + "\u2013 is within the "
-                    + "bounds of 50-65\u2013");
+                    + Integer.toString(meltTemp) + "\u2103 is within the "
+                    + "bounds of 50-65\u2103");
         else if (meltTemp >= 45 && meltTemp <= 69) {
             return new TestResult(PassState.CLOSEFAIL, "The primer's "
                     + "melting temperature of " + Integer.toString(meltTemp)
-                    + "\u2013 is just outside the bounds of 50-65\u2013");
+                    + "\u2103 is just outside the bounds of 50-65\u2103");
         }
         else
             return new TestResult(PassState.FAIL, ("Melting "
-                    + "temperature should be between 50-65\u2013, current "
-                    + "temperature: " + Integer.toString(meltTemp) + "\u2013"));
+                    + "temperature should be between 50-65\u2103, current "
+                    + "temperature: " + Integer.toString(meltTemp) + "\u2103"));
     }
     
     public boolean matches(int i, String x) {
-            if (x.substring(i, Math.min(x.length(),
-                    (i + code.length()))).equals(code)) return true;
+            if (x.substring(
+                    i,
+                    Math.min(x.length(), (i + code.length()))).equals(
+                    code)) 
+                return true;
             return false;
     } 
     
@@ -141,8 +147,8 @@ public class Primer {
                 if(reps > 3){
                     return new TestResult(PassState.CLOSEFAIL,
                             "Base " + String.valueOf(current) +
-                            "repeats" + reps + " times in a row, just over the"
-                            + "ideal maximum for repeating bases of 3 in a row.");
+                            " repeats " + reps + " times in a row, just over the"
+                            + " ideal maximum for repeating bases of 3 in a row.");
                 }
             }
             else {
@@ -242,12 +248,12 @@ public class Primer {
         
         if (maxMatches >= 6)
             return (new TestResult(PassState.FAIL, "The primers' "
-                    + "bases anneal to each other in " + maxMatches + 
+                    + " bases anneal to each other in " + maxMatches + 
                     " places."));
         else if (maxMatches >= 4)
             return (new TestResult(PassState.CLOSEFAIL, "Primers may"
                     + " not anneal to each other to a significant degree, but "
-                    + "there are " + maxMatches + "instances where bases from "
+                    + "there are " + maxMatches + " instances where bases from "
                     + "each primer anneal to each other."));
         else
             return new TestResult(PassState.PASS, "Primers will not "
@@ -287,12 +293,12 @@ public class Primer {
         if (maxMatches >= 6) {
             return (new TestResult(PassState.FAIL, "The primer bases anneal to "
                     + "each other in " + maxMatches + " places, well above the"
-                    + " recommended limit of 4."));
+                    + " recommended limit of 3."));
         }
         else if(maxMatches >= 4) {
             return (new TestResult(PassState.CLOSEFAIL, "The primer bases anneal"
                     + " to each other in " + maxMatches + " places, just above "
-                    + "the recommended limit of 4."));
+                    + "the recommended limit of 3."));
         }
         else {
             return (new TestResult(PassState.PASS, "The primer will not self "
@@ -317,6 +323,10 @@ public class Primer {
         return matches;
     }
     
+    public TestResult isUnique(Sequence s, char c) {
+        return s.isUnique(this, c);
+    }
+    
     public static String reverse(String s) {
         if (s.length() <= 1) { 
             return s;
@@ -337,12 +347,12 @@ public class Primer {
     	 * passes if all true and returns relevant comments if
     	 * not.
     	 */
-        TestResult t = new TestResult(PassState.PASS, "");
-        t.add(meltingTemp());
+        TestResult t = meltingTemp();
         t.add(gcContent());
         t.add(repetition());                                       
         t.add(goodLength());                               
         t.add(selfAnneal());
+        t.add(lastLetter());
         return t;
     }
 }

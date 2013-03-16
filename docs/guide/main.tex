@@ -35,54 +35,30 @@
 \section{About}
 \label{sec:about}
 
-This document will outline how to use the, provisionally named,
-PrimerDesign application created for use by students of Molecular
-Methods to learn about Polymerase Chain Reactions (PCR) and primer
-design. 
+This document will outline how to use the PrimerDesign application
+created for use by students of Molecular Methods to learn about
+Polymerase Chain Reactions (PCR) and primer design. 
 
 If you encounter any problems while using the application, feel free
 to ask your tutor, or email us at \url{TeamProjectQ@gmail.com}.
 
 \section{Getting Started}
-\label{sec:gettingStarted}
-
-\subsection{System Requirements}
-\label{sec:sysReqs}
-
-You will need:
-\begin{itemize}
-\item{An operating system capable of running Java (you should not need
-    to worry about this as Java runs on almost all modern Windows,
-    Linux and Macintosh operating systems)}
-\item{a web browser (such as Google Chrome or Mozilla
-    Firefox)}
-\item{Java (at least version 6) installed on your computer (most modern computers have
-    Java, but if not it is freely available online from Oracle)}
-\item{Access to the Molecular Methods moodle site by the School of
-    Life Sciences at University of Glasgow}
-\item{An internet connection (unless you have downloaded the
-    application and have a DNA sequence ready)}
-\end{itemize}
-
-With that we can get started!
+\label{sec:gettingstarted}
 
 \subsection{Downloading and Starting the Application}
-\label{sec:startingApp}
+\label{sec:startingapp}
 
-First, download the file \texttt{PrimerDesign.jar} from the Molecular
-Methods moodle site and save it somewhere on your computer.
-Next, double-click on the PrimerDesign.jar file you just saved,
-alternatively if using a Unix-based operating system such as MacOS or
-Linux you can run the application using the following terminal
-command:
-\begin{center}
-  \verb£$ java -jar PrimerDesign.jar£
-\end{center}
-If you encounter problems here, ensure that you have Java installed on
-your computer.
+First, find the \texttt{PrimerDesign.jar} link on the Molecular
+Methods moodle site and run it.
+You can run it by clicking on the link, however this is dependant on
+your browser.
+Alternatively, you can save the program to your computer and double
+click on it.
+If you encounter problems here, ensure that you have Java 6 or newer
+installed on your computer.
 
 \subsection{Obtaining a DNA Sequence}
-\label{sec:gettingSequence}
+\label{sec:gettingsequence}
 
 You will need an internet connection to perform these steps.
 
@@ -94,44 +70,44 @@ for Biotechnology Information) website at
 \url{http://www.ncbi.nlm.nih.gov/}.
 
 Use your web browser of choice to go to the NCBI website.
-You should see something similar to figure \ref{fig:ncbiHome}.
+You should see something similar to figure \ref{fig:ncbihome}.
 
-\begin{figure}[hb] 
+\begin{figure}[b] 
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiHome}
-    \caption{\label{fig:ncbiHome}NCBI Home Page}
+    \caption{NCBI Home Page\label{fig:ncbihome}}
   \end{center}
 \end{figure}
 
 In order to search for a compatible sequence, change the search type
-to ``Nucelotides'' from the drop-down menu next to the search bar
-(highlighted in yellow in figure \ref{fig:ncbiHomeSearch}) and search
+to ``Nucleotides'' from the drop-down menu next to the search bar
+(highlighted in yellow in figure \ref{fig:ncbihomesearch}) and search
 for the sequence you want, for our example this is ``\verb£L1CAM£'',
 using the search bar (highlighted in red in figure
-\ref{fig:ncbiHomeSearch}).
+\ref{fig:ncbihomesearch}).
 
-\begin{figure}[hb]   
+\begin{figure}[b]   
   \begin{center}
     \includegraphics[width=\textwidth]{ncbiHomeSearch}
-    \caption{\label{fig:ncbiHomeSearch}Searching for a sequence}
+    \caption{Searching for a sequence\label{fig:ncbihomesearch}}
   \end{center}
 \end{figure}
 
 Now you will be presented with your search results, if you are
 following our example click on the link highlighted in
-yellow on figure \ref{fig:ncbiSearchResults}.
+yellow on figure \ref{fig:ncbisearchresults}.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=\textwidth]{ncbiSearchResults}
-    \caption{\label{fig:ncbiSearchResults}Search Results}
+    \caption{Search Results\label{fig:ncbisearchresults}}
   \end{center}
 \end{figure}
 
 Once clicked, you should be presented with something similar to figure
 \ref{fig:ncbiSequenceSelected}.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiSequenceSelected}
     \caption{\label{fig:ncbiSequenceSelected}Sequence Page}
@@ -142,10 +118,10 @@ Most of this information is irrelevant to this application, so scroll
 down until you see the DNA sequence, in our example it should look
 like figure \ref{fig:ncbiSequenceFound}.
 Now you can simply highlight the sequence (highlighted in yellow in
-figure \ref{fig:ncbiSequenceFound}) and press ctrl-c (or equivalent)
+figure \ref{fig:ncbiSequenceFound}) and press Ctrl-c (or equivalent)
 to copy the sequence.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ncbiSequenceFound}
     \caption{\label{fig:ncbiSequenceFound}The Sequence}
@@ -168,17 +144,16 @@ Use your best judgement where differences appear.
 \label{sec:overviewScreen}
 
 On starting the application (as described in section
-\ref{sec:startingApp}), you should see the overview screen (figure
-\ref{fig:PDSplash}) with a button on the bottom right labelled
+\ref{sec:startingapp}), you should see the overview screen (figure
+\ref{fig:pdsplash} ) with a button on the bottom right labelled
 ``Start''. Once you have finished reading the information on this
 page, you should press start.
-Note that you will not be able to return to this page but you will be
-able to view the Primer Design rules later in the application.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignSplash}
-    \caption{\label{fig:PDSplash}Overview Screen}
+    \includegraphics[width=0.8\textwidth]{StartPanel}
+    \caption{Overview Screen}
+    \label{fig:pdsplash}
   \end{center}
 \end{figure}
 
@@ -188,17 +163,17 @@ able to view the Primer Design rules later in the application.
 \label{sec:sequenceEntry}
 
 Remember the DNA sequence you copied in section
-\ref{sec:gettingSequence}? Well now is the time to paste it!
-Simply paste the sequence into the large white area and press the next
-button.
-As you can see in figure \ref{fig:PDStartWithSeq}, you do not need to
+\ref{sec:gettingsequence}? Well now is the time to paste it!
+Simply paste (using Ctrl-V or using the EditPaste menu) the sequence
+into the large white area and press the next button.
+As you can see in figure \ref{fig:pdstartwithseq}, you do not need to
 worry about including the ``ORIGIN'' from the sequence as this will be
 removed when you press the `Next' button.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignStartWithSeq}
-    \caption{\label{fig:PDStartWithSeq}DNA Sequence Entry Example}
+    \includegraphics[width=0.8\textwidth]{SequenceEntry}
+    \caption{\label{fig:pdstartwithseq}DNA Sequence Entry Example}
   \end{center}
 \end{figure}
 
@@ -207,29 +182,28 @@ removed when you press the `Next' button.
 \subsection{Target Area Selection}
 \label{sec:targetAreaSelection}
 
-Now we have to select what it is we want to copy.
+Now we have to select what it is we want to produce from the reaction.
 To do this, you have to specify the first and the last base of the
 sequence you wish to copy, using it's position in the sequence.
 So if you wish to copy a sequence from position 100 to 500, as in the
-example on figure \ref{fig:PDAreaSelection}, you would enter these
+example on figure \ref{fig:pdareaselection}, you would enter these
 into the ``From'' and ``To'' text boxes.
+An easier way to do this is to highlight the sequence you wish to use
+and the numbers will be filled in for you.
 
-Note that you can also view the complementary strand, and both strands
-together, by using the tabs just above where the sequence is.
+Note that you can also view the complementary strand, by using the
+tabs just above where the sequence is.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignAreaSelection}
-    \caption{\label{fig:PDAreaSelection}Target Area Selection Example}
+    \includegraphics[width=0.8\textwidth]{TargetSelection}
+    \caption{Target Area Selection Example}
+    \label{fig:pdareaselection}
   \end{center}
 \end{figure}
 
-%-----------------------------------
-% DEMO ONLY?
-Note that the sequence is split into seven blocks of 10 bases each (ie
-70 bases per line).
-%------------------------------------
 %---------------------------------------------------------------------
+
 \subsection{Primer Design}
 \label{sec:primerDesign}
 
@@ -242,60 +216,79 @@ and ``Reverse Primer'' fields, as shown in figure
 \ref{fig:PDPrimerSelection}, note however that the example data is not
 designed to be correct.
 
-For the reverse primer, you have a button which will reverse whatever
-you enter into the ``Reverse Primer'' field, the ``Reverse'' button
-next the field.
-So if you were to enter \verb£aattccggt£, and press the ``Reverse''
-button, the primer would change to \verb£tggccttaa£.
+As you type in a primer, you will notice that what you type is
+highlighted in the sequence (as long as you are viewing the correct
+strand).
+A red highlight corresponds to a primer with at least one rule broken
+to an ``unacceptable'' degree, which means that you cannot proceed.
+
+A yellow highlight corresponds to a primer with at least one rule
+broken to an ``acceptable'' degree, which will (after 3 attempts)
+allow you to proceed if you are absolutely sure you want to continue.
+
+A blue highlight means that you have found a primer which meets all
+the requirements and may continue.
+
+For the reverse primer, there is an additional text box which will
+reverse the order of the primer you enter, so you should enter the
+primer in the 3'---5' direction.
+The 5'---3' primer is the one which is checked against the rules.
+
+So if you were to enter \verb£aattccggt£, the additional text box
+would show \verb£tggccttaa£.
 
 You can also see the primer design rules again by pressing the ``Show
 Primer Design Rules'' button.
 
-\begin{figure}[hb]
+You can check your primers individually against the primer design
+rules by using the ``Check Primer'' buttons on the bottom of the
+window.
+These will give you information on where your primers pass and where
+they fail.
+
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignPrimerSelect}
+    \includegraphics[width=0.8\textwidth]{PrimerAllCorrect}
     \caption{\label{fig:PDPrimerSelection}Primer Selection Example}
   \end{center}
 \end{figure}
 
-When you click next, your primers are checked against the rules
+When you click next, both primers are checked against the rules
 described at the start of the application, and you are given a report
 of where your primers pass and where they fail, if at all.
 This will look something like \ref{fig:PDPrimerFeedback}.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignPrimerFeedback}
+    \includegraphics[width=0.8\textwidth]{PrimerFeedback}
     \caption{\label{fig:PDPrimerFeedback}Primer Design Feedback Example}
   \end{center}
 \end{figure}
 
 Pressing the ``Ok'' button will close this window and allow you to
 continue only if you have passed each rule.
+If you have any ``Close Fail'' items in the report, you will only be
+allowed to proceed when you have clicked the ``Next'' button another
+two times, which will give you the option to ``Accept and Continue''.
 
 %---------------------------------------------------------------------
 
 \subsection{Melting Temperature}
 \label{sec:meltingTemp}
 
-Now you are finished!
-This final screen, which should be similar to figure
+This screen, which should be similar to figure
 \ref{fig:PDMeltingTemp}, lets you review your design, showing the
 melting temperatures of both primers and the primers themselves.
 
 Note that for our example we should not have been allowed to get here
 due to the feedback we received in figure \ref{fig:PDPrimerFeedback}.
 
-\begin{figure}[hb]
+\begin{figure}[b]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{PrimerDesignMeltingTemp}
+    \includegraphics[width=0.8\textwidth]{Temperature}
     \caption{\label{fig:PDMeltingTemp}Melting Temperature Screen Example}
   \end{center}
 \end{figure}
-
-\subsubsection{\date{8th February 2013} Demonstration Only}
-Also please note that although we have included the ``See Animation''
-button, it is currently not working so we have disabled it.
 
 
 %---------------------------------------------------------------------
@@ -303,18 +296,11 @@ button, it is currently not working so we have disabled it.
 
 \section{Known Bugs}
 
-There are a few known issues with the current build of the system.
-If you should find any bugs not listed below, please let us know
-either in person or by e-mail (\texttt{TeamProjectQ@gmail.com}).
-
-\begin{itemize}
-\item{On both the Target Area Selection and Primer Design screens
-    (referred to in sections \ref{sec:targetAreaSelection} and
-    \ref{sec:primerDesign}) the ``Both Strands'' tab's numbers on the
-    left of the screen do not match the lines of the sequence.}
-\item{On the Primer Design screen's (section \ref{sec:primerDesign})
-    ``Both Strands'' tab, the highlighting sometimes does not
-    highlight the correct area.}
-\end{itemize}
+There are a few known issues with the current build of the
+system.
+These are constantly changing with the development of the application
+so are not listed here.
+If you suspect you have found something which should not have, please
+feel free to e-mail us at \texttt{TeamProjectQ@gmail.com}.
 
 \end{document}

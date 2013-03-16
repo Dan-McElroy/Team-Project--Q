@@ -32,14 +32,14 @@
 \contentsline {paragraph}{Sequence Entry}{17}{figure.3.8}
 \contentsline {paragraph}{Target Selection}{18}{figure.3.9}
 \contentsline {paragraph}{Primer Design}{18}{figure.3.10}
-\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{19}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Models}{19}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{20}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Models}{20}{subsection.3.3.1}
 \contentsline {paragraph}{Primer}{20}{section*.22}
 \contentsline {paragraph}{TestResult}{20}{section*.23}
-\contentsline {paragraph}{Sequence}{20}{section*.24}
+\contentsline {paragraph}{Sequence}{21}{section*.24}
 \contentsline {subsection}{\numberline {3.3.2}Primer Checking}{21}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Other Methods}{22}{subsection.3.3.3}
-\contentsline {subsubsection}{Dynamic Primer Highlighting}{22}{section*.25}
+\contentsline {subsection}{\numberline {3.3.3}Other Methods}{23}{subsection.3.3.3}
+\contentsline {subsubsection}{Dynamic Primer Highlighting}{23}{section*.25}
 \contentsline {chapter}{\numberline {4}Evaluation}{24}{chapter.4}
 \contentsline {section}{\numberline {4.1}Testing}{24}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Demonstration}{24}{subsection.4.1.1}

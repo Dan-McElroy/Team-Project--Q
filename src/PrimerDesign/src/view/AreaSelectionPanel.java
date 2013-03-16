@@ -22,12 +22,10 @@ import javax.swing.text.StyleContext;
  *
  * @author 0907822r
  */
-public class AreaSelection extends javax.swing.JPanel {
+public class AreaSelectionPanel extends javax.swing.JPanel {
     
-//    private boolean isOStrand = true;  <<< What does this do ?
     private int startTarget, endTarget;
     private String lineNums;
-//    private String doubleLineNums;
 
 
 
@@ -46,32 +44,18 @@ public class AreaSelection extends javax.swing.JPanel {
     public void setEndTarget(int endTarget) {
         this.endTarget = endTarget;
     }
+
     
     private class AreaCaretListener implements CaretListener{
-
-        public int unrealIndex(int x) {
-        //Potential issue: assumes line % block= 0.
-        int xRounded = x - (x % 11);
-        return (x - (xRounded / 11));
-    }
         
         @Override
         public void caretUpdate(CaretEvent e) {
-            boolean debug = true; // make false for no debug
             int update = 150; // number of bases required to fire update
             int fromVal = e.getMark(); 
             int toVal = e.getDot();
 
-            /*
-            int fromSpaces = fromVal/10;
-            fromSpaces = fromSpaces + fromVal/70;
-            int toSpaces = toVal/10;
-            toSpaces = toSpaces + toVal/70;
-            fromVal = fromVal - fromSpaces + 1;
-            toVal = toVal - toSpaces;
-            */
-            fromVal = unrealIndex(fromVal) + 1;
-            toVal = unrealIndex(toVal);
+            fromVal = PrimerDesign.unrealIndex(fromVal) + 1;
+            toVal = PrimerDesign.unrealIndex(toVal);
             if (fromVal > toVal) {
                 int temp = fromVal - 1;
                 fromVal = toVal + 1;
@@ -81,13 +65,7 @@ public class AreaSelection extends javax.swing.JPanel {
                 fromTextField.setText(Integer.toString(fromVal));
                 toTextField.setText(Integer.toString(toVal));
             }
-            
-            if (debug){
-                System.out.println("------Update-------");
-                System.out.println("getMark() = " + e.getMark() + ",\t fromVal = " + fromVal + ",\t fromVal = " + fromVal);
-                System.out.println("getDot() = " + e.getDot() + ",\t toVal = " + toVal + ",\t toVal = " + toVal);
-                System.out.println();
-            }
+
             String fromText = fromTextField.getText().toString();
             String toText = toTextField.getText().toString();
             if (fromText.equalsIgnoreCase(toText)) {
@@ -123,7 +101,7 @@ public class AreaSelection extends javax.swing.JPanel {
     /**
      * Creates new form areaSelection
      */
-    public AreaSelection() {
+    public AreaSelectionPanel() {
         initComponents();
         //high = sequenceTextArea.getHighlighter();
         //from = 0;
@@ -197,7 +175,6 @@ public class AreaSelection extends javax.swing.JPanel {
         displayTabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 updateLineNums(displayTabbedPane.getSelectedIndex());
-                //System.out.println("Tab: " + displayTabbedPane.getSelectedIndex());
             }
         });
         
@@ -279,7 +256,7 @@ public class AreaSelection extends javax.swing.JPanel {
         toLabel.setText("To:");
 
         lineNumberTextArea.setEditable(false);
-        lineNumberTextArea.setColumns(5);
+        lineNumberTextArea.setColumns(1);
         lineNumberTextArea.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
         lineNumberTextArea.setRows(5);
         lineNumberTextArea.setTabSize(4);
@@ -352,7 +329,7 @@ public class AreaSelection extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(lineAreaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                         .addGap(7, 7, 7))
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
@@ -369,8 +346,6 @@ public class AreaSelection extends javax.swing.JPanel {
         try {
         startTarget = Integer.parseInt(fromTextField.getText());
         endTarget = Integer.parseInt(toTextField.getText());
-        System.out.println("Start target: " + startTarget +
-                "\tEnd target: " + endTarget);
         // At this point, end target exists.
         
         if (startTarget < 1 || endTarget < 1)
@@ -385,7 +360,9 @@ public class AreaSelection extends javax.swing.JPanel {
         if (PrimerDesign.start.getInSequence().containsN(startTarget, endTarget))
             throw new NException();
 
-
+        PrimerDesign.start.getInSequence().start = startTarget-1;
+        PrimerDesign.start.getInSequence().end = endTarget;
+        
         PrimerDesign.window.remove(PrimerDesign.area);
         PrimerDesign.window.setVisible(false);
 
@@ -438,7 +415,7 @@ public class AreaSelection extends javax.swing.JPanel {
             try {
                 high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
             } catch (BadLocationException ex) {
-                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AreaSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (e.getSource().equals(toTextField)) {
@@ -446,7 +423,7 @@ public class AreaSelection extends javax.swing.JPanel {
             try {
                 high.addHighlight(from, to, DefaultHighlighter.DefaultPainter);
             } catch (BadLocationException ex) {
-                Logger.getLogger(AreaSelection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AreaSelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

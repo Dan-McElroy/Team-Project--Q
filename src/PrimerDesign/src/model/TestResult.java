@@ -14,25 +14,38 @@ public class TestResult {
  
     public enum PassState {PASS, FAIL, CLOSEFAIL};
     private ArrayList<PassState> passes;
-    private String out;
+    private ArrayList<String> out;
     
     public TestResult(PassState p, String o) {
         passes = new ArrayList<PassState>();
         passes.add(p);
-        out = o;
+        out = new ArrayList<String>();
+        out.add(o);
+    }
+    
+    public TestResult() {
+        passes = new ArrayList<PassState>();
+        out = new ArrayList<String>();
+    }
+    
+    public ArrayList<PassState> getPasses() {
+        return passes;
     }
     
     public PassState getPass(int x) {
         return passes.get(x);
     }
-    public String getOut() {
-        return out;
+    public String getOut(int x) {
+        return out.get(x);
+    }
+    public int size() {
+        return out.size();
     }
     public void setPass(PassState p) {
         passes.set(0, p);
     }
     public void setOut(String o) {
-        out = o;
+        out.set(0, o);
     }
     
     public boolean acceptable() {
@@ -49,6 +62,14 @@ public class TestResult {
         return true;
     }
     
+    public boolean perfect() {
+        if (size() > 0)
+            for (PassState p : passes)
+                if (p != PassState.PASS && p != null)
+                    return false;
+        return true;
+    }
+    
     public boolean passes() {
         if (passes.get(0) == PassState.PASS)
             return true;
@@ -56,64 +77,54 @@ public class TestResult {
     }
     
     public void add(String s) {
-        out += s + "\n";
+        passes.add(null);
+        out.add(s);
     }
     
     public void add(TestResult t) {
-        System.out.println(out);
-    	/*
-    	 * Adds one test result to another, to be used for the 
-    	 * final cumulative test result.
-    	 */
-        if (out == null)
-            out = "";
         passes.add(t.getPass(0));
+        String addy = "\u2022 ";
         if (t.getPass(0) == PassState.PASS)
-            out += "Pass:\t" + t.getOut() + "\n";
-        else if (t.getPass(0) == PassState.FAIL)
-            out += "Fail:\t" + t.getOut() + "\n";
-        else if (t.getPass(0) == PassState.CLOSEFAIL)
-            out += "Close Fail:\t" + t.getOut() + "\n";
-    }
-    public void addQuiet(TestResult t) {
-        if (out == null)
-            out = "";
-        passes.add(t.getPass(0));
-        out += t.getOut() + "\n";
+            out.add(addy + "Pass: " + t.getOut(0));
+        if (t.getPass(0) == PassState.CLOSEFAIL)
+            out.add(addy + "Close Fail: " + t.getOut(0));
+        if (t.getPass(0) == PassState.FAIL)
+            out.add(addy + "Fail: " + t.getOut(0));
     }
     
-    public String toString() {          //REFINE THIS.		
-    	/* 
-    	 * Returns a readable explanation of the test result,
-    	 * also to be used for the final test result.
-    	 */
-        
-        return out;
-        
-        /*
-        OLD, KEEPING FOR A RAINY DAY
-        if (pass) return ("Primer is good.");
-    	else {
-    	    String print = "";
-            
-            Scanner printy = new Scanner(out).useDelimiter("#");
-            int j = 1; 
-            while (printy.hasNext() ) {        
-                String next = printy.next();
-                if (next.contains("\t")) {
-                    print += next + "\n";
-                    j = 1;
-                    continue;
-                }
-                print += j + ". " + next + "\n";
-                j++;
+    public void addFull(TestResult t) {
+        int i = 0;
+        for (PassState p : t.getPasses()) {
+            passes.add(p);
+            if (i == 0) {
+                if (p == PassState.PASS)
+                    out.add("\u2022 Pass: " + t.getOut(i));
+                else if (p == PassState.CLOSEFAIL)
+                    out.add("\u2022 Close Fail: " + t.getOut(i));
+                else if (p == PassState.FAIL) 
+                    out.add("\u2022 Fail: " + t.getOut(i));
             }
-            return print;
-    	}
-        */
+            else
+                out.add(t.getOut(i));
+            i++;
+        }
+    }
+    
+    public TestResult get(int i) {
+    	if (i < size() && i > 0)
+            return new TestResult(passes.get(i), out.get(i));
+        return null;
+    }
+    
+    public String toString() {
+        String hate = "";
+        for (String i : out) {
+            hate += i + "\n";
+        }
+        return hate;
     }
     
     public boolean equals(TestResult t) {
-        return (this.acceptable() == t.acceptable() && this.out.equals(t.getOut()));
+        return (this.acceptable() == t.acceptable() && this.out.equals(t.getOut(0)));
     }
 }

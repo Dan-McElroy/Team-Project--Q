@@ -181,13 +181,13 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextPane" name="jTextPane1">
+        <Component class="javax.swing.JTextPane" name="gzPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xa;&#xa;Congratulations, your primers meet all requirements!&#xa;&#xa;You should now go to the NCBI website and perform a &quot;Primer Blast&quot; on your primers by going to the following website, http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by following instructions on your worksheet.&#xa;&#xa;Click the back button to return to earlier stages if you wish to review anything you have done.&#xa;&#xa;Click the next button to see an animation of the results you have provided.&#xa;&#xa;When you are done, close this program by closing the window. "/>
+            <Property name="text" type="java.lang.String" value="Congratulations, your primers meet all requirements!&#xa;&#xa;You should now go to the NCBI website and perform a &quot;Primer Blast&quot; on your primers by going to the following website, http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by following instructions on your worksheet.&#xa;&#xa;Click the back button to return to earlier stages if you wish to review anything you have done.&#xa;&#xa;Click the next button to see an animation of the results you have provided.&#xa;&#xa;When you are done, close this program by closing the window."/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>

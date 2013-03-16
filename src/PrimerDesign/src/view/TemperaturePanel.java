@@ -11,13 +11,24 @@ import javax.swing.SwingConstants;
  *
  * @author 0907822r
  */
-public class FinalTemperaturePanel extends javax.swing.JPanel {
+public class TemperaturePanel extends javax.swing.JPanel {
 
+    protected static String gzMessage;
+    
     /**
-     * Creates new form FinalTemperaturePanel
+     * Creates new form TemperaturePanel
      */
-    public FinalTemperaturePanel() {
+    public TemperaturePanel() {
         initComponents();
+        gzMessage += "\n\nYou should now go to the NCBI website and perform a \"Primer Blast\" "
+                + "on your primers by going to the following website, "
+                + "http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by "
+                + "following instructions on your worksheet. \n\nClick the "
+                + "back button to return to earlier stages if you wish to review"
+                + " anything you have done.\n\nClick the next button to see an "
+                + "animation of the results you have provided.\n\nWhen you are "
+                + "done, close this program by closing the window.";
+        gzPane.setText(gzMessage);
     }
 
     /**
@@ -38,7 +49,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         meltTempLabelForward = new javax.swing.JLabel();
         meltTempLabelReverse = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        gzPane = new javax.swing.JTextPane();
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -78,11 +89,11 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
         meltTempLabelReverse.setText(Integer.toString(PrimerDesign.start.getInSequence().getRPrimer().getMeltingTemp()) + "\u2103");
         meltTempLabelReverse.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jTextPane1.setText("\n\nCongratulations, your primers meet all requirements!\n\nYou should now go to the NCBI website and perform a \"Primer Blast\" on your primers by going to the following website, http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by following instructions on your worksheet.\n\nClick the back button to return to earlier stages if you wish to review anything you have done.\n\nClick the next button to see an animation of the results you have provided.\n\nWhen you are done, close this program by closing the window. ");
-        jTextPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTextPane1);
+        gzPane.setEditable(false);
+        gzPane.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        gzPane.setText("Congratulations, your primers meet all requirements!\n\nYou should now go to the NCBI website and perform a \"Primer Blast\" on your primers by going to the following website, http://www.ncbi.nlm.nih.gov/tools/primer-blast/, or by following instructions on your worksheet.\n\nClick the back button to return to earlier stages if you wish to review anything you have done.\n\nClick the next button to see an animation of the results you have provided.\n\nWhen you are done, close this program by closing the window.");
+        gzPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(gzPane);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +202,7 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        String[] x = new String [1];        // What does this do? -Dan
+        String[] x = new String [1];
         x[0] = "";
         
         PrimerDesign.window.remove(PrimerDesign.temperature);
@@ -204,11 +215,11 @@ public class FinalTemperaturePanel extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JLabel forwardPrimerNameLabel1;
     private javax.swing.JTextArea forwardPrimerTextArea;
+    private javax.swing.JTextPane gzPane;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel meltTempLabelForward;
     private javax.swing.JLabel meltTempLabelReverse;
     private javax.swing.JLabel meltTempNameLabelL;

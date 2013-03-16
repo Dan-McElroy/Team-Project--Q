@@ -143,25 +143,29 @@ public class Sequence {
         String strand;
         int instances = 0;
         ArrayList<Integer> startPoints = new ArrayList<Integer>();        
-        char start = p.getCode().charAt(0);
+        char cStart = p.getCode().charAt(0);
+        //System.out.println(p.getCode());
         if (s == 'o' && cStrand.contains(p.getCode()))
             return new TestResult(PassState.FAIL, "Primer appears on"
                     + " the wrong strand.");
-        if (s == 'c' && oStrand.contains(p.getCode()))
+        if (s == 'c' && oStrand.contains(Primer.reverse(p.getCode())))
             return new TestResult(PassState.FAIL, "Primer appears on"
                     + " the wrong strand.");
         //Original strand search
         if (s == 'o') strand = oStrand;
-        else strand = cStrand;
+        else {
+            strand = cStrand;
+            p.setCode(Primer.reverse(p.getCode()));
+        }
         for (int i = 0; i < strand.length(); i++) {
-            if (strand.charAt(i) == p.getCode().charAt(0))
+            if (strand.charAt(i) == cStart)
                 if (p.matches(i, strand)) {
                     startPoints.add(i);
                     instances++;
                 }
         }
         if (instances == 0 && s == 'c') {
-            Primer r = new Primer(p.reverse(p.getCode()));
+            Primer r = new Primer(p.getCode());
             for (int i = 0; i < strand.length(); i++) {
                 if (strand.charAt(i) == r.getCode().charAt(0))
                     if (p.matches(i, strand)) {
@@ -172,8 +176,10 @@ public class Sequence {
         }
         if (instances == 1) {
             int point = startPoints.get(0);
-            int diff = start - point;  
-            if (diff >= 15 && diff <= 30)
+            int diff;
+            if (s == 'o') diff = (start - point);
+            else diff = -(end - (point + p.size()));
+            if (diff >= 0 && diff <= 100)
                 return new TestResult(PassState.PASS, "Primer is "
                         + "unique to the sequence, and is situated "
                         + "correctly.");
@@ -271,15 +277,14 @@ public class Sequence {
                     + " above the highest recommended difference of 3\u2103");
         else
             return new TestResult(PassState.PASS, "Your primers are"
-                    + "within 3\u2013C of each other.");
+                    + " within 3\u2103 of each other.");
     }
     
     public TestResult primerTest() {
         TestResult test = new TestResult(PassState.PASS, "");
         TestResult fTest = fPrimer.test(); fTest.add(isUnique(fPrimer, 'o'));
         TestResult rTest = rPrimer.test(); rTest.add(isUnique(rPrimer, 'c'));
-        TestResult paTest = fPrimer.pairAnneal(rPrimer);
-        if (fTest.acceptable() && rTest.acceptable() && paTest.passes()
+        if (fTest.acceptable() && rTest.acceptable() && fPrimer.pairAnneal(rPrimer).passes()
                 && tempDifference().passes()){ test.add("Congratulations, your"
                         + " primers meet all the design requirements!");
                 return test;
@@ -287,48 +292,12 @@ public class Sequence {
         test.add("Your primers haven't met the requirements in the "
                 + "following areas:\n");
             test.add("Forward Primer:");
-            test.addQuiet(fPrimer.test());
-            test.add("Reverse Primer:");
-            test.addQuiet(rPrimer.test());
-            test.add("General:");
+            test.addFull(fTest);
+            test.add("\nReverse Primer:");
+            test.addFull(rTest);
+            test.add("\nGeneral:");
             test.add(tempDifference());
-            test.add(paTest);
+            test.add(fPrimer.pairAnneal(rPrimer));
         return test;
-        /*
-        TestResult test;
-        TestResult fTest = new TestResult(true, "Forward Primer:\t\n#");
-        fTest.add(fPrimer.test());
-        fTest.add(fPrimer.isUnique(oStrand, cStrand)); //better than whole Seq
-        TestResult rTest = new TestResult(true, "\nReverse Primer:\t\n#");
-        rTest.add(rPrimer.test());
-        rTest.add(rPrimer.isUnique(oStrand, cStrand));
-        if (fTest.getPass() && rTest.getPass() 
-                && fPrimer.pairAnneal(rPrimer).getPass()
-                && tempDifference().getPass())
-            test = new TestResult(true, "Congratulations, your primers work!");
-        else {
-            test = new TestResult(true, "Sorry, your primers do not meet the " +
-                    "following requirements:\n\n");
-            if (!fTest.getPass()) test.add(fTest);
-            if (!rTest.getPass()) test.add(rTest);
-            if (!fPrimer.pairAnneal(rPrimer).getPass()) {
-                test.add(new TestResult(true, "General:\n"));
-                test.add(fPrimer.pairAnneal(rPrimer));
-                test.add(tempDifference());
-            }
-        }
-        
-        return test;
-        */
     }
-    /*public static void main(String[] args) {
-        Sequence s = new Sequence(args[0]);
-        System.out.println("Sequence:\n" + s);
-        Primer p = new Primer(s.getCStrand());
-        System.out.println("Primer:\n" + p);
-        TestResult t = p.test();
-        System.out.println("Test Result:\n" + t);
-        
-    }
-    */
 }

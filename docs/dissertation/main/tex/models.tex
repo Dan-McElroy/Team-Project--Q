@@ -1,24 +1,48 @@
 %- 3 objects, Sequence, Primer, TestResult
 %Basic in construction, all classes have toStrings and booleans.
 
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{./images/currentBuild/modelClassDiagram.png}
+    \caption{
+      \label{fig:currentBuild:model}
+      Model Class Diagram 
+    }
+  \end{center}
+\end{figure}
 
 The models used in the application are few in number and very simple, BLAH BLAH BLAH BLAH
 
-We used three model classes, Primer, TestResult and Sequence.
+As seen in Figure \ref{fig:currentBuild:model}, we used three classes to represent the data:
+Primer, TestResult and Sequence.
 
 \paragraph{Primer}
-The Primer class is purely designed to test user-designed primers. It has one attribute, \verb£code£, the String representing the user's primer
-which is tested against in the primer test methods, which make up the remainder of the primer. The class is primarily made up of methods designed
-to test \verb£code£ against the various rules described in Section \ref{intro:prelims}. The method \verb£test()£ gathers runs all above test methods
-and returns a larger TestResult, indicating if the user's Primer is adequate outside of the larger context of the sequence.
+The Primer class is purely designed to test user-designed primers. It has 
+one attribute, \texttt{code}, the String representing the user's primer
+which is tested against in the primer test methods, which make up the 
+remainder of the primer. The class is primarily made up of methods 
+designed to test \texttt{code} against the various rules described in Section 
+\ref{intro:prelims}. The method \texttt{test()} gathers runs all above test 
+methods and returns a larger TestResult, indicating if the user's Primer 
+is adequate outside of the larger context of the sequence.
 
 \paragraph{TestResult}
-TestResult is a class used to format the output of one or multiple primer tests. TestResult uses an enumerated type called PassState with values
-\verb£PASS£, \verb£FAIL£ and \verb£CLOSEFAIL£, the last of which describes a state where the primer's value from a test lies outside of the recommended
-values, but is close enough to a pass to be acceptable, provided this is only the state of a minority of tests. TestResult uses two ArrayLists, one of
-PassStates (\verb£passes£) and another of Strings (\verb£out£), to keep track of the state and informative message to be displayed to the user for each test. Its methods are concerned with concatenating results into larger TestResults. \verb£perfect()£ will return true if all entries in \verb£passes£ equal a \verb£PASS£.
-\verb£adequate()£, the method that is checked to gate the user's access past the Primer Selection panel returns false if any of the tests returned \verb£{FAIL}£,
-or if more than 60\% returned \verb£CLOSEFAIL£, and returns true otherwise.
+TestResult is a class used to format the output of one or multiple primer 
+tests. TestResult uses an enumerated type called PassState with values
+\texttt{PASS}, \texttt{FAIL} and \texttt{CLOSEFAIL}, the last of which describes 
+a state where the primer's value from a test lies outside of the recommended
+values, but is close enough to a pass to be acceptable, provided this is 
+only the state of a minority of tests. TestResult uses two ArrayLists, one of
+PassStates (\texttt{passes}) and another of Strings (\texttt{out}), to keep track 
+of the state and informative message to be displayed to the user for each 
+test. 
+
+Its methods are concerned with concatenating results into larger 
+TestResults. \texttt{perfect()} will return true if all entries in 
+\texttt{passes} equal a \texttt{PASS}. \texttt{adequate()}, the method that is 
+checked to gate the user's access past the Primer Selection panel returns 
+false if any of the tests returned 	exttt{FAIL}, or if more than 60\% 
+returned \texttt{CLOSEFAIL}, and returns true otherwise.
 
 %Sequence:
 %2 strings to represent each strand of the sequence, ints to represent the start and end of the desired PART of that sequence, 2 Primer objects.
@@ -27,6 +51,18 @@ or if more than 60\% returned \verb£CLOSEFAIL£, and returns true otherwise.
 %of both primers, primerTest combines all methods that return a TestResult and produce an overall TestResult, the toString of which should be
 %shown in the Primer Evaluation Dialog.
 \paragraph{Sequence}
-This class contains two Strings, \verb£oStrand£ and \verb£cStrand£, representing the strand of DNA that the user took in and the ''complementary'' strand that
-is generated when the sequence is constructed. Integers \verb£start£ and \verb£end£ represent the indexes of the start and end of the selected area in the
-sequence.
+This class contains two Strings, \texttt{oStrand} and \texttt{cStrand}, 
+representing the strand of DNA that the user took in and the ''complementary''
+strand that is generated when the sequence is constructed. Integers 
+\texttt{start} and \texttt{end} represent the indexes of the start and end of 
+the selected area in the sequence, and Primers \texttt{fPrimer} and 
+\texttt{rPrimer} are, obviously, representations of the user's primers.
+ 
+\texttt{parser()} is used for both sequence entry and primer input, by taking in
+a String and returning a new String with all non-\texttt{atgc} characters removed.
+\texttt{complement()} is a very simple function used throughout the application
+that takes in one character representing a base, and returns its complement, i.e.
+\texttt{complement('a')} would return \texttt{t}. \texttt{isUnique()} and \texttt{
+tempDifference()} check the user's primers against the rules concerned with the
+larger Sequence. \texttt{primerTest()} uses all other test methods to return a
+TestResult in accordance with the  																										% phrasing?

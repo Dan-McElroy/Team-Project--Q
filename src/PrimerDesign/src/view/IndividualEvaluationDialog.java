@@ -4,6 +4,16 @@
  */
 package view;
 
+import controller.PrimerDesign;
+import java.awt.Color;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
+import model.TestResult;
+import model.TestResult.PassState;
+
 /**
  *
  * @author Robert
@@ -15,7 +25,55 @@ public class IndividualEvaluationDialog extends javax.swing.JDialog {
      */
     public IndividualEvaluationDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        TestResult test;
+        if (PrimerDesign.primerSelect.useF) {
+            test = PrimerDesign.primerSelect.fTest;
+        }
+        else {
+            test = PrimerDesign.primerSelect.rTest;
+        }
         initComponents();
+        
+        StyleContext sc = new StyleContext();
+        Style defaultStyle = sc.getStyle(StyleContext.DEFAULT_STYLE);
+        
+        final DefaultStyledDocument doc = new DefaultStyledDocument(sc);
+        
+        final Style passStyle = sc.addStyle("PassStyle", defaultStyle);
+        StyleConstants.setFontFamily(passStyle, "monospaced");
+        StyleConstants.setForeground(passStyle, Color.GREEN);
+        
+        final Style closeFailStyle = sc.addStyle("CloseFailStyle", defaultStyle);
+        StyleConstants.setFontFamily(closeFailStyle, "monospaced");
+        StyleConstants.setForeground(closeFailStyle, Color.ORANGE);
+        
+        final Style failStyle = sc.addStyle("FailStyle", defaultStyle);
+        StyleConstants.setFontFamily(failStyle, "monospaced");
+        StyleConstants.setForeground(failStyle, Color.RED);        
+        
+        doc.setLogicalStyle(0, defaultStyle);
+        try {doc.insertString(0, test.toString(), null);}
+        catch(BadLocationException e) {}
+        
+        infoTextPane.setDocument(doc);
+        
+        int strIndex = 0, i, length;
+        for (i = 0; i < test.size(); i++) {
+            length = test.getOut(i).length();
+            if (test.getPass(i) == PassState.PASS) {
+                doc.setCharacterAttributes(strIndex, length, passStyle, false);
+            }
+            else if (test.getPass(i) == PassState.CLOSEFAIL) {
+                doc.setCharacterAttributes(strIndex, length, closeFailStyle, false);
+            }
+            else if (test.getPass(i) == PassState.FAIL) {
+                doc.setCharacterAttributes(strIndex, length, failStyle, false);
+            }
+            else {
+                doc.setCharacterAttributes(strIndex, length, defaultStyle, false);
+            }
+            strIndex += length + 1;
+        }
     }
 
     /**
@@ -27,23 +85,23 @@ public class IndividualEvaluationDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        infoTextArea = new javax.swing.JTextArea();
         okButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        infoTextPane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        infoTextArea.setEditable(false);
-        infoTextArea.setColumns(20);
-        infoTextArea.setRows(5);
-        jScrollPane1.setViewportView(infoTextArea);
-
         okButton.setText("OK");
+        okButton.setMaximumSize(new java.awt.Dimension(43, 29));
+        okButton.setMinimumSize(new java.awt.Dimension(43, 29));
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
+
+        infoTextPane.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(infoTextPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,21 +109,21 @@ public class IndividualEvaluationDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(329, 329, 329)
-                .addComponent(okButton)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE)
+                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(325, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(okButton)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,28 +138,6 @@ public class IndividualEvaluationDialog extends javax.swing.JDialog {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IndividualEvaluationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IndividualEvaluationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IndividualEvaluationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IndividualEvaluationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -118,13 +154,9 @@ public class IndividualEvaluationDialog extends javax.swing.JDialog {
         });
     }
     
-    public void setText(String s) {
-        infoTextArea.setText(s);
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea infoTextArea;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane infoTextPane;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 }
