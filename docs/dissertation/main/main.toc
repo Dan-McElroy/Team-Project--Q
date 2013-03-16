@@ -1,47 +1,50 @@
-\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}
-\contentsline {section}{\numberline {1.1}Preliminaries}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Aims}{5}{section.1.2}
-\contentsline {section}{\numberline {1.3}Background}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}Motivation}{6}{section.1.4}
-\contentsline {subsubsection}{Current Systems}{7}{section*.3}
-\contentsline {chapter}{\numberline {2}Design}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}Requirements}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}UI}{8}{section.2.2}
-\contentsline {chapter}{\numberline {3}Implementation}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Team Distribution}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}User Interface}{9}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Programming Language}{10}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}GUI Framework}{10}{subsection.3.2.2}
-\contentsline {subsubsection}{Swing}{10}{section*.4}
-\contentsline {subsubsection}{JavaFX}{10}{section*.5}
-\contentsline {subsubsection}{Decision}{11}{section*.6}
-\contentsline {subsection}{\numberline {3.2.3}IDE}{11}{subsection.3.2.3}
-\contentsline {subsubsection}{Netbeans}{11}{section*.7}
-\contentsline {subsubsection}{Eclipse}{11}{section*.8}
-\contentsline {subsubsection}{No IDE}{12}{section*.9}
-\contentsline {subsubsection}{Decision}{12}{section*.10}
-\contentsline {subsection}{\numberline {3.2.4}Builds}{12}{subsection.3.2.4}
-\contentsline {subsubsection}{Demo Build}{13}{section*.11}
-\contentsline {paragraph}{Splash}{13}{section*.12}
-\contentsline {paragraph}{Sequence Entry}{13}{figure.3.2}
-\contentsline {paragraph}{Target Selection}{14}{figure.3.3}
-\contentsline {paragraph}{Primer Design}{15}{section*.15}
-\contentsline {paragraph}{Melting Temperature}{16}{section*.16}
-\contentsline {subsubsection}{Current Build}{17}{section*.17}
-\contentsline {paragraph}{Overview}{17}{section*.18}
-\contentsline {paragraph}{Sequence Entry}{17}{figure.3.8}
-\contentsline {paragraph}{Target Selection}{18}{figure.3.9}
-\contentsline {paragraph}{Primer Design}{18}{figure.3.10}
-\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{20}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Models}{20}{subsection.3.3.1}
-\contentsline {paragraph}{Primer}{20}{section*.22}
-\contentsline {paragraph}{TestResult}{20}{section*.23}
-\contentsline {paragraph}{Sequence}{21}{section*.24}
-\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{21}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Other Methods}{23}{subsection.3.3.3}
-\contentsline {subsubsection}{Dynamic Primer Highlighting}{23}{section*.25}
-\contentsline {chapter}{\numberline {4}Evaluation}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}Testing}{24}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Demonstration}{24}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Questionnaire}{24}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Preliminaries}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Aims}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Background}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}Motivation}{7}{section.1.4}
+\contentsline {subsubsection}{Current Systems}{8}{section*.3}
+\contentsline {chapter}{\numberline {2}Design}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Requirements}{9}{section.2.1}
+\contentsline {subsubsection}{Inital Requirements Gathering}{9}{section*.4}
+\contentsline {subsubsection}{Design Feedback}{10}{section*.5}
+\contentsline {subsubsection}{Implementation Feedback}{10}{section*.6}
+\contentsline {section}{\numberline {2.2}UI}{10}{section.2.2}
+\contentsline {chapter}{\numberline {3}Implementation}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Team Distribution}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}User Interface}{11}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Programming Language}{12}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}GUI Framework}{12}{subsection.3.2.2}
+\contentsline {subsubsection}{Swing}{12}{section*.7}
+\contentsline {subsubsection}{JavaFX}{12}{section*.8}
+\contentsline {subsubsection}{Decision}{13}{section*.9}
+\contentsline {subsection}{\numberline {3.2.3}IDE}{13}{subsection.3.2.3}
+\contentsline {subsubsection}{Netbeans}{13}{section*.10}
+\contentsline {subsubsection}{Eclipse}{13}{section*.11}
+\contentsline {subsubsection}{No IDE}{14}{section*.12}
+\contentsline {subsubsection}{Decision}{14}{section*.13}
+\contentsline {subsection}{\numberline {3.2.4}Builds}{14}{subsection.3.2.4}
+\contentsline {subsubsection}{Demo Build}{15}{section*.14}
+\contentsline {paragraph}{Splash}{15}{section*.15}
+\contentsline {paragraph}{Sequence Entry}{15}{figure.3.2}
+\contentsline {paragraph}{Target Selection}{16}{figure.3.3}
+\contentsline {paragraph}{Primer Design}{17}{section*.18}
+\contentsline {paragraph}{Melting Temperature}{18}{section*.19}
+\contentsline {subsubsection}{Current Build}{19}{section*.20}
+\contentsline {paragraph}{Overview}{19}{section*.21}
+\contentsline {paragraph}{Sequence Entry}{19}{figure.3.8}
+\contentsline {paragraph}{Target Selection}{20}{figure.3.9}
+\contentsline {paragraph}{Primer Design}{20}{figure.3.10}
+\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{22}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Models}{22}{subsection.3.3.1}
+\contentsline {paragraph}{Primer}{22}{section*.25}
+\contentsline {paragraph}{TestResult}{22}{section*.26}
+\contentsline {paragraph}{Sequence}{23}{section*.27}
+\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{23}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Other Methods}{25}{subsection.3.3.3}
+\contentsline {subsubsection}{Dynamic Primer Highlighting}{25}{section*.28}
+\contentsline {chapter}{\numberline {4}Evaluation}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testing}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Demonstration}{27}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Questionnaire}{27}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5}Conclusion}{28}{chapter.5}
