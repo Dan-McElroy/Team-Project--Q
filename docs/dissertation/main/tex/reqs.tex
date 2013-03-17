@@ -34,6 +34,7 @@ were given the Molecular Methods lab book, in order to see how Primer
 Design is currently taught in the course and get a better idea of how
 it worked ourselves.
 % TALK ABOUT MOL METHODS BOOK, WHAT COULD BE IMPROVED.
+%---------------------------------------------------------------------------------------------DON'T FORGET ABOUT THIS BROSSOLINI
 
 Finally, within the first two or three meetings we were sent links to
 various multimedia teaching tools for Primer Design, as described in
@@ -46,32 +47,38 @@ From these first few weeks of meetings with the clients, we drafted a
 requirements document, which was presented to the clients and agreed upon,
 and presented the following requirements:
 
-\textbf{System Scope}
+\t\textbf{System Scope}
 \begin{itemize}
-\item{The main aim of this system is to act as a teaching tool to aid students in learning how to design
-primers for PCR experiments and should be usable in a teaching environment or by people on their
-home computers.}
-\item{It should function as an interactive, step-by-step guide through the process of PCR on a DNA sequence
-of the users choice. The user is required to access the NCBI website and copy and paste their choice
-of DNA sequence into the system. The system should provide feedback if the user enters incorrect
-primers. The system should then check if the melting temperatures of the primers are in the required
-range. The user is then given a link to perform primer blast to check if the primers they have chosen
-are unique.}
-\item{The system should also provide the user help with completing each task by providing relevant rules
-for each task and giving the user instructions about how to use websites and resources outwith the
-system (NCBI, primer blast etc.).}
-\item{When the user has provided an appropriate pair of primers the system will then show an animation of
-the PCR reaction taking place.}
+\item{The main aim of this system is to act as a teaching tool to aid 
+students in learning how to design primers for PCR experiments and 
+should be usable in a teaching environment or by people on their home 
+computers.}
+\item{It should function as an interactive, step-by-step guide through 
+the process of PCR on a DNA sequence of the users choice. The user is 
+required to access the NCBI website and copy and paste their choice
+of DNA sequence into the system. The system should provide feedback if 
+the user enters incorrect primers. The system should then check if the 
+melting temperatures of the primers are in the required range. The user
+is then given a link to perform primer blast to check if the primers 
+they have chosen are unique.}
+\item{The system should also provide the user help with completing each 
+task by providing relevant rules for each task and giving the user 
+instructions about how to use websites and resources outwith the system 
+(NCBI, primer blast etc.).}
+\item{When the user has provided an appropriate pair of primers the 
+system will then show an animation of the PCR reaction taking place.}
 \end{itemize}
-\textbf{Non-Functional Requirements}
+\t\textbf{Non-Functional Requirements}
 \begin{itemize}
-\item{The system is expected to be used at students’ homes or in the Biology lab computers, so
-portability is essential for the system to work to the clients’ expectations.}
+\item{The system is expected to be used at students’ homes or in the 
+Biology lab computers, so portability is essential for the system to 
+work to the clients’ expectations.}
 \end{itemize}
-
+We found that while several aspects of the system deviated from the
+document we were handed in the first meeting, the requirements largely
+stayed the same throughout.
 
 \subsubsection{Design Feedback}
-% Weekly meetings, reaffirming theory behind PCR and primer design
 % Produced several versions of user interface mockups
 Throughout the project, we maintained a weekly meeting schedule with our
 supervisor and clients, and despite scheduling difficulties at least one
@@ -84,9 +91,27 @@ Over the course of these meetings, the clients provided us with
 
 When the team had formed a solid idea of the layout and flow of the
 system, we drew up some early mockups of the system's user interface
-(discussed in further detail in Section \ref{impl:ui}
+(discussed in further detail in Section \ref{design:ui}) and presented
+them to the clients during 
+one of the weekly meetings %DATE IF POSSIBLE
+to get their feedback on the design and how they felt it met the 
+requirements. 
+
+We asked a number of questions related to both the user
+interface and our understanding of PCR, and found that they were largely
+satisfied with prototype design. This prototype did not feature the
+animation described in the requirements, but we received valuable feedback
+on the validity of the system described by the prototype as a teaching
+tool.
+
 
 \subsubsection{Implementation Feedback}
 % At weekly meetings during implementation, gave repeated demonstrations
 % Clients were always more than happy to provide a number of suggestions
 % and improvements in keeping with the requirements of the product.
+Once implementation was fully underway and the application had reached
+a demonstrable state, we began presenting our progress at the weekly client
+meetings. We received substantial feedback on how to change the UI and 
+how the primer checks were handled in order
+to best improve the product as a teaching tool, and to be as accurate to
+the primer design process as possible.  
