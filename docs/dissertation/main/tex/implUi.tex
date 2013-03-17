@@ -19,7 +19,7 @@ Swing or JavaFX would be the most suitable.
 
 Each member of the group had some limited experience with the Swing 
 framework, though not all of it had been positive.
-The experience each member of the team had with Swing varied, and
+Each member's experience of Swing varied, and
 although every member had agreed that their experience had not been
 entirely problem-free, we conceded that its integration with the Netbeans
 Integrated Development Environment (IDE), discussed in section
@@ -28,22 +28,22 @@ Integrated Development Environment (IDE), discussed in section
 However, on investigating the framework more closely it was clear that
 Swing was extremely well documented with full API specification
 \cite{swingAPI}, and in-depth tutorials \cite{swingTutorial}.
-This was a huge part of our decision as we felt that the documentation
-provided would be more than adequate to allow us to use the framework
-with relative comfort.
+This was a key element of our decision as we felt that the documentation
+provided would be more than adequate to enable us to use the framework
+with relative ease.
 
 %---------------------------------------------------------------------
 
 \subsubsection{JavaFX}
 \label{impl:ui:guiframework:javafx}
 
-Another framework considered was JavaFX which no member of the team
-had any experience with. 
-Some members felt that this was a risk worth taking, given how much
-they disliked Swing, discussed above.
+Another framework considered was JavaFX, with which no member of the team
+had any experience. 
+Some members felt that this was a risk worth taking, given the challenges
+faced in previous experiences with Swing.
 In reality, JavaFX was only briefly considered and totally disregarded
-when, upon brief investigation, JavaFX was still a relatively new
-framework, and consequently, comprehensive documentation was not as
+when, upon investigation, we discovered that JavaFX was still a relatively
+new framework, and consequently, comprehensive documentation was not as
 readily available for JavaFX as with Swing, particularly when it came 
 to troubleshooting on online forums.
 
@@ -68,14 +68,14 @@ regarding the two frameworks to the rest of the team.
 With this evidence the team voted in favor of using the Swing
 framework with Java 6.
 
-Retrospectively, Swing, and Java 6, are out-of-date technologies and
+Retrospectively, Swing and Java 6 are out-of-date technologies and
 JavaFX is now packaged with Java 7 \cite{javafxOverview}, so the
 application would have been more up-to-date or future-proof had we
 used JavaFX.
-Additionally, (some of) the computers in the level 3 lab now do have
+Additionally, many of the computers in the level 3 lab now do have
 Java 7 installed upon another project team requesting it, so our fears
 over development platform problems were nullified, though this was
-only after we had started development.
+only after we had started development and could not have been foreseen.
 
 It was an unfortunate shortcoming of the research into JavaFX that the
 group did not know about JavaFX's integration with the Netbeans IDE
@@ -111,7 +111,7 @@ had associated their problems with Swing with Netbeans itself.
 Upon further research, which involved using the IDE to build small
 applications, Netbeans started much faster than Eclipse, discussed
 below.
-And the design interface was very simple and easy to use, with each
+The design interface was also very simple and easy to use, with each
 element being laid out the way you wish and the associated source code
 being generated for you.
 This meant that the design layout could be finished very quickly,
@@ -217,7 +217,7 @@ application, as well as show the primer design rules to remind the
 user about them.
 This can be seen in figure \ref{fig:demoBuild:splash}.
 
-It's design is to maximise the separation of ideas, so the Overview
+Its design is to maximise the separation of concerns, so the Overview
 section is to the left, which due to the way English is read, is the
 more likely of the three sections to be read first, at least by fluent
 English readers.
@@ -250,16 +250,16 @@ team plan on maintaining the system for future use.
 
 Figure \ref{fig:demoBuild:sequenceEntry} shows the next panel,
 referred to by the team as the ``sequence entry'' panel.
-While based on the design discussed in section \ref{design:ui} it
+While based on the design discussed in Section \ref{design:ui} it
 has been altered slightly to maximise the amount of space to be used
 for entering in the sequence, as this is the primary purpose of this
 panel.
 
 It was expected of the user to go to the National Center for
-Biotechnology Information (NCBI) website and obtain a DNA sequence by
+Biotechnology Information (\cite{ncbi}) website and obtain a DNA sequence by
 copying it to their clipboard and then pasting this into the sequence
 entry panel and this was explained in the accompanying user guide
-(appendix \ref{app:userGuideDemo}).
+(Appendix \ref{app:userGuideDemo}).
 Although this relied heavily on the users' ability to use keyboard
 shortcuts, it was assumed that all students at university level would
 at least have an awareness of these shortcuts.
@@ -282,28 +282,27 @@ them.
 \end{figure}
 
 Following the Sequence Entry panel is the ``Area Selection'' or
-``Target Selection'' panel, seen in figure
+``Target Selection'' panel, shown in figure
 \ref{fig:demoBuild:areaSelection}, which requires the user to specify
 the ``target'' sequence, ie the desired output sequence of the PCR
 process.
-This is accomplished by the user entering the start of the sequence
-that they want and the end of the sequence they want, both by the
-index of that base in the sequence, into the ``From'' and ``To''
-fields at the bottom of the panel.
+This is accomplished by the user entering the start and end of the 
+required area of the sequence index of these bases, into the ``From'' 
+and ``To'' fields at the bottom of the panel.
 
-This would, ideally, be helped by the text pane at the left of the
-screen which shows the base number of the first base on its line.
-Unfortunately, for an unknown reason, the text panes became misaligned
-when viewed from any platform other than the one we were using for
-development (the level 3 Computing Science Laboratory computers
+Finding the indices would, ideally, be aided by the text pane at the 
+left of the screen which shows the base number of the first base on its 
+line. Unfortunately, for unknown reasons, the text panes became 
+misaligned when viewed from any platform other than the current 
+development platform(the level 3 Computing Science Laboratory computers
 running Scientific Linux) and this misalignment can be seen in figure
 \ref{fig:demoBuild:areaSelection}.
 
-An addition made to the original design discussed in section
+An addition made to the original design discussed in Section
 \ref{design:ui} is the tabs above the main text area, which allow the
 user to switch between the sequence they entered, and its
 complementary equivalent, generated by the program
-It was a suggestion by the clients to have this feature as it would
+It was suggested by the clients to have this feature as it would
 greatly increase the speed at which the user could design the reverse
 primer.
 Without the complementary tab, not only would the user have to
@@ -330,7 +329,7 @@ user to enter forward and reverse primers.
 \end{figure}
 
 One of the design features we had intended to provide was ``dynamic
-highlighting'', as it was referred to by the team, which was going to
+highlighting'' - as it was referred to by the team - which was going to
 provide a highlight around what the user enters into the primer text
 fields.
 This highlighting was unfortunately missing in the demo build due to
@@ -369,7 +368,7 @@ the user can simply copy and paste a primer of their choosing from the
 sequence and put it in the reverse primer text field.
 However, this does not solve the problem of reversing it, so the
 ``Reverse'' button was put next to the reverse primer text field,
-which, intuitively, reverses the order of the primer in the text
+which intuitively reverses the order of the primer in the text
 field. 
 
 At the bottom of the panel in the middle of the ``Back'' and ``Next''
@@ -410,8 +409,8 @@ unless they had a correct primer.
 \end{figure}
 
 In terms of design, the initial design proved to be near-impossible to
-reproduce in Swing and make it look professional and after several
-iterations became what it is.
+reproduce in Swing while maintaining a professional aesthetic style, 
+and after several iterations evolved into its current state.
 The emphasis on the primers and the melting temperatures in bold means
 that the user can easily see their primers and the associated melting
 temperatures, while the separator down the center visually separates
@@ -430,10 +429,10 @@ and adding new elements to provide extra functionality, the current
 build is several iterations ahead of the demo build discussed above
 and is currently available to all Molecular Methods students.
 
-While there have been many changes to the build in this time, not much
-has been changed in terms of the UI as most feedback about it at the
+While there have been many changes to the build in this time, there
+have been few alterations to the UI as most feedback about it at the
 demonstration was positive.
-Most changes stem from either additional requirements or from the
+Most changes stem from evolving requirements or from the
 demonstration feedback.
 
 \paragraph{Overview}
@@ -441,7 +440,7 @@ The overview screen (seen in figure \ref{fig:demoBuild:splash})
 changed only because of the addition of the menu bar, discussed
 below.
 It was felt that this needed very little change, if any, from the demo
-build and is therefore the same as the demo build version in almost
+build and is therefore identical to the demo build version in almost
 every respect.
 
 \paragraph{Sequence Entry}
@@ -460,24 +459,27 @@ In terms of changes made after the demo build, this panel is similar
 to the Overview panel above in that neither have been changed to any
 significant degree.
 
-Though, as can be seen in figure \ref{fig:currentBuild:sequenceEntry}
+However, as can be seen in figure \ref{fig:currentBuild:sequenceEntry}
 there have been some minor changes.
 
-Firstly, the menu bar at the top of the panel, which was added to
+\begin{itemize}
+\item The menu bar at the top of the panel, which was added to
 address the issue of people not being familiar with keyboard
 shortcuts.
 The menu itself was named ``Edit'' to conform to standards set by most
 applications with menu bars in that the ``Copy'' and ``Paste''
 features are usually found under the ``Edit'' menu.
 
-Lastly, the ``Back'' button on this panel which was not present for
+\item The ``Back'' button on this panel which was not present for
 the demo build.
-For the demo build, it felt unnecessary to have a back button since
-any information that people would actually need to use the program is
-available throughout the application (ie Primer Design Rules is
-available on Primer Design panel, NCBI website is given to user in the
-instructions at top of panel).
-However, the clients asked that we put the ``Back'' button in.
+For the demo build, the inclusion of a back button felt unnecessary as
+any information that users would require in order to use the 
+program is available throughout the application (for example, Primer Design 
+Rules is available on Primer Design panel, and the NCBI website \cite{ncbi}
+is given to user in the instructions at top of panel).
+However, the clients felt the ``Back'' button was a necessary inclusion, and
+we were more than happy to differ to their insight.
+\end{itemize}
 
 \paragraph{Target Selection}
 
@@ -492,20 +494,21 @@ However, the clients asked that we put the ``Back'' button in.
 \end{figure}
 
 While the interface of the Target Selection panel may not have changed
-(much) from the demo build, the way a user pulls their desired
-sequence has changed to make the process much easier.
+drastically from the demo build, the way a user selects their desired
+area of the sequence has changed to make the process much easier.
 
 Previously, as discussed in section \ref{fig:demoBuild:areaSelection},
-the user would have to find the indexes of the start and end of the
+the user would have to find the indices of the start and end of the
 sequence they wanted to copy.
 Now, as can be seen in figure \ref{fig:currentBuild:areaSelection},
-the user simply has to highlight the desired sequence and the indexes
+the user simply has to highlight the desired sequence and the indices
 are calculated automatically.
 This change means that users do not have to depend on the unreliable
 line numbers, and can focus instead on the actual sequence.
-It also provides a visual way of seeing where your sequence is,
-without having to switch between this and the next panel, which was
-one of the issues brought up in the demonstration (see section
+It also provides a clearer visual reference to the user's sequence,
+without the need to switch between this and the next panel, which was
+one of the issues brought up in the demonstration (see Se
+ction
 \ref{eval:demo}).
 
 \paragraph{Primer Design}
@@ -524,22 +527,21 @@ Primer design received a lot of attention in that it received the
 majority of new features in the application since the demo build.
 
 Firstly, a feature referred to by the team as ``dynamic highlighting''
-which, when a user types in a sequence to the primer text fields,
-highlights that sequence within the whole sequence and this can be
+which, when a user enters a sequence of characters primer text fields,
+highlights that area within the larger sequence. This can be
 seen in figure \ref{fig:currentBuild:forwardPrimerDesignRed}.
-Initially, this highlighting was going to be a single colour simply to
-help the user see if the primer is unique to the sequence, and so that
-they can visualise where the primer is within the sequence.
+Initially, this highlighting was going to consist of a single colour, 
+simply to help the user see if the primer is unique to the sequence, 
+and so that they can visualise where the primer is within the sequence.
 The lack of visual aids in the demo build was something we strove to
 rectify especially after the feedback from the demonstration (section
 \ref{eval:demo}).
-To this end we also made the highlight change colour depending on the
-correctness of the primer, how this is decided is discussed in section
-\ref{impl:models:dynHigh}.
-This can be seen in figure
-\ref{fig:currentBuild:forwardPrimerDesignRed} with an incorrect
-primer, and figure \ref{fig:currentBuild:forwardPerfectPrimer} with a
-perfect primer.
+To this end, we also made the highlighted area change colour depending 
+on the correctness of the primer. How this is decided is discussed in 
+section \ref{impl:models:dynHigh}.
+This can be seen in figure \ref{fig:currentBuild:forwardPrimerDesignRed} 
+with an incorrect primer, and figure \ref{fig:currentBuild:forwardPerfectPrimer} 
+with a perfect primer.
 
 \begin{figure}[h]
   \begin{center}
