@@ -50,4 +50,74 @@ given a standard formula for calculating the temperature at which a primer
 would melt (2*sum(\verb£a, t£) + 4*sum\verb£a, t£) and the desired range
 in which a primer should rest.
 
+\subsubsection{Annealing}
+
+As mentioned in Section \ref{intro:prelims}, there is an increased
+chance of primer annealing happening if it is possible for a pair of
+primers (or a single primer folding over on itself) to line up in such a
+way as to produce 4 or more consecutive complementary bases between the
+primers (or the two sections of a folded over primer). To aid with the
+implementation of both the Self Annealing check and the Pair Annealing
+check a function called \texttt{checkMatches()} was created. This function
+takes in two primer subsequences (as strings) and returns the highest 
+number of consecutive complementary bases in the two sequences.
+
+\subsubsection{Self Annealing}
+
+As described above, our \texttt{checkMatches} function compares
+complementary bases between two strings. Therefore, to use this function
+to check for annealing between two ends of a single primer the primer
+has to be split into two strings. To keep track of the index where the
+primer has been split there is a variable, \texttt{split}.
+
+The main body of the function is a while loop which calls
+\texttt{checkMatches()} on the two sections of the primer which are
+separated by \texttt{split} then increments \texttt{split} and if loops
+again if \texttt{split} is at least 4 positions away from the end of the
+primer. During this process the highest result from the
+\texttt{checkMatches()} calls is recorded and this is used to determine
+wether or not the primer is likely to self-anneal.
+
+\subsubsection{Pair Annealing}
+
+This function works in a similar fashion to the Self Anneal checking
+method in that it compares the two primers in every possible alignment
+and stores the highest number of matches.
+
+The difference here is how the strings which are sent to the
+\texttt{checkMatches()} function are selected. In the
+\texttt{pairAnneal()} function this is done in three separate while
+loops. The first while loop checks all possible alignments when the
+shorter primer overlaps the longer one at the start, for example:
+\begin{verbatim}
+       agtcatcg
+    acatca
+\end{verbatim}
+The second while loop checks the alignments when the shorter primer does
+not overlap either end of the longer primer, for example:
+\begin{verbatim}
+     agatcgattgcagt
+        agctaac
+\end{verbatim}
+And the third while loop checks the alignments when the shorter primer
+overlaps the longer primer at the end:
+\begin{verbatim}
+     agtacgtaggtc
+            tccagtac
+\end{verbatim}
+Once every possible alignment has been checked, the function uses the
+highest number of matches to evaluate the likelyhood of the primers
+annealing to each other.
+
+
+
+
+
+
+
+
+
+
+
+
 
