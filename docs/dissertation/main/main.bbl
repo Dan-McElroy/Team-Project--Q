@@ -4,6 +4,14 @@
 Emacs website.
 \newblock \url{http://www.gnu.org/software/emacs/}.
 
+\bibitem{freeOnlineSurveys}
+Freeonlinesurveys website.
+\newblock \url{http://www.freeonlinesurveys.com/}.
+
+\bibitem{googleDocsForms}
+Google docs overview.
+\newblock \url{http://www.google.com/drive/start/apps.html}.
+
 \bibitem{javaProgramming2}
 Java programming 2 moodle site.
 \newblock \url{http://fims.moodle.gla.ac.uk/course/view.php?id=162}.
@@ -18,6 +26,10 @@ ml}.
 {{JavaFX}} overview.
 \newblock \url{http://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm}.
 
+\bibitem{surveyMonkey}
+Surveymonkey website.
+\newblock \url{http://www.surveymonkey.com/}.
+
 \bibitem{swingTutorial}
 Trail: Creating a gui with jfc/swing.
 \newblock \url{http://docs.oracle.com/javase/tutorial/uiswing/}.
@@ -25,6 +37,12 @@ Trail: Creating a gui with jfc/swing.
 \bibitem{vim}
 Vim website.
 \newblock \url{http://www.vim.org/index.php}.
+
+\bibitem{Lethbridge}
+Timothy C.Lethbridge and Robert Laganiere.
+\newblock {\em Object-Oriented Software Engineering: Practical Software
+  Development using UML and Java, Second Edition}.
+\newblock McGraw Hill, second edition, 2005.
 
 \bibitem{gamingRedefines2004}
 Nick DeKanter.

@@ -44,12 +44,6 @@ checked to gate the user's access past the Primer Selection panel returns
 false if any of the tests returned 	exttt{FAIL}, or if more than 60\% 
 returned \texttt{CLOSEFAIL}, and returns true otherwise.
 
-%Sequence:
-%2 strings to represent each strand of the sequence, ints to represent the start and end of the desired PART of that sequence, 2 Primer objects.
-%
-%Complement method taking a base and returning its complement, isUnique tests if primer is unique (durr), tempDifference compares the temperature
-%of both primers, primerTest combines all methods that return a TestResult and produce an overall TestResult, the toString of which should be
-%shown in the Primer Evaluation Dialog.
 \paragraph{Sequence}
 This class contains two Strings, \texttt{oStrand} and \texttt{cStrand}, 
 representing the strand of DNA that the user took in and the ''complementary''

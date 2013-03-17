@@ -2,13 +2,13 @@ The 'Primer Checks' methods are implementations of the established rules
 and guidelines which are used in the process of Primer Design (seen in
 the preliminaries section) to evaluate the effectiveness of a given 
 Primer when used in the PCR process.
-\\ \\
+
 As with many other aspects of the project, the primer checks were split
 between the two members of the 'back-end' sub-team. As well as making
 this task more manageable, this approach offered the added benefit of
 limiting the researching of primer design rules to 2 members, who each
 only had to learn how to apply about 4 methods each.
-\\ \\
+
 The complexity of these rules varied greatly in difficulty, from
 trivial checks such as “Primers should end in a base 'g' or 'c'” to
 challenging checks such as checking how likely it is that one end of a
@@ -16,27 +16,38 @@ primer  will anneal to the other. The majority of these methods fell
 into the first category and were fairly straightforward to implement,
 however,  implementing the more difficult methods posed a serious
 challenge.
-\\ \\
+
 Firstly, none of the members of the team had any experience with PCR or
 Primer Design prior to the start of the project so every rule had to be
 thoroughly studied and understood before beginning to design the
 methods. However, even after spending time learning how the design
 rules and guidelines are used, some methods still proved problematic.
-\\ \\
-***NEED SECTIONS FOR THE INTERESTING/DIFFICULT METHODS***
-%\item The primer must not self-anneal. This means that if the primer were to fold in on itself in any way that more than 3 bases in a row on one side %paired to the base on the opposite side, the primer would fold over and become useless.
-%\item The melting temperature, calculated in degrees Celsius using a simple mathematical formula involving the frequency of \verb£a£s, \verb£t£s, \verb£g£s %and \verb£c£s, must be between 50 and 65°C, and within 2-3°C of each other.
-%\item It must be unique within the strand.
-%\item The length should be between 20 and 30 bases.
-%\item The same base should not be repeated several times in a row.
-%\item The last base of the primer should be either a \verb£g£ or a \verb£c£.
-%\item The primers should not anneal to each other. This means that the rule is broken if, at any point in the overlap of the primers, more than 3 bases in %a row paired with the overlapping primer’s base.
-Several of these methods were trivial to implement, including \verb£gc£ 
-percentage, appropriate primer length
-\\ \\
+
+\subsubsection{Melting Temperature}
+The melting temperature check was among the easiest to implement, as we
+were given a standard formula for calculating the temperature at which a 
+primer would melt (\texttt{2*sum(a, t) + 4*sum(a, t)}) and the desired 
+range in which a primer should rest (between roughly 50\degree C and 
+60\degree C).
+
+\subsubsection{Uniqueness}
+To check that the primer is correctly placed in the system, it is first checked
+that the primer cannot be found in the wrong strand (ie. that the forward
+primer cannot be found on the complementary strand). When this is confirmed,
+it is then checked that the correct strand contains one and only one instance
+of the primer, and then that this instance is positioned correctly, relative
+to the area of the sequence to be replicated.
+
+\subsubsection{Primer Content}
+Many of the primer rules were trivial to implement in the system, given
+the string representation of a primer. Such rules include ensuring the
+length of the primer lies between 20 and 30 bases, checking the last base
+of a primer and confirming that no base is repeated more than 4 times
+in a row. 
+
 The melting temperature was among the easiest to implement, having been
 given a standard formula for calculating the temperature at which a primer
 would melt (2*sum(\verb£a, t£) + 4*sum\verb£a, t£) and the desired range
 in which a primer should rest.
-\\ \\
+
 
