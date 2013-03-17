@@ -12,57 +12,66 @@
 \contentsline {subsubsection}{Design Feedback}{10}{section*.7}
 \contentsline {subsubsection}{Implementation Feedback}{11}{section*.8}
 \contentsline {section}{\numberline {2.2}UI}{11}{section.2.2}
-\contentsline {chapter}{\numberline {3}Implementation}{12}{chapter.3}
-\contentsline {section}{\numberline {3.1}Team Distribution}{12}{section.3.1}
-\contentsline {section}{\numberline {3.2}User Interface}{12}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Programming Language}{13}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}GUI Framework}{13}{subsection.3.2.2}
-\contentsline {subsubsection}{Swing}{13}{section*.9}
-\contentsline {subsubsection}{JavaFX}{13}{section*.10}
-\contentsline {subsubsection}{Decision}{14}{section*.11}
-\contentsline {subsection}{\numberline {3.2.3}Integrated Development Environment (IDE)}{14}{subsection.3.2.3}
-\contentsline {subsubsection}{Netbeans}{14}{section*.12}
-\contentsline {subsubsection}{Eclipse}{14}{section*.13}
-\contentsline {subsubsection}{No IDE}{15}{section*.14}
-\contentsline {subsubsection}{Decision}{15}{section*.15}
-\contentsline {subsection}{\numberline {3.2.4}Builds}{15}{subsection.3.2.4}
-\contentsline {subsubsection}{Demo Build}{16}{section*.16}
-\contentsline {paragraph}{Splash}{16}{section*.17}
-\contentsline {paragraph}{Sequence Entry}{16}{figure.3.2}
-\contentsline {paragraph}{Target Selection}{17}{figure.3.3}
-\contentsline {paragraph}{Primer Design}{18}{section*.20}
-\contentsline {paragraph}{Melting Temperature}{19}{section*.21}
-\contentsline {subsubsection}{Current Build}{20}{section*.22}
-\contentsline {paragraph}{Overview}{20}{section*.23}
-\contentsline {paragraph}{Sequence Entry}{20}{figure.3.8}
-\contentsline {paragraph}{Target Selection}{21}{figure.3.9}
-\contentsline {paragraph}{Primer Design}{21}{figure.3.10}
-\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{23}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Models}{23}{subsection.3.3.1}
-\contentsline {paragraph}{Primer}{23}{section*.27}
-\contentsline {paragraph}{TestResult}{23}{section*.28}
-\contentsline {paragraph}{Sequence}{24}{section*.29}
-\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{24}{subsection.3.3.2}
-\contentsline {subsubsection}{Melting Temperature}{26}{section*.30}
-\contentsline {subsubsection}{Uniqueness}{26}{section*.31}
-\contentsline {subsubsection}{Primer Content}{26}{section*.32}
-\contentsline {subsection}{\numberline {3.3.3}Dynamic Primer Highlighting}{27}{subsection.3.3.3}
-\contentsline {subsubsection}{Final Solution}{27}{section*.33}
-\contentsline {subsubsection}{Listening for Input}{28}{section*.34}
-\contentsline {subsubsection}{Runnable Search Functions}{28}{section*.35}
-\contentsline {subsection}{\numberline {3.3.4}Other Methods}{29}{subsection.3.3.4}
-\contentsline {chapter}{\numberline {4}Evaluation}{30}{chapter.4}
-\contentsline {section}{\numberline {4.1}Testing}{30}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Methods Of Testing}{30}{subsection.4.1.1}
-\contentsline {subsubsection}{White Box Testing}{30}{section*.36}
-\contentsline {subsubsection}{Black Box Testing}{31}{section*.37}
-\contentsline {subsection}{\numberline {4.1.2}Demonstration}{32}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Questionnaire}{32}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Questionnaire System}{32}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}The Questions}{32}{subsection.4.1.5}
-\contentsline {subsubsection}{Skill Level}{32}{section*.38}
-\contentsline {subsubsection}{User's Experience with the System}{33}{section*.39}
-\contentsline {subsection}{\numberline {4.1.6}Feedback Analysis}{33}{subsection.4.1.6}
-\contentsline {chapter}{\numberline {5}Conclusion}{34}{chapter.5}
-\contentsline {chapter}{\numberline {A}Questionnaire Responses}{35}{appendix.A}
-\contentsline {chapter}{\numberline {B}Current User Guide}{39}{appendix.B}
+\contentsline {subsubsection}{Sequence entry}{11}{section*.9}
+\contentsline {subsubsection}{Specification of target area}{11}{section*.10}
+\contentsline {subsubsection}{Primer selection}{12}{section*.11}
+\contentsline {subsubsection}{Melting temperature check}{12}{section*.12}
+\contentsline {chapter}{\numberline {3}Implementation}{16}{chapter.3}
+\contentsline {section}{\numberline {3.1}Team Distribution}{16}{section.3.1}
+\contentsline {section}{\numberline {3.2}User Interface}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Programming Language}{17}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}GUI Framework}{17}{subsection.3.2.2}
+\contentsline {subsubsection}{Swing}{17}{section*.13}
+\contentsline {subsubsection}{JavaFX}{17}{section*.14}
+\contentsline {subsubsection}{Decision}{18}{section*.15}
+\contentsline {subsection}{\numberline {3.2.3}Integrated Development Environment (IDE)}{18}{subsection.3.2.3}
+\contentsline {subsubsection}{Netbeans}{18}{section*.16}
+\contentsline {subsubsection}{Eclipse}{18}{section*.17}
+\contentsline {subsubsection}{No IDE}{19}{section*.18}
+\contentsline {subsubsection}{Decision}{19}{section*.19}
+\contentsline {subsection}{\numberline {3.2.4}Builds}{19}{subsection.3.2.4}
+\contentsline {subsubsection}{Demo Build}{20}{section*.20}
+\contentsline {paragraph}{Splash}{20}{section*.21}
+\contentsline {paragraph}{Sequence Entry}{20}{figure.3.2}
+\contentsline {paragraph}{Target Selection}{21}{figure.3.3}
+\contentsline {paragraph}{Primer Design}{22}{section*.24}
+\contentsline {paragraph}{Melting Temperature}{23}{section*.25}
+\contentsline {subsubsection}{Current Build}{24}{section*.26}
+\contentsline {paragraph}{Overview}{24}{section*.27}
+\contentsline {paragraph}{Sequence Entry}{24}{figure.3.8}
+\contentsline {paragraph}{Target Selection}{25}{figure.3.9}
+\contentsline {paragraph}{Primer Design}{25}{figure.3.10}
+\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{27}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Models}{27}{subsection.3.3.1}
+\contentsline {paragraph}{Primer}{27}{section*.31}
+\contentsline {paragraph}{TestResult}{27}{section*.32}
+\contentsline {paragraph}{Sequence}{28}{section*.33}
+\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{28}{subsection.3.3.2}
+\contentsline {subsubsection}{Melting Temperature}{30}{section*.34}
+\contentsline {subsubsection}{Uniqueness}{30}{section*.35}
+\contentsline {subsubsection}{Primer Content}{30}{section*.36}
+\contentsline {subsection}{\numberline {3.3.3}Dynamic Primer Highlighting}{31}{subsection.3.3.3}
+\contentsline {subsubsection}{Final Solution}{31}{section*.37}
+\contentsline {subsubsection}{Listening for Input}{32}{section*.38}
+\contentsline {subsubsection}{Runnable Search Functions}{32}{section*.39}
+\contentsline {subsection}{\numberline {3.3.4}Other Methods}{34}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Animation}{34}{section.3.4}
+\contentsline {paragraph}{Requiredfunctionality}{34}{section*.40}
+\contentsline {paragraph}{Implementation}{34}{section*.41}
+\contentsline {paragraph}{Functionalityexplained}{34}{section*.42}
+\contentsline {paragraph}{AnimationScreens}{35}{section*.43}
+\contentsline {chapter}{\numberline {4}Evaluation}{38}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testing}{38}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Methods Of Testing}{38}{subsection.4.1.1}
+\contentsline {subsubsection}{White Box Testing}{38}{section*.44}
+\contentsline {subsubsection}{Black Box Testing}{39}{section*.45}
+\contentsline {subsection}{\numberline {4.1.2}Demonstration}{40}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Questionnaire}{40}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Questionnaire System}{40}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}The Questions}{40}{subsection.4.1.5}
+\contentsline {subsubsection}{Skill Level}{40}{section*.46}
+\contentsline {subsubsection}{User's Experience with the System}{41}{section*.47}
+\contentsline {subsection}{\numberline {4.1.6}Feedback Analysis}{41}{subsection.4.1.6}
+\contentsline {chapter}{\numberline {5}Conclusion}{42}{chapter.5}
+\contentsline {chapter}{\numberline {A}Questionnaire Responses}{43}{appendix.A}
+\contentsline {chapter}{\numberline {B}Current User Guide}{47}{appendix.B}
