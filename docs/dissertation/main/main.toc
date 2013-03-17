@@ -18,18 +18,18 @@
 \contentsline {subsubsection}{Melting temperature check}{12}{section*.12}
 \contentsline {chapter}{\numberline {3}Implementation}{16}{chapter.3}
 \contentsline {section}{\numberline {3.1}Team Distribution}{16}{section.3.1}
-\contentsline {section}{\numberline {3.2}User Interface}{16}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Programming Language}{17}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}GUI Framework}{17}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.2}Programming Language}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}User Interface}{17}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}GUI Framework}{17}{subsection.3.3.1}
 \contentsline {subsubsection}{Swing}{17}{section*.13}
 \contentsline {subsubsection}{JavaFX}{17}{section*.14}
 \contentsline {subsubsection}{Decision}{18}{section*.15}
-\contentsline {subsection}{\numberline {3.2.3}Integrated Development Environment (IDE)}{18}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3.2}Integrated Development Environment (IDE)}{18}{subsection.3.3.2}
 \contentsline {subsubsection}{Netbeans}{18}{section*.16}
 \contentsline {subsubsection}{Eclipse}{18}{section*.17}
 \contentsline {subsubsection}{No IDE}{19}{section*.18}
 \contentsline {subsubsection}{Decision}{19}{section*.19}
-\contentsline {subsection}{\numberline {3.2.4}Builds}{19}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.3.3}Builds}{19}{subsection.3.3.3}
 \contentsline {subsubsection}{Demo Build}{20}{section*.20}
 \contentsline {paragraph}{Splash}{20}{section*.21}
 \contentsline {paragraph}{Sequence Entry}{20}{figure.3.2}
@@ -41,21 +41,21 @@
 \contentsline {paragraph}{Sequence Entry}{24}{figure.3.8}
 \contentsline {paragraph}{Target Selection}{25}{figure.3.9}
 \contentsline {paragraph}{Primer Design}{25}{figure.3.10}
-\contentsline {section}{\numberline {3.3}Models \& Custom Methods}{27}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Models}{27}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Models \& Custom Methods}{27}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Models}{27}{subsection.3.4.1}
 \contentsline {paragraph}{Primer}{27}{section*.31}
 \contentsline {paragraph}{TestResult}{27}{section*.32}
 \contentsline {paragraph}{Sequence}{28}{section*.33}
-\contentsline {subsection}{\numberline {3.3.2}Primer Checking}{28}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.4.2}Primer Checking}{28}{subsection.3.4.2}
 \contentsline {subsubsection}{Melting Temperature}{30}{section*.34}
 \contentsline {subsubsection}{Uniqueness}{30}{section*.35}
 \contentsline {subsubsection}{Primer Content}{30}{section*.36}
-\contentsline {subsection}{\numberline {3.3.3}Dynamic Primer Highlighting}{31}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4.3}Dynamic Primer Highlighting}{31}{subsection.3.4.3}
 \contentsline {subsubsection}{Final Solution}{31}{section*.37}
 \contentsline {subsubsection}{Listening for Input}{32}{section*.38}
 \contentsline {subsubsection}{Runnable Search Functions}{32}{section*.39}
-\contentsline {subsection}{\numberline {3.3.4}Other Methods}{34}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Animation}{34}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.4}Other Methods}{34}{subsection.3.4.4}
+\contentsline {section}{\numberline {3.5}Animation}{34}{section.3.5}
 \contentsline {paragraph}{Requiredfunctionality}{34}{section*.40}
 \contentsline {paragraph}{Implementation}{34}{section*.41}
 \contentsline {paragraph}{Functionalityexplained}{34}{section*.42}
