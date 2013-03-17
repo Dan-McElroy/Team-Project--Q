@@ -3,17 +3,21 @@ Dynamic Primer Highlighting was suggested early on in the requirements
 elicitation process by the clients as something that would be very
 helpful to students studying primer design. The initial specification
 for this feature was as follows:
-	
-“As the user enters their choice of primer in one of the boxes at the
+
+\begin{itemize}	
+\item“As the user enters their choice of primer in one of the boxes at the
 top of the page, instances of the primer should be highlighted in
 real-time in the corresponding box below containing the DNA sequence for
 the strand on which this primer should appear.”
+\end{itemize}
 
 In a later client meeting the following addition was made to improve the
 effectiveness of the feature:
 
-“Primers should be highlighted in different colours to indicate their
+\begin{itemize}
+\item“Primers should be highlighted in different colours to indicate their
 suitability.”
+\end{itemize}
 
 This was a feature that all members of the team liked from a very early
 stage because, even with our limited knowledge about primer design we
@@ -91,8 +95,10 @@ the functions to search for the user's primer in the DNA sequence and
 highlight the appropriate sections.
 
 To perform this task we created two similar methods: \texttt{searchO()}
-to update forward primer highlights and \texttt{searchC()} to update
-reverse primer primer highlights.
+to search the parsed original strand, \texttt{parsedO}, and update forward
+primer highlights and \texttt{searchC()} to search the parsed
+complementary strand, \texttt{parsedC}, and update reverse primer
+highlights.
 
 The first task these functions perform is to remove all existing
 highlights from the display. The other option here was to keep a list of
@@ -114,7 +120,7 @@ length greater than 0 (i.e. The call to the function was not because the
 user deleted everything in the text field).
 
 Inside the while loop the colour to highlight the current instance is
-determined by the following if statement:
+determined by the following if statement from \texttt{searchC}:
 
 \begin{lstlisting}
     if (sC.length() > 15){
@@ -167,7 +173,19 @@ code:
 
 \texttt{endC} is calculated by adding the length of the user's primer to
 the index of the current instance of the primer in the sequence, 
-\texttt{indexC}.
+\texttt{indexC}. \texttt{realIndex} is a function which converts the
+indices in the parsed sequence into the indices needed for displaying
+the highlights in the display panes.
+
+Once the current instance of the primer has been highlighted, a 
+\texttt{substring()} is performed on the relevant parsed sequence to
+remove everything up to the end of the current primer instance. The
+index of the first instance of the primer in this new, shorter sequence
+is then found and if this index is greater than or equal to 0 then the
+while executes again to highlight this new instance of the primer.
+
+After all instances have been highlighted the parsed sequence reset to
+the state it was in before the function was called.
 
 
 
