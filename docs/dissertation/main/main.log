@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  17 MAR 2013 15:39
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  17 MAR 2013 16:56
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -400,27 +400,27 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
  [16
 
 ] [17] [18] [19]
-<./images/demoBuild/splash.png, id=351, 811.03pt x 628.3475pt>
+<./images/demoBuild/splash.png, id=354, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/splash.png Graphic file (type png)
 
 <use ./images/demoBuild/splash.png>
-<./images/demoBuild/sequenceEntry.png, id=352, 811.03pt x 628.3475pt>
+<./images/demoBuild/sequenceEntry.png, id=355, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/sequenceEntry.png Graphic file (type png)
 
 <use ./images/demoBuild/sequenceEntry.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/demoBuild/areaSelection.png, id=354, 811.03pt x 628.3475pt>
+<./images/demoBuild/areaSelection.png, id=359, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/areaSelection.png Graphic file (type png)
 
 <use ./images/demoBuild/areaSelection.png> [20 <./images/demoBuild/splash.png>]
 [21 <./images/demoBuild/sequenceEntry.png> <./images/demoBuild/areaSelection.pn
-g>] <./images/demoBuild/primerDesign.png, id=376, 811.03pt x 628.3475pt>
+g>] <./images/demoBuild/primerDesign.png, id=382, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/primerDesign.png Graphic file (type png)
 
 <use ./images/demoBuild/primerDesign.png>
-<./images/demoBuild/primerFeedback.png, id=378, 720.6925pt x 427.5975pt>
+<./images/demoBuild/primerFeedback.png, id=385, 720.6925pt x 427.5975pt>
 File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 
 <use ./images/demoBuild/primerFeedback.png>
@@ -428,11 +428,15 @@ File: ./images/demoBuild/primerFeedback.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22 <./images/demoBuild/primerDesign.png>]
-<./images/demoBuild/primerDesignRules.png, id=388, 501.875pt x 430.60875pt>
+
+LaTeX Warning: Reference `fig:uiDes:slide3' on page 23 undefined on input line 
+394.
+
+<./images/demoBuild/primerDesignRules.png, id=396, 501.875pt x 430.60875pt>
 File: ./images/demoBuild/primerDesignRules.png Graphic file (type png)
 
 <use ./images/demoBuild/primerDesignRules.png>
-<./images/demoBuild/meltingTemp.png, id=390, 811.03pt x 628.3475pt>
+<./images/demoBuild/meltingTemp.png, id=398, 811.03pt x 628.3475pt>
 File: ./images/demoBuild/meltingTemp.png Graphic file (type png)
 
 <use ./images/demoBuild/meltingTemp.png>
@@ -441,7 +445,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [23 <./images/demoBuild/primerFeedback.png> <./images/demoBuild/primerDesignRul
 es.png>]
-<./images/currentBuild/sequenceEntry.png, id=402, 811.03pt x 649.42625pt>
+<./images/currentBuild/sequenceEntry.png, id=411, 811.03pt x 649.42625pt>
 File: ./images/currentBuild/sequenceEntry.png Graphic file (type png)
 
 <use ./images/currentBuild/sequenceEntry.png>
@@ -449,7 +453,7 @@ File: ./images/currentBuild/sequenceEntry.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [24 <./images/demoBuild/meltingTemp.png>]
-<./images/currentBuild/areaSelection.png, id=413, 811.03pt x 649.42625pt>
+<./images/currentBuild/areaSelection.png, id=422, 811.03pt x 649.42625pt>
 File: ./images/currentBuild/areaSelection.png Graphic file (type png)
 
 <use ./images/currentBuild/areaSelection.png>
@@ -457,7 +461,7 @@ File: ./images/currentBuild/areaSelection.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<./images/currentBuild/forwardPrimerDesignRed.png, id=416, 834.11626pt x 649.42
+<./images/currentBuild/forwardPrimerDesignRed.png, id=426, 834.11626pt x 649.42
 625pt>
 File: ./images/currentBuild/forwardPrimerDesignRed.png Graphic file (type png)
  <use ./images/currentBuild/forwardPrimerDesignRed.png>
@@ -465,14 +469,14 @@ File: ./images/currentBuild/forwardPrimerDesignRed.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25 <./images/currentBuild/sequenceEntry.png>]
-<./images/currentBuild/forwardPerfectPrimer.png, id=428, 834.11626pt x 649.4262
+<./images/currentBuild/forwardPerfectPrimer.png, id=440, 834.11626pt x 649.4262
 5pt>
 File: ./images/currentBuild/forwardPerfectPrimer.png Graphic file (type png)
  <use ./images/currentBuild/forwardPerfectPrimer.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/currentBuild/primerEvalRed.png, id=430, 699.61375pt x 262.9825pt>
+<./images/currentBuild/primerEvalRed.png, id=442, 699.61375pt x 262.9825pt>
 File: ./images/currentBuild/primerEvalRed.png Graphic file (type png)
 
 <use ./images/currentBuild/primerEvalRed.png>
@@ -480,7 +484,7 @@ File: ./images/currentBuild/primerEvalRed.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<./images/currentBuild/reversePrimerPerfect.png, id=432, 834.11626pt x 649.4262
+<./images/currentBuild/reversePrimerPerfect.png, id=444, 834.11626pt x 649.4262
 5pt>
 File: ./images/currentBuild/reversePrimerPerfect.png Graphic file (type png)
  <use ./images/currentBuild/reversePrimerPerfect.png>
@@ -488,7 +492,7 @@ File: ./images/currentBuild/reversePrimerPerfect.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<./images/currentBuild/primerDesignBothFeedback.png, id=434, 825.0825pt x 421.5
+<./images/currentBuild/primerDesignBothFeedback.png, id=446, 825.0825pt x 421.5
 75pt>
 File: ./images/currentBuild/primerDesignBothFeedback.png Graphic file (type png
 )
@@ -497,7 +501,7 @@ File: ./images/currentBuild/primerDesignBothFeedback.png Graphic file (type png
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./tex/models.tex
-<./images/currentBuild/modelClassDiagram.png, id=435, 2028.57875pt x 1951.29pt>
+<./images/currentBuild/modelClassDiagram.png, id=447, 2028.57875pt x 1951.29pt>
 File: ./images/currentBuild/modelClassDiagram.png Graphic file (type png)
 <use ./images/currentBuild/modelClassDiagram.png> [26 <./images/currentBuild/ar
 eaSelection.png>]
@@ -534,81 +538,75 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 
-Overfull \hbox (28.27164pt too wide) in paragraph at lines 29--36
+Overfull \hbox (28.27164pt too wide) in paragraph at lines 33--40
 \OT1/ptm/m/n/10.95 fea-tures of Java which we had no real ex-pe-ri-ence with, s
 pecif-i-cally the Swing classes \OT1/pcr/m/n/10.95 ChangeListener\OT1/ptm/m/n/1
 0.95 ,
  []
 
 [31]
-Overfull \hbox (22.90744pt too wide) in paragraph at lines 80--86
+Overfull \hbox (22.90744pt too wide) in paragraph at lines 84--90
 \OT1/ptm/m/n/10.95 terms of lis-ten-ing for in-put was to add code to the \OT1/
 pcr/m/n/10.95 DocumentListener \OT1/ptm/m/n/10.95 func-tions \OT1/pcr/m/n/10.95
  insertUpdate()
  []
 
 [32]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 120.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 126.
 
  (/usr/share/texmf/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 120.
-) (./tex/implAnim.tex
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 126.
+ [33]) (./tex/implAnim.tex
 
-LaTeX Warning: Citation `anim1' on page 33 undefined on input line 2.
+LaTeX Warning: Citation `anim1' on page 34 undefined on input line 2.
 
 
-LaTeX Warning: Citation `anim2' on page 33 undefined on input line 2.
+LaTeX Warning: Citation `anim2' on page 34 undefined on input line 2.
 
-[33]
 Missing character: There is no ¬ in font ptmr7t!
 Missing character: There is no ∞ in font ptmr7t!
 Missing character: There is no ¬ in font ptmr7t!
 Missing character: There is no ∞ in font ptmr7t!
 Missing character: There is no ¬ in font ptmr7t!
 Missing character: There is no ∞ in font ptmr7t!
+[34]
 Missing character: There is no ¬ in font ptmr7t!
 Missing character: There is no ∞ in font ptmr7t!
- <./images/AnimImpl/Stage1.png, id=515, 769.37437pt x 577.40718pt>
+ <./images/AnimImpl/Stage1.png, id=534, 769.37437pt x 577.40718pt>
 File: ./images/AnimImpl/Stage1.png Graphic file (type png)
 
-<use ./images/AnimImpl/Stage1.png> [34]
-<./images/AnimImpl/Stage2.png, id=523, 770.12718pt x 576.65437pt>
+<use ./images/AnimImpl/Stage1.png>
+<./images/AnimImpl/Stage2.png, id=535, 770.12718pt x 576.65437pt>
 File: ./images/AnimImpl/Stage2.png Graphic file (type png)
 
 <use ./images/AnimImpl/Stage2.png>
 Missing character: There is no ¬ in font ptmr7t!
 Missing character: There is no ∞ in font ptmr7t!
 
-<./images/AnimImpl/Stage3.png, id=524, 769.37437pt x 576.65437pt>
+<./images/AnimImpl/Stage3.png, id=536, 769.37437pt x 576.65437pt>
 File: ./images/AnimImpl/Stage3.png Graphic file (type png)
 
-<use ./images/AnimImpl/Stage3.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./images/AnimImpl/Stage5.png, id=525, 771.63281pt x 573.64313pt>
+<use ./images/AnimImpl/Stage3.png> [35 <./images/AnimImpl/Stage1.png> <./images
+/AnimImpl/Stage2.png>]
+<./images/AnimImpl/Stage5.png, id=547, 771.63281pt x 573.64313pt>
 File: ./images/AnimImpl/Stage5.png Graphic file (type png)
 
 <use ./images/AnimImpl/Stage5.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./images/AnimImpl/Stage6.png, id=526, 768.62157pt x 578.16pt>
+<./images/AnimImpl/Stage6.png, id=548, 768.62157pt x 578.16pt>
 File: ./images/AnimImpl/Stage6.png Graphic file (type png)
 
 <use ./images/AnimImpl/Stage6.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [35 <./images/AnimImpl/Stage1.png> <./images/AnimImpl/Stage2.png>] [36 <./ima
-ges/AnimImpl/Stage3.png> <./images/AnimImpl/Stage5.png>] [37 <./images/AnimImpl
-/Stage6.png>]
+) [36 <./images/AnimImpl/Stage3.png> <./images/AnimImpl/Stage5.png>] [37 <./ima
+ges/AnimImpl/Stage6.png>]
 Chapter 4.
 (./tex/testing.tex
-<./images/demoBuild/test.png, id=553, 813.0375pt x 831.105pt>
+<./images/demoBuild/test.png, id=565, 813.0375pt x 831.105pt>
 File: ./images/demoBuild/test.png Graphic file (type png)
 
 <use ./images/demoBuild/test.png>
@@ -617,16 +615,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [38
 
-] [39 <./images/demoBuild/test.png (PNG copy)>]) (./tex/demo.tex [40])
-(./tex/evalQuestion.tex [41] [42]) [43]
+] [39 <./images/demoBuild/test.png (PNG copy)>]) (./tex/demo.tex [40]
+[41]) (./tex/evalQuestion.tex [42]) [43]
 Chapter 5.
 [44
 
 ]
-Appendix A.
+Chapter 6.
 [45
 
-] <questionnaireResponses.pdf, id=610, page=1, 845.1575pt x 597.23125pt>
+]
+Appendix A.
+[46
+
+] <questionnaireResponses.pdf, id=631, page=1, 845.1575pt x 597.23125pt>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
 <use questionnaireResponses.pdf, page 1>
@@ -641,11 +643,11 @@ File: questionnaireResponses.pdf Graphic file (type pdf)
 <use questionnaireResponses.pdf, page 1>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
-<use questionnaireResponses.pdf, page 1> [46 <./questionnaireResponses.pdf
+<use questionnaireResponses.pdf, page 1> [47 <./questionnaireResponses.pdf
 
 pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
 ge Group detected which pdfTeX can't handle. Ignoring it.
->] <questionnaireResponses.pdf, id=627, page=2, 845.1575pt x 597.23125pt>
+>] <questionnaireResponses.pdf, id=649, page=2, 845.1575pt x 597.23125pt>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
 <use questionnaireResponses.pdf, page 2>
@@ -654,11 +656,11 @@ File: questionnaireResponses.pdf Graphic file (type pdf)
 <use questionnaireResponses.pdf, page 2>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
-<use questionnaireResponses.pdf, page 2> [47 <./questionnaireResponses.pdf
+<use questionnaireResponses.pdf, page 2> [48 <./questionnaireResponses.pdf
 
 pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
 ge Group detected which pdfTeX can't handle. Ignoring it.
->] <questionnaireResponses.pdf, id=634, page=3, 845.1575pt x 597.23125pt>
+>] <questionnaireResponses.pdf, id=655, page=3, 845.1575pt x 597.23125pt>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
 <use questionnaireResponses.pdf, page 3>
@@ -667,20 +669,15 @@ File: questionnaireResponses.pdf Graphic file (type pdf)
 <use questionnaireResponses.pdf, page 3>
 File: questionnaireResponses.pdf Graphic file (type pdf)
 
-<use questionnaireResponses.pdf, page 3> [48 <./questionnaireResponses.pdf
+<use questionnaireResponses.pdf, page 3> [49 <./questionnaireResponses.pdf
 
 pdfTeX warning: pdflatex (file ./questionnaireResponses.pdf): PDF inclusion: Pa
 ge Group detected which pdfTeX can't handle. Ignoring it.
 >]
 Appendix B.
-[49
+[50
 
-] <PrimerDesignGuide.pdf, id=646, page=1, 597.50829pt x 845.0471pt>
-File: PrimerDesignGuide.pdf Graphic file (type pdf)
-
-<use PrimerDesignGuide.pdf, page 1>
-File: PrimerDesignGuide.pdf Graphic file (type pdf)
- <use PrimerDesignGuide.pdf, page 1>
+] <PrimerDesignGuide.pdf, id=667, page=1, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 1>
@@ -688,8 +685,13 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 1>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 1> [50 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=677, page=2, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+ <use PrimerDesignGuide.pdf, page 1>
+File: PrimerDesignGuide.pdf Graphic file (type pdf)
+
+<use PrimerDesignGuide.pdf, page 1> [51 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=698, page=2, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 2>
@@ -697,8 +699,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 2>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 2> [51 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=687, page=3, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 2> [52 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=708, page=3, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 3>
@@ -706,8 +708,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 3>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 3> [52 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=692, page=4, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 3> [53 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=714, page=4, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 4>
@@ -715,8 +717,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 4>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 4> [53 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=698, page=5, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 4> [54 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=719, page=5, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 5>
@@ -724,8 +726,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 5>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 5> [54 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=706, page=6, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 5> [55 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=727, page=6, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 6>
@@ -733,8 +735,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 6>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 6> [55 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=713, page=7, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 6> [56 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=734, page=7, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 7>
@@ -742,8 +744,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 7>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 7> [56 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=720, page=8, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 7> [57 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=741, page=8, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 8>
@@ -751,8 +753,8 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 8>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 8> [57 <./PrimerDesignGuide.pdf>]
-<PrimerDesignGuide.pdf, id=727, page=9, 597.50829pt x 845.0471pt>
+<use PrimerDesignGuide.pdf, page 8> [58 <./PrimerDesignGuide.pdf>]
+<PrimerDesignGuide.pdf, id=748, page=9, 597.50829pt x 845.0471pt>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
 <use PrimerDesignGuide.pdf, page 9>
@@ -760,16 +762,11 @@ File: PrimerDesignGuide.pdf Graphic file (type pdf)
  <use PrimerDesignGuide.pdf, page 9>
 File: PrimerDesignGuide.pdf Graphic file (type pdf)
 
-<use PrimerDesignGuide.pdf, page 9> [58 <./PrimerDesignGuide.pdf>]
+<use PrimerDesignGuide.pdf, page 9> [59 <./PrimerDesignGuide.pdf>]
 Appendix C.
-[59
+[60
 
-] <roundtable.pdf, id=741, page=1, 597.50829pt x 845.0471pt>
-File: roundtable.pdf Graphic file (type pdf)
-
-<use roundtable.pdf, page 1>
-File: roundtable.pdf Graphic file (type pdf)
- <use roundtable.pdf, page 1>
+] <roundtable.pdf, id=762, page=1, 597.50829pt x 845.0471pt>
 File: roundtable.pdf Graphic file (type pdf)
 
 <use roundtable.pdf, page 1>
@@ -777,8 +774,13 @@ File: roundtable.pdf Graphic file (type pdf)
  <use roundtable.pdf, page 1>
 File: roundtable.pdf Graphic file (type pdf)
 
-<use roundtable.pdf, page 1> [60 <./roundtable.pdf>]
-<roundtable.pdf, id=764, page=2, 597.50829pt x 845.0471pt>
+<use roundtable.pdf, page 1>
+File: roundtable.pdf Graphic file (type pdf)
+ <use roundtable.pdf, page 1>
+File: roundtable.pdf Graphic file (type pdf)
+
+<use roundtable.pdf, page 1> [61 <./roundtable.pdf>]
+<roundtable.pdf, id=785, page=2, 597.50829pt x 845.0471pt>
 File: roundtable.pdf Graphic file (type pdf)
 
 <use roundtable.pdf, page 2>
@@ -786,16 +788,11 @@ File: roundtable.pdf Graphic file (type pdf)
  <use roundtable.pdf, page 2>
 File: roundtable.pdf Graphic file (type pdf)
 
-<use roundtable.pdf, page 2> [61 <./roundtable.pdf>]
+<use roundtable.pdf, page 2> [62 <./roundtable.pdf>]
 Appendix D.
-[62
+[63
 
-] <feedback_eval.pdf, id=775, page=1, 597.50829pt x 845.0471pt>
-File: feedback_eval.pdf Graphic file (type pdf)
-
-<use feedback_eval.pdf, page 1>
-File: feedback_eval.pdf Graphic file (type pdf)
- <use feedback_eval.pdf, page 1>
+] <feedback_eval.pdf, id=796, page=1, 597.50829pt x 845.0471pt>
 File: feedback_eval.pdf Graphic file (type pdf)
 
 <use feedback_eval.pdf, page 1>
@@ -803,8 +800,13 @@ File: feedback_eval.pdf Graphic file (type pdf)
  <use feedback_eval.pdf, page 1>
 File: feedback_eval.pdf Graphic file (type pdf)
 
-<use feedback_eval.pdf, page 1> [63 <./feedback_eval.pdf>]
-<feedback_eval.pdf, id=801, page=2, 597.50829pt x 845.0471pt>
+<use feedback_eval.pdf, page 1>
+File: feedback_eval.pdf Graphic file (type pdf)
+ <use feedback_eval.pdf, page 1>
+File: feedback_eval.pdf Graphic file (type pdf)
+
+<use feedback_eval.pdf, page 1> [64 <./feedback_eval.pdf>]
+<feedback_eval.pdf, id=822, page=2, 597.50829pt x 845.0471pt>
 File: feedback_eval.pdf Graphic file (type pdf)
 
 <use feedback_eval.pdf, page 2>
@@ -812,8 +814,8 @@ File: feedback_eval.pdf Graphic file (type pdf)
  <use feedback_eval.pdf, page 2>
 File: feedback_eval.pdf Graphic file (type pdf)
 
-<use feedback_eval.pdf, page 2> [64 <./feedback_eval.pdf>]
-<feedback_eval.pdf, id=806, page=3, 597.50829pt x 845.0471pt>
+<use feedback_eval.pdf, page 2> [65 <./feedback_eval.pdf>]
+<feedback_eval.pdf, id=828, page=3, 597.50829pt x 845.0471pt>
 File: feedback_eval.pdf Graphic file (type pdf)
 
 <use feedback_eval.pdf, page 3>
@@ -821,7 +823,11 @@ File: feedback_eval.pdf Graphic file (type pdf)
  <use feedback_eval.pdf, page 3>
 File: feedback_eval.pdf Graphic file (type pdf)
 
-<use feedback_eval.pdf, page 3> [65 <./feedback_eval.pdf>] (./main.bbl
+<use feedback_eval.pdf, page 3> [66 <./feedback_eval.pdf>]
+Appendix E.
+[67
+
+] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 32--34
 []\OT1/ptm/m/n/10.95 JavaFX overview.  [][]$\OT1/pcr/m/n/10.95 http : / / docs 
 . oracle . com / javafx / 2 / overview /
@@ -833,7 +839,7 @@ Underfull \hbox (badness 3547) in paragraph at lines 40--42
 /10.95 http : / / docs . oracle . com / javase /
  []
 
-) [66
+) [68
 
 
 ] (./main.aux)
@@ -842,10 +848,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5148 strings out of 256216
- 76774 string characters out of 1917072
- 137331 words of memory out of 1500000
- 8055 multiletter control sequences out of 10000+200000
+ 5156 strings out of 256216
+ 76853 string characters out of 1917072
+ 136480 words of memory out of 1500000
+ 8059 multiletter control sequences out of 10000+200000
  24975 words of font info for 50 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  35i,16n,37p,1663b,1091s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -859,9 +865,9 @@ xmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
 cmtt10.pfb></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
 mf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utm
 r8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (68 pages, 4033684 bytes).
+Output written on main.pdf (70 pages, 4439853 bytes).
 PDF statistics:
- 918 PDF objects out of 1000 (max. 8388607)
- 220 named destinations out of 1000 (max. 131072)
+ 944 PDF objects out of 1000 (max. 8388607)
+ 224 named destinations out of 1000 (max. 131072)
  578 words of extra memory for PDF output out of 10000 (max. 10000000)
 
