@@ -11,7 +11,7 @@ test requiring our direct involvement and that we would receive more
 data from a questionnaire.
 
 %---------------------------------------------------------------------
-\subsubsection{Questionnaire System}
+\subsection{Questionnaire System}
 
 Many questionnaire services exist on the internet, such as
 SurveyMonkey \cite{surveyMonkey}, FreeOnlineSurveys
@@ -26,14 +26,14 @@ Docs Spreadsheet which itself could be exported to a variety of
 formats.
 
 %---------------------------------------------------------------------
-\subsubsection{The Questions}
+\subsection{Questions}
 
 Generally, the questionnaire needed to be as concise as possible to
 avoid any data being corrupted by frustration at the questionnaire.
 To this end we kept the number of questions in general to a minimum
 and only asked for a description if it was necessary.
 
-\paragraph{Skill Level}
+\subsubsection{Skill Level}
 At the demonstration, the team realised that not every user will be in
 the expected age bracket of 18 to 20-years-old who have used computers
 their entire lives.
@@ -62,7 +62,7 @@ All of this data provides us with the baseline skill level with
 computers and with primer design of the user, before they use the
 system.
 
-\paragraph{User's Experience with the System}
+\subsubsection{User's Experience with the System}
 The following questions were designed to provide us with feedback on
 the user's experience with the system.
 
@@ -112,4 +112,144 @@ feedback for this particular question.
 
 %---------------------------------------------------------------------
 \subsection{Feedback Analysis}
+
+In total we received 15 responses, see appendix
+\ref{app:questionnaireResponses} for the raw data.
+These responses have yielded some interesting results with a few
+anomalies.
+
+\subsubsection{Learning}
+
+Of course, the main objective of the system is to help users revise or
+solidify the idea of primer design within PCR, if we have not managed
+this, we have failed our users.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=\textwidth]{./images/perceivedLearning.png}
+    \caption{Perceived Learning Chart}
+    \label{fig:feedbackAnalysis:perceivedLearning}
+  \end{center}
+\end{figure}
+
+If the application was perfect in this regard and a graph was plotted
+for response against score given to the ``Before'' and ``After''
+understanding questions, the graph would show that the ``After''
+responses line was consistently above the ``Before'' line, implying
+that users always see an improvement in understanding.
+Unfortunately, as can be seen in figure
+\ref{fig:feedbackAnalysis:perceivedLearning} which used the data in
+appendix \ref{app:questionnaireResponses}, this is currently not the
+case.
+
+One third of responses stated that their understanding of primer
+design stayed the same before and after using the system and, more
+concerningly, one response claimed that using the system reduced their
+understanding.
+This still means that a majority of users, 60\% of users who responded
+to the questionnaire, found using the system increased their
+understanding, however this still implies that 40\% of users did not
+see an improvement in understanding.
+
+On closer inspection of the users who saw no improvement and stated
+that they would not use the system for studying primer design or PCR,
+only one gave additional information as to their problem.
+
+This responder stated that they were not confident in how to design
+primers and that they expected the system to guide them through the
+process.
+They go on to say that they had no way of getting additional
+information or hints as to how to progress and that there should have
+been some way of retrieving this information.
+On noting this, the team agreed that, while the ``Primer Design
+Rules'' and ``Primer Feedback'' functions of the system were useful to
+someone who had a basic understanding of primers, newer users would
+struggle since the rules and feedback themselves are not explicit
+in telling the user how they can improve their primers, though it is
+very heavily implied.
+The team agreed that while this was an isolated case, it may have been
+the reason for the other responses which stated no improvement in
+understanding, and has been added to future work (see chapter
+\ref{future}).
+
+\subsubsection{Information From Application}
+Most of the responses we received to this question do not directly
+answer the question, since we asked for information \textbf{from the
+  application} and most responses referred to the user guide.
+However, because so many (a third of respondents) state that the user
+guide was helpful (see appendix \ref{app:questionnaireResponses}), we
+can assume that not enough information was given by the application
+itself for a user to comfortably use the system without it (at least
+for the first time using it).
+
+The user guide was created on the premise that the application had to
+familiarise people with the NCBI website and we could not do this
+purely within the application so the user guide would provide this
+requirement.
+We were also working under the assumption that the student had never
+used the NCBI website before.
+However, the team wanted to know if people found the information on the
+application helpful or whether the user guide could be the sole source
+of instruction.
+
+In retrospect this was a null point and due to the wording of the
+question we have little data to support the idea of the user being unable
+to use the application.
+However, one respondent did note that they tried to use the system
+without the user guide and did not know how to use the NCBI website
+\cite{ncbi} to retrieve a DNA sequence, then read the user guide and
+found it very helpful. 
+
+\subsubsection{Technical Difficulties Encountered}
+
+Of the 15 respondents, three mentioned something for the technical
+difficulties question.
+However, one of these responses was a problem continuing to the next
+panel, and does not mention anything suggesting this was a bug and not
+simply user error.
+Since no other respondent mentioned this, we are considering this as
+user error rather than a technical fault.
+We therefore have two technical difficulties to consider.
+
+Firstly, one respondent noted that if the user was to enter the
+sequence as capital letters instead of lower case, the highlighting
+would not appear.
+This is a simple problem but one we intend to fix at the earliest
+opportunity, as noted in the Future Work chapter (chapter
+\ref{future}).
+This respondent also comments that the animation does not appear
+correctly on their screen and helpfully gives us the resolution of
+their screen, namely 1366 x 768 pixels.
+Given that the height of the animation was 768, rather than the 600
+used by the rest of the system, and that a small number of pixels are
+used for most operating systems' equivalent of a taskbar, this is
+perfectly understandable and is a known issue.
+Unfortunately the animation is hard-coded to be 768 pixels high and
+would require a rather large overhaul to fix and is not something we
+intend to fix.
+
+Lastly, another respondent stated that the animation ``\ldots did not
+run.'' on a University PC.
+Unfortunately, with no specification of operating system or other
+circumstances this will be difficult to recreate, although the team
+intend to investigate this further (as discussed in chapter
+\ref{future}).
+
+\subsubsection{Shortfalls of the Questionnaire}
+We received no data to insinuate that a particular age group had
+problems with the application, with only 3 responders stating that
+their age was higher than 20, each with varying base skill level and
+responses.
+Therefore we do not have enough data to suggest an age-related
+correlation.
+
+None of the reponding users stated that they were colour blind, so we
+are unable to state that colour blind people would be able to use the
+system as easily as those who are not.
+
+The question regarding information from the application was evidently
+unclear to the students who frequently responded by talking about the
+user guide, rather than the application.
+This should have been clarified and perhaps a separate question was
+needed for the user guide itself.
 

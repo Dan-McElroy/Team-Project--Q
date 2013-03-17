@@ -1,6 +1,11 @@
+* Abstract
+
 * Intro
-** Background
-** Abstract
+** Prelims
+** Aims
+** Motivation
+** Background - DM
+** Team Member Roles
 
 * Design
 ** UI - DJ
@@ -16,6 +21,8 @@
 ** Testing - MR
 *** Demo - RB/RT/MR
 *** Questionnaire - RB
+
+* Future Work - DJ
 
 * Conclusion - ALL
 

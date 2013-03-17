@@ -1,1 +1,51 @@
-On the 8th February, our team carried out a demonstration run of our software with a group of users with connections to the biology department. In this test, we provided users with a user guide and asked them to carry out a set of tasks.
+On the 8th February, our team carried out a demonstration run of our software with a group of users connected to the biology department. In this test, we provided users with a comprehensive user guide and asked them to carry out a set of tasks using, what we called at the time, the demo build of the application. With this version of the program we had decided to disable the animation, as the animation had been developed using Java 7 \cite{Java7SwingAPI}, whereas the rest of the application had been developed using netbeans and Java 6, as had been previously decided before implementation, (See: chapter \ref{chap:impl}). However, the rest of the application we believed to be fully functioning at the time of the demo run, minus some minor features we had yet to implement.
+
+\subsection{Running the demonstration}
+
+The demonstration took place between 12 and 1 in a computer lab in the Wolfson building, with a group of about 12 participants, consisting of students, demonstrators and lecturers. The computers on which the application was run were all identical, all running on Windows 2000. We issued each participant with a user guide (See: Appendix \ref{app:userGuideCurrent}), detailing how to load the application from moodle and get it running, and then gave them clear instructions as to how to use the application to test for correct primers. Three members of our team (Ross Eric Barnie, Murray Ross and Ross Taylor) were on hand to help participants with any problems they may have had with the program. We let them run the demonstration for about half an hour before asking them to finish their work and sit down to have a round table discussion about their experiences with the system, and to fill out an evaluation sheet that we also provided them with.
+
+\subsection{Feedback from demonstration}
+
+At our round table discussion, we decided to record what people had to say about the application, which was later annotated in a text document (See: Appendix \ref{app:roundtableFeedback}). Also, we asked participants to fill out an evaluation feedback sheet at the end which was then read by our team and the points were collaborated and annotated into another text document (See: Appendix \ref{app:demonstrationFeedback}). The main points that were taken from the feedback provided by the demonstration were:
+
+\begin{itemize}
+
+\item That the primer rules were unbreakable - you couldn't progress to the melting temperature screen without passing all the rules set by the program. In a typical DNA sequence, finding a 'perfect' primer is extremely hard, and the rules should be there more as guidance, not as set in stone.
+\item Further to the first point, using the words 'PASS/FAIL' is probably too harsh, and the capitalisation should be taken out.
+\item That the interface shown to the participants that whilst clear, was very clinical, very '90s'.
+\item As a teaching tool, the application was definitely better than any paper version previously provided by the Biology department.
+\item The purpose of the application was misconstrued - it isn't there to find primers for you, it's there for you to find them and test them.
+\item It would be helpful if the program could check each primer individually, and not together at the same time.
+\item The application required you to use keyboard shortcuts to copy/paste, and that a few participants didn't use these shortcuts and preferred graphical buttons to do these functions.
+\end{itemize}
+
+We then collected in the evaluation feedback sheets from the participants. The main points that we took from these sheets were:
+
+\begin{itemize}
+
+\item In general, it was always clear how to progress in the application from stage to the next.
+\item Aesthetically, the application didn't have a ostentatious design but it met the demands and expectations of the user.
+\item The rules provided in the \emph{Primer Design Rules box} were very helpful, but should point out these are only guidelines and not set in stone.
+\item If you infringed on a rule, it should allow you to pass through anyway, perhaps using an 'override' button.
+\item Some users found it to improve their knowledge of primer design.
+\item It was noted that if you had a higher melting temperature in your first primer (i.e. 64) than the second (i.e. 62), but both were still in the melting temperature range, it would tell you that they weren't within the required temperature range of each other, yet they clearly were.
+\item Reverse primers would dissapear from screen, forcing users had to write them down if they wanted to remember them.
+\item A helpful idea would be that as you entered your primer it highlighted it on the sequence for you to see.
+
+\end{itemize}
+
+With this feedback, we were able to sit down and decided on which changes were required to the program.
+
+\subsection{Changes proposed after feedback from demonstration} 
+
+After we had met to discuss the feedback, the following changes to the application were decided upon:
+
+\begin{itemize}
+
+\item Implementation of the highlighting feature previously discussed - whilst this was initially our intention during development, we had failed to implement it in time for the demo. However, from feedback we discovered this would be a particularly useful feature, so implementing it was made a priority.
+\item Reduce the strictness of the primer design rules. Rather than requiring 100\% success rate in order to reach the final melting temperature screen, allow users to 'override' the rules after 3 attempts, making the rules far more like guidelines as opposed to set in stone.
+\item Fix the bug which tells the user that their melting temperatures are incorrect when they are correct.
+\item Implement individual primer checker buttons to allow users to check each primer separately.
+\item Implement graphical buttons for copy/paste.
+
+\end{itemize}
