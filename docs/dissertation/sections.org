@@ -1,6 +1,11 @@
+* Abstract
+
 * Intro
+** Prelims
+** Aims
+** Motivation
 ** Background - DM
-** Abstract
+** Team Member Roles
 
 * Design
 ** UI - DJ
