@@ -32,15 +32,16 @@ implement.
 
 This feature turned out to be one of the most problematic features to
 implement as it involved using features of Java which we had no real
-experience with, specifically the Swing classes \texttt{ChangeListener},
-\texttt{Highlighter} and \texttt{Painter} as well as integrating other
-modules of our code to provide the required primer checking. This level
-of difficulty meant that this feature actually took multiple attempts to
-implement correctly.
+experience with, specifically the Swing classes
+\texttt{Change\-Listener}, \texttt{Highlighter} and \texttt{Painter} as
+well as integrating other modules of our code to provide the required
+primer checking. This level of difficulty meant that this feature
+actually took multiple attempts to implement correctly.
 
 \subsubsection{Implementation}
 
-The implementation of this feature can be split into two main components:
+The implementation of this feature can be split into two main
+components:
 
 \begin{itemize}
 \item The code to listen for user input in the primer entry text fields
@@ -51,9 +52,9 @@ are called by the listener and update the highlighted text.
 
 \subsubsection{Listening for Input}
 
-The first challenge we were met with when implementing this feature was
-deciding how to listen for user input in the
-\texttt{forwardPrimerTextField} and \texttt{reversePrimerTextField}.
+The first challenge when implementing this feature was deciding how to
+listen for user input in the \texttt{forwardPrimerTextField} and
+\texttt{reversePrimerTextField}.
 
 Due to the fact that only one strand's display tab would be shown at any
 given time, only the TextField related to the active tab would have to
@@ -80,10 +81,11 @@ functions takes a long time to process.
 
 Once we had worked out how we were going to switch the listener focus
 all that was left to do in terms of listening for input was to add code
-to the \texttt{DocumentListener} functions \texttt{insertUpdate()} and
-\texttt{removeUpdate()} to run the appropriate search function. All this
-required was an if statement to determine the source of the update and
-inside the if statement a call to the appropriate search.
+to the \texttt{DocumentListener} functions
+\texttt{insert\-Update()} and \texttt{removeUpdate()} to run the
+appropriate search function. This just required an if statement to
+determine the source of the update and inside the if statement a call to
+the appropriate search.
 
 \subsubsection{Runnable Search Functions}
 
@@ -92,10 +94,10 @@ the functions to search for the user's primer in the DNA sequence and
 highlight the appropriate sections.
 
 To perform this task we created two similar methods: \texttt{searchO()}
-to search the parsed original strand, \texttt{parsedO}, and update forward
-primer highlights and \texttt{searchC()} to search the parsed
-complementary strand, \texttt{parsedC}, and update reverse primer
-highlights.
+to search the parsed version of the strand entered by the user,
+\texttt{parsedO}, and update forward primer highlights and
+\texttt{searchC()} to search the parsed complementary strand,
+\texttt{parsedC}, and update reverse primer highlights.
 
 The first task these functions perform is to remove all existing
 highlights from the display. The other option here was to keep a list of

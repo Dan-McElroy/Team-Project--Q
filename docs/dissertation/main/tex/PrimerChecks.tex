@@ -30,7 +30,7 @@ range in which a primer should rest (between roughly 50\degree C and
 
 \subsubsection{Uniqueness}
 To check that the primer is correctly placed in the system, it is first checked
-that the primer cannot be found in the wrong strand (ie. that the forward
+that the primer cannot be found in the other strand (e.g. that the forward
 primer cannot be found on the complementary strand). When this is confirmed,
 it is then checked that the correct strand contains one and only one instance
 of the primer, and then that this instance is positioned correctly, relative
@@ -60,8 +60,11 @@ number of consecutive complementary bases in the two sequences.
 As described above, our \texttt{checkMatches} function compares
 complementary bases between two strings. Therefore, to use this function
 to check for annealing between two ends of a single primer the primer
-has to be split into two strings. To keep track of the index where the
-primer has been split there is a variable, \texttt{split}.
+has to be split into two strings the second of which must be reversed
+before being sent to \texttt{checkMatches()} since during self annealing
+the primer folds over as shown in section B of Figure 
+\ref{fig:other:anneal}. To keep track of the index where the primer has
+been split there is a variable, \texttt{split}.
 
 The main body of the function is a while loop which calls
 \texttt{checkMatches()} on the two sections of the primer which are
@@ -69,19 +72,28 @@ separated by \texttt{split} then increments \texttt{split} and if loops
 again if \texttt{split} is at least 4 positions away from the end of the
 primer. During this process the highest result from the
 \texttt{checkMatches()} calls is recorded and this is used to determine
-wether or not the primer is likely to self-anneal.
+whether or not the primer is likely to self-anneal.
 
 \subsubsection{Pair Annealing}
 
 This function works in a similar fashion to the Self Anneal checking
-method in that it compares the two primers in every possible alignment
-and stores the highest number of matches.
+method in that it compares the two primers (as opposed to two sections
+of one primer in Self Annealing) in every possible alignment and stores
+the highest number of matches.
 
 The difference here is how the strings which are sent to the
-\texttt{checkMatches()} function are selected. In the
-\texttt{pairAnneal()} function this is done in three separate while
-loops. The first while loop checks all possible alignments when the
-shorter primer overlaps the longer one at the start, for example:
+\texttt{checkMatches()} function are selected in the
+\texttt{pairAnneal()} function. The \texttt{pairAnneal()} function is
+invoked on one \texttt{Primer} instance and the other primer is passed
+as an argument. Firstly, the lengths of the primers are compared and the
+string variables \texttt{max} and \texttt{min} are set appropriately (if
+the primers are of the same length then which primer is set as
+\texttt{max} and which is the \texttt{min} is irrelevant so the primer
+which is passed as an argument is set as \texttt{min} and the primer
+which the method was invoked on is set as \texttt{max}). Then, finding
+the number of matches is done in three separate while loops. The first
+while loop checks all possible alignments when the shorter primer
+overlaps the longer one at the start, for example:
 \begin{verbatim}
        agtcatcg
     acatca

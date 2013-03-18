@@ -1,8 +1,8 @@
-On the 8th February, our team carried out a demonstration run of our software with a group of users connected to the School of Life Sciences. In this test, we provided users with a comprehensive user guide and asked them to carry out a set of tasks using, what we called at the time, the demo build of the application. With this version of the program we had decided to disable the animation, as the animation had been developed using Java 7 \cite{Java7SwingAPI}, whereas the rest of the application had been developed using netbeans and Java 6, as had been decided before implementation, (See: chapter \ref{chap:impl}). However, the rest of the application we believed to be fully functioning at the time of the demo run, minus some major features we had yet to implement, such as the dynamic highlighting feature implemented in the final version (See: Section \ref{impl:models:dynHigh}).
+On the 8th February, our team carried out a demonstration run of our software with a group of users connected to the School of Life Sciences. In this test, we provided users with a comprehensive user guide and asked them to carry out a set of tasks using, what we called at the time, the demo build of the application. With this version of the program we had decided to disable the animation, as the animation had been developed using Java 7 \cite{Java7SwingAPI}, whereas the rest of the application had been developed using netbeans and Java 6, as had been decided before implementation, (See: chapter \ref{chap:impl}). However, the rest of the application we believed to be functioning at the time of the demo run, minus some major features we had yet to implement, such as the dynamic highlighting feature implemented in the final version (See: Section \ref{impl:models:dynHigh}).
 
 \subsection{Running the demonstration}
 
-The demonstration took place between 12pm and 1pm in a computer lab in the Wolfson building, with a group of about 12 participants, consisting of students, demonstrators, lecturers, and the clients. The computers on which the application was run were all identical, all running on Windows 2000. We issued each participant with a user guide (See: Appendix \ref{app:userGuideDemo}), detailing how to load the application from moodle and get it running, and then gave them clear instructions as to how to use the application to test for correct primers. Three members of our team (Ross Eric Barnie, Murray Ross and Ross Taylor) were on hand to help participants with any problems they may have had with the program. We let them work with the application for about half an hour before asking them to finish their work and sit down to have a round table discussion about their experiences with the system, and to fill out an evaluation sheet which we also provided them with.
+The demonstration took place between 12pm and 1pm in a computer lab in the Wolfson building, with a group of about 12 participants, consisting of students, demonstrators, lecturers, and the clients. The computers on which the application was run were all identical, all running on Windows 2000. We issued each participant with a user guide (See related documentation), detailing how to load the application from moodle and get it running, and then gave them clear instructions as to how to use the application to test for correct primers. Three members of our team (Ross Eric Barnie, Murray Ross and Ross Taylor) were on hand to help participants with any problems they may have had with the program. We let them work with the application for about half an hour before asking them to finish their work and sit down to have a round table discussion about their experiences with the system, and to fill out an evaluation sheet which we also provided them with.
 
 \subsection{Feedback from demonstration}
 
@@ -16,7 +16,7 @@ At the round table discussion, we used a sound capturing device to record what p
 \item As a teaching tool, the application was definitely better than any paper version previously provided by the School of Life Sciences.
 \item The purpose of the application was misconstrued - it isn't there to find primers for you, it is there for the user to find them and test them.
 \item It would be helpful if the program could check each primer individually, and not together at the same time.
-\item The application required teh user to use keyboard shortcuts to copy/paste, and that a few participants did not use these shortcuts in common use and preferred graphical buttons to do these functions.
+\item The application required the user to use keyboard shortcuts to copy/paste, and that a few participants did not use these shortcuts in common use and preferred graphical buttons to do these functions.
 \end{itemize}
 
 We then collected in the evaluation feedback sheets from the participants. The main points that we took from these sheets were:
@@ -42,11 +42,16 @@ After we had met to discuss the feedback, the following changes to the applicati
 
 \begin{itemize}
 
-\item Implementation of the dynamic highlighting feature (See: Section \ref{impl:models:dynHigh}) - whilst this was initially our intention during development, we had failed to implement it in time for the demo. However, from feedback we discovered this would be a particularly useful feature, so implementing it was made a priority.
-\item Reduce the strictness of the primer design rules. Rather than requiring 100\% success rate in order to reach the melting temperature screen, allow users to 'override' the rules after 3 attempts, making the rules far more like guidelines as opposed to set in stone.
-\item Fix the bug which tells the user that their melting temperatures are incorrect when they are correct.
-\item Implement individual primer checker buttons to allow users to check each primer separately.
-\item Implement graphical buttons for copy/paste.
-\item Replace capital letters in the pass/fail messages to reduce harshness.
+\item Implementation of the dynamic highlighting feature (See: Section \ref{impl:models:dynHigh}) - whilst this was initially our intention during development, we had failed to implement it in time for the demo. However, from the feedback above where users were losing their primers during usage of the application, and also for general accessibility purposes, we decided implementing this feature had become a priority.
+
+\item Reduce the strictness of the primer design rules. From the feedback we received above, we found that users had previously used these rules as guidelines to follow in primer design, and that they were not necessarily adhered to all the time. Therefore, we decided that instead of requiring a 100\% success rate in order to reach the melting temperature screen, we would allow users to 'override' the rules after 3 attempts, making the rules more like the guidelines users were expecting as opposed to set in stone.
+
+\item After users had notified us of the bug which tells a user that their temperatures were not in range when they were, we decided to analyse the formula for calculating the temperature in order to fix this fault.
+
+\item Some users had noted in the roundtable discussion that they would like to be able to check each primer individually, as opposed to both at the same time. To accommodate this, we decided to implement individual primer checker buttons on the primer selection panel to allow users to check each primer separately against the guidelines.
+
+\item Certain users were confused by the lack of copy/paste buttons on the user interface, and did not know the keyboard shortcuts to use in order to get around this. To allow users more accessibility, we decided to implement graphical buttons for copy/paste.
+
+\item The feedback we received indicated that they though the program was too harsh and clinical when it came to notifying users of their test results for their chosen primers. To help this, we decided to replace capital letters in the pass/fail messages to reduce harshness.
 
 \end{itemize}
