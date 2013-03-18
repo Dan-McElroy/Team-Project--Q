@@ -29,21 +29,30 @@ formats.
 \subsection{Questions}
 
 Generally, the questionnaire needed to be as concise as possible to
-avoid any data being corrupted by frustration at the questionnaire.
-To this end we kept the number of questions in general to a minimum
-and only asked for a description if it was necessary.
+prevent potential respondents from becoming frustrated at the length
+of the questionnaire, which could be reflected in their answers and
+therefore may not reflect their opinions on the application but the
+questionnaire itself, rendering their answers useless.
+
+To this end we kept the number of questions to a minimum and only
+asked for a description if it was necessary.
 
 \subsubsection{Skill Level}
 At the demonstration, the team realised that not every user will be in
-the expected age bracket of 18 to 20-years-old who have used computers
+the expected age bracket of 18 to 20 years old who have used computers
 their entire lives.
 This led to the decision that the feedback should take the user's age
 into account, to ensure that there are no patterns in the data
 suggesting a particular age group struggles with the application.
 
 In addition, we ask the user for their ``confidence'' with computers
-in general, on a scale from 0 to 5 ie no middle option so there has
-to be a bias to confident or not confident.
+in general, on a scale from 0 to 5 so that there was no middle option,
+meaning there has to be a bias towards confident or not confident.
+Our reasoning for the 0 to 5 scale was to force the respondent to be
+at least slightly biased towards confident or not confident, which
+would give a better indication of their confidence, rather than the
+middle-of-the-scale answer which, realistically, does not mean
+anything.
 This completely subjective question should allow us to see if people
 who perhaps do not use computers on a daily basis handle the
 application, since we believe we made the application (and
@@ -68,8 +77,8 @@ the user's experience with the system.
 The first of these follows the self-assessed understanding of primer
 design before using the system, with a self-assessed understanding
 after using the system, on the same scale.
-This will provide us with test data towards the requirement to teach
-students about primer design and PCR.
+This will provide us with evaluation data towards the requirement to
+teach students about primer design and PCR.
 
 Ideally, as discussed in section \ref{design:reqs}, the system would
 be used as a revision tool in students' own time and/or in a
@@ -117,11 +126,21 @@ In total we received 15 responses, see appendix
 These responses have yielded some interesting results with a few
 anomalies.
 
+It must be noted that the application was used at students' homes,
+without help from School of Life Sciences staff or ourselves, and that
+the PCR and Primer Design modules of the Molecular Methods course were
+completed some time before the application was made available.
+Meaning that the users are not using the application under the
+intended conditions of: user has recently covered (or is currently
+covering) PCR in classes; basic understanding of PCR and Primer theory
+prior to using application; School of Life Sciences staff trained on
+using the system and available to help the users with any queries.
+
 \subsubsection{Learning}
 
 Of course, the main objective of the system is to help users revise or
-solidify the idea of primer design within PCR, if we have not managed
-this, we have failed our users.
+solidify the idea of primer design within PCR, if the program does not
+accomplish this, then the requirements were not met.
 
 \begin{figure}[!t]
   \begin{center}
@@ -132,9 +151,9 @@ this, we have failed our users.
 \end{figure}
 
 If the application was perfect in this regard and a graph was plotted
-for response against score given to the ``Before'' and ``After''
-understanding questions, the graph would show that the ``After''
-responses line was consistently above the ``Before'' line, implying
+for response against score given to the ``Before\ldots'' and ``After\ldots''
+understanding questions, the graph would show that the ``After\ldots''
+responses line was consistently above the ``Before\ldots'' line, implying
 that users always see an improvement in understanding.
 Unfortunately, as can be seen in figure
 \ref{fig:feedbackAnalysis:perceivedLearning} which used the data in
@@ -142,13 +161,16 @@ appendix \ref{app:questionnaireResponses}, this is currently not the
 case.
 
 One third of responses stated that their understanding of primer
-design stayed the same before and after using the system and, more
-concerningly, one response claimed that using the system reduced their
-understanding.
-This still means that a majority of users, 60\% of users who responded
-to the questionnaire, found using the system increased their
-understanding, however this still implies that 40\% of users did not
-see an improvement in understanding.
+design stayed the same before and after using the system.
+However this still means that a majority of users (60\%) who responded
+to the questionnaire found using the system increased their
+understanding and of those, 100\% stated that they would use the
+system again as a study aid for at least one of PCR or Primer Design
+(two thirds: ``Both Primer Design and PCR'', one third ``Just Primer
+Design'')\ref{app:questionnaireResponses}.
+
+Additionally, many of these users gave positive feedback in the
+``Further Comments'' question as discussed below.
 
 On closer inspection of the users who saw no improvement and stated
 that they would not use the system for studying primer design or PCR,
@@ -157,15 +179,22 @@ only one gave additional information as to their problem.
 This responder stated that they were not confident in how to design
 primers and that they expected the system to guide them through the
 process.
+
+Since the program was never intended to be used without a basic
+understanding of primer design, and this user admits to being ``not
+confident'' in primer design, we can assume that this is a result of
+using the application in a way outwith the scope of the requirements.
+
 They go on to say that they had no way of getting additional
 information or hints as to how to progress and that there should have
-been some way of retrieving this information.
+been some way of retrieving this information, despite the plentiful
+feedback given to them by the application.
 On noting this, the team agreed that, while the ``Primer Design
 Rules'' and ``Primer Feedback'' functions of the system were useful to
-someone who had a basic understanding of primers, newer users would
-struggle since the rules and feedback themselves are not explicit
-in telling the user how they can improve their primers, though it is
-very heavily implied.
+someone who had a basic understanding of primers, new or ``not
+confident'' users would struggle since the rules and feedback
+themselves are not explicit in telling the user how they can improve
+their primers, though it is very heavily implied.
 The team agreed that while this was an isolated case, it may have been
 the reason for the other responses which stated no improvement in
 understanding, and has been added to future work (see Section
@@ -262,9 +291,19 @@ For example, the following joke was sent, which perhaps suggests that
 students in the School of Life Sciences have a worse of humour than
 Computing Science students.
 \begin{quote}
-What did the antibody go to the Halloween costume party as?
+  What did the antibody go to the Halloween costume party as?
 
-As an "immunogobulin"!
+  As an "immunogobulin"!
 \end{quote}
+
+As well as this hilarious entry, we were given some compliments for
+the application, such as ``Very useful application. Well done.'',
+``Well done :) 9/10'' and ``I found [the application]
+helpful. Thanks.'' (appendix \ref{app:questionnaireResponses}).
+This shows that users did find the application helpful and the
+proportion of respondents who stated they would use the application
+again is proof that as a teaching aid of PCR and Primer Design, the
+program meets its requirements.
+
 
 
