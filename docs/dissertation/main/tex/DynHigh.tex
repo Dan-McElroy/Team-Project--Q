@@ -108,18 +108,19 @@ potentially have to store the positions of thousands of bases and
 perform thousands of comparisons on their next input.
 
 The next step is to get the position of the first instance of the primer
-in the sequence using the java \texttt{indexOf()} function. This is then
+in the sequence using the Java \texttt{indexOf()} function, which returns
+the index of one String within another. This is then
 used as part of the condition of the while loop which carries out most
-of the functionality in these methods. The while loop is excecuted while
+of the functionality in these methods. The while loop is executed while
 the result of the \texttt{indexOf()} call is not negative (i.e. the
 primer is found in the text being searched) and the user input has a
 length greater than 0 (i.e. The call to the function was not because the
 user deleted everything in the text field).
 
-Inside the while loop the colour to highlight the current instance is
+Inside the while loop the colour ofthe current instance's highlight is
 determined by the following if statement from \texttt{searchC}:
 
-\begin{lstlisting}
+\begin{verbatim}
     if (sC.length() > 15){
         Primer rPrimer = new Primer(Primer.reverse(sC));
         rTest = new model.TestResult();
@@ -137,7 +138,7 @@ determined by the following if statement from \texttt{searchC}:
     } else {
         activePaint = failPaint;
     } 
-\end{lstlisting}
+\end{verbatim}
 
 Here, \texttt{sC} is the user's primer input and \texttt{perfectPaint},
 \texttt{acceptPaint} and \texttt{failPaint} are different coloured
@@ -162,11 +163,11 @@ Once the colour of highlight has been determined the highlight is
 applied to the correct section of the DNA sequence using the following
 code:
 
-\begin{lstlisting}
+\begin{verbatim}
     endC = indexC + sC.length();
     highC.addHighlight(realIndex(indexC + checked, 10),
         realIndex(endC + checked, 10), activePaint);
-\end{lstlisting}
+\end{verbatim}
 
 \texttt{endC} is calculated by adding the length of the user's primer to
 the index of the current instance of the primer in the sequence, 
@@ -179,7 +180,12 @@ Once the current instance of the primer has been highlighted, a
 remove everything up to the end of the current primer instance. The
 index of the first instance of the primer in this new, shorter sequence
 is then found and if this index is greater than or equal to 0 then the
-while executes again to highlight this new instance of the primer.
+while executes again to highlight this new instance of the primer. This
+is less than ideal, as it precludes the detection of matches that begin
+inside another match, however we are committed to finding a solution to
+this problem in our future work, as discussed in Section \ref{eval:future}.
+
+
 
 After all instances have been highlighted the parsed sequence is reset
 to the state it was in before the function was called.
