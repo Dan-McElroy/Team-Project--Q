@@ -417,9 +417,6 @@ unless they had a correct primer.
   \end{center}
 \end{figure}
 
-%In terms of design, the initial design proved to be near-impossible to
-%reproduce in Swing while maintaining a professional aesthetic style, 
-%and after several iterations evolved into its current state.
 While the initial design \ref{design:ui} was sufficient as a mock-up,
 it lacked consistency with the rest of the program.
 It also proved difficult to reproduce in Swing with the NetBeans
@@ -606,6 +603,11 @@ To allow the user to only have to think about one direction, the
 ``Reverse'' button from the demo build was replaced by an uneditable
 text field which auto-generates the reverse order of the reverse
 primer, see figure \ref{fig:currentBuild:reversePrimerPerfect}.
+It was also ambiguous, when the reverse button was in place, whether
+the primer in the text field had been reversed or not. 
+For example, if the user were to press the reverse button more than
+once, the user would have to remember this and there was nothing in
+the interface to remind them, relying heavily on the user's recall.
 
 \begin{figure}[!t]
   \begin{center}
@@ -617,11 +619,18 @@ primer, see figure \ref{fig:currentBuild:reversePrimerPerfect}.
   \end{center}
 \end{figure}
 
-When the user presses the ``Next'' button, they are presented with a
-dialogue box, giving a list of all the passed, failed and
-``close-fail''-ed rules for the primers individually and the more
-general rules (see figure \ref{fig:currentBuild:primerDesignBothFeedback}.
-Again, these are colour-coded.
+When the user clicks the ``Next'' button, they are presented with a
+dialogue window, giving the user a list of comments on each rule of
+primer design, with a rating of ``pass'', ``fail'' or ``close fail''
+for how their primers performed against these rules, an example of
+which can be seen in figure
+\ref{fig:currentBuild:primerDesignBothFeedback}.
+Again, these are colour-coded to make broken rules stand out to the
+user.
+
+The feedback given at this stage confirms to the user that their
+primers conform to all primer design rules to an acceptable degree and
+lets the user know that their primers were correct.
 
 \begin{figure}[!t]
   \begin{center}
@@ -632,3 +641,79 @@ Again, these are colour-coded.
     }
   \end{center}
 \end{figure}
+
+%---------------------------------------------------------------------
+\subsubsection{Comparison}
+
+Overall the two builds appear very similar in that they are laid out
+in a very similar way and the designs were not radically changed.
+However all of the minor changes and additional functionality made a
+huge difference overall.
+
+\paragraph{General}
+Each panel, or more accurately the shared JFrame object (the window
+shared by each panel), now has a menu bar with the Edit menu so that
+users do not have to rely on the keyboard shortcuts for copy and
+paste, which was an additional requirement set out by the clients and
+from the demonstration feedback.
+Many people do not frequently use keyboard shortcuts so this gives
+users a graphical way of copying and pasting data to and from the
+application.
+
+\paragraph{Overview}
+The overview was given positive praise in the demo build, the only
+change being a larger ``Start'' button since this was noted by the
+clients as being too small for users to immediately notice.
+
+\paragraph{Sequence Entry}
+Again, this panel has received little attention since the demo build
+since it served its purpose well.
+The only change was to the instructions text pane just under the title
+since the instructions were too minimal during the demo and a back
+button was added to ensure the user could traverse the program in its
+entirety and see the ``Further Reading'' text pane for useful links.
+
+\paragraph{Target Selection}
+With the addition of the automatic index entry via text highlighting
+functionality users, and teaching staff, now have more options for
+entering a target.
+For example, a user can quickly and easily select a sequence that they
+wish to amplify by highlighting it in the text, rather than having to
+count the indices as they had to in the demo build which was a slow
+and tedious process.
+While teaching staff could produce an accompanying tutorial or
+assessment and specifying that the user must use a particular sequence
+with a target from base 50 to base 506 for example, allowing greater
+versatility in the manner in which the program is used.
+
+\paragraph{Primer Design}
+Selecting a primer in the demo build was a guessing game in that the
+user could never deduce for themselves whether a primer they entered
+was unique, for example, since no visual cues were given.
+Primer rules would be broken and the user would be told this but with
+only the rules, which at the time were only allowed to pass or fail,
+and no colour-coding, the design in general failed to stimulate and
+teach.
+Another issue was the ambiguity of whether the reverse primer has been
+reversed or not by the reverse button.
+
+With the primers now being highlighted within the sequence it is easy
+to tell if the primer is unique, the colour-coding allows the user to
+instantly see how their primer is evaluated against the primer design
+rules without the need to check it with the dialogue windows every
+time and the reverse button has been replaced to reduce ambiguity and
+emphasise the sequence direction, adding to users' understanding.
+
+Primers can also now be checked individually so that the user can
+check one primer as they enter it, rather than having to read the same
+feedback repetitively while working on a completely separate primer.
+
+\paragraph{Melting Temperatures}
+Cosmetically, the melting temperature panel did not need any changes
+since it served its purpose of letting the user evaluate their primers
+well.
+
+Of course, the difference between the demo build and the current build
+in terms of this panel is that the animation is now available and thus
+the ``See Animation'' button has been enabled.
+
