@@ -11,7 +11,10 @@
   \end{center}
 \end{figure}
 
-The models used in the application are few in number and very simple, BLAH BLAH BLAH BLAH
+The models used in the application are few in number and do not have complex relationships
+with each other (as can be seen in Figure \ref{fig:currentBuild:model}), as we strove to 
+keep the structure as simple as possible in the interest of runtime efficiency and a clear
+design.
 
 As seen in Figure \ref{fig:currentBuild:model}, we used three classes to represent the data:
 Primer, TestResult and Sequence.
@@ -32,8 +35,8 @@ TestResult is a class used to format the output of one or multiple primer
 tests. TestResult uses an enumerated type called PassState with values
 \texttt{PASS}, \texttt{FAIL} and \texttt{CLOSEFAIL}, the last of which describes 
 a state where the primer's value from a test lies outside of the recommended
-values, but is within around 10\% to a pass (in most cases)and as such is seen as
-acceptable, provided this is 
+values, but is within 10\% of a pass (in all tests with numerical boundaries) 
+and as such is seen as acceptable, provided this is 
 only the state of a minority of tests. TestResult uses two ArrayLists, one of
 PassStates (\texttt{passes}) and another of Strings (\texttt{out}), to keep track 
 of the state and informative message to be displayed to the user for each 
@@ -57,6 +60,8 @@ and reverse primers, respectively.
  
 \texttt{parser()} is used for both sequence entry and primer input, by taking in
 a String and returning a new String with all non-\texttt{atgc} characters removed.
+This is due to the formatting of the NCBI page, which includes line numbers that
+would interrupt the sequence.
 \texttt{complement()} is a very simple function used throughout the application
 that takes in one character representing a base, and returns its complement, i.e.
 \texttt{complement('a')} would return \texttt{t}. \texttt{isUnique()} and \texttt{
