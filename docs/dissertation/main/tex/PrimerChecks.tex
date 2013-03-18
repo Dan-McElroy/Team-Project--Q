@@ -87,13 +87,13 @@ The difference here is how the strings which are sent to the
 invoked on one \texttt{Primer} instance and the other primer is passed
 as an argument. Firstly, the lengths of the primers are compared and the
 string variables \texttt{max} and \texttt{min} are set appropriately (if
-the primers are of the same length then which primer is set as \textt
-{max} and which is the \texttt{min} is irrelevant so the primer which is
-passed as an argument is set as \texttt{min} and the primer which the
-method was invoked on is set as \texttt{max}). Then, finding the number
-of matches is done in three separate while loops. The first while loop
-checks all possible alignments when the shorter primer overlaps the
-longer one at the start, for example:
+the primers are of the same length then which primer is set as
+\texttt{max} and which is the \texttt{min} is irrelevant so the primer
+which is passed as an argument is set as \texttt{min} and the primer
+which the method was invoked on is set as \texttt{max}). Then, finding
+the number of matches is done in three separate while loops. The first
+while loop checks all possible alignments when the shorter primer
+overlaps the longer one at the start, for example:
 \begin{verbatim}
        agtcatcg
     acatca
