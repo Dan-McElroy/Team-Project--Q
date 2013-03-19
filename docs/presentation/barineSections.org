@@ -1,0 +1,58 @@
+* Tools
+** trac
+*** initial project management tool
+*** difficult to reach from home or place other than lab: this was a problem since some members do not live near the university
+*** perceived lack of purpose
+*** lack of clear documentation
+** facebook
+*** communication tool
+*** all members had facebook and familiar with operation
+*** all members check at least once per day if not more often
+** git
+*** project management tool after trac
+*** integrated version control seen as benefit
+*** easy access no matter what platform used or physical location
+*** well documented
+** java
+*** quickly decided to use Java due to portability; meet requirement mentioned earlier
+** swing with netbeans
+*** NetBeans Vs Eclipse
+*** Swing Vs JavaFX
+*** NetBeans Design Interface
+*** Java 6 vs Java 7
+*** Well documented since old technologies
+*** retrospective
+
+* UI Implementation
+** comparison to design
+** consistency
+*** frame size
+*** next/back buttons in same place
+*** instructions pane in same place
+*** title in same place
+*** look and feel derived from user system
+** colour-coding
+** 
+
+* Questionnaire
+** questions
+*** Age
+*** Confidence with computers
+*** colour-blind
+*** understanding before
+*** understanding after
+*** would use again?
+*** enough information from application?
+*** technical difficulties
+*** further comments
+
+* Questionnaire Feedback
+** understanding before vs after
+** would use again
+** tech difficulties
+** further comments
+** shortfalls of questionnaire
+*** no colour-blind
+*** no significant age difference
+*** information from app poorly worded
+*** needed question(s) to verify requirement to teach NCBI website was met
