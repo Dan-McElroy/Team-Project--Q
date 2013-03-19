@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "Flash"
+Warning--to sort, need author or key in ncbi
+Warning--to sort, need author or key in javaProgramming2
+Warning--to sort, need author or key in aboutJava
+Warning--to sort, need author or key in swingAPI
+Warning--to sort, need author or key in javafxOverview
+Warning--to sort, need author or key in swingTutorial
+Warning--to sort, need author or key in netbeans
+Warning--to sort, need author or key in eclipse
+Warning--to sort, need author or key in vim
+Warning--to sort, need author or key in emacs
+Warning--to sort, need author or key in scientificLinux
+Warning--to sort, need author or key in Java7SwingAPI
+Warning--to sort, need author or key in surveyMonkey
+Warning--to sort, need author or key in freeOnlineSurveys
+Warning--to sort, need author or key in googleDocsForms
+Warning--can't use both author and editor fields in shortHistory
+You've used 23 entries,
+            2118 wiz_defined-function locations,
+            620 strings with 6744 characters,
+and the built_in function-call counts, 4782 in all, are:
+= -- 444
+> -- 140
+< -- 1
++ -- 65
+- -- 42
+* -- 236
+:= -- 673
+add.period$ -- 54
+call.type$ -- 23
+change.case$ -- 89
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 185
+empty$ -- 540
+format.name$ -- 42
+if$ -- 1095
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 7
+newline$ -- 103
+num.names$ -- 16
+pop$ -- 177
+preamble$ -- 1
+purify$ -- 67
+quote$ -- 0
+skip$ -- 175
+stack$ -- 0
+substring$ -- 178
+swap$ -- 25
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 88
+warning$ -- 16
+while$ -- 19
+width$ -- 25
+write$ -- 193
+(There were 17 warnings)
