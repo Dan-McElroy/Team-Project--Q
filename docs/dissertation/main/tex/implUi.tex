@@ -214,7 +214,7 @@ from the demonstration itself (discussed in section \ref{eval:demo}).
 \paragraph{Overview}
 
 Before the demonstration, the team were asked to include an
-``overview'' screen to tell the user what they can expect from the
+``overview'' panel to tell the user what they can expect from the
 application, as well as show the primer design rules to remind the
 user about them.
 This can be seen in figure \ref{fig:demoBuild:splash}.
@@ -258,7 +258,7 @@ for entering in the sequence, as this is the primary purpose of this
 panel.
 
 It was expected of the user to go to the National Center for
-Biotechnology Information (\cite{ncbi}) website and obtain a DNA sequence by
+Biotechnology Information \cite{ncbi} website and obtain a DNA sequence by
 copying it to their clipboard and then pasting this into the sequence
 entry panel and this was explained in the accompanying user guide (see
 documentation).
@@ -312,7 +312,7 @@ greatly increase the speed at which the user could design the reverse
 primer since this is based on the complementary strand.
 Without the complementary tab, not only would the user have to
 manually convert the primer to its complementary equivalent, but also
-reverse its order, which neither the team or the clients felt was a
+reverse its order, which neither the team nor the clients felt was a
 useful way for students to spend their time. 
 
 %---------------------------------------------------------------------
@@ -366,8 +366,6 @@ information to give an idea to our clients of what the feedback might
 look like in the future (see further discussion in section
 \ref{eval:demo}).
 
-%----ROSS T CAN YOU EXPLAIN DIRECTION OR REFERENCE TO WHEREEVER YOU DO
-%----EXPLAIN IT!------------------------------------------------------
 In order to design a reverse primer outwith the system, the
 complementary strand would have to be calculated (which would be in
 the 3'---5' direction) and reversed to be in the correct direction
@@ -441,7 +439,7 @@ the forward from the reverse primer.
 
 Unfortunately the animation was not available in time for the
 demonstration and although the button for it was included in this
-panel it was disabled.
+panel, it was disabled.
 
 %---------------------------------------------------------------------
 
@@ -459,7 +457,7 @@ Most changes stem from evolving requirements or from the
 demonstration feedback.
 
 \paragraph{Overview}
-The overview screen (seen in figure \ref{fig:demoBuild:splash})
+The overview panel (seen in figure \ref{fig:demoBuild:splash})
 changed only because of the addition of the menu bar, discussed
 below.
 It was felt that this needed very little change, if any, from the demo
@@ -499,7 +497,7 @@ For the demo build, the inclusion of a back button felt unnecessary as
 any information that users would require in order to use the 
 program is available throughout the application (for example, Primer Design 
 Rules is available on Primer Design panel, and the NCBI website \cite{ncbi}
-is given to user in the instructions at top of panel).
+is given to user in the instructions underneath the panel title).
 However, the clients felt the ``Back'' button was a necessary inclusion, and
 we were more than happy to defer to their insight.
 \end{itemize}
@@ -517,12 +515,12 @@ we were more than happy to defer to their insight.
 \end{figure}
 
 While the interface of the Target Selection panel may not have changed
-drastically from the demo build, the way a user selects their desired
-area of the sequence has changed to make the process much easier.
+drastically from the demo build, the way a user selects the target has
+changed to make the process much easier.
 
 Previously, as discussed in section \ref{fig:demoBuild:areaSelection},
-the user would have to find the indices of the start and end of the
-sequence they wanted to copy.
+the user would have to find the indices of the start and end bases of
+the target.
 Now, as can be seen in figure \ref{fig:currentBuild:areaSelection},
 the user simply has to highlight the desired sequence and the indices
 are calculated automatically.
@@ -550,16 +548,17 @@ Primer design received a lot of attention in that it received the
 majority of new features in the application since the demo build.
 
 Firstly, a feature referred to by the team as ``dynamic highlighting''
-which, when a user enters a sequence of characters primer text fields,
-highlights that area within the larger sequence. This can be
-seen in figure \ref{fig:currentBuild:forwardPrimerDesignRed}.
+which, when a user enters a sequence of characters in to the primer
+text fields, highlights that sequence within the larger sequence.
+This can be seen in figure
+\ref{fig:currentBuild:forwardPrimerDesignRed}.
 Initially, this highlighting was going to consist of a single colour, 
 simply to help the user see if the primer is unique to the sequence, 
 and so that they can visualise where the primer is within the sequence.
 The lack of visual aids in the demo build was something we strove to
 rectify especially after the feedback from the demonstration (section
 \ref{eval:demo}).
-To this end, we also made the highlighted area change colour depending 
+To this end, we also made the highlighted sequence change colour depending 
 on the correctness of the primer. How this is decided is discussed in 
 section \ref{impl:models:dynHigh}.
 This can be seen in figure \ref{fig:currentBuild:forwardPrimerDesignRed} 
@@ -671,7 +670,8 @@ since it served its purpose well.
 The only change was to the instructions text pane just under the title
 since the instructions were too minimal during the demo and a back
 button was added to ensure the user could traverse the program in its
-entirety and see the ``Further Reading'' text pane for useful links.
+entirety and see the ``Further Reading'' text pane for useful links at
+any point during the program.
 
 \paragraph{Target Selection}
 With the addition of the automatic index entry via text highlighting
@@ -682,9 +682,9 @@ wish to amplify by highlighting it in the text, rather than having to
 count the indices as they had to in the demo build which was a slow
 and tedious process.
 While teaching staff could produce an accompanying tutorial or
-assessment and specifying that the user must use a particular sequence
-with a target from base 50 to base 506 for example, allowing greater
-versatility in the manner in which the program is used.
+assessment specifying that the user must use a particular sequence
+with a specific, allowing greater versatility in the manner in which
+the program is used as this could be used as a lab exercise.
 
 \paragraph{Primer Design}
 Selecting a primer in the demo build was a guessing game in that the
@@ -694,15 +694,16 @@ Primer rules would be broken and the user would be told this but with
 only the rules, which at the time were only allowed to pass or fail,
 and no colour-coding, the design in general failed to stimulate and
 teach.
-Another issue was the ambiguity of whether the reverse primer has been
+Another issue was the ambiguity of whether the reverse primer had been
 reversed or not by the reverse button.
 
 With the primers now being highlighted within the sequence it is easy
 to tell if the primer is unique, the colour-coding allows the user to
 instantly see how their primer is evaluated against the primer design
-rules without the need to check it with the dialogue windows every
-time and the reverse button has been replaced to reduce ambiguity and
-emphasise the sequence direction, adding to users' understanding.
+rules without the need to check it using the primer check buttons
+every time and the reverse button has been replaced to reduce
+ambiguity and emphasise the sequence direction, adding to users'
+understanding. 
 
 Primers can also now be checked individually so that the user can
 check one primer as they enter it, rather than having to read the same

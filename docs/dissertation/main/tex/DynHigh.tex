@@ -71,12 +71,12 @@ was only being used to update the line numbers upon switching between
 single and double-stranded views.
 
 As well as switching the target of the listener upon switching tabs, a
-a call must be made to the search function related to the new tab
-since any user input into the corresponding TextField while the tab was
-not active will not yet be reflected in the display tab. This call is
-made using and \texttt{invokeLater()} call of the runnable search
-function as oppposed to a standard \texttt{invoke()} call to allow the
-system to continue listening for updates if a call to one of the search
+call must be made to the search function related to the new tab since
+any user input into the corresponding TextField while the tab was not
+active will not yet be reflected in the display tab. This call is made
+using the \texttt{invokeLater()} call of the runnable search function
+as oppposed to a standard \texttt{invoke()} call to allow the system
+to continue listening for updates if a call to one of the search
 functions takes a long time to process.
 
 Once we had worked out how we were going to switch the listener focus
@@ -97,9 +97,9 @@ To perform this task we created two similar methods: \texttt{searchO()}
 to search the parsed version of the strand entered by the user,
 \texttt{parsedO}, and update forward primer highlights and
 \texttt{searchC()} to search the parsed complementary strand,
-\texttt{parsedC}, and update reverse primer highlights.
+\texttt{parsedC}, and update reverse primer highlights. 
 
-The first task these functions perform is to remove all existing
+The first task these functions perform is removing all existing
 highlights from the display. The other option here was to keep a list of
 all highlights and their positions in the sequence then check each one
 individually to determine if they were still valid after the latest
@@ -116,10 +116,10 @@ used as part of the condition of the while loop which carries out most
 of the functionality in these methods. The while loop is executed while
 the result of the \texttt{indexOf()} call is not negative (i.e. the
 primer is found in the text being searched) and the user input has a
-length greater than 0 (i.e. The call to the function was not because the
+length greater than 0 (i.e. the call to the function was not because the
 user deleted everything in the text field).
 
-Inside the while loop the colour ofthe current instance's highlight is
+Inside the while loop the colour of the current instance's highlight is
 determined by the following if statement from \texttt{searchC}:
 
 \begin{verbatim}
@@ -153,7 +153,7 @@ substituted for cyan due to concerns about colour-blind users.
 
 The late stage at which this feature was implemented meant that the
 process of evaluating the user's primer was a trivial task as all the
-methods check the primer were already written, as were the methods to
+methods which check the primer were already written, as were the methods to
 evaluate the success of the primer overall. So the method simply has to
 create a new \texttt{Primer} instance with the user's input and create
 an instance of \texttt{TestResult} to store the results of the primer

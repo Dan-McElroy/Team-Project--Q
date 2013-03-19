@@ -4,7 +4,7 @@ Section \ref{intro:prelims}) to evaluate the effectiveness of a given
 Primer when used in the PCR process.
 
 As with many other aspects of the project, the primer checks were split
-between the two members of the 'back-end' sub-team. As well as making
+between the two members of the `back-end' sub-team. As well as making
 this task more manageable, this approach offered the added benefit of
 limiting the researching of primer design rules to two members, who each
 only had to learn how to apply the rules assigned to them.
@@ -24,9 +24,10 @@ proved problematic.
 \subsubsection{Melting Temperature}
 The melting temperature check was among the easiest to implement, as we
 were given a standard formula for calculating the temperature at which a 
-primer would melt (\texttt{2*sum(a, t) + 4*sum(a, t)}) and the desired 
-range in which a primer should rest (between roughly 50\degree C and 
-60\degree C).
+primer would melt (\texttt{2(A + T) + 4(G + C)}, where each letter
+represents the number of times their lower-case equivalents appear in
+the primer) and the desired range in which a primer should rest
+(between roughly 50\degree C and 60\degree C).
 
 \subsubsection{Uniqueness}
 To check that the primer is correctly placed in the system, it is first checked
@@ -55,26 +56,27 @@ check a function called \texttt{checkMatches()} was created. This function
 takes in two primer subsequences (as strings) and returns the highest 
 number of consecutive complementary bases in the two sequences.
 
-\subsubsection{Self Annealing}
+\paragraph{Self Annealing}
 
 As described above, our \texttt{checkMatches} function compares
 complementary bases between two strings. Therefore, to use this function
 to check for annealing between two ends of a single primer the primer
-has to be split into two strings the second of which must be reversed
+has to be split into two strings, the second of which must be reversed
 before being sent to \texttt{checkMatches()} since during self annealing
-the primer folds over as shown in section B of Figure 
+the primer folds over, as shown in section B of Figure 
 \ref{fig:other:anneal}. To keep track of the index where the primer has
 been split there is a variable, \texttt{split}.
 
 The main body of the function is a while loop which calls
 \texttt{checkMatches()} on the two sections of the primer which are
-separated by \texttt{split} then increments \texttt{split} and if loops
-again if \texttt{split} is at least 4 positions away from the end of the
-primer. During this process the highest result from the
-\texttt{checkMatches()} calls is recorded and this is used to determine
-whether or not the primer is likely to self-anneal.
+separated by \texttt{split}. 
+It then increments \texttt{split} and loops again if \texttt{split} is
+at least 4 positions away from the end of the primer.
+During this process the highest result from the
+\texttt{checkMatches()} calls is recorded and this is used to
+determine whether or not the primer is likely to self-anneal.
 
-\subsubsection{Pair Annealing}
+\paragraph{Pair Annealing}
 
 This function works in a similar fashion to the Self Anneal checking
 method in that it compares the two primers (as opposed to two sections
@@ -111,7 +113,7 @@ overlaps the longer primer at the end:
             tccagtac
 \end{verbatim}
 Once every possible alignment has been checked, the function uses the
-highest number of matches to evaluate the likelyhood of the primers
+highest number of matches to evaluate the likelihood of the primers
 annealing to each other.
 
 
