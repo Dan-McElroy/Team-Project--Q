@@ -1,0 +1,94 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Preliminaries}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Aims}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}Background}{8}{section.1.3}
+\contentsline {section}{\numberline {1.4}Motivation}{9}{section.1.4}
+\contentsline {subsubsection}{Current Systems}{9}{section*.3}
+\contentsline {chapter}{\numberline {2}Design}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Requirements}{11}{section.2.1}
+\contentsline {subsubsection}{Inital Requirements Gathering}{11}{section*.4}
+\contentsline {paragraph}{System Scope}{12}{section*.5}
+\contentsline {paragraph}{Non-Functional Requirements}{12}{section*.6}
+\contentsline {subsubsection}{Design Feedback}{12}{section*.7}
+\contentsline {subsubsection}{Implementation Feedback}{13}{section*.8}
+\contentsline {section}{\numberline {2.2}UI}{13}{section.2.2}
+\contentsline {subsubsection}{Sequence entry (figure \ref {fig:UiDes:slide1})}{13}{section*.9}
+\contentsline {subsubsection}{Specification of target area (figure \ref {fig:UiDes:slide2})}{14}{section*.10}
+\contentsline {subsubsection}{Primer selection (figure \ref {fig:UiDes:slide3})}{14}{section*.11}
+\contentsline {subsubsection}{Melting temperature check (figure \ref {fig:UiDes:slide6})}{15}{section*.12}
+\contentsline {chapter}{\numberline {3}Implementation}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Team Distribution}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Programming Language}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}User Interface}{19}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}GUI Framework}{19}{subsection.3.3.1}
+\contentsline {paragraph}{Swing}{19}{section*.13}
+\contentsline {paragraph}{JavaFX}{19}{section*.14}
+\contentsline {subsubsection}{Decision}{20}{section*.15}
+\contentsline {subsection}{\numberline {3.3.2}Integrated Development Environment (IDE)}{20}{subsection.3.3.2}
+\contentsline {paragraph}{NetBeans \cite {netbeans}}{20}{section*.16}
+\contentsline {subsubsection}{Eclipse \cite {eclipse}}{20}{section*.17}
+\contentsline {subsubsection}{No IDE}{21}{section*.18}
+\contentsline {subsubsection}{Decision}{21}{section*.19}
+\contentsline {subsection}{\numberline {3.3.3}Builds}{21}{subsection.3.3.3}
+\contentsline {subsubsection}{Demo Build}{22}{section*.20}
+\contentsline {paragraph}{Overview}{22}{section*.21}
+\contentsline {paragraph}{Sequence Entry}{22}{figure.3.2}
+\contentsline {paragraph}{Target Selection}{23}{figure.3.3}
+\contentsline {paragraph}{Primer Design}{24}{section*.24}
+\contentsline {paragraph}{Melting Temperature}{26}{section*.25}
+\contentsline {subsubsection}{Current Build}{26}{section*.26}
+\contentsline {paragraph}{Overview}{27}{section*.27}
+\contentsline {paragraph}{Sequence Entry}{27}{figure.3.8}
+\contentsline {paragraph}{Target Selection}{27}{figure.3.9}
+\contentsline {paragraph}{Primer Design}{29}{figure.3.10}
+\contentsline {section}{\numberline {3.4}Models \& Custom Methods}{31}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Models}{31}{subsection.3.4.1}
+\contentsline {paragraph}{Primer}{31}{section*.31}
+\contentsline {paragraph}{TestResult}{32}{section*.32}
+\contentsline {paragraph}{Sequence}{32}{section*.33}
+\contentsline {subsection}{\numberline {3.4.2}Primer Checking}{32}{subsection.3.4.2}
+\contentsline {subsubsection}{Melting Temperature}{33}{section*.34}
+\contentsline {subsubsection}{Uniqueness}{33}{section*.35}
+\contentsline {subsubsection}{Primer Content}{33}{section*.36}
+\contentsline {subsubsection}{Annealing}{33}{section*.37}
+\contentsline {subsubsection}{Self Annealing}{33}{section*.38}
+\contentsline {subsubsection}{Pair Annealing}{34}{section*.39}
+\contentsline {subsection}{\numberline {3.4.3}Dynamic Primer Highlighting}{34}{subsection.3.4.3}
+\contentsline {subsubsection}{Implementation}{35}{section*.40}
+\contentsline {subsubsection}{Listening for Input}{35}{section*.41}
+\contentsline {subsubsection}{Runnable Search Functions}{36}{section*.42}
+\contentsline {section}{\numberline {3.5}Animation}{38}{section.3.5}
+\contentsline {paragraph}{Required Functionality}{38}{section*.43}
+\contentsline {paragraph}{Implementation}{38}{section*.44}
+\contentsline {paragraph}{Functionality Explained}{38}{section*.45}
+\contentsline {paragraph}{Animation Screens}{38}{section*.46}
+\contentsline {chapter}{\numberline {4}Evaluation}{42}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testing}{42}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Methods Of Testing}{42}{subsection.4.1.1}
+\contentsline {subsubsection}{White Box Testing}{42}{section*.47}
+\contentsline {subsubsection}{Black Box Testing}{43}{section*.48}
+\contentsline {section}{\numberline {4.2}Demonstration}{44}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Running the demonstration}{44}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Feedback from demonstration}{44}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Changes proposed after feedback from demonstration}{46}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Questionnaire}{46}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Questionnaire System}{47}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Questions}{47}{subsection.4.3.2}
+\contentsline {subsubsection}{Skill Level}{47}{section*.49}
+\contentsline {subsubsection}{User's Experience with the System}{47}{section*.50}
+\contentsline {subsection}{\numberline {4.3.3}Feedback Analysis}{48}{subsection.4.3.3}
+\contentsline {subsubsection}{Learning}{48}{section*.51}
+\contentsline {subsubsection}{Information From Application}{50}{section*.52}
+\contentsline {subsubsection}{Technical Difficulties Encountered}{50}{section*.53}
+\contentsline {subsubsection}{Shortfalls of the Questionnaire}{50}{section*.54}
+\contentsline {subsubsection}{Further Comments}{51}{section*.55}
+\contentsline {section}{\numberline {4.4}Future Work}{51}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Future Improvements}{51}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Conclusion}{53}{chapter.5}
+\contentsline {section}{\numberline {5.1}Project Successes}{53}{section.5.1}
+\contentsline {section}{\numberline {5.2}Project Failures}{53}{section.5.2}
+\contentsline {section}{\numberline {5.3}Lessons Learned}{53}{section.5.3}
+\contentsline {chapter}{\numberline {A}Glossary}{54}{appendix.A}
+\contentsline {chapter}{\numberline {B}Questionnaire Responses}{56}{appendix.B}
+\contentsline {chapter}{\numberline {C}Roundtable Feedback}{60}{appendix.C}
+\contentsline {chapter}{\numberline {D}Demonstration Feedback}{63}{appendix.D}

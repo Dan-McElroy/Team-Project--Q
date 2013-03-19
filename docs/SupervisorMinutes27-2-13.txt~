@@ -1,0 +1,25 @@
+Minutes from 27/2/2013
+
+Present Team Members- Ross Taylor, Ross Barnie, Daniel McElroy
+Present Staff- Nicola Veitch, Gethin Norman
+
+-Should have a button/working hyperlink on first page (Ross Barnie later pointed out that this has been tried multiple times and may not be possible.)
+-Change "Further Reading" to "Resources" on first page.
+-Nicola pointed out that the colours we used for the primer evaluation screen are not colour-blind friendly, decide the best thing to do is to add the PASS/FAIL/BORDERLINE tags back into the strings to display.
+-Nicola also pointed out a bug in the colour coded evaluation pages and said she would email us if she could recreate it.
+-Timing on the animation is too fast -> should be changed to purely button clicks.
+-Also, animation: would be nice to have the actual temperature next to the thermometer.
+-Also, remove black box from animation
+-Should have a link on second page to NCBI as that is the page it is used on.
+-Change reverse primer highlighting to green
+-SUPER AMBITIOUS: Highlight primers on double stranded view. (not going to happen, probably).
+-missing space on pairanneal check.
+-Need a tooltip for reverse button.
+-First line on temp panel not correct if user has chosen "Accept + Continue"
+-Need to implement some alternative to Ctrl-C, Ctrl-V for copying primers. ********************* Needed before given to students.
+-Unicode characters from evaluation dialogue not displaying properly.
+-In animation: the GCAT key is next to thermometer no longer needed since bases dont actually match anyway.
+-"It would be nice" to have some indication at the top of the screen during the animation of what stage/phase the process is at.
+-It was decided that Monday 4th March will be our cut-off date for making changes to the project before it is given to students for feedback. This means that we need to finalise the feedback questionnaire for Friday 1st March.
+-It was suggested that we come up with a list of essential tasks which need to be completed for Monday.
+-It was also suggested that we make sure the questionnaire is not too long.

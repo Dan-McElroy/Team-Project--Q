@@ -1,0 +1,14 @@
+% Use this file to add package imports, keeps main document clean
+
+\ProvidesPackage{mystyle}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{gensymb}
+%\usepackage{hyperref}
+
+\graphicspath{ 
+  {./images/}
+  {./images/demoBuild/}
+  {./images/currentBuild/}
+}
