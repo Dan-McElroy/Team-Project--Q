@@ -399,7 +399,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
-        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the target. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.  The grey box next to where you enter the reverse primer will show the reverse primer in the opposite direction, so enter the reverse primer in 3'-5' direction.");
+        instructionTextPane.setText("You now have to choose the forward and reverse primers to amplify the target. Manually type or copy and paste the desired primer sequence into the boxes below. Click the \"Show Primer Design Rules\" button below to see general primer design rules.  The text box next to where you enter the reverse primer will show the reverse primer in the 5'-3' direction, so enter the reverse primer in 3'-5' direction.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         forwardPrimerTextField.setMinimumSize(new java.awt.Dimension(8, 25));
@@ -494,7 +494,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         .addComponent(fPrimerCheckButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rPrimerCheckButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(showRulesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -529,10 +529,11 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reversePrimerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reversePrimerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(forwardPrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(reversePrimerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(forwardPrimerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -540,7 +541,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                     .addComponent(displayTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                        .addComponent(lineAreaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                         .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -72,7 +72,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="bottomLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="80" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="82" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="startButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -126,7 +126,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="NCBI Website: &#x9;&#x9;&#x9;http://www.ncbi.nlm.nih.gov/&#xa;Molecular Methods Moodle Site:&#x9;&#x9;http://ibls.moodle.gla.ac.uk/course/view.php?id=104"/>
+            <Property name="text" type="java.lang.String" value="NCBI Website: &#x9;&#x9;&#x9;http://www.ncbi.nlm.nih.gov/"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -144,7 +144,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;To copy and paste any text in the system, highlight it and either use the common Ctrl+C/V shortcuts  or use the &quot;Edit&quot; bar above."/>
+            <Property name="text" type="java.lang.String" value="Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.&#xa;&#xa;This application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.&#xa;&#xa;If this application crashes, or does something you don&apos;t expect, please e-mail Nicola.Veitch@glasgow.ac.uk with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.&#xa;&#xa;To copy and paste any text in the system, highlight it and either use the common Ctrl+C/V shortcuts  or use the &quot;Edit&quot; bar above."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
           <AuxValues>

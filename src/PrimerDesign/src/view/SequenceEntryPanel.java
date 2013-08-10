@@ -68,7 +68,7 @@ public class SequenceEntryPanel extends javax.swing.JPanel {
 
         instructionTextPane.setEditable(false);
         instructionTextPane.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        instructionTextPane.setText("Copy the DNA sequence on which you wish to perform PCR into the box below, then click next. Note: Every a, t, c and g character will be counted as part of the sequence. \nSearch for this sequence at http://www.ncbi.nlm.nih.gov/");
+        instructionTextPane.setText("Copy the DNA sequence on which you wish to perform PCR into the box below, then click next. Note: Every a, t, c and g character will be counted as part of the sequence.");
         jScrollPane2.setViewportView(instructionTextPane);
 
         sequenceTextArea.setColumns(20);
@@ -110,7 +110,7 @@ public class SequenceEntryPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)

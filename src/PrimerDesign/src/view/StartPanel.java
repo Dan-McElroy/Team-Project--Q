@@ -58,14 +58,14 @@ public class StartPanel extends javax.swing.JPanel {
         bottomTextArea.setEditable(false);
         bottomTextArea.setColumns(20);
         bottomTextArea.setRows(5);
-        bottomTextArea.setText("NCBI Website: \t\t\thttp://www.ncbi.nlm.nih.gov/\nMolecular Methods Moodle Site:\t\thttp://ibls.moodle.gla.ac.uk/course/view.php?id=104");
+        bottomTextArea.setText("NCBI Website: \t\t\thttp://www.ncbi.nlm.nih.gov/");
         jScrollPane1.setViewportView(bottomTextArea);
 
         leftTextArea.setEditable(false);
         leftTextArea.setColumns(20);
         leftTextArea.setLineWrap(true);
         leftTextArea.setRows(5);
-        leftTextArea.setText("Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail teamprojectq@gmail.com with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\nTo copy and paste any text in the system, highlight it and either use the common Ctrl+C/V shortcuts  or use the \"Edit\" bar above.");
+        leftTextArea.setText("Hello, and welcome to the Polymerase Chain Reaction (PCR) Tutorial.\n\nThis application will guide you through the process of PCR, particularly helping with primer design. You can use any sequence and you will have to design the primers for the process, we will make sure they are correct.\n\nIf this application crashes, or does something you don't expect, please e-mail Nicola.Veitch@glasgow.ac.uk with details of what you were doing immediately before the incident and details of the incident itself. This will hopefully allow us to fix the problem.\n\nTo copy and paste any text in the system, highlight it and either use the common Ctrl+C/V shortcuts  or use the \"Edit\" bar above.");
         leftTextArea.setWrapStyleWord(true);
         jScrollPane2.setViewportView(leftTextArea);
         leftTextArea.setCaretPosition(0);
@@ -130,7 +130,7 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(bottomLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startButton)
                 .addContainerGap())
