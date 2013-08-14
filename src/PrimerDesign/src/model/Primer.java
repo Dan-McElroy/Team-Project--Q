@@ -30,10 +30,10 @@ public class Primer {
     	/*
     	 * True if the primer is of an appropriate length, btwn 20 and 30 bases.
     	 */
-        if (code.length() >= 20 && code.length() <= 30)
+        if (code.length() >= 18 && code.length() <= 30)
             return new TestResult(PassState.PASS, "The primer has a length of " + 
                     code.length() + " bases, which is within the optimal range "
-                    + "of 20 to 30 bases.");
+                    + "of 18 to 30 bases.");
         else if (code.length() >= 17 && code.length() <= 33) 
             return new TestResult(PassState.CLOSEFAIL, "The primer has a length"
                     + " of " + code.length() + " bases, which is just outside the"

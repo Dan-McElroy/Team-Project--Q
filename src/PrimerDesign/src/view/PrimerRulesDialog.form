@@ -7,6 +7,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -56,7 +57,7 @@
         <Component class="javax.swing.JTextPane" name="rulesTextPane">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Generally, primers should be 20 to 30 bases in length.&#xa;&#xa;The sequence you use should avoid long repetitions of a single base.&#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.&#xa;&#xa;You should avoid sequences which could self-anneal.&#xa;&#xa;The primers you choose should be unique to the sequence.&#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.&#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
+            <Property name="text" type="java.lang.String" value="Generally, primers should be 18 to 30 bases in length.&#xa;&#xa;The sequence you use should avoid long repetitions of a single base.&#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.&#xa;&#xa;You should avoid sequences which could self-anneal.&#xa;&#xa;The primers you choose should be unique to the sequence.&#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.&#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
