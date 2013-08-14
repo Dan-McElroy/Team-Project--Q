@@ -144,13 +144,13 @@ public class Sequence {
         int instances = 0;
         ArrayList<Integer> startPoints = new ArrayList<Integer>();        
         char cStart = p.getCode().charAt(0);
-        //System.out.println(p.getCode());
-        if (s == 'o' && cStrand.contains(p.getCode()))
-            return new TestResult(PassState.FAIL, "Primer appears on"
-                    + " the wrong strand.");
-        if (s == 'c' && oStrand.contains(Primer.reverse(p.getCode())))
-            return new TestResult(PassState.FAIL, "Primer appears on"
-                    + " the wrong strand.");
+        System.out.println(p.getCode());
+//        if (s == 'o' && cStrand.contains(p.getCode()))
+//            return new TestResult(PassState.FAIL, "Primer appears on"
+//                    + " the wrong strand.");
+//        if (s == 'c' && oStrand.contains(Primer.reverse(p.getCode())))
+//            return new TestResult(PassState.FAIL, "Primer appears on"
+//                    + " the wrong strand.");
         //Original strand search
         if (s == 'o') strand = oStrand;
         else {
@@ -184,12 +184,10 @@ public class Sequence {
                         + "unique to the sequence, and is situated "
                         + "correctly.");
             else return new TestResult(PassState.FAIL, "Primer is "
-                    + "unique to the sequence, and is located in the right "
-                    + "strand, but is located in the wrong part of the sequence.");
+                    + "unique to the sequence but is located in the wrong part of the sequence.");
         }
         else if (instances == 0) {
-            return new TestResult(PassState.FAIL, "Primer does not appear in the "
-                    + "correct strand.");
+            return new TestResult(PassState.FAIL, "Primer does not appear in the strand.");
         }
         return new TestResult(PassState.FAIL, "Primer is not unique"
                 + " to the sequence.");

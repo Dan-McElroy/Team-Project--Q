@@ -27,13 +27,13 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="leftLabel" max="32767" attributes="0"/>
-                          <Component id="jScrollPane2" pref="375" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="378" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="rightLabel" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPane3" pref="375" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="378" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -72,7 +72,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="bottomLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="82" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="91" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="startButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -166,9 +166,8 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Generally, primers should be 20 to 30 bases in length. &#xa;&#xa;The sequence you use should avoid long repetitions of a single base.  &#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.  You should avoid sequences which could self-anneal.  &#xa;&#xa;The primers you choose should be unique to the sequence. &#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.  &#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
+            <Property name="text" type="java.lang.String" value="Generally, primers should be 18 to 30 bases in length. &#xa;&#xa;The sequence you use should avoid long repetitions of a single base.  &#xa;&#xa;The last base of the primer should be a &apos;c&apos; or a &apos;g&apos;.  You should avoid sequences which could self-anneal.  &#xa;&#xa;The primers you choose should be unique to the sequence. &#xa;&#xa;Between 40% and 60% of each primer sequence should consist of &apos;g&apos; or &apos;c&apos; bases.  &#xa;&#xa;Also keep in mind that the melting temperature should be between 50 and 60&#xb0;C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer)."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
-            <Property name="caretPosition" type="int" value="0"/>
           </Properties>
         </Component>
       </SubComponents>

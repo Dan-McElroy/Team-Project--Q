@@ -74,9 +74,8 @@ public class StartPanel extends javax.swing.JPanel {
         rightTextArea.setColumns(20);
         rightTextArea.setLineWrap(true);
         rightTextArea.setRows(5);
-        rightTextArea.setText("Generally, primers should be 20 to 30 bases in length. \n\nThe sequence you use should avoid long repetitions of a single base.  \n\nThe last base of the primer should be a 'c' or a 'g'.  You should avoid sequences which could self-anneal.  \n\nThe primers you choose should be unique to the sequence. \n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.  \n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
+        rightTextArea.setText("Generally, primers should be 18 to 30 bases in length. \n\nThe sequence you use should avoid long repetitions of a single base.  \n\nThe last base of the primer should be a 'c' or a 'g'.  You should avoid sequences which could self-anneal.  \n\nThe primers you choose should be unique to the sequence. \n\nBetween 40% and 60% of each primer sequence should consist of 'g' or 'c' bases.  \n\nAlso keep in mind that the melting temperature should be between 50 and 60°C (Tm = 2(A + T) + 4(C + G), where A, T, C and G are the number of times each of those bases appear in a primer).");
         rightTextArea.setWrapStyleWord(true);
-        rightTextArea.setCaretPosition(0);
         jScrollPane3.setViewportView(rightTextArea);
 
         startButton.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
@@ -97,12 +96,12 @@ public class StartPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(leftLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                                 .addGap(12, 12, 12))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +129,7 @@ public class StartPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(bottomLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startButton)
                 .addContainerGap())
