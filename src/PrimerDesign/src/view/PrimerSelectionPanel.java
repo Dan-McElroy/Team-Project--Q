@@ -22,6 +22,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 import model.Primer;
 import model.Sequence;
+import javax.swing.text.Highlighter.Highlight;
 /**
  *
  * @author ross
@@ -39,12 +40,13 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
     private static boolean pass;
     final Highlighter highO, highC;
     final Highlighter.HighlightPainter painterO, painterC;
-    private Highlighter.HighlightPainter failPaint, acceptPaint, perfectPaint, activePaint;
+    private Highlighter.HighlightPainter failPaint, acceptPaint, perfectPaint, activeFPaint, activeRPaint;
     private String parsedO, parsedC;
     public static model.TestResult test;
     public static model.TestResult fTest;
     public static model.TestResult rTest;
     public static boolean useF;
+    public Highlight[] fHighlights, rHighlights;
         
     
     public static int realIndex(int x, int block) {
@@ -102,6 +104,9 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
         validChars.add(' ');
         validChars.add('\t');
         validChars.add('\n');
+        
+        fHighlights = new Highlight[0];
+        rHighlights = new Highlight[0];
 
         StyleContext sc = new StyleContext();
         final DefaultStyledDocument oDoc = new DefaultStyledDocument(sc);
@@ -276,6 +281,7 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
             String sO = forwardPrimerTextField.getText().replaceAll("\\s", "");
             //forwardPrimerTextField.setText(forwardPrimerTextField.getText().replaceAll("\\s",""));
             highO.removeAllHighlights();
+            
             int indexO = parsedO.indexOf(sO, 0);
             int endO = 0;
             int checked = 0;
@@ -288,17 +294,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         fTest.addFull(fPrimer.test());
                         fTest.add(fPrimer.isUnique(PrimerDesign.start.getInSequence(), 'o'));
                         if (fTest.perfect()){
-                            activePaint = perfectPaint;
+                            activeFPaint = perfectPaint;
                         } else if (fTest.acceptable()){
-                            activePaint = acceptPaint;
+                            activeFPaint = acceptPaint;
                         } else {
-                            activePaint = failPaint;
+                            activeFPaint = failPaint;
                         }
                     } else {
-                        activePaint = failPaint;
+                        activeFPaint = failPaint;
                     } 
                     endO = indexO + sO.length();
-                    highO.addHighlight(realIndex(indexO + checked, 10), realIndex(endO + checked, 10), activePaint);
+                    highO.addHighlight(realIndex(indexO + checked, 10), realIndex(endO + checked, 10), activeFPaint);
                     oStrandTextPane.setCaretPosition(realIndex(endO, 10));
                 } catch (BadLocationException e) {
                     e.printStackTrace();    // PROPER HANDLING NEEDED
@@ -306,7 +312,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 parsedO = parsedO.substring(endO);
                 checked += endO;
                 indexO = parsedO.indexOf(sO, 0);
-                
+            }
+            fHighlights = highO.getHighlights();
+            try {
+                for (Highlight h :rHighlights){
+                    highO.addHighlight(h.getStartOffset(), h.getEndOffset(), h.getPainter());
+                }
+            } catch (BadLocationException e) {
+                e.printStackTrace();    // PROPER HANDLING NEEDED
             }
             parsedO = Sequence.parser(new Scanner(oStrandTextPane.getText()));
         }
@@ -332,17 +345,17 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                         rTest.addFull(rPrimer.test());
                         rTest.add(rPrimer.isUnique(PrimerDesign.start.getInSequence(), 'c'));
                         if (rTest.perfect()){
-                            activePaint = perfectPaint;
+                            activeRPaint = perfectPaint;
                         } else if (rTest.acceptable()){
-                            activePaint = acceptPaint;
+                            activeRPaint = acceptPaint;
                         } else {
-                            activePaint = failPaint;
+                            activeRPaint = failPaint;
                         }
                     } else {
-                        activePaint = failPaint;
+                        activeRPaint = failPaint;
                     } 
                     endC = indexC + sC.length();
-                    highC.addHighlight(realIndex(indexC + checked, 10), realIndex(endC + checked, 10), activePaint);
+                    highC.addHighlight(realIndex(indexC + checked, 10), realIndex(endC + checked, 10), activeRPaint);
                     cStrandTextPane.setCaretPosition(realIndex(endC, 10));
                 } catch (BadLocationException e) {
                     e.printStackTrace();    // PROPER HANDLING NEEDED
@@ -350,6 +363,14 @@ public class PrimerSelectionPanel extends javax.swing.JPanel implements Document
                 parsedC = parsedC.substring(endC);
                 checked += endC;
                 indexC = parsedC.indexOf(sC, 0);
+            }
+            rHighlights = highC.getHighlights();
+            try {
+                for (Highlight h :fHighlights){
+                    highC.addHighlight(h.getStartOffset(), h.getEndOffset(), h.getPainter());
+                }
+            } catch (BadLocationException e) {
+                e.printStackTrace();    // PROPER HANDLING NEEDED
             }
             parsedC = Sequence.parser(new Scanner(cStrandTextPane.getText()));
         }

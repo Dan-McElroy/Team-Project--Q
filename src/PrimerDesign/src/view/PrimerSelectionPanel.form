@@ -32,7 +32,7 @@
                       <Component id="fPrimerCheckButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="rPrimerCheckButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                       <Component id="showRulesButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="nextButton" min="-2" pref="83" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                   <Component id="displayTabbedPane" pref="389" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="lineAreaScroll" pref="350" max="32767" attributes="0"/>
+                      <Component id="lineAreaScroll" pref="345" max="32767" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
